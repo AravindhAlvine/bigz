@@ -1,0 +1,76 @@
+// .custom_category_table {
+//     tbody {
+//         tr {
+//             height: 72px;
+//             display: flex;
+//             align-items: center;
+//         }
+//     }
+//     tr {
+//         th,
+//         td {
+//             display: inline-block;
+//         }
+//         th.custom_name_column,
+//         td.custom_name_column {
+//             min-width: 140px;
+//             max-width: 140px;
+//             width: 140px;
+//         }
+//         th.custom_slug_column,
+//         td.custom_slug_column {
+//             min-width: 160px;
+//             max-width: 160px;
+//             width: 160px;
+//         }
+//         th.custom_meta_column,
+//         td.custom_meta_column {
+//             min-width: 200px;
+//             max-width: 200px;
+//             word-break: break-all;
+//             width: 200px;
+//         }
+//         th.custom_useofvendor_column,
+//         td.custom_useofvendor_column {
+//             min-width: 200px;
+//             max-width: 200px;
+//             width: 200px;
+//         }
+//         th.custom_status_column,
+//         td.custom_status_column {
+//             min-width: 130px;
+//             max-width: 130px;
+//             width: 130px;
+//         }
+//         th.custom_action_column,
+//         td.custom_action_column {
+//             min-width: 160px;
+//             max-width: 160px;
+//             width: 160px;
+//         }
+//         td {
+//             img {
+//                 width: 60px;
+//                 height: 60px;
+//                 object-fit: cover;
+//                 object-position: center;
+//                 border-radius: 8px;
+//             }
+//             ul {
+//                 margin: 0;
+//                 padding: 0;
+//                 list-style-type: none;
+//                 display: -webkit-box;
+//                 -webkit-box-orient: vertical;
+//                 -webkit-line-clamp: 1;
+//                 overflow: hidden;
+//             }
+//             span {
+//                 display: -webkit-box;
+//                 -webkit-box-orient: vertical;
+//                 -webkit-line-clamp: 1;
+//                 overflow: hidden;
+//             }
+//         }
+//     }
+// }

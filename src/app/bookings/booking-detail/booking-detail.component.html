@@ -1,0 +1,248 @@
+<div class="custom_page_header">
+    <h3>Order ID : O1608711781</h3>
+</div>
+<div class="container-fluid">
+
+    <div class="booking_detail_bottom">
+        <div class="booking_detail_bottom_left">
+            <a href=""></a>
+        </div>
+        <div class="booking_detail_bottom_right">
+            <a href=""><img [src]="iconImage1" alt=""></a>
+            <a href=""><img [src]="iconImage2" alt=""></a>
+            <a href=""><img [src]="iconImage3" alt=""></a>
+            <a href=""><img [src]="iconImage4" alt=""></a>
+        </div>
+    </div>
+
+    <div class="booking_detail_top">
+        <div class="booking_detail_top_header">
+            <h3 class="booking_detail_top_title">Customer Details</h3>
+            <span class="booking_detail_top_status">Processing</span>
+        </div>
+        <div class="booking_detail_top_mc">
+            <div class="booking_detail_top_sc">
+                <div class="booking_detail_top_content">
+                    <span>Customer Name : </span>
+                    <span>Tom Hanks</span>
+                </div>
+            </div>
+            <div class="booking_detail_top_sc">
+                <div class="booking_detail_top_content">
+                    <span>Booking ID : </span>
+                    <span>O1608711781</span>
+                </div>
+            </div>
+            <div class="booking_detail_top_sc">
+                <div class="booking_detail_top_content">
+                    <span>Booking Date : </span>
+                    <span>23/12/2020 13:53</span>
+                </div>
+            </div>
+            <div class="booking_detail_top_sc">
+                <div class="booking_detail_top_content">
+                    <span>Payment Method : </span>
+                    <span>Credit Card</span>
+                </div>
+            </div>
+            <div class="booking_detail_top_sc">
+                <div class="booking_detail_top_content">
+                    <span>Appointment Date : </span>
+                    <span>23/12/2020 13:53</span>
+                </div>
+            </div>
+            <div class="booking_detail_top_sc">
+                <div class="booking_detail_top_content">
+                    <span>Invoice Date : </span>
+                    <span>23/12/2020 13:53</span>
+                </div>
+            </div>
+            <div class="booking_detail_top_sc">
+                <div class="booking_detail_top_content">
+                    <span>Booking Amount: </span>
+                    <span>$117.00</span>
+                </div>
+            </div>
+            <div class="booking_detail_top_sc">
+                <div class="booking_detail_top_content">
+                    <span>Site Commission: </span>
+                    <span>$3.48</span>
+                </div>
+            </div>
+            <div class="booking_detail_top_sc">
+                <div class="booking_detail_top_content">
+                    <span>Email Address: </span>
+                    <span>tomhanks@gmail.com</span>
+                </div>
+            </div>
+        </div>
+        <div class="booking_shipping_detail">
+            <div class="booking_shipping_detail_sc">
+                <div class="booking_shipping_detail_header">
+                    <h3 class="booking_shipping_detail_title">Default Address</h3>
+                </div>
+                <div class="booking_shipping_detail_desc">
+                    <h4 class="booking_shipping_detail_name">Tom Hanks</h4>
+                    <div class="booking_shipping_detail_addr">9205 Whitemarsh Street New York, United States. NY 10002</div>
+                    <span class="booking_shipping_detail_phone">(+1) 601-678-5689</span>
+                </div>
+            </div>
+            <div class="booking_shipping_detail_sc">
+                <div class="booking_shipping_detail_header">
+                    <h3 class="booking_shipping_detail_title">Billing Address</h3>
+                </div>
+                <div class="booking_shipping_detail_desc">
+                    <h4 class="booking_shipping_detail_name">Tom Hanks</h4>
+                    <div class="booking_shipping_detail_addr">9205 Whitemarsh Street New York, United States. NY 10002</div>
+                    <span class="booking_shipping_detail_phone">(+1) 601-678-5689</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="booking_detail_middle">
+        <div class="booking_detail_middle_header">
+            <h3 class="booking_detail_middle_title">Booking Details</h3>
+        </div>
+        <div class="custom_table custom_bookingdetail_table">
+            <p-table #dt1 [value]="bookings" [scrollable]="true" scrollHeight="flex" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries " [responsive]="true">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th class="custom_product_detail_column">Service Details</th>
+                        <th class="custom_vendorname_column">Vendor Name</th>
+                        <th class="custom_unitprice_column">Price</th>
+                        <th class="custom_qty_column">QTY</th>
+                        <th class="custom_discount_column">Discount</th>
+                        <th class="custom_grandtotal_column">Grand Total</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-bookings let-i="rowIndex">
+                    <tr>
+                        <td class="custom_product_detail_column">
+                            <span>{{bookings.productdetail}}</span>
+                        </td>
+                        <td class="custom_vendorname_column">
+                            <span>{{bookings.vendorname}}</span>
+                        </td>
+                        <td class="custom_unitprice_column">
+                            <span>{{bookings.unitprice}}</span>
+                        </td>
+                        <td class="custom_qty_column">
+                            <span>{{bookings.qty}}</span>
+                        </td>
+                        <td class="custom_discount_column">
+                            <span>{{bookings.discount}}</span>
+                        </td>
+                        <td class="custom_grandtotal_column">
+                            <span>{{bookings.grandtotal}}</span>
+                        </td>
+                    </tr>
+
+                    <tr class="bg_grey no_border">
+                        <td class="bd_tble_label" colspan="5">
+                            <span>Order Totals</span>
+                        </td>
+                        <td class="bd_tble_label_value">
+                            <span>$87.00</span>
+                        </td>
+                    </tr>
+
+                    <tr class="bg_white no_border hide">
+                        <td class="bd_tble_label" colspan="5">
+                            <span>Delivery/Shipping</span>
+                        </td>
+                        <td class="bd_tble_label_value">
+                            <span>$50.00</span>
+                        </td>
+                    </tr>
+                    <tr class="bg_grey no_border">
+                        <td class="bd_tble_label" colspan="5">
+                            <span>Tax</span>
+                        </td>
+                        <td class="bd_tble_label_value">
+                            <span>$50.00</span>
+                        </td>
+                    </tr>
+                    <tr class="bg_white">
+                        <td class="bd_tble_label" colspan="5">
+                            <span>Reward Point Discount</span>
+                        </td>
+                        <td class="bd_tble_label_value">
+                            <span>$50.00</span>
+                        </td>
+                    </tr>
+                    <tr class="no_border">
+                        <td class="bd_tble_label" colspan="5">
+                            <span>Order Total</span>
+                        </td>
+                        <td class="bd_tble_label_value">
+                            <span>$117.00</span>
+                        </td>
+                    </tr>
+
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+    <div class="booking_assign hide">
+        <div class="booking_assign_header">
+            <h3 class="booking_assign_title">Assign To Shipping Company User</h3>
+        </div>
+        <div class="booking_assign_content">
+            <div class="form-group">
+                <label for="">Shipping User</label>
+                <p-dropdown styleClass="custom_bookingdropdown_list" [options]="servicename" name="servicename_list" [(ngModel)]="selectservice" optionLabel="nameservice"></p-dropdown>
+            </div>
+            <div class="form-group">
+                <div class="text-right">
+                    <button class="booking_assign_btn">UPDATE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="custom_comment_order_form">
+        <div class="custom_comment_order_form_header">
+            <h3 class="custom_comment_order_form_title">Comments On Order</h3>
+        </div>
+        <div class="custom_comment_order_form_mc p-mb-3">
+            <form #form="ngForm" class="form-border-orange">
+                <div class="form-group">
+                    <label for="">Your Comment</label>
+                    <textarea [rows]="5" class="custom_textarea" [cols]="30" pInputTextarea autoResize="autoResize"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="">Order Status</label>
+                    <p-dropdown styleClass="custom_bookingdropdown_list" [options]="servicename" name="servicename_list" [(ngModel)]="selectservice" placeholder="Processing" optionLabel="nameservice"></p-dropdown>
+                </div>
+                <div class="form-group hide">
+                    <label for="about_short">Tracking Number</label>
+                    <input type="text" id="service_duration" name="service_duration" placeholder="Processing" required pInputText/>
+                </div>
+                <div class="form-group hide">
+                    <label class=" col-form-label">Tracking URL</label>
+                    <input type="text" id="service_price" name="service_price" placeholder="Processing" required pInputText/>
+                </div>
+                <div class="form-group text-right">
+                    <button label="UPDATE" class="booking_co_btn">UPDATE</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="booking_detail_bottom">
+        <div class="booking_detail_bottom_left">
+            <a href="" [routerLink]="['/bookings/bookinglist']">Back to Order</a>
+        </div>
+        <div class="booking_detail_bottom_right">
+            <a href=""><img [src]="iconImage1" alt=""></a>
+            <a href=""><img [src]="iconImage2" alt=""></a>
+            <a href=""><img [src]="iconImage3" alt=""></a>
+            <a href=""><img [src]="iconImage4" alt=""></a>
+        </div>
+    </div>
+
+
+</div>

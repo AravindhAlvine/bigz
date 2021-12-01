@@ -1,0 +1,21 @@
+<div class="custom_card_body">
+    <div class="form-group">
+        <label for="store_name">Page</label>
+        <input disabled="true" type="text" class="form-control" id="store_name" name="store_name" value="Homepage" required>
+    </div>
+    <div class="form-group">
+        <label for="store_name">Meta Title(60 Char)</label>
+        <input type="text" [(ngModel)]="seoDetails['meta_title']" class="form-control" id="store_name" name="store_name" required>
+    </div>
+    <div class="form-group">
+        <label for="">Meta Description(156 Char)</label>
+        <textarea [rows]="5" [(ngModel)]="seoDetails['meta_description']" class="custom_textarea" [cols]="30" pInputTextarea autoResize="autoResize"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="">Meta Keyword(156 Char)</label>
+        <textarea [rows]="5" [(ngModel)]="seoDetails['meta_keywords']" class="custom_textarea" [cols]="30" pInputTextarea autoResize="autoResize"></textarea>
+    </div>
+    <div class="customer_save mb-4 mt-4 text-right">
+        <p-button type="submit" label="Save" class="custom_new_btn" (click)="saveSeoDetails()"></p-button>
+    </div>
+</div>

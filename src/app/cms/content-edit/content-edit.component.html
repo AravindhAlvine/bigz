@@ -1,0 +1,24 @@
+<div class="custom_page_header">
+    <h3>Manage Content Edit</h3>
+</div>
+<div class="container-fluid">
+    <div class="custom_create_new_form">
+        <p-card styleClass="p-card-form p-mb-3">
+            <form #form="ngForm" class="form-border-orange">
+                <div class="form-group">
+                    <label for="">Content Title</label>
+                    <input type="text" id="content_title" name="content_title" value="About the Ultra Marketplace" required pInputText/>
+                </div>
+                <div class="form-group">
+                    <label for="content_desc">Content Block</label>
+                    <p-editor id="content_desc" class="content_desc" name="content_desc" required [style]="{'height':'320px'}" [(ngModel)]="text">
+                    </p-editor>
+                </div>
+                <div class="form-group p-d-flex p-jc-between">
+                    <a [routerLink]="['/cms/home']" class="custom_back_btn">Back</a>
+                    <p-button label="SAVE" class="custom_new_btn"></p-button>
+                </div>
+            </form>
+        </p-card>
+    </div>
+</div>

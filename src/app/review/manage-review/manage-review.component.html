@@ -1,0 +1,104 @@
+<div class="custom_page_header">
+    <h3>Manage Products Reviews</h3>
+</div>
+
+<div class="container-fluid">
+    <div class="custom_top_date_container">
+        <div class="custom_top_date_mc">
+            <div class="custom_top_date_sc">
+                <div class="custom_top_date_content">
+                    <div class="ctd_filter_days">
+                        <p-dropdown [options]="optionDays" [(ngModel)]="selectedDays" optionLabel="option" StyleClass="ctd_filter_past_days"></p-dropdown>
+                    </div>
+                    <div class="ctd_filter_dates">
+                        <div class="ctd_filter_from_date">
+                            <p-calendar placeholder="26 Oct 2021" [defaultDate]="currentDate" dateFormat="dd M yy"></p-calendar>
+                        </div>
+                        <div class="ctd_filter_to_txt">
+                            <span>to</span>
+                        </div>
+                        <div class="ctd_filter_to_date">
+                            <p-calendar placeholder="26 Oct 2021" [defaultDate]="currentDate" dateFormat="dd M yy"></p-calendar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="custom_top_date_sc">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container-fluid">
+    <div class="custom_filter_search">
+        <div class="custom_filter_nav">
+            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
+        </div>
+        <div class="custom_search_nav">
+            <input type="text" name="filter_search" id="filter_search" placeholder="Quick Search...">
+            <button type="button" class="btn_search_submit">
+                <img [src]="searchBtn" alt="">
+            </button>
+        </div>
+    </div>
+</div> -->
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<div class="container-fluid">
+    <div class="custom_listing_container p-pb-4">
+        <div class="custom_table custom_review_table">
+            <p-table #dt1 [value]="bookings" [scrollable]="true" scrollHeight="flex" [paginator]="true" [rows]="10" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries " [responsive]="true">
+
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                        <th class="custom_id_column">ID</th>
+                        <th class="custom_customer_column">Customer</th>
+                        <th class="custom_product_column">Product</th>
+                        <th class="custom_vendor_column">Vendor</th>
+                        <th class="custom_rating_column">Rating</th>
+                        <th class="custom_review_column">Review</th>
+                        <th class="custom_status_column">Status</th>
+                        <th class="custom_action_column">Action</th>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="body" let-bookings>
+                    <tr>
+                        <td>
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </td>
+                        <td class="custom_id_column">
+                            <span>{{bookings.id}}</span>
+                        </td>
+                        <td class="custom_customer_column">
+                            <span>{{bookings.customer}}</span>
+                        </td>
+                        <td class="custom_product_column">
+                            <span><a href="">{{bookings.product}}</a></span>
+                        </td>
+                        <td class="custom_vendor_column">
+                            <span>{{bookings.vendor}}</span>
+                        </td>
+                        <td class="custom_rating_column">
+                            <span><img [src]="reviewIcon" alt=""></span>
+                        </td>
+                        <td class="custom_review_column">
+                            <span>{{bookings.review}}</span>
+                        </td>
+                        <td class="custom_status_column">
+                            <span [ngClass]="{'pending': bookings.status === 'pending', 'completed' : bookings.status === 'completed', 'approved': bookings.status === 'approved',  'inprogress': bookings.status === 'inprogress', 'cancelled': bookings.status === 'cancelled'}">{{bookings.status}}</span>
+                        </td>
+                        <td class="custom_action_column">
+                            <a class="pi pi-pencil" [routerLink]="['/review/edit-product-review']"></a>
+                            <a class="pi pi-trash"></a>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>

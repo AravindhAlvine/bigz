@@ -1,0 +1,328 @@
+<div class="custom_page_header">
+    <h3>Admin Dashboard</h3>
+</div>
+
+<div class="container-fluid">
+    <div class="custom_top_date_container custom_top_date_dashboard">
+        <div class="custom_top_date_mc">
+            <div class="custom_top_date_sc">
+                <div class="custom_top_date_content">
+                    <div class="ctd_filter_days">
+                        <p-dropdown [options]="optionDays" [(ngModel)]="selectedDays" optionLabel="option"
+                            StyleClass="ctd_filter_past_days"></p-dropdown>
+                    </div>
+                    <div class="ctd_filter_dates">
+                        <div class="ctd_filter_from_date">
+                            <p-calendar placeholder="26 Oct 2021" [defaultDate]="currentDate" dateFormat="dd M yy">
+                            </p-calendar>
+                        </div>
+                        <div class="ctd_filter_to_txt">
+                            <span>to</span>
+                        </div>
+                        <div class="ctd_filter_to_date">
+                            <p-calendar placeholder="26 Oct 2021" [defaultDate]="currentDate" dateFormat="dd M yy">
+                            </p-calendar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="custom_listing_container p-pb-6">
+        <div *ngIf="totalCounts" class="custom_dashboard_tot_count p-mb-4">
+            <div class="custom_dashboard_tot_count_sc" [ngClass]="{'triangleClass' : triangleClass == 1}" (click)="selectedCard(1)">
+                <div class="cd_tot_count_content">
+                    <div class="cd_tot_count_content_left">
+                        <img [src]="iconImage1" alt="">
+                    </div>
+                    <div class="cd_tot_count_content_right">
+                        <span>Total Revenue</span>
+                        <span>{{totalCounts.revenue}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="custom_dashboard_tot_count_sc" [ngClass]="{'triangleClass' : triangleClass == 2}" (click)="selectedCard(2)">
+                <div class="cd_tot_count_content">
+                    <div class="cd_tot_count_content_left">
+                        <img [src]="iconImage2" alt="">
+                    </div>
+                    <div class="cd_tot_count_content_right">
+                        <span>New Customers</span>
+                        <span>{{totalCounts.customers}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="custom_dashboard_tot_count_sc" [ngClass]="{'triangleClass' : triangleClass == 3}" (click)="selectedCard(3)">
+                <div class="cd_tot_count_content">
+                    <div class="cd_tot_count_content_left">
+                        <img [src]="iconImage3" alt="">
+                    </div>
+                    <div class="cd_tot_count_content_right">
+                        <span>Total Bookings</span>
+                        <span>{{totalCounts.bookings}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="custom_dashboard_tot_count_sc" [ngClass]="{'triangleClass' : triangleClass == 4}" (click)="selectedCard(4)">
+                <div class="cd_tot_count_content">
+                    <div class="cd_tot_count_content_left">
+                        <img [src]="iconImage4" alt="">
+                    </div>
+                    <div class="cd_tot_count_content_right">
+                        <span>New Vendors</span>
+                        <span>{{totalCounts.vendors}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="custom_dashboard_recent_vendor p-mb-6">
+            <div class="custom_table_header_main">
+                <h3 class="custom_table_head_title">Recent Vendors</h3>
+                <a href="" class="custom_table_head_link">View All</a>
+            </div>
+            <div class="custom_table custom_dashborad_table items">
+                <p-table #dt1 [columns]="vendorList" [value]="vendorList" [scrollable]="true" scrollHeight="flex"
+                    [paginator]="true" [rows]="5" [loading]="loading" [showCurrentPageReport]="true"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
+                    [responsive]="true">
+                    <ng-template pTemplate="header">
+                        <tr (click)="cursordragableTable()">
+                            <th>Sl.No</th>
+                            <!-- <th class="custom_logo_column">Logo</th> -->
+                            <th class="custom_name_column" pSortableColumn="salon_name">Name
+                                <p-sortIcon field="salon_name"></p-sortIcon>
+                            </th>
+                            <th class="custom_email_column" pSortableColumn="email">Email
+                                <p-sortIcon field="email"></p-sortIcon>
+                            </th>
+                            <!-- <th class="custom_slug_column" pSortableColumn="slug">Url Key
+                                <p-sortIcon field="slug"></p-sortIcon>
+                            </th> -->
+                            <!-- <th class="custom_addr_column" pSortableColumn="formatted_address">Address
+                                <p-sortIcon field="formatted_address"></p-sortIcon>
+                            </th> -->
+                            <th class="custom_phone_column" pSortableColumn="phone_number">Phone Number
+                                <p-sortIcon field="phone_number"></p-sortIcon>
+                            </th>
+                            <th class="custom_category_column" pSortableColumn="name">Main Categories
+                                <p-sortIcon field="name"></p-sortIcon>
+                            </th>
+                            <th class="custom_date_column item" pSortableColumn="created_at">Joining Date
+                                <p-sortIcon field="created_at"></p-sortIcon>
+                            </th>
+                            <th class="custom_status_column" pSortableColumn="status">Status
+                                <p-sortIcon field="status"></p-sortIcon>
+                            </th>
+                            <th class="custom_action_column">Action</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowNode let-vendor let-i="rowIndex">
+                        <tr (click)="cursordragableTable()">
+                            <td class="item item"> {{i + 1}}</td>
+                            <!-- <td class="item custom_logo_column"><img class="custom_vendor_logo" *ngIf="vendor.logo" [src]="vendor.logo.url"></td> -->
+                            <td class="item custom_name_column item">
+                                <span>{{vendor.salon_name}}</span>
+                            </td>
+                            <td class="item custom_email_column item">
+                                <span>{{vendor.email}}</span>
+                            </td>
+                            <!-- <td class="item custom_slug_column">
+                                <span>{{vendor.slug}}</span>
+                            </td> -->
+                            <!-- <td class="item custom_addr_column">
+                                <span>{{vendor.formatted_address}}</span>
+                            </td> -->
+                            <td class="item custom_phone_column item">
+                                <span>{{vendor.phone_number ? vendor.phone_number.international_number: ''}}</span>
+                            </td>
+                            <td class="item custom_category_column item">
+                                <ul>
+                                    <li *ngFor="let category of vendor.categories">{{category.name}}</li>
+                                </ul>
+                            </td>
+                            <td class="item custom_date_column item">
+                                <span>{{vendor.created_at | date}}</span>
+                            </td>
+                            <td class="item ">
+                                <p-dropdown [options]="vendorStatus" [(ngModel)]="vendor.status"
+                                    optionLabel="display_name" [ngClass]="{
+                                    'status-pending': vendor.status.name === 'pending', 
+                                    'status-approved': vendor.status.name === 'approved',
+                                    'status-declined': vendor.status.name === 'declined'}"
+                                    (onChange)="vendorStatusChangeEvent(vendor)">
+                                </p-dropdown>
+                            </td>
+                            <td class="item custom_action_column no_wrap_txt custom_edit_delete_check action-data-tab">
+                                <a class="pi pi-pencil" [routerLink]="['/vendors/update', vendor._id]"></a>
+                                <a class="pi pi-trash" (click)="deleteVendor(vendor._id)"></a>
+                                <!-- <a class="pi pi-check" (click)="approveVendor(vendor._id, i)"></a> -->
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+        <div class="custom_dashboard_recent_customer p-mb-6">
+            <div class="custom_table_header_main">
+                <h3 class="custom_table_head_title">Recent Customers</h3>
+                <a href="" class="custom_table_head_link">View All</a>
+            </div>
+            <div class="custom_table custom_dashborad_table">
+                <p-table (click)="cursordragableTable()" #dt1 [value]="customerList" [scrollable]="true"
+                    scrollHeight="flex" [paginator]="true" [rows]="5" [loading]="loading" [showCurrentPageReport]="true"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
+                    [responsive]="true">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Sl.No</th>
+                            <th class="custom_fname_column" pSortableColumn="salon_name">First Name
+                                <p-sortIcon field="first_name"></p-sortIcon>
+                            </th>
+                            <th class="custom_lname_column" pSortableColumn="salon_name">Last Name
+                                <p-sortIcon field="last_name"></p-sortIcon>
+                            </th>
+                            <th class="custom_email_column" pSortableColumn="email">Email
+                                <p-sortIcon field="email"></p-sortIcon>
+                            </th>
+                            <!-- <th class="custom_addr_column" pSortableColumn="formatted_address">Address
+                                <p-sortIcon field="formatted_address"></p-sortIcon>
+                            </th> -->
+                            <th class="custom_phone_column" pSortableColumn="phone_number">Phone Number
+                                <p-sortIcon field="phone_number"></p-sortIcon>
+                            </th>
+                            <th class="custom_date_column item" pSortableColumn="created_at">Created Date
+                                <p-sortIcon field="created_at"></p-sortIcon>
+                            </th>
+                            <th class="custom_status_column" pSortableColumn="status">Status
+                                <p-sortIcon field="status"></p-sortIcon>
+                            </th>
+                            <th class="custom_action_column">Action</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-customer let-i="rowIndex">
+                        <tr>
+                            <td class="item"> {{i + 1}}</td>
+                            <td class="item custom_fname_column">
+                                <span>{{customer.first_name}}</span>
+                            </td>
+                            <td class="item custom_lname_column">
+                                <span>{{customer.last_name}}</span>
+                            </td>
+                            <td class="item custom_email_column">
+                                <span>{{customer.email}}</span>
+                            </td>
+                            <!-- <td class="item custom_addr_column">
+                                <span>{{customer.formatted_address}}</span>
+                            </td> -->
+                            <td class="item custom_phone_column">
+                                <span>{{customer.phone_number ? customer.phone_number.international_number: ''}}</span>
+                            </td>
+                            <td class="item custom_date_column item">
+                                <span>{{customer.created_at | date}}</span>
+                            </td>
+                            <td class="item ">
+                                <p-dropdown [options]="customerStatus" [(ngModel)]="customer.status"
+                                    optionLabel="display_name" [ngClass]="{
+                                    'status-pending': customer.status && customer.status.name === 'pending', 
+                                    'status-approved': customer.status && customer.status.name === 'approved',
+                                    'status-declined': customer.status && customer.status.name === 'declined'}"
+                                    (onChange)="customerStatusChangeEvent(customer)">
+                                </p-dropdown>
+                            </td>
+                            <td class="item custom_action_column no_wrap_txt custom_edit_delete_check action-data-tab">
+                                <a class="pi pi-pencil" [routerLink]="['/customers/update', customer._id]"></a>
+                                <a class="pi pi-trash" (click)="deleteVendor(customer._id)"></a>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+        <div class="custom_dashboard_recent_customer">
+            <div class="custom_table_header_main">
+                <h3 class="custom_table_head_title">Recent Bookings</h3>
+                <a href="" class="custom_table_head_link">View All</a>
+            </div>
+            <div class="custom_table custom_dashborad_table">
+                <p-table (click)="cursordragableTable()" #dt1 [value]="bookingList" [scrollable]="true"
+                    scrollHeight="flex" [paginator]="true" [rows]="5" [loading]="loading" [showCurrentPageReport]="true"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
+                    [responsive]="true">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>#</th>
+                            <th class="custom_date_column item" pSortableColumn="date">Date
+                                <p-sortIcon field="appointment_date"></p-sortIcon>
+                            </th>
+                            <th class="custom_service_column" pSortableColumn="service">Services
+                                <p-sortIcon field="services"></p-sortIcon>
+                            </th>
+                            <th class="custom_shop_column" pSortableColumn="shopname">Shop Name
+                                <p-sortIcon field="vendor.salon_name"></p-sortIcon>
+                            </th>
+                            <th class="custom_timing_column" pSortableColumn="timings">Timing
+                                <p-sortIcon field="time_slot"></p-sortIcon>
+                            </th>
+                            <th class="custom_amount_column" pSortableColumn="amount">Amount
+                                <p-sortIcon field="amount"></p-sortIcon>
+                            </th>
+                            <th class="custom_commission_column" pSortableColumn="commission">Commission
+                                <p-sortIcon field="commission"></p-sortIcon>
+                            </th>
+                            <th class="custom_selleramount_column" pSortableColumn="selleramount">Seller Amount
+                                <p-sortIcon field="amount"></p-sortIcon>
+                            </th>
+                            <th class="" pSortableColumn="status">Status
+                                <p-sortIcon field="status.name"></p-sortIcon>
+                            </th>
+                            <!-- <th class="custom_action_column">Action</th> -->
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-bookings let-i="rowIndex">
+                        <tr>
+                            <td>{{i + 1}}</td>
+                            <td class="item custom_date_column item">
+                                <span>{{bookings.appointment_date | date}}</span>
+                            </td>
+                            <td class="item custom_service_column">
+                                <span>{{getServiceListString(bookings.services)}}</span>
+                            </td>
+                            <td class="item custom_shop_column">
+                                <span>{{bookings.vendor.salon_name}}</span>
+                            </td>
+                            <td class="item custom_timing_column">
+                                <span>{{bookings.time_slot}}</span>
+                            </td>
+                            <td class="item custom_amount_column">
+                                <span>${{bookings.amount}}</span>
+                            </td>
+                            <td class="item custom_commission_column">
+                                <span>0</span>
+                            </td>
+                            <td class="item custom_selleramount_column">
+                                <span>${{bookings.amount}}</span>
+                            </td>
+                            <td class="item custom_status_column">
+                                <p-dropdown [options]="bookingStatus" [(ngModel)]="bookings.status"
+                                    optionLabel="display_name" [ngClass]="{
+                                    'status-pending': (bookings.status.name == undefined || bookings.status.name === 'pending'), 
+                                    'status-in-progress': bookings.status.name === 'in_progress',
+                                    'status-completed': bookings.status.name === 'completed',
+                                    'status-canceled': bookings.status.name === 'canceled'}"
+                                    (onChange)="bookingStatusChangeEvent(bookings)">
+                                </p-dropdown>
+                            </td>
+                            <!-- <span [ngClass]="{'pending': bookings.status.name === 'pending', 'completed' : (bookings.status.name === 'completed' || bookings.status.name === 'finished'), 'approved': bookings.status.name === 'approved',  'inprogress': bookings.status.name === 'inprogress', 'cancelled': bookings.status.name === 'cancelled'}">{{bookings.status.display_name}}</span> -->
+                            <!-- <td class="item custom_action_column no_wrap_txt custom_edit_delete_check action-data-tab">
+                                <a class="custom_action_view_link" [routerLink]="['/bookings/booking-detail']">View</a>
+                            </td> -->
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>

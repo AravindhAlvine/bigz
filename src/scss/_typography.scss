@@ -1,0 +1,17 @@
+a {
+    &.link-text {
+        &-white {
+            color: $colorwhite;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+.text {
+    &-white {
+        color: $colorwhite;
+       
+    }
+}

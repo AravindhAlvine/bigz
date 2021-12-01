@@ -1,0 +1,91 @@
+<!-- <p-card styleClass="auth-section">
+    <div class="p-text-center">
+        <a routerLink="" class="p-mb-3 p-d-inlineBlock p-text-center">
+            <img [src]="adminLogo ? adminLogo.url : 'assets/images/besthairlogo-white@2x.png'" style="width: 120px;" />
+        </a>
+    </div>
+    <form [formGroup]="loginFormGroup" (ngSubmit)="loginFormSubmit()">
+        <div class="p-fluid">
+            <div class="p-field p-mb-4">
+                <label for="fieldId" class="label-white p-pl-4">Email</label>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-user"></i>
+                    <input id="fieldId" type="text" formControlName="email" pInputText icon="pi pi-user" placeholder="Enter your email address">
+                </span>
+                <div *ngIf="submitted && forms.email.errors" class="p-error">
+                    <div *ngIf="forms.email.errors.required">Email is required</div>
+                </div>
+            </div>
+            <div class="p-field p-mb-5">
+                <label for="fieldId" class="label-white p-pl-4">Password</label>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-key"></i>
+                    <input id="fieldId" type="password" formControlName="password" pPassword [feedback]="false"
+                        placeholder="Enter your passowrd">
+                </span>
+                <div *ngIf="submitted && forms.password.errors" class="p-error">
+                    <div *ngIf="forms.password.errors.required">Password is required</div>
+                </div>
+            </div>
+            <div class="p-field p-mb-4">
+                <button pButton class="p-button-primary-2 p-text-uppercase" label="Submit"></button>
+            </div>
+        </div>
+        <div class="p-field p-d-flex p-jc-between p-pl-sm-4 p-pr-sm-4">
+            <a routerLink="/" class="link-text-white p-text-uppercase">Create Account</a>
+            <a routerLink="/" class="link-text-white p-text-uppercase">Forgot Password?</a>
+        </div>
+    </form>
+</p-card> -->
+
+
+<div class="login_screen h-100" id="p_login_cred">
+    <div class="row mx-auto h-100">
+        <div class="col-6 login_bg_gradient p-0"></div>
+        <div class="col-6 login_form">
+            <div class="p_login_img">
+                <img src="../../../assets/icon/login/black-logo.png" alt="" />
+            </div>
+            <div class="p_login_form">
+                <h2>Welcome!</h2>
+                <p>Sign In to your account</p>
+                <form class="p_form w-75" [formGroup]="loginFormGroup" (ngSubmit)="loginFormSubmit()">
+                    <div class="p-fluid">
+                        <div class="p-field p-mb-2">
+                            <label for="fieldId" class="label-white">Your email or Username</label>
+                            <span class="p-input-icon-right">
+                                <!-- <i class="pi pi-eye "></i> -->
+                                <input id="fieldId" type="text" formControlName="email" pInputText icon="pi pi-user" placeholder="Email Address or Username">
+                            </span>
+                            <div *ngIf="submitted && forms.email.errors" class="p-error">
+                                <div *ngIf="forms.email.errors.required">Email is required</div>
+                            </div>
+                        </div>
+                        <div class="p-field p-mb-2">
+                            <label for="fieldId" class="label-white">Password</label>
+                            <span class="p-input-icon-right">
+                                <i class="pi" (click)="toggleIcons()" [ngClass]="{'pi-eye-slash': showIcon == false, 'pi-eye' : showIcon == true }"></i>
+                                <!-- <i class="pi pi-eye-slash" (click)="toggleIcons()" [ngClass]="{'d-none':showIcon == true}"></i> -->
+                                <input id="fieldId" type="password" formControlName="password" id="myInput" pPassword [feedback]="false"
+                                    placeholder="Password">
+                            </span>
+                            <div *ngIf="submitted && forms.password.errors" class="p-error">
+                                <div *ngIf="forms.password.errors.required">Password is required</div>
+                            </div>
+                        </div>
+                        <div class="p-field float-left w-100">
+                            <a class="p_anchor float-left">Forgot Username?</a>
+                            <a class="p_anchor float-right">Forgot Password?</a>
+                        </div>
+                        <div class="p-field p-mb-4">
+                            <button pButton class="p-text-uppercase" label="SIGN IN"></button>
+                        </div>
+                    </div>
+                    <!-- <div class="p-field p-d-flex p-jc-between p-pl-sm-4 p-pr-sm-4">
+                        <a routerLink="/" class="link-text-white p-text-uppercase">Forgot Password?</a>
+                    </div> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

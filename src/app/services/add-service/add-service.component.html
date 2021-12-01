@@ -1,0 +1,36 @@
+<div class="custom_page_header">
+    <h3>Create New Service</h3>
+</div>
+<div class="container-fluid">
+    <div class="custom_create_new_form">
+        <p-card styleClass="p-card-form p-mb-3">
+            <form #form="ngForm" class="form-border-orange">
+                <div class="form-group">
+                    <label for="">Service Name</label>
+                    <input type="text" [(ngModel)]="serviceData['name']" #serviceName="ngModel" id="service_name" name="service_name" placeholder="Enter Mail Service Name" required pInputText/>
+                    <div *ngIf="form.submitted && serviceName.invalid && serviceName.errors.required" class="p-error">
+                        Service Name is required
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="about_short">Description</label>
+                    <p-editor [(ngModel)]="serviceData['description']" id="about_short" name="about_short" required [style]="{'height':'320px'}" placeholder="Eg. About the service">
+                    </p-editor>
+                </div>
+                <div class="form-group">
+                    <div *ngIf="isEditMode && serviceData.service_image">
+                        <img [src]="serviceData.service_image.url">
+                        <a (click)="deleteServiceImage(serviceData.service_image)"><i class="pi pi-trash" aria-hidden="true"></i></a>
+                    </div>
+                    <label class=" col-form-label">Select Image of your Service</label>
+                    <p-fileUpload name="service_logo[]" (onSelect)="serviceImageChangeEvent($event)" chooseLabel="Upload" [showUploadButton]="false" accept="image/*" maxFileSize="1000000">
+                    </p-fileUpload>
+                </div>
+                <div class="form-group">
+                    <p-button *ngIf="!isEditMode" type="submit" label="Create New Service" class="custom_new_btn" (click)="createService(form)"></p-button>
+                    <p-button *ngIf="isEditMode" type="submit" label="Update" class="custom_new_btn" (click)="editService(form)"></p-button>
+                </div>
+            </form>
+        </p-card>
+    </div>
+</div>

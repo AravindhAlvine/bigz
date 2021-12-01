@@ -1,0 +1,192 @@
+<div class="custom_page_header">
+    <h3>Create New Customer</h3>
+</div>
+<div class="container-fluid">
+    <div class="create_top_status_container">
+        <div class="create_top_status">
+            <div class="create_top_status_left">
+                <label for="vendor_status">Status:</label>
+            </div>
+            <div class="create_top_status_right">
+                <div class="form-check form-check-inline" id="">
+                    <input class="form-check-input" type="radio" name="customer_status" id="customer_status_active" value="active" (change)="onProfileStatusChange('active')" [checked]="!isEditMode || (customerData['status'] && customerData['status']['name'] == 'active') ">
+                    <label class="form-check-label" for="inlineRadio1">Active</label>
+                </div>
+                <div class="form-check form-check-inline" id="">
+                    <input class="form-check-input" type="radio" name="customer_status" id="customer_status_deactive" value="deactive" (change)="onProfileStatusChange('deactive')" [checked]="customerData['status'] && customerData['status']['name'] == 'deactive'">
+                    <label class="form-check-label" for="inlineRadio1">Deactive</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <form #form="ngForm" class="create_customer">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <label for="first_name">First Name</label>
+                            <input [(ngModel)]="customerData['first_name']" type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter your first name" #firstName="ngModel" required>
+                            <div *ngIf="form.submitted && firstName.invalid && firstName.errors.required" class="p-error">
+                                First name is required
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="last_name">Last Name</label>
+                            <input [(ngModel)]="customerData['last_name']" type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter your last name" #lastName="ngModel" required>
+                            <div *ngIf="form.submitted && lastName.invalid && lastName.errors.required" class="p-error">
+                                Last name is required
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input [disabled]="isEditMode" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [(ngModel)]="customerData['email']" type="text" class="form-control" id="email" name="email" placeholder="Enter your email" #email="ngModel" required>
+                            <div *ngIf="form.submitted && email.invalid" class="p-error">
+                                <div *ngIf="email.errors.required">
+                                    Email is required
+                                </div>
+                                <div *ngIf="email.errors.pattern">Email must be a valid email address</div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label for="about_short">Location</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter Location" #googleAutoCompleteAddress #customerLocation="ngModel" [(ngModel)]="customerData['formatted_address']" name="location" required>
+                            <div *ngIf="form.submitted && customerLocation.invalid && customerLocation.errors.required" class="p-error">
+                                Location is required
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div class="form-group address_of_customer">
+                            <label for="about_long">Address</label>
+                            <input type="text" class="form-control" id="street_address1" [(ngModel)]="customerData['street_address1']" name="street_address1" placeholder="Enter Building Name, Door No">
+                            <input type="text" class="form-control" id="street_address2" [(ngModel)]="customerData['street_address2']" name="street_address2" placeholder="Enter the Street Address and Area">
+                            <input type="text" class="form-control" id="city" name="city" [(ngModel)]="customerData['city']" placeholder="Enter the City">
+                            <input type="text" class="form-control" id="state" name="state" [(ngModel)]="customerData['state']" placeholder="Enter the State">
+
+                            <input type="text" class="form-control" id="country" name="country" [(ngModel)]="customerData['country']" placeholder="Enter the Country">
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label for="phone_number">Phone Number</label>
+                            <div class="custom_phone_number">
+                                <ngx-intl-tel-input [(ngModel)]="phoneNumber" [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true" [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+                                    [selectedCountryISO]="CountryISO.UnitedStates" [maxLength]="15" [phoneValidation]="true" [separateDialCode]="true" [numberFormat]="PhoneNumberFormat.National" name="phone_number" #customerPhoneNumber="ngModel" required
+                                    phoneValidation="true">
+                                </ngx-intl-tel-input>
+                                <div *ngIf="form.submitted && customerPhoneNumber.invalid" class="p-error">
+                                    <div *ngIf="customerPhoneNumber.errors.required" class="p-error">Phone number is required
+                                    </div>
+                                    <div *ngIf="customerPhoneNumber.errors.validatePhoneNumber && !customerPhoneNumber.errors.validatePhoneNumber.valid" class="p-error">
+                                        Phone number is not valid
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="custom_edit" *ngIf="isEditMode && customerData.billing_address.length > 0">
+                            <section *ngIf="showEditBillingAddressForm">
+                                <div class="form-group">
+                                    <label for="about_short">First Name</label>
+                                    <input type="text" class="form-control" id="first_name" name="first_name" [(ngModel)]="billingAddress['first_name']" placeholder="Enter the first name">
+
+                                    <label for="about_short" class="mt-2">Last Name</label>
+                                    <input type="text" class="form-control" id="last_name" name="last_name" [(ngModel)]="billingAddress['last_name']" placeholder="Enter the last name">
+
+                                    <label for="about_short" class="mt-2">Street Address</label>
+                                    <input type="text" class="form-control" id="street_address1" name="street_address1" [(ngModel)]="billingAddress['street_address1']" placeholder="Enter the street address">
+
+                                    <label for="about_short" class="mt-2">Street Address2</label>
+                                    <input type="text" class="form-control" id="street_address2" name="street_address2" [(ngModel)]="billingAddress['street_address2']" placeholder="Enter the street address2">
+
+                                    <label for="about_short" class="mt-2">City</label>
+                                    <input type="text" class="form-control" id="city" name="city" [(ngModel)]="billingAddress['city']" placeholder="Enter the city">
+
+                                    <label for="about_short" class="mt-2">State/Province</label>
+                                    <input type="text" class="form-control" id="state" name="state" [(ngModel)]="billingAddress['state']" placeholder="Enter the state">
+
+                                    <label for="about_short" class="mt-2">Country</label>
+                                    <input type="text" class="form-control" id="country" name="country" [(ngModel)]="billingAddress['country']" placeholder="Enter the country">
+
+                                    <label for="about_short" class="mt-2">Phone Number</label>
+                                    <div>
+                                        <ngx-intl-tel-input [(ngModel)]="billingAddressPhoneNumber" [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true" [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                                            [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.UnitedStates" [maxLength]="15" [phoneValidation]="true" [separateDialCode]="true" [numberFormat]="PhoneNumberFormat.National" name="phone_number" required
+                                            phoneValidation="true">
+                                        </ngx-intl-tel-input>
+                                    </div>
+
+                                    <div class="row text-left mb-4 mt-4">
+                                        <div class="col-sm-12">
+                                            <button type="button" class="btn bg-primary theme-color" (click)="updateBillingAddress()">Update</button>
+                                            <button type="button" class="btn bg-primary theme-color" (click)="cancelUpdateBillingAddress()">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-4" id="billingAddress{{i}}" *ngFor="let billingAddress of customerData['billing_address']; let i = index">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-header-actions">
+                                                <p class="badge badge-success" *ngIf="billingAddress.is_primary">
+                                                    Primary Address</p>
+                                                <button *ngIf="!billingAddress.is_primary" type="button" class="btn bg-primary theme-color" (click)="setAddressAsPrimary(billingAddress._id)">Set
+                          Primary</button>
+                                                <button type="button" class="btn bg-primary theme-color" (click)="editAddress(billingAddress, i)">Update</button>
+                                            </div>
+                                            <p>{{billingAddress.first_name}}, {{billingAddress.last_name}}</p>
+                                            <p>{{billingAddress.streetaddress1}}</p>
+                                            <p>{{billingAddress.city}}, <span>{{billingAddress.zip_code}}</span></p>
+                                            <p>{{billingAddress.phone_number.number}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="customer_save mb-4 mt-4 text-right">
+
+                            <button *ngIf="!isEditMode" type="submit" class="btn theme-color" (click)="createCustomer(form)">Create New Customer</button>
+                            <button *ngIf="isEditMode" type="submit" class="btn theme-color" (click)="editCustomer(form)">Update</button>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </form>
+</div>

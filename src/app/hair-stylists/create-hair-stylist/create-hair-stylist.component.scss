@@ -1,0 +1,51 @@
+.p-fileupload-row img {
+    width: 100%;
+}
+
+.p-multiselect-token {
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.5rem;
+    background: #E3F2FD;
+    color: #495057;
+    border-radius: 3px;
+    cursor: default;
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.p-input-icon-left .p-multiselect {
+    padding-left: 31px;
+}
+
+.p-multiselect-token-icon {
+    cursor: pointer;
+}
+
+.p-input-icon-left input {
+    padding-left: 30px;
+}
+
+.create_vendor {
+    label {
+        color: #404D61;
+        font-family: 'DMSans-Medium';
+        font-weight: normal;
+        font-size: 15px;
+    }
+}
+
+.address_of_salon {
+    input {
+        margin-bottom: 10px;
+    }
+}
+
+.custom_vendor_next button,
+.custom_vendor_prev button {
+    background: transparent linear-gradient( 180deg, #6989FE 0%, #3C64F4 100%) 0% 0% no-repeat padding-box;
+    color: #fff;
+    font-family: 'DMSans-Bold';
+    font-weight: normal;
+    font-size: 15px;
+}

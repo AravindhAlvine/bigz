@@ -1,0 +1,53 @@
+.p-datatable {
+    .p-paginator {
+        &-bottom {
+            .p-paginator-current {
+                margin-right: auto;
+            }
+        }
+        .p-paginator-pages {
+            .p-paginator-page {
+                // border: 1px solid $bodyBgColor;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                border-radius: 0;
+                min-width: 35px;
+                height: 35px;
+                margin: 0;
+                &.p-highlight {
+                    background-color: transparent;
+                    color: $colorpurple;
+                    color: #1F2D43;
+                    font-family: 'DMSans-Bold';
+                }
+            }
+        }
+        .p-paginator-next,
+        .p-paginator-last,
+        .p-paginator-prev,
+        .p-paginator-first {
+            // border: 1px solid $bodyBgColor;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+            min-width: 35px;
+            height: 35px;
+            margin: 0;
+            &.p-highlight {
+                background-color: transparent;
+                color: $colorpurple;
+            }
+        }
+        .p-dropdown {
+            .p-dropdown-label {
+                padding-top: 4px;
+                padding-bottom: 4px;
+            }
+            margin-left: 15px;
+            height: 35px;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+        }
+    }
+}

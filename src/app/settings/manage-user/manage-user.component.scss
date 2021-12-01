@@ -1,0 +1,23 @@
+@media(min-width: 768px) {
+    th.user_email,
+    td.user_email {
+        width: 280px;
+        max-width: 280px;
+    }
+    td.user_name_col,
+    th.user_name_col,
+    td.first_name_col,
+    th.first_name_col,
+    td.last_name_col,
+    th.last_name_col {
+        width: 130px;
+        max-width: 130px;
+    }
+    td.user_role_col,
+    th.user_role_col,
+    td.user_status_col,
+    th.user_status_col {
+        width: 100px;
+        max-width: 100px;
+    }
+}

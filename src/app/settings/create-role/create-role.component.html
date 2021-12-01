@@ -1,0 +1,63 @@
+<div class="custom_page_header">
+    <h3>Create New Role</h3>
+</div>
+<div class="container-fluid">
+    <form #form="ngForm" class="">
+        <div class="custom_create_new_form">
+            <div class="create_tab_container">
+                <button type="submit" class="btn theme-color active" (click)="showRoleInfoClick(form)">Role Info</button>
+                <button type="submit" class="btn theme-color" (click)="showRoleResourcesClick(form)">Role Resources</button>
+            </div>
+            <p-card styleClass="p-card-form p-mb-3">
+                <div class="row" *ngIf="showRoleInfo">
+                    <div class="col-sm-12">
+                        <div class="card mb-4">
+                            <div class="custom_card_body">
+                                <div class="form-group">
+                                    <label for="role_name">Role Name</label>
+                                    <input type="text" [(ngModel)]="roleData['role_name']" class="form-control" id="role_name" name="role_name" placeholder="Enter the role name" #roleName="ngModel" required>
+                                    <div *ngIf="form.submitted && roleName.invalid && roleName.errors.required" class="p-error">
+                                        Role Name is required
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Status</label>
+                                    <p-dropdown styleClass="custom_dropdown_list" name="role_resources" [options]="roleStatus" [(ngModel)]="roleData['status']" placeholder="Choose Status" optionLabel="display_name" #selectRoleStatus="ngModel" required></p-dropdown>
+                                    <div *ngIf="form.submitted && selectRoleStatus.invalid && selectRoleStatus.errors.required" class="p-error">
+                                        Role Status is required
+                                    </div>
+                                </div>
+                                <div class="customer_save mt-4 text-right">
+                                    <p-button type="submit" label="Next" class="custom_new_btn" (click)="showRoleResourcesClick(form)"></p-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="!showRoleInfo">
+                    <div class="col-sm-12">
+                        <div class="card mb-4">
+                            <div class="custom_card_body">
+                                <div class="form-group">
+                                    <label for="">Role Resources</label>
+                                    <p-dropdown styleClass="custom_dropdown_list" name="role_resources" [options]="roleResources" [(ngModel)]="roleData['role_resources']" placeholder="Choose Resources" optionValue="name" optionLabel="name" (onChange)="onRoleResourceChange($event)" name="selectRoles"></p-dropdown>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Resources</label>
+                                    <app-tree-view [options]="menuItems" [(inputModel)]="selectedMenus">
+                                    </app-tree-view>
+                                </div>
+                                <div class="customer_save mt-4">
+                                    <p-button type="submit" label="Previous" class="custom_new_btn" (click)="showRoleInfoClick(form)"></p-button>
+                                    <p-button type="submit" *ngIf="!isEditMode" label="Save" class="custom_new_btn" (click)="createNewRole(form)"></p-button>
+                                    <p-button type="submit" *ngIf="isEditMode" label="Update" class="custom_new_btn" (click)="updateRoleDetails(form)"></p-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+    </form>
+</div>

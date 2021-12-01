@@ -1,0 +1,67 @@
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+
+}
+
+@mixin boxShadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $color: $shadowColor, $noBoxShadow: false) {
+  -webkit-box-shadow: $x-axis $y-axis $blur $color;
+  -moz-box-shadow: $x-axis $y-axis $blur $color;
+  box-shadow: $x-axis $y-axis $blur $color;
+
+  @if ($noBoxShadow==true) {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+@mixin button-primary($bgColor, $textColor) {
+  background-color: $bgColor;
+  color: $textColor;
+  border: none;
+
+  &:hover {
+    background-color: darken($bgColor, 8%);
+    color: $textColor;
+  }
+}
+
+@mixin border-Radius($topLeft: null, $topRight: null, $bottomRight: null, $bottomLeft: null, $commonSize: null, $equalSize: false, $noBorderRadius: false) {
+  @if($equalSize: true) {
+    -webkit-border-radius: $commonSize;
+    -moz-border-radius: $commonSize;
+    border-radius: $commonSize;
+  } 
+ 
+    border-top-left-radius: $topLeft;
+    border-top-right-radius: $topRight;
+    border-bottom-right-radius: $bottomRight;
+    border-bottom-left-radius: $bottomLeft;
+}
+
+@mixin mobile-style() {
+  @media (max-width: $mobile-size) {
+    @content;
+  }
+}
+
+@mixin tablet-mini-style() {
+  @media (max-width: $tablet-mini-size) {
+    @content;
+  }
+}
+
+@mixin tablet-style() {
+  @media (max-width: $tablet-size) {
+    @content;
+  }
+}
+
+@mixin desktop-style() {
+  @media (max-width: $desktop-size) {
+    @content;
+  }
+}

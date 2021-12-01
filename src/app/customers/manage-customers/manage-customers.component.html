@@ -1,0 +1,405 @@
+<div class="custom_page_header">
+    <h3>Manage Customers</h3>
+</div>
+
+<div class="container-fluid" id="filter_data">
+    <div class="custom_top_date_container">
+        <!-- <h3 class="float-left my-2">List of Vendors</h3> -->
+
+        <div class="custom_top_date_mc">
+
+            <div class="p-float-right custom_right_align_btn">
+                <button pButton class="btn bg-white text-dark" (click)="filterSection = !filterSection" label="Filter (2)"></button>
+            </div>
+
+            <div class="custom_top_date_sc">
+                <div class="custom_top_date_nav_link">
+                    <a [routerLink]="['/vendors/create']">Add Vendors</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="px-3 pb-3" id="p_filter_card" *ngIf="filterSection == false">
+    <p-card>
+        <div class="row mx-auto">
+
+            <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Customer Name</label>
+                    <input class="form-control" pInputText type="text">
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Email</label>
+                    <input class="form-control" pInputText type="text">
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Status</label>
+                    <p-dropdown [options]="selectedDropdown" [(ngModel)]="selectedDropdown"></p-dropdown>
+                </div>
+            </div>
+
+            <!-- <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Status</label>
+                    <p-dropdown [options]="selectedDropdown" [(ngModel)]="selectedDropdown"></p-dropdown>
+                </div>
+            </div> -->
+
+            <div class="col-md-4 col-xl-3 mb-sm-4">
+                <div class="textOnInput">
+                    <label for="inputText">From Date</label>
+                    <p-calendar [(ngModel)]="value"></p-calendar>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-sm-4">
+                <div class="textOnInput">
+                    <label for="inputText">To Date</label>
+                    <p-calendar [(ngModel)]="value"></p-calendar>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 p_button">
+                <button pButton class="btn" label="SUBMIT"></button>
+            </div>
+
+        </div>
+    </p-card>
+</div>
+
+<!-- <div class="container-fluid">
+    <div class="custom_top_date_container">
+        <div class="custom_top_date_mc">
+            <div class="custom_top_date_sc">
+                <div class="custom_top_date_content">
+                    <div class="ctd_filter_days">
+                        <p-dropdown [options]="optionDays" [(ngModel)]="selectedDays" optionLabel="option" StyleClass="ctd_filter_past_days"></p-dropdown>
+                    </div>
+                    <div class="ctd_filter_dates">
+                        <div class="ctd_filter_from_date">
+                            <p-calendar placeholder="26 Oct 2021" [defaultDate]="currentDate" dateFormat="dd M yy"></p-calendar>
+                        </div>
+                        <div class="ctd_filter_to_txt">
+                            <span>to</span>
+                        </div>
+                        <div class="ctd_filter_to_date">
+                            <p-calendar placeholder="26 Oct 2021" [defaultDate]="currentDate" dateFormat="dd M yy"></p-calendar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="custom_top_date_sc">
+                <div class="custom_top_date_nav_link">
+                    <a [routerLink]="['/customers/create']">Add New Customer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- <div class="container-fluid">
+    <div class="custom_filter_search">
+        <div class="custom_filter_nav">
+            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
+        </div>
+        <div class="custom_search_nav">
+            <input type="text" name="filter_search" id="filter_search" placeholder="Quick Search...">
+            <button type="button" class="btn_search_submit">
+                <img [src]="searchBtn" alt="">
+            </button>
+        </div>
+    </div>
+</div> -->
+
+<div class="container-fluid">
+    <div class="custom_listing_container">
+        <div class="custom_tab_view_tables p-pb-6">
+            <p-tabView>
+                <p-tabPanel header="All Customers" [selected]="true">
+                    <div class="custom_table custom_customer_table p-pb-6">
+                        <p-table #dt1 [value]="customerList" [scrollable]="true" [rows]="100" scrollHeight="flex" [paginator]="true" [rows]="10" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
+                            [globalFilterFields]="['first_name']">
+
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>ID</th>
+                                    <th pSortableColumn="first_name" class="custom_fname_column">First Name
+                                        <p-sortIcon field="first_name"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="last_name" class="custom_lname_column">Last Name
+                                        <p-sortIcon field="last_name"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="email" class="custom_email_column">Email
+                                        <p-sortIcon field="email"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="street_address2" class="custom_addr_column">Address
+                                        <p-sortIcon field="street_address2"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="phone_number" class="custom_phone_column">Phone Number
+                                        <p-sortIcon field="phone_number"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="created_at" class="custom_date_column">Created Date
+                                        <p-sortIcon field="created_at"></p-sortIcon>
+                                    </th>
+                                    <th class="custom_status_column" pSortableColumn="status">Status
+                                        <p-sortIcon field="status.name"></p-sortIcon>
+                                    </th>
+                                    <th class="custom_action_column">Action</th>
+                                </tr>
+                            </ng-template>
+
+                            <ng-template pTemplate="body" let-customer let-i="rowIndex">
+                                <tr>
+                                    <td>
+                                        {{i + 1}}
+                                    </td>
+                                    <td class="custom_fname_column">
+                                        <span>{{customer.first_name}}</span>
+                                    </td>
+                                    <td class="custom_lname_column">
+                                        <span>{{customer.last_name}}</span>
+                                    </td>
+                                    <td class="custom_email_column">
+                                        <span>{{customer.email}}</span>
+                                    </td>
+                                    <td class="custom_addr_column">
+                                        <span class="custom_address_group">
+                                        <span *ngIf="customer.street_address2">{{customer.street_address2}},</span>
+                                        <span *ngIf="customer.city">{{customer.city}}, </span>
+                                        <span *ngIf="customer.country">{{customer.country}} </span>
+                                        </span>
+                                    </td>
+                                    <td class="custom_phone_column">
+                                        <span>{{customer.phone_number ? customer.phone_number.international_number : ''}}</span>
+                                    </td>
+                                    <td class="custom_date_column">
+                                        <span>{{customer.created_at | date}}</span>
+                                    </td>
+                                    <td>
+                                        <p-dropdown [options]="customerStatus" [(ngModel)]="customer.status" optionLabel="display_name" [ngClass]="{
+                                            'status-pending': customer.status && customer.status.name === 'pending', 
+                                            'status-approved': customer.status && customer.status.name === 'approved',
+                                            'status-declined': customer.status && customer.status.name === 'declined'}" (onChange)="statusChangeEvent(customer)">
+                                        </p-dropdown>
+                                    </td>
+                                    <td class="custom_action_column action-data-tab">
+                                        <a class="pi pi-pencil" (click)="editCustomer(customer)"></a>
+                                        <a class="pi pi-trash" (click)="deleteCustomer(customer._id)"></a>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Approved">
+                    <div class="custom_table custom_customer_table p-pb-6">
+                        <p-table #dt1 [value]="customerList" [scrollable]="true" [rows]="100" scrollHeight="flex" [paginator]="true" [rows]="10" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
+                            [globalFilterFields]="['first_name']">
+
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>ID</th>
+                                    <th pSortableColumn="first_name" class="custom_fname_column">First Name
+                                        <p-sortIcon field="first_name"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="last_name" class="custom_lname_column">Last Name
+                                        <p-sortIcon field="last_name"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="email" class="custom_email_column">Email
+                                        <p-sortIcon field="email"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="street_address2" class="custom_addr_column">Address
+                                        <p-sortIcon field="street_address2"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="phone_number" class="custom_phone_column">Phone Number
+                                        <p-sortIcon field="phone_number"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="created_at" class="custom_date_column">Created Date
+                                        <p-sortIcon field="created_at"></p-sortIcon>
+                                    </th>
+                                    <th class="custom_action_column">Action</th>
+                                </tr>
+                            </ng-template>
+
+                            <ng-template pTemplate="body" let-customer let-i="rowIndex">
+                                <tr>
+                                    <td>
+                                        {{i + 1}}
+                                    </td>
+                                    <td class="custom_fname_column">
+                                        <span>{{customer.first_name}}</span>
+                                    </td>
+                                    <td class="custom_lname_column">
+                                        <span>{{customer.last_name}}</span>
+                                    </td>
+                                    <td class="custom_email_column">
+                                        <span>{{customer.email}}</span>
+                                    </td>
+                                    <td class="custom_addr_column">
+                                        <span class="custom_address_group">
+                                        <span *ngIf="customer.street_address2">{{customer.street_address2}},</span>
+                                        <span *ngIf="customer.city">{{customer.city}}, </span>
+                                        <span *ngIf="customer.country">{{customer.country}} </span>
+                                        </span>
+                                    </td>
+                                    <td class="custom_phone_column">
+                                        <span>{{customer.phone_number ? customer.phone_number.international_number : ''}}</span>
+                                    </td>
+                                    <td class="custom_date_column">
+                                        <span>{{customer.created_at | date}}</span>
+                                    </td>
+                                    <td class="custom_action_column action-data-tab">
+                                        <a class="pi pi-pencil" (click)="editCustomer(customer)"></a>
+                                        <a class="pi pi-trash" (click)="deleteCustomer(customer._id)"></a>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Pending">
+                    <div class="custom_table custom_customer_table p-pb-6">
+                        <p-table #dt1 [value]="customerList" [scrollable]="true" [rows]="100" scrollHeight="flex" [paginator]="true" [rows]="10" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
+                            [globalFilterFields]="['first_name']">
+
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>ID</th>
+                                    <th pSortableColumn="first_name" class="custom_fname_column">First Name
+                                        <p-sortIcon field="first_name"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="last_name" class="custom_lname_column">Last Name
+                                        <p-sortIcon field="last_name"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="email" class="custom_email_column">Email
+                                        <p-sortIcon field="email"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="street_address2" class="custom_addr_column">Address
+                                        <p-sortIcon field="street_address2"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="phone_number" class="custom_phone_column">Phone Number
+                                        <p-sortIcon field="phone_number"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="created_at" class="custom_date_column">Created Date
+                                        <p-sortIcon field="created_at"></p-sortIcon>
+                                    </th>
+                                    <th class="custom_action_column">Action</th>
+                                </tr>
+                            </ng-template>
+
+                            <ng-template pTemplate="body" let-customer let-i="rowIndex">
+                                <tr>
+                                    <td>
+                                        {{i + 1}}
+                                    </td>
+                                    <td class="custom_fname_column">
+                                        <span>{{customer.first_name}}</span>
+                                    </td>
+                                    <td class="custom_lname_column">
+                                        <span>{{customer.last_name}}</span>
+                                    </td>
+                                    <td class="custom_email_column">
+                                        <span>{{customer.email}}</span>
+                                    </td>
+                                    <td class="custom_addr_column">
+                                        <span class="custom_address_group">
+                                        <span *ngIf="customer.street_address2">{{customer.street_address2}},</span>
+                                        <span *ngIf="customer.city">{{customer.city}}, </span>
+                                        <span *ngIf="customer.country">{{customer.country}} </span>
+                                        </span>
+                                    </td>
+                                    <td class="custom_phone_column">
+                                        <span>{{customer.phone_number ? customer.phone_number.international_number : ''}}</span>
+                                    </td>
+                                    <td class="custom_date_column">
+                                        <span>{{customer.created_at | date}}</span>
+                                    </td>
+                                    <td class="custom_action_column action-data-tab">
+                                        <a class="pi pi-pencil" (click)="editCustomer(customer)"></a>
+                                        <a class="pi pi-trash" (click)="deleteCustomer(customer._id)"></a>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Declined">
+                    <div class="custom_table custom_customer_table p-pb-6">
+                        <p-table #dt1 [value]="customerList" [scrollable]="true" [rows]="100" scrollHeight="flex" [paginator]="true" [rows]="10" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
+                            [globalFilterFields]="['first_name']">
+
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>ID</th>
+                                    <th pSortableColumn="first_name" class="custom_fname_column">First Name
+                                        <p-sortIcon field="first_name"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="last_name" class="custom_lname_column">Last Name
+                                        <p-sortIcon field="last_name"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="email" class="custom_email_column">Email
+                                        <p-sortIcon field="email"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="street_address2" class="custom_addr_column">Address
+                                        <p-sortIcon field="street_address2"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="phone_number" class="custom_phone_column">Phone Number
+                                        <p-sortIcon field="phone_number"></p-sortIcon>
+                                    </th>
+                                    <th pSortableColumn="created_at" class="custom_date_column">Created Date
+                                        <p-sortIcon field="created_at"></p-sortIcon>
+                                    </th>
+                                    <th class="custom_action_column">Action</th>
+                                </tr>
+                            </ng-template>
+
+                            <ng-template pTemplate="body" let-customer let-i="rowIndex">
+                                <tr>
+                                    <td>
+                                        {{i + 1}}
+                                    </td>
+                                    <td class="custom_fname_column">
+                                        <span>{{customer.first_name}}</span>
+                                    </td>
+                                    <td class="custom_lname_column">
+                                        <span>{{customer.last_name}}</span>
+                                    </td>
+                                    <td class="custom_email_column">
+                                        <span>{{customer.email}}</span>
+                                    </td>
+                                    <td class="custom_addr_column">
+                                        <span class="custom_address_group">
+                                        <span *ngIf="customer.street_address2">{{customer.street_address2}},</span>
+                                        <span *ngIf="customer.city">{{customer.city}}, </span>
+                                        <span *ngIf="customer.country">{{customer.country}} </span>
+                                        </span>
+                                    </td>
+                                    <td class="custom_phone_column">
+                                        <span>{{customer.phone_number ? customer.phone_number.international_number : ''}}</span>
+                                    </td>
+                                    <td class="custom_date_column">
+                                        <span>{{customer.created_at | date}}</span>
+                                    </td>
+                                    <td class="custom_action_column action-data-tab">
+                                        <a class="pi pi-pencil" (click)="editCustomer(customer)"></a>
+                                        <a class="pi pi-trash" (click)="deleteCustomer(customer._id)"></a>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<ng-container *ngTemplateOutlet="treeThread; context: { $implicit: options }"></ng-container>
+<ng-template #treeThread let-childNodes>
+    <ul>
+        <li *ngFor="let node of childNodes; let i=index">
+            <p-checkbox name="item" binary="true" id="node{{i}}" [ngModel]="node['selected']" [value]="node" (onChange)="onValueChange($event, node)"></p-checkbox>
+            {{node.label}}
+            <ng-container *ngIf="node.items">
+                <ng-container *ngTemplateOutlet="treeThread; context: { $implicit: node.items }"></ng-container>
+            </ng-container>
+        </li>
+    </ul>
+</ng-template>

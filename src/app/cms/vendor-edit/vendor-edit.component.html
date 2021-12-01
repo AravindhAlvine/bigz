@@ -1,0 +1,56 @@
+<p-confirmPopup></p-confirmPopup>
+<div class="custom_page_header">
+    <h3>Manage Vendor Edit</h3>
+</div>
+<div class="container-fluid">
+    <div class="custom_create_new_form">
+        <form #form="ngForm" class="form-border-orange">
+            <p-card styleClass="p-card-form p-mb-3">
+                <div class="form-group">
+                    <label for="">Vendor Title</label>
+                    <input type="text" id="vendor_title" name="vendor_title" value="Top Hairstylist" [(ngModel)]="blockDetails.title" required pInputText/>
+                </div>
+                <!-- <div class="form-group">
+                    <label for="">Number of Vendor to Show</label>
+                    <input type="text" id="no_of_vendor" name="no_of_vendor" value="4" required pInputText/>
+                </div> -->
+            </p-card>
+            <p-card styleClass="p-card-form p-mb-3" *ngFor="let vendorItem of blockDetails.items; let i = index">
+                <ng-container>
+                    <a class="pi pi-trash icon-tr" (click)="deleteBlockItem($event, vendorItem, i)"></a>
+                    <div class="form-group">
+                        <h5>Vendor {{i+1}}</h5>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Name</label>
+                        <p-dropdown styleClass="custom_dropdown_list" [disabled]="vendorItem.is_disabled" name="vendor_list_{{i+1}}" (onChange)="onVendorChangeEvent($event, i)" [options]="vendorStoreName" [(ngModel)]="vendorItem._id" optionValue="_id" placeholder="Choose Vendor"
+                            optionLabel="salon_name" filter="true" #hairstylist="ngModel" required></p-dropdown>
+                        <!-- <input type="text" [(ngModel)]="vendorItem['name']" id="vendor_name_{{i+1}}" name="vendor_name_{{i+1}}" required pInputText/> -->
+                    </div>
+                    <div class="form-group" *ngIf="vendorItem.logo && vendorItem.logo.url !== null">
+                        <label class="col-form-label">Logo</label>
+                        <img [src]="vendorItem.logo.url" alt="No Vendor Logo" />
+                    </div>
+                    <!-- <div class="form-group">
+                        <label class=" col-form-label">Vendor Name {{i+1}} Icon</label>
+                        <p-fileUpload name="vendor_img[]" chooseLabel="Upload" [showUploadButton]="false" accept="image/*" maxFileSize="1000000">
+                        </p-fileUpload>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="">Link</label>
+                        <input type="text" [(ngModel)]="vendorItem.slug" id="vendor_name_{{i+1}}_link" name="vendor_name_{{i+1}}_link" [disabled]="true" pInputText/>
+                    </div>
+
+                </ng-container>
+
+            </p-card>
+            <p-card styleClass="p-card-form p-mb-3">
+                <div class="form-group p-d-flex p-jc-between">
+                    <!-- <a [routerLink]="['/cms/home']" class="custom_back_btn">Back</a> -->
+                    <a (click)="addNewItemToVendors()" class="custom_back_btn">Add More Vendor</a>
+                    <p-button label="APPLY" class="custom_new_btn" (click)="saveVendors()"></p-button>
+                </div>
+            </p-card>
+        </form>
+    </div>
+</div>

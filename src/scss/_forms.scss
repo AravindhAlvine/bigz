@@ -1,0 +1,259 @@
+.form-control {
+    height: 50px;
+}
+
+.p-inputtext {
+    @include border-Radius(null, null, null, null, 8px, $equalSize: true);
+    // border-color: $textboxBorderColorGrey;    
+    &:enabled {
+        &:focus {
+            box-shadow: none;
+            border-color: $textboxBorderColorGrey;
+        }
+        &:hover {
+            border-color: $textboxBorderColorGrey;
+        }
+    }
+}
+
+.p-checkbox {
+    .p-checkbox-box {
+        @include border-Radius(8px, 8px, 8px, 8px, 0, $equalSize: true);
+        border-width: 1px;
+        &.p-highlight {
+            background-color: transparent;
+            border-color: $textboxBorderColorGrey;
+            &:hover {
+                background-color: transparent;
+            }
+        }
+        .p-checkbox-icon {
+            color: #333;
+        }
+    }
+    &:not(.p-checkbox-disabled) {
+        .p-checkbox-box {
+            &.p-highlight {
+                background-color: transparent;
+                border-color: $textboxBorderColorGrey;
+                color: $textboxBorderColorGrey;
+                &:hover {
+                    background-color: transparent;
+                    border-color: $textboxBorderColorGrey;
+                }
+            }
+            &:hover {
+                border-color: $textboxBorderColorGrey;
+            }
+        }
+        .p-checkbox-box {
+            &.p-focus {
+                box-shadow: none;
+                border-color: $textboxBorderColorGrey;
+            }
+        }
+    }
+}
+
+.p-radiobutton {
+    &.p-radiobutton-checked {}
+    .p-radiobutton-box {
+        border: 1px solid $textboxBorderColorGrey;
+        &:not(.p-disabled) {
+            &:not(.p-highlight) {
+                &:hover {
+                    background-color: $colorwhite;
+                    border: 1px solid $textboxBorderColorGrey;
+                }
+            }
+        }
+        &.p-highlight {
+            background-color: $colorwhite;
+            border: 1px solid $textboxBorderColorGrey;
+            &:not(.p-disabled) {
+                &:hover {
+                    background-color: $colorwhite;
+                    border: 1px solid $textboxBorderColorGrey;
+                }
+                &.p-focus {
+                    border-color: $textboxBorderColorGrey;
+                    box-shadow: none;
+                }
+            }
+            .p-radiobutton-icon {
+                border: 1px solid $colorwhite;
+                background-color: $textboxBorderColorGrey;
+            }
+        }
+    }
+}
+
+.form-border-orange {
+    .p-inputtext {
+        height: 50px;
+        align-items: center;
+        display: flex;
+        /*  @include border-Radius(null, null, null, null, 0, $equalSize: true);
+        border-color: $primaryButtonBgColor; */
+        &:enabled {
+            &:focus {
+                border-color: $primaryButtonBgColor;
+            }
+            &:hover {
+                border-color: $primaryButtonBgColor;
+            }
+        }
+    }
+    .p-checkbox {
+        .p-checkbox-box {
+            border-color: $primaryButtonBgColor;
+            &.p-highlight {
+                border-color: $primaryButtonBgColor;
+                &:hover {}
+            }
+            .p-checkbox-icon {
+                color: $primaryButtonBgColor;
+            }
+        }
+        &:not(.p-checkbox-disabled) {
+            .p-checkbox-box {
+                &.p-highlight {
+                    border-color: $primaryButtonBgColor;
+                    color: $primaryButtonBgColor;
+                    &:hover {
+                        border-color: $primaryButtonBgColor;
+                    }
+                }
+                &:hover {
+                    border-color: $primaryButtonBgColor;
+                }
+            }
+            .p-checkbox-box {
+                &.p-focus {
+                    border-color: $primaryButtonBgColor;
+                }
+            }
+        }
+    }
+    .p-radiobutton-box {
+        border: 1px solid $primaryButtonBgColor;
+        &:not(.p-disabled) {
+            &:not(.p-highlight) {
+                &:hover {
+                    background-color: $colorwhite;
+                    border: 1px solid $primaryButtonBgColor;
+                }
+            }
+        }
+        &.p-highlight {
+            background-color: $colorwhite;
+            border: 1px solid $primaryButtonBgColor;
+            &:not(.p-disabled) {
+                &:hover {
+                    background-color: $colorwhite;
+                    border: 1px solid $primaryButtonBgColor;
+                }
+                &.p-focus {
+                    border-color: $primaryButtonBgColor;
+                    box-shadow: none;
+                }
+            }
+            .p-radiobutton-icon {
+                border: 1px solid $primaryButtonBgColor;
+                background-color: $primaryButtonBgColor;
+            }
+        }
+    }
+}
+
+.p-field>label {
+    font-size: 15px;
+    color: #404D61;
+    font-family: 'DMSans-Medium';
+    font-weight: normal
+}
+
+@mixin p-dropdown-status($font-color, $background-color, $border-color) {
+    @debug $font-color;
+    .p-dropdown-label {
+        padding-right: 1rem;
+        color: $font-color;
+    }
+    .p-dropdown {
+        border: 1px solid $border-color;
+        background-color: $background-color;
+    }
+}
+
+.p-dropdown .p-component {
+    border-radius: 10px;
+    border-color: unset;
+    color: #bdbdbd;
+}
+
+.p-dropdown .p-dropdown-trigger-icon {
+    font-size: 11px;
+    background-color: #ededed;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.p-inputtext {
+    padding: 0.3rem 0.5rem;
+}
+
+.status-enable {
+    @include p-dropdown-status(#41b8a3, #ecf8f6, #fff);
+}
+
+.status-disable {
+    @include p-dropdown-status(#fa5f7e, #fef1f4, #fff);
+}
+
+.status-approved {
+    @include p-dropdown-status(#41b8a3, #ecf8f6, #fff);
+}
+
+.status-pending {
+    @include p-dropdown-status(#9b9b9b, #fff, #ededed);
+}
+
+.status-declined {
+    @include p-dropdown-status(#fa5f7e, #fef1f4, #fff);
+}
+
+.status-in-progress {
+    @include p-dropdown-status(#faa54a, #fff8f1, #fff);
+}
+
+.status-completed {
+    @include p-dropdown-status(#41b8a3, #ecf8f6, #fff);
+}
+
+.status-canceled {
+    @include p-dropdown-status(#fa5f7e, #fef1f4, #fff);
+}
+
+.status-active {
+    @include p-dropdown-status(#41b8a3, #ecf8f6, #fff);
+}
+
+.status-inactive {
+    @include p-dropdown-status(#fa5f7e, #fef1f4, #fff);
+}
+
+.status-draft {
+    @include p-dropdown-status(#faa54a, #fff8f1, #fff);
+}
+
+.status-deleted {
+    @include p-dropdown-status(#fa5f7e, #fef1f4, #fff);
+}
+
+.status-published {
+    @include p-dropdown-status(#41b8a3, #ecf8f6, #fff);
+}
+
+.status-deactive {
+    @include p-dropdown-status(#fa5f7e, #fef1f4, #fff);
+}

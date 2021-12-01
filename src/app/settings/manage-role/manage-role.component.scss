@@ -1,0 +1,70 @@
+//  .custom_table {
+//      tbody {
+//          tr {
+//              height: 72px;
+//              display: flex;
+//              align-items: center;
+//          }
+//      }
+//      tr {
+//          th,
+//          td {
+//              display: inline-block;
+//          }
+//          th.role_name_col,
+//          td.role_name_col {
+//              min-width: 180px;
+//              max-width: 180px;
+//              width: 180px;
+//          }
+//          th.role_resource_col,
+//          td.role_resource_col {
+//              min-width: 220px;
+//              max-width: 220px;
+//              width: 220px;
+//          }
+//          th.role_users_col,
+//          td.role_users_col {
+//              min-width: 200px;
+//              max-width: 200px;
+//              word-break: break-all;
+//              width: 200px;
+//          }
+//          th.role_status_col,
+//          td.role_status_col {
+//              min-width: 130px;
+//              max-width: 130px;
+//              width: 130px;
+//          }
+//          th.role_action_col,
+//          td.role_action_col {
+//              min-width: 160px;
+//              max-width: 160px;
+//              width: 160px;
+//          }
+//          td {
+//              img {
+//                  width: 60px;
+//                  height: 60px;
+//                  object-fit: cover;
+//                  object-position: center;
+//                  border-radius: 8px;
+//              }
+//              ul {
+//                  margin: 0;
+//                  padding: 0;
+//                  list-style-type: none;
+//                  display: -webkit-box;
+//                  -webkit-box-orient: vertical;
+//                  -webkit-line-clamp: 1;
+//                  overflow: hidden;
+//              }
+//              span {
+//                  display: -webkit-box;
+//                  -webkit-box-orient: vertical;
+//                  -webkit-line-clamp: 1;
+//                  overflow: hidden;
+//              }
+//          }
+//      }
+//  }

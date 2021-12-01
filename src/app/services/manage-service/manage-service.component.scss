@@ -1,0 +1,64 @@
+// .custom_table {
+//     tbody {
+//         tr {
+//             height: 72px;
+//             display: flex;
+//             align-items: center;
+//         }
+//     }
+//     tr {
+//         th,
+//         td {
+//             display: inline-block;
+//         }
+//         th.data_service_title,
+//         td.data_service_title {
+//             min-width: 140px;
+//             max-width: 140px;
+//             width: 140px;
+//         }
+//         th.data_service_desc,
+//         td.data_service_desc {
+//             min-width: 420px;
+//             max-width: 420px;
+//             width: 420px;
+//         }
+//         th.data_service_provide,
+//         td.data_service_provide {
+//             min-width: 200px;
+//             max-width: 200px;
+//             word-break: break-all;
+//             width: 200px;
+//         }
+//         th.data_service_action,
+//         td.data_service_action {
+//             min-width: 160px;
+//             max-width: 160px;
+//             width: 160px;
+//         }
+//         td {
+//             img {
+//                 width: 60px;
+//                 height: 60px;
+//                 object-fit: cover;
+//                 object-position: center;
+//                 border-radius: 8px;
+//             }
+//             ul {
+//                 margin: 0;
+//                 padding: 0;
+//                 list-style-type: none;
+//                 display: -webkit-box;
+//                 -webkit-box-orient: vertical;
+//                 -webkit-line-clamp: 1;
+//                 overflow: hidden;
+//             }
+//             span {
+//                 display: -webkit-box;
+//                 -webkit-box-orient: vertical;
+//                 -webkit-line-clamp: 1;
+//                 overflow: hidden;
+//             }
+//         }
+//     }
+// }

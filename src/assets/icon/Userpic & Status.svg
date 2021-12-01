@@ -1,0 +1,9 @@
+<svg id="Userpic_Status" data-name="Userpic &amp; Status" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="Userpic" fill="none" stroke="rgba(78,115,248,0.4)" stroke-width="2" stroke-dasharray="4 4">
+    <rect width="40" height="40" rx="20" stroke="none"/>
+    <rect x="1" y="1" width="38" height="38" rx="19" fill="none"/>
+  </g>
+  <g id="_Fill_plus" data-name=" Fill / plus" transform="translate(8 8)">
+    <path id="Verctor" d="M15,7H9V1A1,1,0,0,0,7,1V7H1A1,1,0,0,0,1,9H7v6a1,1,0,0,0,2,0V9h6a1,1,0,0,0,0-2Z" transform="translate(4 4)" fill="#4e73f8"/>
+  </g>
+</svg>

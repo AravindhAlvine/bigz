@@ -1,0 +1,143 @@
+$para_size : 20px;
+$para_size_2 : 17px;
+$label_size : 18px;
+$label_size_2 : 15px;
+$Screen_sizing : 1440px;
+
+// @media (max-width: $Screen_sizing){
+//     $label_size_2 : 16px;
+// }
+
+#p_login_cred {
+    .login_bg_gradient {
+    //     background-color: #3D7DFC; /* For browsers that do not support gradients */
+    //     // background: linear-gradient(to right, #3D7DFC, #4E73F9, #464BA8);
+    //     background-color: #3D7DFC;
+    // background-image:  url('../../../assets/icon/logo_icon.svg'), linear-gradient(to right, #3D7DFC, #4E73F9, #464BA8);
+    //     background-position: 0% 50%;
+    //     background-size: 65% 18%;
+    // url('../../../assets/icon/login/background.png'),
+        background-image:url('../../../assets/icon/login/black-logo.png'), url('../../../assets/icon/login/background.png');
+        background-size: auto, 100% 100%;
+        background-repeat: no-repeat;
+        background-position: 15% 50%;
+        width: auto;
+        overflow: hidden;
+        position: relative;
+        /*below show how it works*/
+        &:after {
+            content: "";
+            width: 200%;
+            height: 100%;
+            padding-top: 71rem;
+            border-radius: 100%;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            left: 440px;
+            transform: translateY(-50%);
+        }
+    }
+    .login_form{
+        background: #fff;
+        .p_login_img{
+            img{
+                max-width: 258px;
+                height: 104px;
+                object-fit: fill;
+                width: auto;
+                margin: 33px 0px;
+            }
+        }
+        .p_login_form{
+            h2{
+                font-family: 'DMSans-Bold';
+                font-size: 28px;
+            }
+            P{
+                font-family: 'DMSans-Regular';
+                font-size: $para_size;
+                font-weight: normal;
+                margin-bottom: 8px;
+            }
+            .p_form{
+                .p-fluid{
+                    .p-field{
+                        .p_anchor{
+                            color: #121212;
+                            text-decoration: none;
+                            font-size: $label_size;
+                        }
+                        label{
+                            font-family: 'DMSans-Regular';
+                            font-size: 16px;
+                            font-weight: normal;
+                            color: #2F2F2F;
+                        }
+                        .p-input-icon-right{
+                            .p-inputtext{
+                                padding: 8px 18px;
+                            }
+                            .p-inputtext::-webkit-input-placeholder { /* Edge */
+                                color: #7E7E7E;
+                                font-family: 'DMSans-Regular';
+                                font-size: 14px;
+                              }
+                            .p-inputtext:-ms-input-placeholder { /* Internet Explorer */
+                                color: #7E7E7E;
+                                font-family: 'DMSans-Regular';
+                                font-size: 14px;
+                              }
+                            .p-inputtext::placeholder {
+                                color: #7E7E7E;
+                                font-family: 'DMSans-Regular';
+                                font-size: 14px;
+                              }
+
+                        }
+                        button{
+                            height: 40px;
+                            width: 155px;
+                            border-radius: 8px;
+                            background: #4E73F9;
+                        }
+                    }
+                }
+            }
+
+            .p_form{
+                .p-fluid{
+                    .p-field.float-left{
+                        margin-bottom: 28px;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.ctd_filter_dates {
+    .p-inputtext {
+        border: 1px solid #E3E3E3;
+    }
+}
+
+@media (max-width: $Screen_sizing) {
+    #p_login_cred .login_form .p_login_form h2{
+        font-size: 24px;
+    }
+
+    #p_login_cred .login_form .p_login_form P{
+        font-size: $para_size_2;
+    }
+
+    #p_login_cred .login_form .p_login_form .p_form .p-fluid .p-field label{
+        font-size: $label_size_2;
+    }
+
+    #p_login_cred .login_form .p_login_form .p_form .p-fluid .p-field .p_anchor{
+        font-size: $label_size_2;
+    }
+
+}
