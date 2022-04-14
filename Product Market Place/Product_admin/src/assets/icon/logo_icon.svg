@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="356" height="147" viewBox="0 0 356 147">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.054" y1="0.314" x2="0.954" y2="0.743" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#a2c4fd"/>
+      <stop offset="1" stop-color="#cef"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_5" data-name="Group 5" transform="translate(-61 -311)">
+    <text id="ULTRA" transform="translate(186 385)" fill="#fff" font-size="72" font-family="Nunito-Bold, Nunito" font-weight="700" opacity="0.588"><tspan x="0" y="0">ULTRA</tspan></text>
+    <text id="MARKETPLACE" transform="translate(186 431)" fill="#afd7f8" font-size="41" font-family="Nunito-Bold, Nunito" font-weight="700" opacity="0.799"><tspan x="0" y="0">Marketplace</tspan></text>
+    <path id="Path_2" data-name="Path 2" d="M59.785,0A59.785,59.785,0,1,1,0,59.785,59.785,59.785,0,0,1,59.785,0Z" transform="translate(61 321.87)" fill="url(#linear-gradient)"/>
+    <text id="U" transform="translate(81 420)" fill="#5496f6" font-size="108" font-family="Nunito-Bold, Nunito" font-weight="700"><tspan x="0" y="0">U</tspan></text>
+  </g>
+</svg>

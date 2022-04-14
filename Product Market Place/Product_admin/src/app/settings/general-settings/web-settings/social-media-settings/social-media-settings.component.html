@@ -1,0 +1,25 @@
+<div class="custom_card_body">
+    <div class="form-group">
+        <label for="facebook">Facebook</label>
+        <input type="text" [(ngModel)]="socialMediaDetails['facebook']" class="form-control" id="facebook" name="facebook" required>
+    </div>
+    <div class="form-group">
+        <label for="twitter">Twitter</label>
+        <input type="text" [(ngModel)]="socialMediaDetails['twitter']" class="form-control" id="twitter" name="twitter" required>
+    </div>
+    <div class="form-group">
+        <label for="instagram">Instagram</label>
+        <input type="text" [(ngModel)]="socialMediaDetails['instagram']" class="form-control" id="instagram" name="instagram" required>
+    </div>
+    <div class="form-group">
+        <label for="pinterest">Pinterest</label>
+        <input type="text" [(ngModel)]="socialMediaDetails['pinterest']" class="form-control" id="pinterest" name="pinterest" required>
+    </div>
+    <div class="form-group">
+        <label for="youtube">YouTube</label>
+        <input type="text" [(ngModel)]="socialMediaDetails['youtube']" class="form-control" id="youtube" name="youtube" required>
+    </div>
+    <div class="customer_save mb-4 mt-4 text-right">
+        <p-button type="submit" label="Save" class="custom_new_btn" (click)="saveSeoDetails()"></p-button>
+    </div>
+</div>

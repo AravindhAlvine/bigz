@@ -1,0 +1,54 @@
+<div class="custom_page_header">
+    <h3>Payment Gateway Settings</h3>
+</div>
+<div class="container-fluid">
+    <div class="create_top_status_container">
+        <div class="create_top_status">
+            <div>
+                <img src="/assets/images/stripe_logo.png" class="stripe-logo">
+            </div>
+            <div class="form-group">
+                <label for="store_name">Choose Mode</label>
+                <p-dropdown styleClass="custom_bookingdropdown_list" [options]="paymentMode" [(ngModel)]="selectedMode" name="service_provider" optionLabel="name"></p-dropdown>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="custom_create_new_form">
+        <p-card styleClass="p-card-form p-mb-3">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card mb-4">
+                        <div class="custom_card_body">
+                            <div class="form-group">
+                                <label for="store_name">Status</label>
+                                <p-dropdown [disabled]="true" styleClass="custom_bookingdropdown_list" [options]="gatewayStatus" name="gateway_status" [(ngModel)]="deafultStatus" optionLabel="display_name"></p-dropdown>
+                            </div>
+                            <div class="form-group">
+                                <label for="store_name">Gateway Name</label>
+                                <input type="text" [(ngModel)]="gatewayDetails['name']" class="form-control" id="store_name" name="store_name" placeholder="Enter store name" required>
+                            </div>
+                            <ng-container *ngFor="let apikey of gatewayDetails['api_keys']; let i = index">
+                                <ng-container *ngIf="apikey['mode'] == selectedMode.name">
+                                    <div class="form-group">
+                                        <label for="store_name">Public Key</label>
+                                        <input type="text" [(ngModel)]="gatewayDetails['api_keys'][i]['public_key']" class="form-control" id="store_name" name="store_name" placeholder="Enter store name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="store_name">Secret Key</label>
+                                        <input type="text" [(ngModel)]="gatewayDetails['api_keys'][i]['secret_key']" class="form-control" id="store_name" name="store_name" placeholder="Enter store name" required>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+                            <div class="customer_save mb-4 mt-4 text-right">
+                                <p-button type="submit" label="Save" class="custom_new_btn" (click)="savePaymentGatewayDetails()"></p-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </p-card>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="custom_page_header">
+    <h3>Editing Blog Comment</h3>
+</div>
+
+<div class="custom_create_form">
+    <form #form="ngForm" class="form-border-orange">
+        <div class="create_top_status_container">
+
+            <div class="create_top_status">
+                <div class="create_top_status_left">
+                    <label for="vendor_status">Approval Status :</label>
+                </div>
+
+                <div class="create_top_status_right">
+                    <div class="form-check form-check-inline" id="vendor_status"
+                        *ngFor="let item of ApprovedStatus; let i = index">
+                        <input class="form-check-input" type="radio" name="{{i}}" id="{{i}}" value="approved"
+                            [checked]="item.checked" />
+                        <label class="form-check-label" for="inlineRadio1">{{item.name}}</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div *ngFor="let category of categoryData; let i = index">
+
+            <p-card styleClass="p-card-form p-mb-3">
+
+                <!-- First Step -->
+                <div id="showCategoryDetails{{i}}">
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name{{i}}">Author Name</label>
+                            <input [(ngModel)]="categoryData[i]['name']" type="text" id="name{{i}}" name="name{{i}}"
+                                placeholder="Eg. Hair Style" (blur)="createSlug(i)" #categoryName="ngModel" required
+                                pInputText />
+                            <div *ngIf="form.submitted && categoryName?.invalid && categoryName?.errors?.required"
+                                class="p-error">
+                                Category Name is required
+                            </div>
+                        </div>
+                        <div class="p-field">
+                            <label for="slug">Author Email</label>
+                            <input [(ngModel)]="categoryData[i]['slug']" type="email" id="slug{{i}}" name="slug{{i}}"
+                                placeholder="Eg. about-us" #categorySlug="ngModel" required pInputText>
+                            <div *ngIf="form.submitted && categorySlug.invalid && categorySlug.errors.required"
+                                class="p-error">
+                                Url key is required
+                            </div>
+                        </div>
+
+                        <div class="p-field">
+                            <span>
+                                <label>In response to :</label>
+                            </span>
+                            <span style="color: #4E73F9;">
+                                Brands That Started As A Single Vendor Store But Became An Online Marketplace
+                            </span>
+                        </div>
+
+                        <div class="p-field">
+                            <label for="meta_description">Post Comment</label>
+                            <p-editor id="description" [(ngModel)]="categoryData[i]['meta_description']"
+                                name="description" required [style]="{'height':'320px'}"
+                                placeholder="Eg. About the service">
+                            </p-editor>
+                        </div>
+
+                        <div class="p-field">
+                            <label for="slug">Submitted On</label>
+                            <input [(ngModel)]="categoryData[i]['slug']" type="text" id="slug{{i}}" name="slug{{i}}"
+                                placeholder="Eg. about-us" #categorySlug="ngModel" required pInputText>
+                        </div>
+
+                        <div class="p-field text-right">
+                            <button type="submit" class="p-button-primary p-button-primary-3 custom_btn_next"
+                                (click)="showCategoryDescriptionClick(i, form, 0)">PUBLISH</button>
+                        </div>
+                    </div>
+                </div>
+
+            </p-card>
+
+
+        </div>
+
+    </form>
+</div>

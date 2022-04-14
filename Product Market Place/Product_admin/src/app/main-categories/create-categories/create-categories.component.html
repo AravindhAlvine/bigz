@@ -1,0 +1,208 @@
+<div class="custom_page_header">
+    <h3>Add Category</h3>
+</div>
+
+<div class="custom_create_form">
+    <form #form="ngForm" class="form-border-orange">
+
+        <div class="create_top_status_container">
+            <div class="create_top_status">
+                <div class="create_top_status_left">
+                    <label for="vendor_status">Approval Status:</label>
+                </div>
+
+                <div class="create_top_status_right">
+                    <div class="form-check form-check-inline" id="vendor_status"
+                        *ngFor="let item of ApprovedStatus; let i = index">
+                        <input class="form-check-input" type="radio" name="{{i}}" id="{{i}}" value="approved"
+                            [checked]="item.checked" />
+                        <label class="form-check-label" for="inlineRadio1">{{item.name}}</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="create_top_status">
+                <div class="create_top_status_left">
+                    <label for="vendor_status">Status:</label>
+                </div>
+
+                <div class="create_top_status_right">
+                    <div class="form-check form-check-inline" id="vendor_status"
+                        *ngFor="let item of ActiveStatus; let i = index">
+                        <input class="form-check-input" type="radio" name="{{i}}" id="{{i}}" value="approved"
+                            [checked]="item.checked" />
+                        <label class="form-check-label" for="inlineRadio1">{{item.name}}</label>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div *ngFor="let category of categoryData; let i = index">
+            <div class="custom_category_tab">
+                <!-- (click)="showCategoryDetailsClick(i, form,1)" -->
+                <button pButton class="custom_category_tab_btn"
+                    [ngClass]="{'active': SelectedTab == 0}">{{selectedCategoryId ? 'Sub
+                    Product Info' : 'Product Info'}}</button>
+                <!-- (click)="showCategoryDescriptionClick(i, form)" -->
+                <button pButton class="custom_category_tab_btn"
+                    [ngClass]="{'active': SelectedTab == 1}">{{selectedCategoryId ? 'Sub Attribute
+                    Description' : 'Attribute'}}</button>
+                <!-- (click)="showCategoryDescriptionClick(i, form)" -->
+                <button pButton class="custom_category_tab_btn"
+                    [ngClass]="{'active': SelectedTab == 2}">{{selectedCategoryId ? 'Sub Inventory & Pricing' :
+                    'Inventory & Pricing'}}</button>
+
+                <button pButton class="custom_category_tab_btn" [ngClass]="{'active': SelectedTab == 3}">
+                    {{selectedCategoryId ? 'Sub Shipping' : 'Shipping'}}
+                </button>
+                
+                <button pButton class="custom_category_tab_btn" [ngClass]="{'active': SelectedTab == 4}">
+                    {{selectedCategoryId ? 'Sub Marketing' : 'Marketing'}}
+                </button>
+
+                <button pButton class="custom_category_tab_btn" [ngClass]="{'active': SelectedTab == 5}">
+                    {{selectedCategoryId ? 'Sub Media' : 'Media'}}
+                </button>
+
+            </div>
+            <p-card styleClass="p-card-form p-mb-3">
+                <div class="p-fluid" *ngIf="SelectedTab == 0">
+                    <div class="p-field">
+                        <label for="firstname1">Select Parent Category</label>
+                        <p-dropdown [options]="categoryList" [(ngModel)]="selectedCategoryId" name="category"
+                            optionLabel="name" optionValue="_id" placeholder="Select parent category"
+                            #selectCategory="ngModel" [showClear]="true">
+                        </p-dropdown>
+                    </div>
+                </div>
+                <!-- First Step -->
+                <div id="showCategoryDetails{{i}}">
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name{{i}}">Category Name</label>
+                            <input [(ngModel)]="categoryData[i]['name']" type="text" id="name{{i}}" name="name{{i}}"
+                                placeholder="Eg. Hair Style" (blur)="createSlug(i)" #categoryName="ngModel" required
+                                pInputText />
+                            <div *ngIf="form.submitted && categoryName?.invalid && categoryName?.errors?.required"
+                                class="p-error">
+                                Category Name is required
+                            </div>
+                        </div>
+                        <div class="p-field">
+                            <label for="slug">Url Key</label>
+                            <input [(ngModel)]="categoryData[i]['slug']" type="text" id="slug{{i}}" name="slug{{i}}"
+                                placeholder="Eg. about-us" #categorySlug="ngModel" required pInputText>
+                            <div *ngIf="form.submitted && categorySlug.invalid && categorySlug.errors.required"
+                                class="p-error">
+                                Url key is required
+                            </div>
+                        </div>
+                        <div class="p-field">
+                            <label for="email">Meta Title</label>
+                            <input [(ngModel)]="categoryData[i]['meta_title']" type="text" id="meta_title{{i}}"
+                                name="meta_title{{i}}" placeholder="Eg. About Us" pInputText>
+                        </div>
+                        <div class="p-field">
+                            <label for="meta_description">Meta Description</label>
+                            <textarea [(ngModel)]="categoryData[i]['meta_description']" id="meta_description{{i}}"
+                                name="meta_description{{i}}" rows="3" placeholder="Eg. About the Page"
+                                pInputText></textarea>
+                        </div>
+                        <div class="p-field text-right">
+                            <button type="submit" class="p-button-primary p-button-primary-3 custom_btn_next"
+                                (click)="showCategoryDescriptionClick(i, form, 0)">Next</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Second Step -->
+                <div class="display-none" id="showCategoryDescription{{i}}">
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name">Category Description(Top of the Page)</label>
+                            <div>
+                                <p-editor id="category_description_top{{i}}"
+                                    [(ngModel)]="categoryData[i]['description1']" name="category_description_top{{i}}"
+                                    [style]="{'height':'320px'}" placeholder="Eg. About the category">
+                                </p-editor>
+                            </div>
+                        </div>
+                        <div class="p-field">
+                            <label for="name">Category Description(bottom of the Page)</label>
+                            <div>
+                                <p-editor id="category_description_bottom{{i}}"
+                                    [(ngModel)]="categoryData[i]['description2']"
+                                    name="category_description_bottom{{i}}" [style]="{'height':'320px'}"
+                                    placeholder="Eg. About the category">
+                                </p-editor>
+                            </div>
+                        </div>
+                        <div class="p-field custom_prev_next">
+                            <button type="button" class="custom_btn_prev" (click)="goPrevious(i, 0)">Previous</button>
+                            <button type="submit" class="custom_btn_next"
+                                (click)="showCategoryDescriptionClick(i, form, 1)">Next</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Third Step -->
+                <div class="display-none" id="showCategoryImages{{i}}">
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name">Category Banner Image</label>
+                            <div>
+                                <div *ngIf="isEditMode && categoryData[i]['banner']">
+                                    <img [src]="categoryData[i]['banner'].url" alt="" />
+                                </div>
+                                <p-fileUpload name="category_banner[]" (onSelect)="bannerChangeEvent($event)"
+                                    chooseLabel="Upload" [showUploadButton]="false" accept="image/*"
+                                    maxFileSize="1000000">
+                                </p-fileUpload>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-fluid">
+                        <label for="name">Category Icon</label>
+                        <div class="p-field">
+                            <div *ngIf="isEditMode && categoryData[i]['icon']">
+                                <img [src]="categoryData[i]['icon'].url" alt="" />
+                            </div>
+                            <p-fileUpload name="category_icon[]" (onSelect)="iconChangeEvent($event)"
+                                chooseLabel="Upload" [showUploadButton]="false" accept="image/*" maxFileSize="1000000">
+                            </p-fileUpload>
+                        </div>
+                    </div>
+                    <div class="p-fluid">
+                        <div>
+                            <label for="name">Category Profile Image(Min Size 400x200PX)</label>
+                            <div>
+                                <div *ngIf="isEditMode && categoryData[i]['profile']">
+                                    <img [src]="categoryData[i]['profile'].url" alt="" />
+                                </div>
+                                <p-fileUpload #fileUpload name="category_profile[]"
+                                    (onSelect)="profileChangeEvent($event, fileUpload)" chooseLabel="Upload"
+                                    [showUploadButton]="false" accept="image/*" maxFileSize="1000000">
+                                </p-fileUpload>
+                                <div class="p-error" *ngIf="profileImgError">
+                                    Please upload proper image
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-fluid custom_category_save">
+                        <button type="button" class="custom_btn_prev" (click)="goPrevious(i, 1)">Previous</button>
+                        <div class="text-center">
+                            <button *ngIf="!isEditMode" type="submit" class="custom_btn_save"
+                                (click)="saveCategories(form)">Save</button>
+                            <button *ngIf="isEditMode" type="submit" class="custom_btn_update"
+                                (click)="editCategory(form)">Update</button>
+                        </div>
+                    </div>
+                </div>
+
+            </p-card>
+        </div>
+
+    </form>
+</div>

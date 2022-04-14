@@ -1,0 +1,111 @@
+<div class="custom_page_header">
+    <h3>Create Blog Category</h3>
+</div>
+
+<div class="custom_create_form">
+    <form #form="ngForm" class="form-border-orange">
+        <div class="create_top_status_container">
+
+
+            <div class="create_top_status">
+                <div class="create_top_status_left">
+                    <label for="vendor_status">Approval Status:</label>
+                </div>
+
+                <div class="create_top_status_right">
+                    <div class="form-check form-check-inline" id="vendor_status"
+                        *ngFor="let item of ApprovedStatus; let i = index">
+                        <input class="form-check-input" type="radio" name="{{i}}" id="{{i}}" value="approved"
+                            [checked]="item.checked" />
+                        <label class="form-check-label" for="inlineRadio1">{{item.name}}</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div *ngFor="let category of categoryData; let i = index">
+
+            <p-card styleClass="p-card-form p-mb-3">
+                <div class="p-fluid" *ngIf="SelectedTab == 0">
+                    <div class="p-field">
+                        <label for="firstname1">Parent Category *</label>
+                        <p-dropdown [options]="categoryList" [(ngModel)]="selectedCategoryId" name="category"
+                            optionLabel="name" optionValue="_id" placeholder="Select parent category"
+                            #selectCategory="ngModel" [showClear]="true">
+                        </p-dropdown>
+                    </div>
+
+                    <div class="p-field mb-0">
+                        <div class="form-group mb-0">
+                            <span class="query">
+                                <i class="pi pi-question-circle" ></i>
+                            </span>
+                            <span class="query">
+                                <label for="" class="d-inline-block mx-2">Is Featured :</label>
+                                <p-checkbox name="groupname" value="val1" [(ngModel)]="selectedValues"></p-checkbox>
+                            </span>
+ 
+                        </div>
+                    </div>
+
+                </div>
+            </p-card>
+
+            <p-card styleClass="p-card-form p-mb-3">
+                
+                <!-- First Step -->
+                <div id="showCategoryDetails{{i}}">
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name{{i}}">Category Name</label>
+                            <input [(ngModel)]="categoryData[i]['name']" type="text" id="name{{i}}" name="name{{i}}"
+                                placeholder="Eg. Hair Style" (blur)="createSlug(i)" #categoryName="ngModel" required
+                                pInputText />
+                            <div *ngIf="form.submitted && categoryName?.invalid && categoryName?.errors?.required"
+                                class="p-error">
+                                Category Name is required
+                            </div>
+                        </div>
+                        <div class="p-field">
+                            <label for="slug">Category Slug (URL Key) *</label>
+                            <input [(ngModel)]="categoryData[i]['slug']" type="text" id="slug{{i}}" name="slug{{i}}"
+                                placeholder="Eg. about-us" #categorySlug="ngModel" required pInputText>
+                            <div *ngIf="form.submitted && categorySlug.invalid && categorySlug.errors.required"
+                                class="p-error">
+                                Url key is required
+                            </div>
+                        </div>
+                        <div class="p-field">
+                            <label for="email">Meta Title (60 Char) *</label>
+                            <input [(ngModel)]="categoryData[i]['meta_title']" type="text" id="meta_title{{i}}"
+                                name="meta_title{{i}}" placeholder="Eg. About Us" pInputText>
+                        </div>
+                        <div class="p-field">
+                            <label for="meta_description">Meta Description (156 Char) *</label>
+                            <textarea [(ngModel)]="categoryData[i]['meta_description']" id="meta_description{{i}}"
+                                name="meta_description{{i}}" rows="3" placeholder="Eg. About the Page"
+                                pInputText></textarea>
+                        </div>
+
+                        <div class="p-field">
+                            <label for="meta_description">Meta Keyword (156 Char) *</label>
+                            <textarea [(ngModel)]="categoryData[i]['meta_description']" id="meta_description{{i}}"
+                                name="meta_description{{i}}" rows="3" placeholder="Eg. About the Page"
+                                pInputText></textarea>
+                        </div>
+
+                        <div class="p-field text-right">
+                            <button type="submit" class="p-button-primary p-button-primary-3 custom_btn_next"
+                                (click)="showCategoryDescriptionClick(i, form, 0)">Save</button>
+                        </div>
+                    </div>
+                </div>
+               
+              
+
+            </p-card>
+        </div>
+
+    </form>
+</div>

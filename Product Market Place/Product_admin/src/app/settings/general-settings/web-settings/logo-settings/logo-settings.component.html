@@ -1,0 +1,104 @@
+<div class="p-fluid" id="p_logo_setting">
+    <div class="p-field p-pt-0 p-pb-5">
+        <label for="name">Main Store Logo<span class="p_star">*</span></label>
+        <div>
+            <img *ngIf="logos && logos.store_logo" [src]="logos.store_logo.url">
+        </div>
+        <div class="p_upload_section ">
+            <p-fileUpload (onSelect)="logosChangeEvent($event, 'store_logo')" name="store_logo[]" chooseLabel="Upload"
+                [showUploadButton]="false" accept="image/*" maxFileSize="1000000">
+            </p-fileUpload>
+
+            <!-- <div class="image-upload">
+                <label for="file-input">
+                    <img src="../../../../../assets/icon/upload_file.svg" alt="" />
+                    Upload
+                </label>
+                <input id="file-input" type="file" />
+            </div> -->
+        </div>
+    </div>
+    <div class="p-field">
+        <label for="name">Vendor Logo<span class="p_star">*</span></label>
+        <div class="upload_replace p_upload_set">
+            <!-- <img class="img-fluid" *ngIf="logos && logos.vendor_logo"  height="84" [src]="logos.vendor_logo.url"> -->
+
+            <!-- <p-fileUpload (onSelect)="logosChangeEvent($event, 'vendor_logo')" name="vendor_logo[]" chooseLabel="Replace"
+                [showUploadButton]="false" accept="image/*" maxFileSize="1000000">
+            </p-fileUpload> -->
+            <div class="p_flex_direc">
+                <img class="img-fluid" [src]="urlData" alt="" class="p-mb-4" height="84" />
+            </div>
+
+            <div class="image-upload">
+                <label for="file-input">
+                    <img src="../../../../../assets/icon/upload_file.svg" alt="" />
+                    Replace
+                </label>
+                <input id="file-input" type="file" (change)="onSelectFile($event)" />
+            </div>
+
+        </div>
+    </div>
+    <div class="p-field">
+        <label for="name">Admin Panel Logo<span class="p_star">*</span></label>
+        <div class="p_upload_set">
+            <img *ngIf="logos && logos.admin_logo" [src]="logos.admin_logo.url">
+            <p-fileUpload (onSelect)="logosChangeEvent($event, 'admin_logo')" name="admin_logo[]" chooseLabel="Upload"
+                [showUploadButton]="false" accept="image/*" maxFileSize="1000000">
+            </p-fileUpload>
+
+        </div>
+    </div>
+    <div class="p-field">
+        <label for="name">Email Template Logo<span class="p_star">*</span></label>
+        <div class="p_upload_set">
+            <img *ngIf="logos && logos.email_template_logo" [src]="logos.email_template_logo.url">
+            <p-fileUpload (onSelect)="logosChangeEvent($event, 'email_template_logo')" name="email_template_logo[]"
+                chooseLabel="Upload" [showUploadButton]="false" accept="image/*" maxFileSize="1000000">
+            </p-fileUpload>
+        </div>
+
+        <div class="p_img_indication">
+            <p>Please Keep Image Dimensions Greater Than 500 X 500</p>
+            <p>Type: jpg, png, gif, webp, svg</p>
+            <p>File Size: Up To 2 MP</p>
+        </div>
+
+    </div>
+    <div class="p-field">
+        <label for="name">Invoice Logo<span class="p_star">*</span></label>
+        <div class="p_upload_set">
+            <img *ngIf="logos && logos.invoice_logo" [src]="logos.invoice_logo.url">
+            <p-fileUpload (onSelect)="logosChangeEvent($event, 'invoice_logo')" name="invoice_logo[]"
+                chooseLabel="Upload" [showUploadButton]="false" accept="image/*" maxFileSize="1000000">
+            </p-fileUpload>
+        </div>
+
+        <div class="p_img_indication">
+            <p>Please Keep Image Dimensions Greater Than 500 X 500</p>
+            <p>Type: jpg, png, gif, webp, svg</p>
+            <p>File Size: Up To 2 MP</p>
+        </div>
+
+    </div>
+    <div class="p-field">
+        <label for="name">Store Icon<span class="p_star">*</span></label>
+        <div class="p_upload_set">
+            <img *ngIf="logos && logos.store_icon" [src]="logos.store_icon.url">
+            <p-fileUpload (onSelect)="logosChangeEvent($event, 'store_icon')" name="store_icon[]" chooseLabel="Upload"
+                [showUploadButton]="false" accept="image/*" maxFileSize="1000000">
+            </p-fileUpload>
+        </div>
+
+        <div class="p_img_indication">
+            <p>Please Keep Image Dimensions Greater Than 500 X 500</p>
+            <p>Type: jpg, png, gif, webp, svg</p>
+            <p>File Size: Up To 2 MP</p>
+        </div>
+
+    </div>
+    <div class="customer_save mb-4 mt-4 text-right">
+        <p-button type="submit" label="Save" class="custom_new_btn" (click)="uploadAssets()"></p-button>
+    </div>
+</div>

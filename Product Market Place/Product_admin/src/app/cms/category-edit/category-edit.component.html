@@ -1,0 +1,54 @@
+<p-confirmPopup></p-confirmPopup>
+<div class="custom_page_header">
+    <h3>Manage Category Edit</h3>
+</div>
+<div class="container-fluid">
+    <div class="custom_create_new_form">
+        <form #form="ngForm" class="form-border-orange">
+            <p-card styleClass="p-card-form p-mb-3">
+                <div class="form-group">
+                    <label for="">Category Title</label>
+                    <input type="text" id="category_title" name="category_title" value="Shop from Top Categories" [(ngModel)]="blockDetails.title" required pInputText/>
+                </div>
+                <!-- <div class="form-group">
+                    <label for="">Number of Categories to Show</label>
+                    <input type="text" id="no_of_category" name="no_of_category" value="4" required pInputText/>
+                </div> -->
+            </p-card>
+            <p-card styleClass="p-card-form p-mb-3" *ngFor="let categoryItem of blockDetails.items; let i = index">
+                <ng-container>
+                    <a class="pi pi-trash icon-tr" (click)="deleteBlockItem($event, categoryItem, i)"></a>
+                    <div class="form-group">
+                        <h5>Category {{i+1}}</h5>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Name </label>
+                        <p-dropdown [disabled]="categoryItem.is_disabled" styleClass="custom_dropdown_list" name="category_list_{{i+1}}" (onChange)="onCategoryChangeEvent($event, i)" [(ngModel)]="blockDetails.items[i]._id" [options]="existingCategoryList" optionValue="_id" placeholder="Choose Category"
+                            optionLabel="name" filter="true" #category="ngModel" required></p-dropdown>
+                        <!-- <input type="text" id="category_name_{{i+1}}" name="category_name_{{i+1}}" required pInputText/> -->
+                    </div>
+                    <div class="form-group" *ngIf="categoryItem.profile && categoryItem.profile.url !== null">
+                        <label class=" col-form-label">Profile Image</label>
+                        <img *ngIf="categoryItem.profile; else noProfile" [src]="categoryItem.profile.url" alt="No Category Profile" />
+                        <ng-template #noProfile>
+                            No Profile Image available.
+                        </ng-template>
+                        <!-- <p-fileUpload name="catogory_img[]" chooseLabel="Upload" [showUploadButton]="false" accept="image/*" maxFileSize="1000000">
+                        </p-fileUpload> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="">Category Name {{i+1}} Link</label>
+                        <input type="text" [(ngModel)]="categoryItem.slug" id="category_name_{{i+1}}_link" name="category_name_{{i+1}}_link" [disabled]="true" required pInputText/>
+                    </div>
+                </ng-container>
+            </p-card>
+            <!-- <p-card styleClass="p-card-form p-mb-3"> -->
+                <div class="form-group p-d-flex p-jc-between">
+                    <!-- <a [routerLink]="['/cms/home']" class="custom_back_btn">Back</a> -->
+                    <a (click)="addNewItemToCategories()" class="custom_back_btn">Add More Category</a>
+                    <p-button label="APPLY" class="custom_new_btn" (click)="saveCategories()"></p-button>
+                </div>
+            <!-- </p-card> -->
+        </form>
+    </div>
+</div>

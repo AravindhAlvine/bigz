@@ -1,0 +1,31 @@
+<div class="custom_card_body">
+    <form #form="ngForm" class="">
+        <div class="form-group">
+            <label for="store_owner">Email From</label>
+            <input type="text" [(ngModel)]="gmailDetails['email_from']" class="form-control" id="email_from" name="email_from" required>
+        </div>
+        <div class="form-group">
+            <label for="store_owner">User Name</label>
+            <input type="text" [(ngModel)]="gmailDetails['user_name']" class="form-control" id="user_name" name="user_name" required>
+        </div>
+        <div class="form-group">
+            <label for="store_email">Password</label>
+            <input type="text" [(ngModel)]="gmailDetails['password']" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="store_location">Client Id</label>
+            <input type="text" [(ngModel)]="gmailDetails['client_id']" class="form-control" id="client_id" name="client_id" required>
+        </div>
+        <div class="form-group">
+            <label for="store_location">Client Secret</label>
+            <input type="text" [(ngModel)]="gmailDetails['client_secret']" class="form-control" id="client_secret" name="client_secret" required>
+        </div>
+        <div class="form-group">
+            <label for="store_location">Refresh Token</label>
+            <input type="text" [(ngModel)]="gmailDetails['refresh_token']" class="form-control" id="refresh_token" name="refresh_token" required>
+        </div>
+        <div class="customer_save mb-4 mt-4 text-right">
+            <p-button type="submit" label="Save" class="custom_new_btn" (click)="saveGmailDetails()"></p-button>
+        </div>
+    </form>
+</div>

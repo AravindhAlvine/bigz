@@ -1,0 +1,46 @@
+<div class="custom_page_header">
+    <h3>Tax Settings</h3>
+</div>
+<div class="container-fluid">
+    <div class="custom_create_new_form">
+        <p-card styleClass="p-card-form p-mb-3">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card mb-4">
+                        <div class="custom_card_body">
+                            <form #form="ngForm" class="">
+                                <div class="form-group">
+                                    <label for="store_name">Display Prices with Tax?</label>
+                                    <p-dropdown styleClass="custom_bookingdropdown_list" placeholder="Choose option" [options]="optionYesNo" [(ngModel)]="taxSettings['display_price_with_tax']" name="display_price_with_tax"></p-dropdown>
+                                </div>
+                                <div class="form-group">
+                                    <label for="store_owner">Define a New Tax Zone</label>
+                                    <p-dropdown placeholder="Choose country" styleClass="custom_bookingdropdown_list" [(ngModel)]="selectedZoneCountry" (onChange)="onCountryChange($event)" [options]="countryList" name="tax_zone_country" optionLabel="name" [filter]="true" [showClear]="true"></p-dropdown>
+                                </div>
+                                <div class="form-group">
+                                    <label for="store_email">Select State</label>
+                                    <p-dropdown placeholder="Choose state" styleClass="custom_bookingdropdown_list" [(ngModel)]="taxSettings['tax_zone_state']" [options]="stateList" name="tax_zone_state" [filter]="true" [showClear]="true" optionLabel="StateName" optionValue="StateName"></p-dropdown>
+                                </div>
+                                <div class="form-group">
+                                    <label for="store_location">Select a Tax Class</label>
+                                    <p-dropdown placeholder="Choose tax class" styleClass="custom_bookingdropdown_list" [(ngModel)]="taxSettings['tax_class']" [options]="taxClass" name="tax_class"></p-dropdown>
+                                </div>
+                                <div class="form-group address_of_customer">
+                                    <label for="about_long">Tax Rate (%)</label>
+                                    <input type="text" [(ngModel)]="taxSettings['tax_rate']" [(ngModel)]="taxSettings['tax_rate']" class="form-control" name="tax_rate" placeholder="Ex 12">
+                                </div>
+                                <div class="form-group address_of_customer">
+                                    <label for="about_long">Tax Rate Description</label>
+                                    <input type="text" [(ngModel)]="taxSettings['tax_rate_description']" [(ngModel)]="taxSettings['tax_rate_description']" class="form-control" name="tax_rate_description" placeholder="Rate description">
+                                </div>
+                                <div class="customer_save mb-4 mt-4 text-right">
+                                    <p-button type="submit" label="Save" class="custom_new_btn" (click)="saveTaxSettings(form)"></p-button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </p-card>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="custom_page_header">
+    <h3>Edit Product Review</h3>
+</div>
+<div class="container-fluid">
+    <div class="create_top_status_container">
+        <div class="create_top_status">
+            <div class="create_top_status_left">
+                <label for="vendor_status">Status:</label>
+            </div>
+            <div class="create_top_status_right">
+                <div class="form-check form-check-inline" id="vendor_status">
+                    <input class="form-check-input" type="radio" name="vendor_status" id="vendor_status_approved" value="approved" checked>
+                    <label class="form-check-label" for="inlineRadio1">Approved</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="vendor_status" id="vendor_status_pending" value="pending">
+                    <label class="form-check-label" for="inlineRadio2">Pending</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="vendor_status" id="vendor_status_declained" value="declained">
+                    <label class="form-check-label" for="inlineRadio3">Declained</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="custom_create_new_form">
+        <p-card styleClass="p-card-form p-mb-3">
+            <form #form="ngForm" class="form-border-orange">
+                <div class="form-group">
+                    <label for="">Customer</label>
+                    <input type="text" id="customer_name" name="customer_name" disabled value="Christina Billotti" required pInputText/>
+                </div>
+                <div class="form-group">
+                    <label for="">Customer Email</label>
+                    <input type="email" id="customer_email" name="customer_email" disabled value="christina@yopmail.com" required pInputText/>
+                </div>
+                <div class="form-group">
+                    <label for="">Review Title</label>
+                    <input type="text" id="review_title" name="review_title" value="Lorem ipsum dolor sit amet" required pInputText/>
+                </div>
+                <div class="form-group">
+                    <label for="about_short">Product</label>
+                    <input type="text" id="product_name" name="product_name" value="OnePlus 7 (Mirror Grey, 6GB RAM, Optic AMOLED Display, 128GB Storage, 3700mAH Battery)" disabled required pInputText/>
+                </div>
+                <div class="form-group">
+                    <label class=" col-form-label">Posted Date</label>
+                    <input type="text" id="posted_date" name="posted_date" value="August 14, 2021 - 15:17" disabled required pInputText/>
+                </div>
+                <div class="form-group">
+                    <label class=" col-form-label">Review Content</label>
+                    <textarea [rows]="5" class="custom_textarea" [cols]="30" pInputTextarea autoResize="autoResize">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at dapibus mi. Vestibulum congue, nulla ac eleifend aliquet, quam dui vulputate urna, quis venenatis ex eros vel velit</textarea>
+                </div>
+                <div class="form-group p-d-flex  p-jc-between">
+                    <p-button label="Back" class="custom_back_btn" [routerLink]="['/review/manage-product-review']"></p-button>
+                    <p-button label="UPDATE" class="custom_new_btn"></p-button>
+                </div>
+            </form>
+        </p-card>
+    </div>
+</div>

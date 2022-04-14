@@ -1,0 +1,54 @@
+.p-button {
+    &.p-button {
+        &-primary {
+            &-2 {
+                @include button-primary($primaryButtonBgColor, $primaryButtonTextColor);
+                @include border-Radius(null, null, null, null, 20px, $equalSize: true)
+            }
+            &-3 {
+                @include button-primary($primaryColor, $primaryButtonTextColor);
+                @include border-Radius(null, null, null, null, 4px, $equalSize: true)
+            }
+        }
+    }
+    &.p-button {
+        &-secondary {
+            &-2 {
+                @include button-primary($secondaryGreyButtonBgColor, $secondaryGreyButtonTextColor);
+            }
+            &-3 {
+                @include button-primary($colorBlack, $primaryButtonTextColor);
+                @include border-Radius(null, null, null, null, 4px, $equalSize: true)
+            }
+        }
+    }
+    &.mobile-button {
+        .p-button-icon {
+            font-size: 25px;
+            color: rgba(0, 0, 0, 0.3);
+        }
+    }
+}
+
+.create_tab_container {
+    button {
+        margin-bottom: 24px;
+        margin-right: 20px;
+        border-radius: 8px;
+        font-size: 15px;
+        min-width: 170px;
+        font-family: 'DMSans-Medium';
+        border: 1px solid #E6E6E6;
+        color: #1F2D43;
+        background: #FFFFFF;
+        font-size: 16px;
+        &:last-child {
+            margin-right: 0;
+        }
+        &.active {
+            background: #094f32;
+            color: #fff;
+            border: 1px solid #094f32;
+        }
+    }
+}

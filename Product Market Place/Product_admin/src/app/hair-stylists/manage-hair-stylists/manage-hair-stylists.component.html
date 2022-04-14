@@ -1,0 +1,526 @@
+<div class="custom_page_header">
+    <h3>Manage Vendors</h3>
+</div>
+
+<div class="container-fluid" id="filter_data">
+    <div class="custom_top_date_container">
+        <!-- <h3 class="float-left my-2">List of Vendors</h3> -->
+
+        <div class="custom_top_date_mc">
+
+            <div class="p-float-right custom_right_align_btn">
+                <button pButton class="btn bg-white text-dark" (click)="filterSection = !filterSection" label="Filter ({{appliedFiltersLength}})"></button>
+            </div>
+
+            <div class="custom_top_date_sc">
+                <div class="custom_top_date_nav_link">
+                    <a [routerLink]="['/vendors/create']">Add New Vendor</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="px-3 pb-3" id="p_filter_card" *ngIf="filterSection == false">
+    <p-card>
+        <div class="row mx-auto">
+
+            <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Vendor Name</label>
+                    <input class="form-control" pInputText type="text" [(ngModel)]="filterItems['salon_name']">
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Email</label>
+                    <input class="form-control" pInputText type="text" [(ngModel)]="filterItems['email']">
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Category</label>
+                    <p-dropdown [options]="categoryList" placeholder="Choose category" optionLabel="name" optionValue="name" [(ngModel)]="filterItems['category']" [showClear]="true"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Status</label>
+                    <p-dropdown [options]="vendorStatus" placeholder="Choose status" optionLabel="display_name" optionValue="name" [(ngModel)]="filterItems['status']"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-sm-4">
+                <div class="textOnInput">
+                    <label for="inputText">From Date</label>
+                    <p-calendar [(ngModel)]="filterItems['from_date']" (onSelect)="onFromDateSelect()"></p-calendar>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-sm-4">
+                <div class="textOnInput">
+                    <label for="inputText">To Date</label>
+                    <p-calendar [(ngModel)]="filterItems['to_date']"></p-calendar>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 p_button">
+                <button pButton class="btn" label="SUBMIT" (click)="submitFilter()"></button>
+            </div>
+
+        </div>
+    </p-card>
+</div>
+
+
+<!-- <div class="container-fluid" id="p_filter_search">
+    <div class="custom_filter_search">
+        <div class="custom_filter_nav">
+            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
+        </div>
+        <div class="custom_search_nav">
+            <input type="text" name="filter_search" id="filter_search" placeholder="Quick Search...">
+            <button type="button" class="btn_search_submit">
+                <img [src]="searchBtn" alt="">
+            </button>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="container-fluid p-mt-4">
+    <div class="custom_listing_container p-pb-6">
+        <p-tabView>
+            <p-tabPanel header="All Vendors" [selected]="true">
+                <div class="custom_table custom_vendors_table">
+                    <p-table #dt1 [value]="vendorList" [scrollable]="true" scrollHeight="flex" [paginator]="true" [rows]="5" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries " [responsive]="true">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th scope="col">
+                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                </th>
+                                <th scope="col" class="custom_logo_column">Logo</th>
+                                <th scope="col" class="custom_name_column" pSortableColumn="salon_name">Name
+                                    <p-sortIcon field="salon_name"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_email_column" pSortableColumn="email">Email
+                                    <p-sortIcon field="email"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_slug_column" pSortableColumn="slug">Url Key
+                                    <p-sortIcon field="slug"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_addr_column" pSortableColumn="formatted_address">Address
+                                    <p-sortIcon field="formatted_address"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_phone_column" pSortableColumn="phone_number">Phone Number
+                                    <p-sortIcon field="phone_number"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_category_column" pSortableColumn="name">Main Categories
+                                    <p-sortIcon field="name"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_date_column" pSortableColumn="created_at">Joining Date
+                                    <p-sortIcon field="created_at"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_status_column" pSortableColumn="status">Status
+                                    <p-sortIcon field="status"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_action_column">Action</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-vendor let-i="rowIndex">
+                            <tr>
+                                <td class="item">
+                                    <p-tableCheckbox [value]="vendor"></p-tableCheckbox>
+                                </td>
+                                <td class="custom_logo_column"><img class="custom_vendor_logo" *ngIf="vendor.logo" [src]="vendor.logo.url"></td>
+                                <td class="custom_name_column">
+                                    <span>{{vendor.salon_name}}</span>
+                                </td>
+                                <td class="custom_email_column">
+                                    <span>{{vendor.email}}</span>
+                                </td>
+                                <td class="custom_slug_column">
+                                    <span>{{vendor.slug}}</span>
+                                </td>
+                                <td class="custom_addr_column">
+                                    <span>{{vendor.formatted_address}}</span>
+                                </td>
+                                <td class="custom_phone_column">
+                                    <span>{{vendor.phone_number ? vendor.phone_number.international_number: ''}}</span>
+                                </td>
+                                <td class="custom_category_column">
+                                    <ul>
+                                        <li *ngFor="let category of vendor.categories">{{category.name}}</li>
+                                    </ul>
+                                </td>
+                                <td class="custom_date_column">
+                                    <span>{{vendor.created_at | date}}</span>
+                                </td>
+                                <td class="custom_status_column">
+                                    <p-dropdown [options]="vendorStatus" [(ngModel)]="vendor.status" optionLabel="display_name" [ngClass]="{
+                                        'status-pending': vendor.status.name === 'pending', 
+                                        'status-approved': vendor.status.name === 'approved',
+                                        'status-declined': vendor.status.name === 'declined'}" (onChange)="statusChangeEvent(vendor)"></p-dropdown>
+                                </td>
+                                <td class="custom_action_column no_wrap_txt custom_edit_delete_check action-data-tab">
+                                    <a class="pi pi-pencil" [routerLink]="['/vendors/update', vendor._id]"></a>
+                                    <a class="pi pi-trash" (click)="deleteVendor(vendor._id)"></a>
+                                    <a class="pi pi-check" (click)="approveVendor(vendor._id, i)"></a>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </p-tabPanel>
+
+            <p-tabPanel header="Approved">
+                <div class="custom_table custom_vendors_table">
+                    <p-table #dt1 [value]="vendorList" [scrollable]="true" scrollHeight="flex" [paginator]="true" [rows]="10" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries " [responsive]="true">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th scope="col">
+                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                </th>
+                                <th scope="col" class="custom_logo_column">Logo</th>
+                                <th scope="col" class="custom_name_column" pSortableColumn="salon_name">Name
+                                    <p-sortIcon field="salon_name"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_email_column" pSortableColumn="email">Email
+                                    <p-sortIcon field="email"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_slug_column" pSortableColumn="slug">Url Key
+                                    <p-sortIcon field="slug"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_addr_column" pSortableColumn="formatted_address">Address
+                                    <p-sortIcon field="formatted_address"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_phone_column" pSortableColumn="phone_number">Phone Number
+                                    <p-sortIcon field="phone_number"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_category_column" pSortableColumn="name">Main Categories
+                                    <p-sortIcon field="name"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_date_column" pSortableColumn="created_at">Joining Date
+                                    <p-sortIcon field="created_at"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_status_column" pSortableColumn="status">Status
+                                    <p-sortIcon field="status"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_action_column">Action</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-vendor let-columns="columns" let-i="rowIndex">
+                            <tr>
+                                <td class="item">
+                                    <p-tableCheckbox [value]="vendor"></p-tableCheckbox>
+                                </td>
+                                <td class="custom_logo_column">
+                                    <img class="custom_vendor_logo" *ngIf="vendor.logo" [src]="vendor.logo.url" alt="" />
+                                </td>
+                                <td class="custom_name_column">
+                                    <span>{{vendor.salon_name}}</span>
+                                </td>
+                                <td class="custom_email_column">
+                                    <span>{{vendor.email}}</span>
+                                </td>
+                                <td class="custom_slug_column">
+                                    <span>{{vendor.slug}}</span>
+                                </td>
+                                <td class="custom_addr_column">
+                                    <span>{{vendor.formatted_address}}</span>
+                                </td>
+                                <td class="custom_phone_column">
+                                    <span>{{vendor.phone_number ? vendor.phone_number.international_number: ''}}</span>
+                                </td>
+                                <td class="custom_category_column">
+                                    <ul>
+                                        <li *ngFor="let category of vendor.categories">{{category.name}}</li>
+                                    </ul>
+                                </td>
+                                <td class="custom_date_column">
+                                    <span>{{vendor.created_at | date}}</span>
+                                </td>
+                                <td class="custom_status_column">
+                                    <!-- <span *ngIf="vendor.approval_status && vendor.approval_status.name == 'approved'"
+                                        class="badge badge-success">{{vendor.approval_status.display_name}}</span>
+                                    <span *ngIf="vendor.approval_status && vendor.approval_status.name == 'pending'"
+                                        class="badge badge-warning">{{vendor.approval_status.display_name}}</span> -->
+
+                                    <p-dropdown [options]="vendorStatus" [(ngModel)]="vendor.status" optionLabel="display_name" [ngClass]="{
+                                'status-pending': vendor.status.name === 'pending', 
+                                'status-approved': vendor.status.name === 'approved',
+                                'status-declined': vendor.status.name === 'declined'}" (onChange)="vendorStatusChangeEvent(vendor)">
+                                    </p-dropdown>
+
+                                </td>
+                                <td class="custom_action_column no_wrap_txt custom_edit_delete_check action-data-tab">
+                                    <a class="pi pi-pencil" [routerLink]="['/vendors/update', vendor._id]"></a>
+                                    <a class="pi pi-trash" (click)="deleteVendor(vendor._id)"></a>
+                                    <a class="pi pi-check" (click)="approveVendor(vendor._id, i)"></a>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </p-tabPanel>
+
+            <!-- <p-tabPanel header="Partialy Approved">
+                <div class="custom_table custom_vendors_table">
+                    <p-table #dt1 [value]="vendorList" [scrollable]="true" scrollHeight="flex" [paginator]="true" [rows]="10" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries " [responsive]="true">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th scope="col">Sl.No</th>
+                                <th scope="col" class="custom_logo_column">Logo</th>
+                                <th scope="col" class="custom_name_column" pSortableColumn="salon_name">Name
+                                    <p-sortIcon field="salon_name"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_email_column" pSortableColumn="email">Email
+                                    <p-sortIcon field="email"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_slug_column" pSortableColumn="slug">Url Key
+                                    <p-sortIcon field="slug"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_addr_column" pSortableColumn="formatted_address">Address
+                                    <p-sortIcon field="formatted_address"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_phone_column" pSortableColumn="phone_number">Phone Number
+                                    <p-sortIcon field="phone_number"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_category_column" pSortableColumn="name">Main Categories
+                                    <p-sortIcon field="name"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_date_column" pSortableColumn="created_at">Joining Date
+                                    <p-sortIcon field="created_at"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_status_column" pSortableColumn="status">Status
+                                    <p-sortIcon field="status"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_action_column">Action</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-vendor let-i="rowIndex">
+                            <tr>
+                                <td> {{i + 1}}</td>
+                                <td class="custom_logo_column"><img class="custom_vendor_logo" *ngIf="vendor.logo" [src]="vendor.logo.url"></td>
+                                <td class="custom_name_column">
+                                    <span>{{vendor.salon_name}}</span>
+                                </td>
+                                <td class="custom_email_column">
+                                    <span>{{vendor.email}}</span>
+                                </td>
+                                <td class="custom_slug_column">
+                                    <span>{{vendor.slug}}</span>
+                                </td>
+                                <td class="custom_addr_column">
+                                    <span>{{vendor.formatted_address}}</span>
+                                </td>
+                                <td class="custom_phone_column">
+                                    <span>{{vendor.phone_number ? vendor.phone_number.international_number: ''}}</span>
+                                </td>
+                                <td class="custom_category_column">
+                                    <ul>
+                                        <li *ngFor="let category of vendor.categories">{{category.name}}</li>
+                                    </ul>
+                                </td>
+                                <td class="custom_date_column">
+                                    <span>{{vendor.created_at | date}}</span>
+                                </td>
+                                <td class="custom_status_column">
+                                    <span *ngIf="vendor.approval_status && vendor.approval_status.name == 'approved'" class="badge badge-success">{{vendor.approval_status.display_name}}</span>
+                                    <span *ngIf="vendor.approval_status && vendor.approval_status.name == 'pending'" class="badge badge-warning">{{vendor.approval_status.display_name}}</span>
+                                </td>
+                                <td class="custom_action_column no_wrap_txt custom_edit_delete_check action-data-tab">
+                                    <a class="pi pi-pencil" [routerLink]="['/vendors/update', vendor._id]"></a>
+                                    <a class="pi pi-trash" (click)="deleteVendor(vendor._id)"></a>
+                                    <a class="pi pi-check" (click)="approveVendor(vendor._id, i)"></a>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </p-tabPanel> -->
+
+            <p-tabPanel header="Pending">
+                <div class="custom_table custom_vendors_table">
+                    <p-table #dt1 [value]="vendorList" [scrollable]="true" scrollHeight="flex" [paginator]="true" [rows]="10" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries " [responsive]="true">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th scope="col">
+                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                </th>
+                                <th scope="col" class="custom_logo_column">Logo</th>
+                                <th scope="col" class="custom_name_column" pSortableColumn="salon_name">Name
+                                    <p-sortIcon field="salon_name"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_email_column" pSortableColumn="email">Email
+                                    <p-sortIcon field="email"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_slug_column" pSortableColumn="slug">Url Key
+                                    <p-sortIcon field="slug"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_addr_column" pSortableColumn="formatted_address">Address
+                                    <p-sortIcon field="formatted_address"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_phone_column" pSortableColumn="phone_number">Phone Number
+                                    <p-sortIcon field="phone_number"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_category_column" pSortableColumn="name">Main Categories
+                                    <p-sortIcon field="name"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_date_column" pSortableColumn="created_at">Joining Date
+                                    <p-sortIcon field="created_at"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_status_column" pSortableColumn="status">Status
+                                    <p-sortIcon field="status"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_action_column">Action</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-vendor let-i="rowIndex">
+                            <tr>
+                                <td class="item">
+                                    <p-tableCheckbox [value]="vendor"></p-tableCheckbox>
+                                </td>
+                                <td class="custom_logo_column"><img class="custom_vendor_logo" *ngIf="vendor.logo" [src]="vendor.logo.url"></td>
+                                <td class="custom_name_column">
+                                    <span>{{vendor.salon_name}}</span>
+                                </td>
+                                <td class="custom_email_column">
+                                    <span>{{vendor.email}}</span>
+                                </td>
+                                <td class="custom_slug_column">
+                                    <span>{{vendor.slug}}</span>
+                                </td>
+                                <td class="custom_addr_column">
+                                    <span>{{vendor.formatted_address}}</span>
+                                </td>
+                                <td class="custom_phone_column">
+                                    <span>{{vendor.phone_number ? vendor.phone_number.international_number: ''}}</span>
+                                </td>
+                                <td class="custom_category_column">
+                                    <ul>
+                                        <li *ngFor="let category of vendor.categories">{{category.name}}</li>
+                                    </ul>
+                                </td>
+                                <td class="custom_date_column">
+                                    <span>{{vendor.created_at | date}}</span>
+                                </td>
+                                <td class="custom_status_column">
+                                    <!-- <span *ngIf="vendor.approval_status && vendor.approval_status.name == 'approved'"
+                                        class="badge badge-success">{{vendor.approval_status.display_name}}</span>
+                                    <span *ngIf="vendor.approval_status && vendor.approval_status.name == 'pending'"
+                                        class="badge badge-warning">{{vendor.approval_status.display_name}}</span> -->
+
+                                    <p-dropdown [options]="vendorStatus" [(ngModel)]="vendor.status" optionLabel="display_name" [ngClass]="{
+                                'status-pending': vendor.status.name === 'pending', 
+                                'status-approved': vendor.status.name === 'approved',
+                                'status-declined': vendor.status.name === 'declined'}" (onChange)="vendorStatusChangeEvent(vendor)">
+                                    </p-dropdown>
+
+                                </td>
+                                <td class="custom_action_column no_wrap_txt custom_edit_delete_check action-data-tab">
+                                    <a class="pi pi-pencil" [routerLink]="['/vendors/update', vendor._id]"></a>
+                                    <a class="pi pi-trash" (click)="deleteVendor(vendor._id)"></a>
+                                    <a class="pi pi-check" (click)="approveVendor(vendor._id, i)"></a>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </p-tabPanel>
+
+            <p-tabPanel header="Declined">
+                <div class="custom_table custom_vendors_table">
+                    <p-table #dt1 [value]="vendorList" [scrollable]="true" scrollHeight="flex" [paginator]="true" [rows]="10" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries " [responsive]="true">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th scope="col">
+                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                </th>
+                                <th scope="col" class="custom_logo_column">Logo</th>
+                                <th scope="col" class="custom_name_column" pSortableColumn="salon_name">Name
+                                    <p-sortIcon field="salon_name"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_email_column" pSortableColumn="email">Email
+                                    <p-sortIcon field="email"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_slug_column" pSortableColumn="slug">Url Key
+                                    <p-sortIcon field="slug"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_addr_column" pSortableColumn="formatted_address">Address
+                                    <p-sortIcon field="formatted_address"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_phone_column" pSortableColumn="phone_number">Phone Number
+                                    <p-sortIcon field="phone_number"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_category_column" pSortableColumn="name">Main Categories
+                                    <p-sortIcon field="name"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_date_column" pSortableColumn="created_at">Joining Date
+                                    <p-sortIcon field="created_at"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_status_column" pSortableColumn="status">Status
+                                    <p-sortIcon field="status"></p-sortIcon>
+                                </th>
+                                <th scope="col" class="custom_action_column">Action</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-vendor let-i="rowIndex">
+                            <tr>
+                                <td class="item">
+                                    <p-tableCheckbox [value]="vendor"></p-tableCheckbox>
+                                </td>
+                                <td class="custom_logo_column"><img class="custom_vendor_logo" *ngIf="vendor.logo" [src]="vendor.logo.url"></td>
+                                <td class="custom_name_column">
+                                    <span>{{vendor.salon_name}}</span>
+                                </td>
+                                <td class="custom_email_column">
+                                    <span>{{vendor.email}}</span>
+                                </td>
+                                <td class="custom_slug_column">
+                                    <span>{{vendor.slug}}</span>
+                                </td>
+                                <td class="custom_addr_column">
+                                    <span>{{vendor.formatted_address}}</span>
+                                </td>
+                                <td class="custom_phone_column">
+                                    <span>{{vendor.phone_number ? vendor.phone_number.international_number: ''}}</span>
+                                </td>
+                                <td class="custom_category_column">
+                                    <ul>
+                                        <li *ngFor="let category of vendor.categories">{{category.name}}</li>
+                                    </ul>
+                                </td>
+                                <td class="custom_date_column">
+                                    <span>{{vendor.created_at | date}}</span>
+                                </td>
+                                <td class="custom_status_column">
+                                    <!-- <span *ngIf="vendor.approval_status && vendor.approval_status.name == 'approved'" class="badge badge-success">{{vendor.approval_status.display_name}}</span>
+                                    <span *ngIf="vendor.approval_status && vendor.approval_status.name == 'pending'" class="badge badge-warning">{{vendor.approval_status.display_name}}</span> -->
+
+                                    <p-dropdown [options]="vendorStatus" [(ngModel)]="vendor.status" optionLabel="display_name" [ngClass]="{
+                                'status-pending': vendor.status.name === 'pending', 
+                                'status-approved': vendor.status.name === 'approved',
+                                'status-declined': vendor.status.name === 'declined'}" (onChange)="vendorStatusChangeEvent(vendor)">
+                                    </p-dropdown>
+
+                                </td>
+                                <td class="custom_action_column no_wrap_txt custom_edit_delete_check action-data-tab">
+                                    <a class="pi pi-pencil" [routerLink]="['/vendors/update', vendor._id]"></a>
+                                    <a class="pi pi-trash" (click)="deleteVendor(vendor._id)"></a>
+                                    <a class="pi pi-check" (click)="approveVendor(vendor._id, i)"></a>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+    </div>
+</div>

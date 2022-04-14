@@ -1,0 +1,87 @@
+.p-sidebar {
+    &.p-sidebar-custom {
+        width: 260px;
+        bottom: 0;
+        height: 100%;
+        padding-top: 60px;
+        padding-right: 15px;
+        box-shadow: 0px 0px 6px #00000029;
+        padding-left: 15px;
+        overflow-y: scroll;
+        @include border-Radius(null, null, null, null, 0, $equalSize: true);
+        .p-sidebar-content {
+            padding: 0;
+            overflow: initial;
+            .p-panelmenu {
+                padding-left: 0px;
+                padding-right: 0px;
+                .p-panelmenu-header {
+                    a.p-menuitem-link-active>.p-panelmenu-icon {
+                        transform: rotateZ( 180deg);
+                    }
+                    &>a {
+                        background-color: transparent;
+                        border: none;
+                        padding: 9px 12px;
+                        font-weight: normal;
+                        font-family: 'Roboto-regular';
+                        color: #404D61;
+                        font-size: 15px;
+                        margin-bottom: 15px;
+                        &.p-menuitem-link-active {
+                            background-color: #e3e8fe;
+                            color: #094f32;
+                            @include border-Radius(0px, 50px, 50px, 0px, null, $equalSize: false);
+                            &:focus {
+                                box-shadow: none;
+                            }
+                            &::before {
+                                @include border-Radius(0, 0px, 0px, 0, null, $equalSize: false);
+                                content: '';
+                                /* width: 10px;
+                                height: 100%;
+                                background-color: $primaryColor; */
+                                width: 30px;
+                                height: 100%;
+                                background-color: #e3e8fe;
+                                position: absolute;
+                                left: -20px;
+                            }
+                        }
+                        .p-panelmenu-icon {
+                            position: absolute;
+                            right: 0;
+                            font-size: 12px;
+                            transform: rotateZ(90deg);
+                            // display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// $breakpoint-tablet: 1024px;
+// @media (max-width: $breakpoint-tablet) {
+
+//     .p-sidebar {
+//         &.p-sidebar-custom {
+//             width: 80px;
+//         }
+//     }
+
+// }
+
+
+.main-container.hiddenClass .p-sidebar {
+    &.p-sidebar-custom {
+        width: 80px!important;
+    }
+}
+
+// .main-container.hiddenClass .p-sidebar{
+//     &.p-sidebar-custom:hover{
+//         width: 260px!important;
+//     }
+// }

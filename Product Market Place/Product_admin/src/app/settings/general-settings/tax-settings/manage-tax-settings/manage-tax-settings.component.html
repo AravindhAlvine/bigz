@@ -1,0 +1,90 @@
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<div class="custom_page_header">
+    <h3>Manage Tax Settings</h3>
+</div>
+
+<div class="container-fluid ">
+    <div class="custom_top_date_container">
+        <div class="custom_top_date_mc">
+            <div class="custom_top_date_sc">
+                <div class="custom_top_date_nav_link">
+                    <a [routerLink]="['/settings/tax/create']">Add New Tax Zone</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="custom_tab_view_tables p-pb-6">
+        <p-tabView>
+            <p-tabPanel header="All Orders" [selected]="true">
+                <div class="custom_listing_container">
+                    <div class="custom_table custom_category_table">
+                        <p-table #dt1 [value]="taxList" [scrollable]="true" [rows]="100" scrollHeight="flex" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries " [globalFilterFields]="['name','status']">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>
+                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                    </th>
+                                    <th class="custom_name_column" pSortableColumn="name">Display Price with Tax
+                                        <p-sortIcon field="display_price_with_tax"></p-sortIcon>
+                                    </th>
+                                    <th class="custom_slug_column" pSortableColumn="slug">Tax Class
+                                        <p-sortIcon field="tax_class"></p-sortIcon>
+                                    </th>
+                                    <th class="custom_meta_column" pSortableColumn="meta_title">Tax Rate
+                                        <p-sortIcon field="tax_rate"></p-sortIcon>
+                                    </th>
+                                    <th class="custom_meta_column" pSortableColumn="meta_title">Tax Rate Description
+                                        <p-sortIcon field="tax_rate_description"></p-sortIcon>
+                                    </th>
+                                    <th class="custom_useofvendor_column" pSortableColumn="vendors_count">Tax Zone Country
+                                        <p-sortIcon field="tax_zone_country"></p-sortIcon>
+                                    </th>
+                                    <th class="custom_status_column" pSortableColumn="status">Tax Zone State
+                                        <p-sortIcon field="tax_zone_state"></p-sortIcon>
+                                    </th>
+                                    <th class="custom_action_column">Action</th>
+                                </tr>
+                            </ng-template>
+
+                            <ng-template pTemplate="body" let-tax>
+                                <tr>
+                                    <td>
+                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                    </td>
+                                    <td class="">
+                                        <span>{{tax.display_price_with_tax}}</span>
+                                    </td>
+                                    <td class="">
+                                        <span>{{tax.tax_class}}</span>
+                                    </td>
+                                    <td class="">
+                                        <span>{{tax.tax_rate}}</span>
+                                    </td>
+                                    <td class="">
+                                        <span>{{tax.tax_rate_description}}</span>
+                                    </td>
+                                    <td class="">
+                                        <span>{{tax.tax_zone_country}}</span>
+                                    </td>
+                                    <td class="">
+                                        <span>{{tax.tax_zone_state}}</span>
+                                    </td>
+                                    <td class="custom_action_column">
+                                        <a class="pi pi-pencil" (click)="editTaxSetting(tax)"></a>
+                                        <a class="pi pi-trash" (click)="deleteTaxSettingItem($event, tax._id)"></a>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+
+
+        </p-tabView>
+    </div>
+</div>

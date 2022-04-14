@@ -1,0 +1,49 @@
+
+
+.custom_btn_next,
+.custom_btn_prev,
+.custom_btn_update {
+    background: linear-gradient( 180deg, #094f32 0%, #094f32 100%);
+    border-radius: 8px;
+    opacity: 1;
+    border: 0;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    font-family: 'DMSans-Bold';
+    font-weight: normal;
+    margin: 0 !important;
+    padding: 11px 12px;
+    // min-width: 200px;
+}
+
+.custom_btn_save {
+    background: #ffffff;
+    border-radius: 8px;
+    opacity: 1;
+    border: 0;
+    font-size: 18px;
+    line-height: 24px;
+    color: #094f32;
+    font-family: 'DMSans-Bold';
+    font-weight: normal;
+    margin: 0 !important;
+    padding: 11px 20px;
+    // min-width: 200px;
+    border: 1px solid #094f32;
+}
+
+.form-group .query {
+    .pi.pi-question-circle{
+        font-size: 18px;
+        vertical-align: text-bottom;
+        &:before{
+            color: #fff;
+            background: #9EABBF;
+            border-radius: 50%;
+        }
+    }
+    p-checkbox{
+        vertical-align: middle;
+    }
+}

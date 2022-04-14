@@ -1,0 +1,237 @@
+<div class="custom_page_header">
+    <h3>Shipping Setting</h3>
+</div>
+
+<div class="custom_create_form p-pb-4">
+    <form #form="ngForm" class="form-border-orange">
+
+        <div *ngFor="let category of categoryData; let i = index">
+            <div class="custom_category_tab">
+                <!-- (click)="showCategoryDetailsClick(i, form,1)" -->
+                <button pButton class="custom_category_tab_btn"
+                    [ngClass]="{'active': SelectedTab == 0}">{{selectedCategoryId ? 'Sub
+                    General Setting' : 'General Setting'}}</button>
+                <!-- (click)="showCategoryDescriptionClick(i, form)" -->
+                <button pButton class="custom_category_tab_btn"
+                    [ngClass]="{'active': SelectedTab == 1}">{{selectedCategoryId ? 'Sub Attribute
+                    Shipping Origin Setting' : 'Shipping Origin Setting'}}</button>
+                <!-- (click)="showCategoryDescriptionClick(i, form)" -->
+                <button pButton class="custom_category_tab_btn"
+                    [ngClass]="{'active': SelectedTab == 2}">{{selectedCategoryId ? 'Sub Additional Functions' :
+                    'Additional Functions'}}</button>
+            </div>
+            <p-card styleClass="p-card-form p-mb-3">
+                <!-- <div class="p-fluid" *ngIf="SelectedTab == 0">
+                    <div class="p-field">
+                        <label for="firstname1">Enable Shipping?</label>
+                        <p-dropdown [options]="categoryList" [(ngModel)]="categoryList.status" name="category"
+                            optionLabel="name" optionValue="categoryList.status" placeholder="Yes"
+                            [showClear]="true">
+                        </p-dropdown>
+                        <span class="shipping_enable">Select NO to completely disable shipping charges; a separate handling fee can still be added.</span>
+                    </div>
+                </div> -->
+                <!-- First Step -->
+                <div id="showCategoryDetails{{i}}">
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="firstname1">Enable Shipping?</label>
+                            <p-dropdown [options]="Options" [(ngModel)]="Options.name" name="Shipping1"
+                                optionLabel="name" optionValue="" placeholder="Yes" [showClear]="true">
+                            </p-dropdown>
+                            <span class="shipping_enable">Select NO to completely disable shipping charges, a separate
+                                handling fee can still be added.</span>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="firstname1">Display shipping prices?</label>
+                            <p-dropdown [options]="Options" [(ngModel)]="Options.name" name="Shipping2"
+                                optionLabel="name" optionValue="" placeholder="Yes" [showClear]="true">
+                            </p-dropdown>
+                            <span class="shipping_enable">If Yes is selected, shipping prices will appear on the
+                                shipping
+                                methods page.</span>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="firstname1">Allow orders to be completed if no shipping methods are
+                                available?</label>
+                            <p-dropdown [options]="Options" [(ngModel)]="Options.name" name="Shipping"
+                                optionLabel="name" optionValue="" placeholder="Yes" [showClear]="true">
+                            </p-dropdown>
+                            <span class="shipping_enable">If No is selected the cart will not allow an order to be
+                                completed if it cannot calculate a shipping price.</span>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name{{i}}">Shipping Label Text</label>
+                            <input [(ngModel)]="categoryData[i]['name']" type="text" id="name{{i}}" name="name{{i}}"
+                                placeholder="Eg. Hair Style" (blur)="createSlug(i)" #categoryName="ngModel" required
+                                pInputText />
+                            <span class="shipping_enable">Set the way, shipping methods are selected during
+                                checkout.</span>
+
+                            <div *ngIf="form.submitted && categoryName?.invalid && categoryName?.errors?.required"
+                                class="p-error">
+                                Category Name is required
+                            </div>
+                        </div>
+
+                        <div class="p-field text-right">
+                            <button type="submit" class="p-button-primary p-button-primary-3 custom_btn_next float-left"
+                                (click)="showCategoryDescriptionClick(i, form, 0)">Reset</button>
+                            <button type="submit" class="p-button-primary p-button-primary-3 custom_btn_next"
+                                (click)="showCategoryDescriptionClick(i, form, 0)">Next</button>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- Second Step -->
+                <div class="display-none" id="showCategoryDescription{{i}}">
+                    <div class="p-fluid" *ngIf="SelectedTab == 1">
+
+                        <div class="p-field">
+                            <label for="firstname1">Country (Website) :</label>
+                            <p-dropdown [options]="Options" [(ngModel)]="Options.name" name="Shipping"
+                                optionLabel="name" optionValue="" placeholder="Yes"
+                                [showClear]="true">
+                            </p-dropdown>
+                        </div>
+
+                        <div class="p-field">
+                            <label for="firstname1">Region/State :</label>
+                            <p-dropdown [options]="categoryList" [(ngModel)]="categoryList.status" name="category"
+                                optionLabel="name" optionValue="categoryList.status" placeholder="Yes"
+                                [showClear]="true">
+                            </p-dropdown>
+                        </div>
+
+                        <div class="p-field">
+                            <label for="firstname1">City :</label>
+                            <p-dropdown [options]="categoryList" [(ngModel)]="categoryList.status" name="category"
+                                optionLabel="name" optionValue="categoryList.status" placeholder="Yes"
+                                [showClear]="true">
+                            </p-dropdown>
+                        </div>
+
+                        <div class="p-field">
+                            <label for="firstname1">ZIP/Postal Code :</label>
+                            <p-dropdown [options]="categoryList" [(ngModel)]="categoryList.status" name="category"
+                                optionLabel="name" optionValue="categoryList.status" placeholder="Yes"
+                                [showClear]="true">
+                            </p-dropdown>
+                        </div>
+
+
+                        <div class="p-field custom_prev_next">
+                            <button type="button" class="custom_btn_prev" (click)="goPrevious(i, 0)">Previous</button>
+                            <button type="submit" class="custom_btn_next"
+                                (click)="showCategoryDescriptionClick(i, form, 1)">Next</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Third Step -->
+                <div class="display-none" id="showCategoryImages{{i}}">
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="firstname1">Display the shipping weight on the product / catalog pages?</label>
+                            <p-dropdown [options]="Options" [(ngModel)]="Options.name" name="Shipping1"
+                                optionLabel="name" optionValue="" placeholder="Yes" [showClear]="true">
+                            </p-dropdown>
+                            <span class="shipping_enable">If no is selected the cart will not display the shipping
+                                weight on the product pages.</span>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="firstname1">Display the products dimensions on the product pages?</label>
+                            <p-dropdown [options]="Options" [(ngModel)]="Options.name" name="Shipping1"
+                                optionLabel="name" optionValue="" placeholder="Yes" [showClear]="true">
+                            </p-dropdown>
+                            <span class="shipping_enable">If no is selected the cart will not display the products
+                                dimensions on the product pages.</span>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="firstname1">Should the cart display the shipping price on the product
+                                page?</label>
+                                <p-dropdown [options]="Options" [(ngModel)]="Options.name" name="Shipping1"
+                                optionLabel="name" optionValue="" placeholder="Yes" [showClear]="true">
+                            </p-dropdown>
+                            <span class="shipping_enable">If you have entered in a shipping price by product, should
+                                that price be displayed on the product page?</span>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="firstname1">Should the cart display the shipping price on the product
+                                page?</label>
+                                <p-dropdown [options]="Options" [(ngModel)]="Options.name" name="Shipping1"
+                                optionLabel="name" optionValue="" placeholder="Yes" [showClear]="true">
+                            </p-dropdown>
+                            <span class="shipping_enable">If you have entered in a shipping price by product, should
+                                that price be displayed on the product page?</span>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="firstname1">Show shipping by field at product and other pages</label>
+                            <p-dropdown [options]="Options" [(ngModel)]="Options.name" name="Shipping1"
+                                optionLabel="name" optionValue="" placeholder="Yes" [showClear]="true">
+                            </p-dropdown>
+                            <span class="shipping_enable">Show shipping by field at product and other pages</span>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="firstname1">Show ships in X days at product and other pages</label>
+                            <p-dropdown [options]="Options" [(ngModel)]="Options.name" name="Shipping1"
+                                optionLabel="name" optionValue="" placeholder="Yes" [showClear]="true">
+                            </p-dropdown>
+                            <span class="shipping_enable">Shows ships in X days at product, cart pages, etc.</span>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="firstname1">Show the Use Billing Address option at checkout</label>
+                            <p-dropdown [options]="Options" [(ngModel)]="Options.name" name="Shipping1"
+                                optionLabel="name" optionValue="" placeholder="Yes" [showClear]="true">
+                            </p-dropdown>
+                            <span class="shipping_enable">Show the Use Billing Address option at checkout, If set to NO,
+                                the option will not appear.</span>
+                        </div>
+                    </div>
+
+
+                    <div class="p-fluid custom_category_save">
+                        <button type="button" class="custom_btn_prev" (click)="goPrevious(i, 1)">Previous</button>
+                        <div class="text-center">
+                            <button *ngIf="!isEditMode" type="submit" class="custom_btn_save"
+                                (click)="saveCategories(form)">Save</button>
+                            <button *ngIf="isEditMode" type="submit" class="custom_btn_update"
+                                (click)="editCategory(form)">Update</button>
+                        </div>
+                    </div>
+                </div>
+
+            </p-card>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,75 @@
+// side menu design
+#accordion {
+    ::ng-deep .p-accordion.p-component {
+    overflow-y: auto!important;
+    max-height: 460px!important;
+    z-index: 9999;
+    }
+}
+
+
+
+// side menu design
+// #accordion .p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon{
+//     position: absolute;
+//     right: 5px;
+// }
+
+// #accordion .p-accordion .p-accordion-header .p-accordion-header-link{
+//     text-decoration: none;
+//     background: #fff;
+// }
+
+// #accordion .p-accordion .active .p-accordion-tab .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link,
+// #accordion .p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link{
+//     background: #094f32;
+//     border-color: #1c5c33;
+//     color: #fff;
+//     border-radius: 5px;
+//     .p-accordion .sub_active .p-accordion-tab .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link, .p-accordion .sub_active .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link{
+//         background: #fff!important;
+//         border-color: #fff!important;
+//         color: #1c5c33!important;
+//         // border-radius: 5px;
+//     }
+
+// }
+
+// #accordion .p-accordion .p-accordion-tab .p-toggleable-content .p-accordion-content {
+//     padding: 0px 0px 0px 1rem!important;
+// }
+
+// #accordion .p-accordion .p-accordion-header:not(.p-disabled) .p-accordion-header-link:focus{
+//     box-shadow: none;
+// }
+
+// #accordion .p-accordion .p-accordion-tab .p-toggleable-content .p-accordion-content,
+// #accordion .p-accordion .p-accordion-header .p-accordion-header-link{
+//     border: 1px solid #fff;
+//     padding: 15px 1rem;
+// }
+
+// #accordion .p-accordion .hiddenData .p-accordion-tab .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
+//     display: none;
+// }
+
+// #accordion .p-accordion .active .p-accordion-tab .p-accordion-header .p-accordion-header-link {
+//     background: #094f32;
+//     border-color: #1c5c33;
+//     color: #fff;
+// }
+
+// #accordion2 .p-accordion .sub_active .p-accordion-tab .p-accordion-header .p-accordion-header-link{
+//     background: #fff!important;
+//     border-color: #fff!important;
+//     color: #1c5c33!important;
+// }
+
+
+// #accordion2 .p-accordion .p-accordion-tab .p-accordion-header .p-accordion-header-link{
+//     background: #fff!important;
+//     border-color: #fff!important;
+//     color: #000!important;
+// }
+
+

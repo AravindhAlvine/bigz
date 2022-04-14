@@ -1,0 +1,90 @@
+<div class="custom_page_header">
+    <h3>Add New Page</h3>
+</div>
+<div class="container-fluid">
+    <div class="create_top_status_container">
+        <div class="create_top_status">
+            <div class="create_top_status_left">
+                <label for="page_approval_status">Approval Status:</label>
+            </div>
+            <div class="create_top_status_right">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="page_approval_status" id="page_approval_status_published" value="published" (change)="onApprovalStatusChange('published')" [checked]="!isEditMode || (pageDetails['approval_status'] && pageDetails['approval_status']['name'] == 'published')">
+                    <label class="form-check-label" for="inlineRadio1">Published</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="page_approval_status" id="page_approval_status_draft" value="draft" (change)="onApprovalStatusChange('draft')" [checked]="pageDetails['approval_status'] && pageDetails['approval_status']['name'] == 'draft'">
+                    <label class="form-check-label" for="inlineRadio2">Draft</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="page_approval_status" id="page_approval_status_deleted" value="deleted" (change)="onApprovalStatusChange('deleted')" [checked]="pageDetails['approval_status'] && pageDetails['approval_status']['name'] == 'deleted'">
+                    <label class="form-check-label" for="inlineRadio3">Deleted</label>
+                </div>
+            </div>
+        </div>
+        <div class="create_top_status">
+            <div class="create_top_status_left">
+                <label for="page_status">Status:</label>
+            </div>
+            <div class="create_top_status_right">
+                <div class="form-check form-check-inline" id="">
+                    <input class="form-check-input" type="radio" name="page_status" id="page_status_active" value="active" (change)="onStatusChange('active')" [checked]="!isEditMode || (pageDetails['status'] && pageDetails['status']['name'] == 'active')">
+                    <label class="form-check-label" for="inlineRadio1">Active</label>
+                </div>
+                <div class="form-check form-check-inline" id="">
+                    <input class="form-check-input" type="radio" name="page_status" id="page_status_deactive" value="deactive" (change)="onStatusChange('deactive')" [checked]="pageDetails['status'] && pageDetails['status']['name'] == 'deactive'">
+                    <label class="form-check-label" for="inlineRadio1">Deactive</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container-fluid">
+    <div class="custom_page_info_title">
+        <h3>Page Information</h3>
+    </div>
+</div> -->
+
+<div class="container-fluid">
+    <div class="custom_create_new_form">
+        <p-card styleClass="p-card-form p-mb-3">
+            <form #form="ngForm" class="form-border-orange">
+                <div class="form-group">
+                    <label for="">Page Name</label>
+                    <input type="text" [(ngModel)]="pageDetails['name']" id="page_name" name="page_name" value="Christina Billotti" required pInputText/>
+                </div>
+                <div class="form-group">
+                    <label class=" col-form-label">Top Banner</label>
+                    <p-fileUpload name="banners[]" chooseLabel="Upload" [showUploadButton]="false" accept="image/*" maxFileSize="1000000" (onSelect)="bannersChangeEvent($event)" multiple="multiple">
+                    </p-fileUpload>
+                </div>
+                <div class="form-group">
+                    <label for="description">Page Content</label>
+                    <p-editor id="description" [(ngModel)]="pageDetails['description']" name="description" required [style]="{'height':'320px'}" placeholder="Eg. About the service">
+                    </p-editor>
+                </div>
+                <div class="form-group">
+                    <label for="about_short">Slug (URL Key)</label>
+                    <input type="text" id="slug" [(ngModel)]="pageDetails['slug']" name="slug" placeholder="Ex: samsung-galaxy" required pInputText/>
+                </div>
+                <div class="form-group">
+                    <label class=" col-form-label">Meta Title</label>
+                    <input type="text" id="meta_title" [(ngModel)]="pageDetails['meta_title']" name="meta_title" placeholder="Ex: Buy Samsung Galaxy Mobile Phone" required pInputText />
+                </div>
+                <div class="form-group">
+                    <label class=" col-form-label">Meta Description (156 Char)</label>
+                    <textarea [rows]="5" id="meta_description" name="meta_description" class="custom_textarea" [(ngModel)]="pageDetails['meta_description']" [cols]="30" pInputTextarea autoResize="autoResize" placeholder="Ex: Buy Samsung Galaxy Mobile Phone"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class=" col-form-label">Meta Keywords (156 Char)</label>
+                    <textarea [rows]="5" id="meta_keywords" name="meta_keywords" class="custom_textarea" [(ngModel)]="pageDetails['meta_keywords']" [cols]="30" pInputTextarea autoResize="autoResize" placeholder="Ex: Buy Samsung Galaxy Mobile Phone"></textarea>
+                </div>
+                <div class="form-group text-right">
+                    <p-button *ngIf="!isEditMode" label="PUBLISH" class="custom_new_btn" (click)="savePageDetails()"></p-button>
+                    <p-button *ngIf="isEditMode" label="PUBLISH" class="custom_new_btn" (click)="editPageDetails()"></p-button>
+                </div>
+            </form>
+        </p-card>
+    </div>
+</div>

@@ -1,0 +1,429 @@
+<div class="custom_page_header">
+    <h3>Requests</h3>
+</div>
+
+<div class="container-fluid" id="filter_data">
+    <div class="custom_top_date_container">
+        <!-- <h3 class="float-left my-2">List of Vendors</h3> -->
+
+        <div class="custom_top_date_mc">
+
+            <div class="p-float-right custom_right_align_btn">
+                <button pButton class="btn bg-white text-dark p-mr-0" (click)="filterSection = !filterSection"
+                    label="Filter ({{appliedFiltersLength}})"></button>
+            </div>
+
+            <!-- <div class="custom_top_date_sc">
+                <div class="custom_top_date_nav_link">
+                    <a [routerLink]="['/vendors/create']">Add Vendors</a>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</div>
+
+<div class="px-3 pb-3" id="p_filter_card" *ngIf="filterSection == false">
+    <p-card>
+        <div class="row mx-auto">
+
+            <div class="col-md-6 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Booking ID</label>
+                    <input class="form-control" pInputText type="text">
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Customer Name</label>
+                    <input class="form-control" pInputText type="text" [(ngModel)]="filterItems['customer_name']">
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Email</label>
+                    <input class="form-control" pInputText type="text" [(ngModel)]="filterItems['customer_email']">
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Vendor Name</label>
+                    <input class="form-control" pInputText type="text" [(ngModel)]="filterItems['vendor_name']">
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Service Name</label>
+                    <input class="form-control" pInputText type="text" [(ngModel)]="filterItems['service_name']">
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Status</label>
+                    <p-dropdown [options]="bookingStatus" placeholder="Choose status" optionLabel="display_name"
+                        optionValue="name" [(ngModel)]="filterItems['status']"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3 mb-sm-4">
+                <div class="textOnInput">
+                    <label for="inputText">From Date</label>
+                    <p-calendar [(ngModel)]="filterItems['from_date']" (onSelect)="onFromDateSelect()"></p-calendar>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3 mb-sm-4">
+                <div class="textOnInput">
+                    <label for="inputText">To Date</label>
+                    <p-calendar [(ngModel)]="filterItems['to_date']"></p-calendar>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3 p_button">
+                <button pButton class="btn" label="SUBMIT" (click)="submitFilter()"></button>
+            </div>
+
+        </div>
+    </p-card>
+</div>
+
+<!-- <div class="container-fluid">
+    <div class="custom_top_date_container">
+        <div class="custom_top_date_mc">
+            <div class="custom_top_date_sc">
+                <div class="custom_top_date_content">
+                    <div class="ctd_filter_days">
+                        <p-dropdown [options]="optionDays" optionLabel="option" StyleClass="ctd_filter_past_days"></p-dropdown>
+                    </div>
+                    <div class="ctd_filter_dates">
+                        <div class="ctd_filter_from_date">
+                            <p-calendar placeholder="26 Oct 2021" [defaultDate]="currentDate" dateFormat="dd M yy"></p-calendar>
+                        </div>
+                        <div class="ctd_filter_to_txt">
+                            <span>to</span>
+                        </div>
+                        <div class="ctd_filter_to_date">
+                            <p-calendar placeholder="26 Oct 2021" [defaultDate]="currentDate" dateFormat="dd M yy"></p-calendar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="custom_top_date_sc">
+
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- <div class="container-fluid">
+    <div class="custom_filter_search">
+        <div class="custom_filter_nav">
+            <p-dropdown [options]="cities" optionLabel="name"></p-dropdown>
+        </div>
+        <div class="custom_search_nav">
+            <input type="text" name="filter_search" id="filter_search" placeholder="Quick Search...">
+            <button type="button" class="btn_search_submit">
+                <a class="icon-common icon-search-btn icon-size-40"></a>
+            </button>
+        </div>
+    </div>
+</div> -->
+
+<div class="container-fluid">
+    <div class="custom_tab_view_tables p-pb-6">
+        <div class="custom_listing_container">
+            <p-tabView>
+
+                <p-tabPanel header="Withdrawal" [selected]="true">
+                    <div class="custom_table custom_category_table">
+
+                        <p-table #dt1 [value]="bookingList" [columns]="bookingList" [scrollable]="true"
+                            [(selection)]="selectedRows" dataKey="_id" [paginator]="true" [rows]="10"
+                            scrollHeight="400px" [loading]="loading" [showCurrentPageReport]="true"
+                            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
+                            [responsive]="true">
+
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th scope="col" pResizableColumn>
+                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_id_column"
+                                        pSortableColumn="customername">ID
+                                        <p-sortIcon field="customer._id"></p-sortIcon>
+                                    </th>
+                                    <!-- <th scope="col" pResizableColumn class="custom_shop_column" pSortableColumn="customername">Vendor
+                            <p-sortIcon field="customer.full_name"></p-sortIcon>
+                        </th> -->
+                                    <th scope="col" pResizableColumn class="custom_date_column" pSortableColumn="date">
+                                        Balance
+                                        <p-sortIcon field="appointment_date"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_service_column"
+                                        pSortableColumn="service">Requested Amount
+                                        <p-sortIcon field="services"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_shop_column"
+                                        pSortableColumn="shopname">
+                                        Mode
+                                        <p-sortIcon field="vendor.salon_name"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_timing_column"
+                                        pSortableColumn="timings">
+                                        Account
+                                        <p-sortIcon field="time_slot"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_status_column"
+                                        pSortableColumn="status">
+                                        Status
+                                        <p-sortIcon field="status.name"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_action_column">Action</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-bookings let-i="rowIndex">
+                                <tr>
+                                    <td class="item">
+                                        <p-tableCheckbox [value]="bookings"></p-tableCheckbox>
+                                    </td>
+                                    <td class="custom_shop_column">
+                                        <span>A14{{i+1}}</span>
+                                    </td>
+                                    <!-- <td class="custom_shop_column">
+                            <span>{{bookings.vendor.salon_name}}</span>
+                        </td> -->
+                                    <td class="custom_amount_column">
+                                        <span>${{bookings.amount}}</span>
+                                    </td>
+                                    <td class="custom_amount_column">
+                                        <span>${{bookings.amount}}</span>
+                                    </td>
+                                    <td class="custom_shop_column">
+                                        <span>{{bookings.vendor.salon_name}}</span>
+                                    </td>
+                                    <td class="custom_timing_column">
+                                        <span>Paypal Id: christinabillotti</span>
+                                    </td>
+                                    <td class="custom_status_column">
+                                        <p-dropdown [options]="bookingStatus" [(ngModel)]="bookings.status"
+                                            optionLabel="display_name" [ngClass]="{
+                                'status-pending': (bookings.status.name == undefined || bookings.status.name === 'pending'), 
+                                'status-in-progress': bookings.status.name === 'in_progress',
+                                'status-completed': bookings.status.name === 'completed',
+                                'status-canceled': bookings.status.name === 'canceled'}"
+                                            (onChange)="statusChangeEvent(bookings)">
+                                        </p-dropdown>
+                                    </td>
+                                    <td
+                                        class="custom_action_column no_wrap_txt custom_edit_delete_check action-data-tab">
+                                        <a class="custom_action_view_link mx-auto"
+                                            [routerLink]="['/bookings/booking-detail']">View</a>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+
+                </p-tabPanel>
+
+                <p-tabPanel header="Cancellation">
+                    <div class="custom_table custom_category_table">
+
+                        <p-table #dt1 [value]="bookingList" [columns]="bookingList" [scrollable]="true"
+                            [(selection)]="selectedRows" dataKey="_id" [paginator]="true" [rows]="10"
+                            scrollHeight="400px" [loading]="loading" [showCurrentPageReport]="true"
+                            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
+                            [responsive]="true">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th scope="col" pResizableColumn>
+                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_shop_column"
+                                        pSortableColumn="customername">ID
+                                        <p-sortIcon field="customer._id"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_shop_column"
+                                        pSortableColumn="customername">
+                                        Customer
+                                        <p-sortIcon field="customer.full_name"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_date_column" pSortableColumn="date">
+                                        Seller
+                                        <p-sortIcon field="appointment_date"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_service_column"
+                                        pSortableColumn="service">Request
+                                        <p-sortIcon field="services"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_shop_column"
+                                        pSortableColumn="shopname">
+                                        Amount
+                                        <p-sortIcon field="vendor.salon_name"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_timing_column"
+                                        pSortableColumn="timings">
+                                        Reason
+                                        <p-sortIcon field="time_slot"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_status_column"
+                                        pSortableColumn="status">
+                                        Status
+                                        <p-sortIcon field="status.name"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_action_column">Action</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-bookings let-i="rowIndex">
+                                <tr>
+                                    <td class="item">
+                                        <p-tableCheckbox [value]="bookings"></p-tableCheckbox>
+                                    </td>
+                                    <td class="custom_shop_column">
+                                        <span>A14{{i+1}}</span>
+                                    </td>
+                                    <td class="custom_shop_column">
+                                        <span>{{bookings.customer ? bookings.customer.full_name : ''}}</span>
+                                    </td>
+                                    <td class="custom_date_column">
+                                        <span>Ultra Market</span>
+                                    </td>
+                                    <td class="custom_service_column">
+                                        <span>Order/ invoice: O15713</span>
+                                    </td>
+                                    <td class="custom_selleramount_column">
+                                        <span>${{bookings.amount}}</span>
+                                    </td>
+                                    <td class="custom_shop_column">
+                                        <span>The supplier did not ship the order on time.</span>
+                                    </td>
+
+                                    <td class="custom_status_column">
+                                        <p-dropdown [options]="bookingStatus" [(ngModel)]="bookings.status"
+                                            optionLabel="display_name" [ngClass]="{
+                                'status-pending': (bookings.status.name == undefined || bookings.status.name === 'pending'), 
+                                'status-in-progress': bookings.status.name === 'in_progress',
+                                'status-completed': bookings.status.name === 'completed',
+                                'status-canceled': bookings.status.name === 'canceled'}"
+                                            (onChange)="statusChangeEvent(bookings)">
+                                        </p-dropdown>
+                                    </td>
+                                    <td
+                                        class="custom_action_column no_wrap_txt custom_edit_delete_check action-data-tab">
+                                        <a class="custom_action_view_link mx-auto"
+                                            [routerLink]="['/bookings/booking-detail']">View</a>
+                                    </td>
+                                </tr>
+                            </ng-template>
+
+
+
+                        </p-table>
+                    </div>
+                </p-tabPanel>
+
+                <p-tabPanel header="Return and Refund">
+                    <div class="custom_table custom_category_table">
+
+                        <p-table #dt1 [value]="bookingList" [columns]="bookingList" [scrollable]="true"
+                            [(selection)]="selectedRows" dataKey="_id" [paginator]="true" [rows]="10"
+                            scrollHeight="400px" [loading]="loading" [showCurrentPageReport]="true"
+                            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
+                            [responsive]="true">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th scope="col" pResizableColumn>
+                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_shop_column"
+                                        pSortableColumn="customername">ID
+                                        <p-sortIcon field="customer._id"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_shop_column"
+                                        pSortableColumn="customername">
+                                        Customer
+                                        <p-sortIcon field="customer.full_name"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_date_column" pSortableColumn="date">
+                                        Seller
+                                        <p-sortIcon field="appointment_date"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_service_column"
+                                        pSortableColumn="service">Product
+                                        <p-sortIcon field="services"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_shop_column"
+                                        pSortableColumn="shopname">
+                                        QTY
+                                        <p-sortIcon field="vendor.salon_name"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_timing_column"
+                                        pSortableColumn="timings">
+                                        Date
+                                        <p-sortIcon field="time_slot"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_status_column"
+                                        pSortableColumn="status">
+                                        Status
+                                        <p-sortIcon field="status.name"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" pResizableColumn class="custom_action_column">Action</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-bookings let-i="rowIndex">
+                                <tr>
+                                    <td class="item">
+                                        <p-tableCheckbox [value]="bookings"></p-tableCheckbox>
+                                    </td>
+                                    <td class="custom_shop_column">
+                                        <span>A14{{i+1}}</span>
+                                    </td>
+                                    <td class="custom_shop_column">
+                                        <span>{{bookings.customer ? bookings.customer.full_name : ''}}</span>
+                                    </td>
+                                    <td class="custom_date_column">
+                                        <span class="text-primary cursor-pinter"
+                                            routerLink="/order-management/seller-details">Ultra
+                                            Market</span>
+                                    </td>
+                                    <td class="custom_service_column">
+                                        <span>Regular Men Blue Jeans</span>
+                                    </td>
+                                    <td class="custom_selleramount_column">
+                                        <span>{{i+2}}</span>
+                                    </td>
+                                    <td class="custom_shop_column">
+                                        <span>{{bookings.appointment_date | date }}</span>
+                                    </td>
+
+                                    <td class="custom_status_column">
+                                        <p-dropdown [options]="bookingStatus" [(ngModel)]="bookings.status"
+                                            optionLabel="display_name" [ngClass]="{
+                                'status-pending': (bookings.status.name == undefined || bookings.status.name === 'pending'), 
+                                'status-in-progress': bookings.status.name === 'in_progress',
+                                'status-completed': bookings.status.name === 'completed',
+                                'status-canceled': bookings.status.name === 'canceled'}"
+                                            (onChange)="statusChangeEvent(bookings)">
+                                        </p-dropdown>
+                                    </td>
+                                    <td
+                                        class="custom_action_column no_wrap_txt custom_edit_delete_check action-data-tab">
+                                        <a class="custom_action_view_link mx-auto"
+                                            [routerLink]="['/bookings/booking-detail']">View</a>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </p-tabPanel>
+
+            </p-tabView>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="custom_page_header">
+    <h3>Choose Payment Gateway</h3>
+</div>
+<div class="container-fluid">
+    <div class="custom_create_new_form">
+        <p-card styleClass="p-card-form p-mb-3">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card mb-4">
+                        <div class="custom_card_body">
+                            <div class="form-group">
+                                <label for="store_name">Choose Payment Gateway</label>
+                            </div>
+                            <div class="customer_save mb-4 mt-4">
+                                <p-button type="submit" label="Stripe" class="custom_new_btn" [routerLink]="['/settings/payment', 'stripe']"></p-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </p-card>
+    </div>
+</div>

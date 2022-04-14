@@ -1,0 +1,18 @@
+#table_booking ::ng-deep table tbody > tr > td:first-child,
+#table_booking ::ng-deep table thead > tr > th:first-child,
+.booking_detail_middle .custom_bookingdetail_table tr th.custom_qty_column,
+.booking_detail_middle .custom_bookingdetail_table tr td.custom_qty_column{
+    min-width: 220px!important;
+    max-width: 220px!important;
+    width: 220px!important;
+    //  text-align: left!important;
+}
+
+#table_booking ::ng-deep table tbody tr{
+    display: table-row!important;
+}
+
+#table_booking ::ng-deep table thead > tr > th:first-child{
+    text-align: left!important;
+}
+

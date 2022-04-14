@@ -1,0 +1,101 @@
+// .custom_review_table {
+//     box-shadow: 0px 0px 6px #2680eb27;
+//     border-radius: 8px;
+//     margin-top: 30px;
+//     tbody {
+//         tr {
+//             height: 72px;
+//             display: flex;
+//             align-items: center;
+//         }
+//     }
+//     tr {
+//         th.custom_id_column,
+//         td.custom_id_column {
+//             min-width: 110px;
+//             max-width: 110px;
+//         }
+//         th.custom_customer_column,
+//         td.custom_customer_column {
+//             min-width: 140px;
+//             max-width: 140px;
+//         }
+//         th.custom_product_column,
+//         td.custom_product_column {
+//             min-width: 160px;
+//             max-width: 160px;
+//         }
+//         th.custom_vendor_column,
+//         td.custom_vendor_column {
+//             min-width: 160px;
+//             max-width: 160px;
+//         }
+//         th.custom_rating_column,
+//         td.custom_rating_column {
+//             min-width: 120px;
+//             max-width: 120px;
+//         }
+//         th.custom_review_column,
+//         td.custom_review_column {
+//             min-width: 150px;
+//             max-width: 150px;
+//         }
+//         th.custom_status_column,
+//         td.custom_status_column {
+//             min-width: 130px;
+//             max-width: 130px;
+//         }
+//         th.custom_action_column,
+//         td.custom_action_column {
+//             min-width: 100px;
+//             max-width: 100px;
+//         }
+//         td {
+//             img {}
+//             ul {
+//                 margin: 0;
+//                 padding: 0;
+//                 list-style-type: none;
+//                 display: -webkit-box;
+//                 -webkit-box-orient: vertical;
+//                 -webkit-line-clamp: 1;
+//                 overflow: hidden;
+//             }
+//             span {
+//                 display: -webkit-box;
+//                 -webkit-box-orient: vertical;
+//                 -webkit-line-clamp: 1;
+//                 overflow: hidden;
+//             }
+//         }
+//         td.custom_status_column {
+//             span {
+//                 display: block;
+//                 padding: 8px 12px;
+//                 border-radius: 8px;
+//                 text-align: center;
+//                 text-transform: capitalize;
+//                 &.completed {
+//                     background-color: #07A28714;
+//                     color: #07A287;
+//                 }
+//                 &.cancelled {
+//                     background-color: #E82D4914;
+//                     color: #FF0027;
+//                 }
+//                 &.pending {
+//                     background-color: #FFCD2714;
+//                     color: #D8A80E;
+//                 }
+//                 &.inprogress {
+//                     background-color: #BA2EF814;
+//                     color: #B574D0;
+//                 }
+//                 &.approved {
+//                     background-color: #07A28714;
+//                     color: #07A287;
+//                 }
+//             }
+//         }
+//     }
+// }

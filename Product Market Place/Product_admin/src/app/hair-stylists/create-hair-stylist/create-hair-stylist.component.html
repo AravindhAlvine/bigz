@@ -1,0 +1,582 @@
+<div class="custom_page_header">
+    <h3>Create New Vendor</h3>
+</div>
+<div class="custom_create_form">
+    <form #form="ngForm">
+
+        <div class="create_top_status_container">
+            <div class="create_top_status">
+                <div class="create_top_status_left">
+                    <label for="vendor_status">Approval Status:</label>
+                </div>
+                <!-- <div class="create_top_status_right">
+                    <div class="form-check form-check-inline" id="vendor_status">
+                        <input class="form-check-input" type="radio" name="vendor_approval_status"
+                            id="vendor_status_approved" value="approved" (change)="onApprovalStatusChange('approved')"
+                            [checked]="hairstylistData['approval_status'] && hairstylistData['approval_status']['name'] == 'approved' ">
+                        <label class="form-check-label" for="inlineRadio1">Approved</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="vendor_approval_status"
+                            id="vendor_status_pending" value="pending" (change)="onApprovalStatusChange('pending')"
+                            [checked]="hairstylistData['approval_status'] && hairstylistData['approval_status']['name'] == 'pending'">
+                        <label class="form-check-label" for="inlineRadio2">Pending</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="vendor_approval_status"
+                            id="vendor_status_declained" value="declained"
+                            (change)="onApprovalStatusChange('declained')"
+                            [checked]="hairstylistData['approval_status'] && hairstylistData['approval_status']['name'] == 'declained'">
+                        <label class="form-check-label" for="inlineRadio3">Declained</label>
+                    </div>
+                </div> -->
+
+                <div class="create_top_status_right">
+                    <div class="form-check form-check-inline" id="vendor_status" *ngFor="let item of ApprovedStatus">
+                        <input class="form-check-input" type="radio" name="vendor_approval_status"
+                            id="vendor_status_approved" value="approved" [checked]="item.checked" />
+                        <label class="form-check-label" for="inlineRadio1">{{item.name}}</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="create_top_status">
+                <div class="create_top_status_left">
+                    <label for="vendor_status">Status:</label>
+                </div>
+                <!-- <div class="create_top_status_right">
+                    <div class="form-check form-check-inline" id="">
+                        <input class="form-check-input" type="radio" name="vendor_status" id="vendor_status_active"
+                            value="active" (change)="onProfileStatusChange('active')"
+                            [checked]="isEditMode || (hairstylistData['status'] && hairstylistData['status']['name'] == 'active') ">
+                        <label class="form-check-label" for="inlineRadio1">Active</label>
+                    </div>
+                    <div class="form-check form-check-inline" id="">
+                        <input class="form-check-input" type="radio" name="vendor_status" id="vendor_status_deactive"
+                            value="deactive" (change)="onProfileStatusChange('deactive')"
+                            [checked]="hairstylistData['status'] && hairstylistData['status']['name'] == 'deactive' ">
+                        <label class="form-check-label" for="inlineRadio1">Deactive</label>
+                    </div>
+                </div> -->
+
+                <div class="create_top_status_right">
+                    <div class="form-check form-check-inline" id="">
+                        <input class="form-check-input" type="radio" name="vendor_status" id="vendor_status_active"
+                            value="active" (change)="onProfileStatusChange('active')" [checked]="true">
+                        <label class="form-check-label" for="inlineRadio1">Active</label>
+                    </div>
+                    <div class="form-check form-check-inline" id="">
+                        <input class="form-check-input" type="radio" name="vendor_status" id="vendor_status_deactive"
+                            value="deactive" (change)="onProfileStatusChange('deactive')" [checked]="false">
+                        <label class="form-check-label" for="inlineRadio1">Deactive</label>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div class="create_tab_container">
+            <button type="submit" class="btn theme-color" [ngClass]="{'active':selectedTab == 1}"
+                (click)="showFirstStepClick(form, 1)">Vendor Info</button>
+            <button type="submit" class="btn theme-color" [ngClass]="{'active':selectedTab == 2}"
+                (click)="showSecondStepClick(form, 2)">Shop Details</button>
+            <button type="submit" class="btn theme-color" [ngClass]="{'active':selectedTab == 3}"
+                (click)="showThirdStepClick(form, 3)">Vendor Images</button>
+        </div>
+
+        <div id="vendorInfo" *ngIf="showFirstStep" class="create_vendor">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="salon_name">Name of the Salon</label>
+                                <input type="text" [(ngModel)]="hairstylistData['salon_name']" class="form-control"
+                                    id="salon_name" name="salon_name" placeholder="Enter the name of the salon"
+                                    #salonName="ngModel" required (blur)="createSlug()">
+                                <div *ngIf="form.submitted && salonName.invalid && salonName.errors.required"
+                                    class="p-error">
+                                    Salon name is required
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="about_long">Email Address</label>
+                                <input type="text" [(ngModel)]="hairstylistData['email']" class="form-control"
+                                    id="email" name="email" placeholder="Enter the Email Address" #email="ngModel"
+                                    required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                                <div *ngIf="form.submitted && email.invalid" class="p-error">
+                                    <div *ngIf="email.errors.required">Email is required</div>
+                                    <div *ngIf="email.errors.pattern">Email must be a valid email address
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group" *ngIf="!isEditMode">
+                                <label for="password">Password</label>
+                                <input type="text" class="form-control" id="password" name="password"
+                                    placeholder="Enter the password" [(ngModel)]="hairstylistData['password']"
+                                    #hairStylistPassword="ngModel" required>
+                                <div *ngIf="form.submitted && hairStylistPassword.invalid && hairStylistPassword.errors.required"
+                                    class="p-error">
+                                    Password is required
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="category">Select the Category</label>
+                                <div class="ng-tns-c49-3 p-multiselect p-component">
+                                    <div class="ng-tns-c49-3">
+                                    </div>
+                                    <div editable class="p-multiselect-label-container ng-tns-c49-3">
+                                        <div class="p-multiselect-label ng-tns-c49-3 p-placeholder"
+                                            (click)="categoryBoxClick($event)">
+                                            <span *ngIf="selectedCategories.length == 0 && selectedSubCategories.length == 0; 
+                                                else showSelectedCategories">
+                                                Select Category
+                                            </span>
+                                            <ng-template #showSelectedCategories>
+                                                <div class="p-multiselect-token ng-tns-c49-12 ng-star-inserted mt-1"
+                                                    *ngFor="let item of selectedCategories">
+                                                    <span class="p-multiselect-token-label ng-tns-c49-12">
+                                                        {{item.name}}
+                                                    </span>
+                                                    <span
+                                                        class="p-multiselect-token-icon pi pi-times-circle ng-tns-c49-12 ng-star-inserted ml-2 remove-category"
+                                                        (click)="categoryBoxClick($event, item)">
+                                                    </span>
+                                                </div>
+                                                <div class="p-multiselect-token ng-tns-c49-12 ng-star-inserted mt-1"
+                                                    *ngFor="let subItem of selectedSubCategories">
+                                                    <span class="p-multiselect-token-label ng-tns-c49-12">
+                                                        {{subItem.name}}
+                                                    </span>
+                                                    <span
+                                                        class="p-multiselect-token-icon pi pi-times-circle ng-tns-c49-12 ng-star-inserted ml-2 remove-sub-category"
+                                                        (click)="categoryBoxClick($event, item, subItem)">
+                                                    </span>
+                                                </div>
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p-overlayPanel #categoryMenu styleClass="p-col p-col-4">
+                                    <span class="p-input-icon-left">
+                                        <i class="pi pi-search"></i>
+                                        <input type="text" pInputText placeholder="Search Category" #selectCategory
+                                            (input)="filterCategoryList(selectCategory.value)">
+                                    </span>
+                                    <ng-template pTemplate>
+                                        <div *ngFor="let category of filteredCategoryList; let i = index">
+                                            <p-checkbox styleClass="mt-2" name="categories{{i}}" id="category{{i}}"
+                                                label="{{category.name}}" (onChange)="categoryChange($event, category)"
+                                                binary="true" [(ngModel)]="category['selected']">
+                                            </p-checkbox>
+                                            <div *ngFor="let subCat of category.sub_categories; let j = index">
+                                                <p-checkbox name="subcategories{{i}}{{j}}" styleClass="ml-3"
+                                                    id="subcategories{{i}}{{j}}" binary="true"
+                                                    [(ngModel)]="subCat['selected']" label="{{subCat.name}}"
+                                                    (onChange)="subCategoryChange($event, category, subCat)">
+                                                </p-checkbox>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </p-overlayPanel>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" class="form-control" id="name"
+                                    placeholder="Enter Shop Name or Location" #googleAutoCompleteAddress
+                                    #hairStylistLocation="ngModel" required
+                                    [(ngModel)]="hairstylistData['formatted_address']" name="location" id="location">
+                                <div *ngIf="form.submitted && hairStylistLocation.invalid && hairStylistLocation.errors.required"
+                                    class="p-error">
+                                    Location is required
+                                </div>
+                            </div>
+
+
+                            <div class="form-group address_of_salon">
+                                <label for="address">Address of Salon</label>
+                                <input type="text" class="form-control" id="street_address1"
+                                    [(ngModel)]="hairstylistData['street_address1']" name="street_address1"
+                                    placeholder="Enter Building Name, Door No">
+                                <input type="text" class="form-control" id="street_address2"
+                                    [(ngModel)]="hairstylistData['street_address2']" name="street_address2"
+                                    placeholder="Enter the Street Address and Area">
+
+                                <input type="text" class="form-control" id="city" name="city"
+                                    [(ngModel)]="hairstylistData['city']" placeholder="Enter the City">
+
+                                <input type="text" class="form-control" id="state" name="state"
+                                    [(ngModel)]="hairstylistData['state']" placeholder="Enter the State">
+
+                                <input type="text" class="form-control" id="country" name="country"
+                                    [(ngModel)]="hairstylistData['country']" placeholder="Enter the Country">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="phone_number">Phone Number</label>
+                                <div class="custom_phone_number">
+                                    <ngx-intl-tel-input [(ngModel)]="phoneNumber"
+                                        [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true"
+                                        [enablePlaceholder]="true" [searchCountryFlag]="true"
+                                        [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                                        [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.UnitedStates"
+                                        [maxLength]="15" [phoneValidation]="true" [separateDialCode]="true"
+                                        [numberFormat]="PhoneNumberFormat.National" name="phone_number"
+                                        #hairStylistPhoneNumber="ngModel" required>
+                                    </ngx-intl-tel-input>
+                                    <div *ngIf="form.submitted && hairStylistPhoneNumber.invalid" class="p-error">
+                                        <div *ngIf="hairStylistPhoneNumber.errors.required" class="p-error">Phone number
+                                            is required
+                                        </div>
+                                        <div *ngIf="hairStylistPhoneNumber.errors.validatePhoneNumber && !hairStylistPhoneNumber.errors.validatePhoneNumber.valid"
+                                            class="p-error">
+                                            Phone number is not valid
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="text-right mb-4 custom_vendor_next">
+                                <button type="submit" pButton class="btn theme-color"
+                                    (click)="showSecondStepClick(form, 2)">Next</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div id="shopDetails" *ngIf="showSecondStep">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="about_short">About the Vendor</label><small>(Short
+                                            Description)</small>
+                                        <p-editor [(ngModel)]="hairstylistData['about_short']" id="about_short"
+                                            name="about_short" #aboutShort="ngModel" required
+                                            [style]="{'height':'100px'}" placeholder="Short Description about Salon">
+                                        </p-editor>
+                                        <div *ngIf="form.submitted && aboutShort.invalid && aboutShort.errors.required"
+                                            class="p-error">
+                                            About is required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="about_long">About the Vendor</label><small>(Long
+                                            Description)</small>
+                                        <p-editor id="about_long" name="about_long"
+                                            [(ngModel)]="hairstylistData['about_long']" [style]="{'height':'320px'}"
+                                            placeholder="Long Description about Salon">
+                                        </p-editor>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="slug">Shop Url</label><small>(slug)</small>
+                                        <input type="text" class="form-control" id="slug" name="slug"
+                                            placeholder="Shop url" [(ngModel)]="hairstylistData['slug']" #slug="ngModel"
+                                            required>
+                                        <div *ngIf="form.submitted && slug.invalid && slug.errors.required"
+                                            class="p-error">
+                                            Shop Url is required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group row" *ngFor="let item of businessDays; let i = index">
+                                <label class="col-md-1">{{item.display_name}}</label>
+                                <div class="col-md-1">
+                                    <label class="switch switch-label switch-pill switch-outline-primary-alt">
+                                        <input [(ngModel)]="businessDays[i]['is_open']" id="businessDays{{i}}"
+                                            type="checkbox" name="businessDays{{i}}" class="switch-input">
+                                        <span class="switch-slider" data-checked="&#x2713;"
+                                            data-unchecked="&#x2715;"></span>
+                                    </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <select [disabled]="!item.is_open" [(ngModel)]="businessDays[i]['open_at']"
+                                        class="form-control-sm" id="openAt{{i}}" name="openAt{{i}}" #openAt="ngModel"
+                                        required>
+                                        <option selected>Opens at</option>
+                                        <option [value]="time" *ngFor="let time of businessHours; let i = index">
+                                            {{time}}
+                                        </option>
+                                    </select>
+                                    <span>-</span>
+                                    <select [disabled]="!item.is_open" [(ngModel)]="businessDays[i]['close_at']"
+                                        class="form-control-sm" id="closeAt{{i}}" name="closeAt{{i}}" #closeAt="ngModel"
+                                        required>
+                                        <option selected>Closes at</option>
+                                        <option [value]="time" *ngFor="let time of businessHours; let i = index">
+                                            {{time}}
+                                        </option>
+                                    </select>
+                                    <span
+                                        *ngIf="form.submitted && ((closeAt.invalid && closeAt.errors.required) || (openAt.invalid && openAt.errors.required))"
+                                        class="p-error">
+                                        Business time is required
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div *ngFor="let slink of socialLinks; let i = index" class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">{{slink.display_name}}</span>
+                                    </div>
+                                    <input type="text" id="socialLinks{{i}}" name="socialLinks{{i}}"
+                                        [(ngModel)]="socialLinks[i]['id']" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    Google Map
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-sm-12 my-4">
+                    <div class="text-left float-left custom_vendor_prev">
+                        <button type="button" class="btn theme-color" (click)="goPrevious(1)">Previous</button>
+                    </div>
+                    <div class="text-right custom_vendor_next">
+                        <button type="submit" class="btn  theme-color" pButton
+                            (click)="showThirdStepClick(form, 3)">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="vendorImages" *ngIf="showThirdStep">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <!--  <div class="card-header">
+                            <strong>Add Profile Picture</strong>
+                        </div> -->
+                        <div class="card-body text-center">
+                            <div class="form-group row">
+                                <div *ngIf="isEditMode && hairstylistData.logo">
+                                    <img [src]="hairstylistData.logo.url">
+                                </div>
+                                <div class="col-md-12">
+                                    <!-- <h5>No pictures yet</h5> -->
+                                    <label class=" col-form-label">Add your Salon Profile Picture(Min Size
+                                        612x366PX)</label><br />
+                                    <p-fileUpload name="logo[]" #fileUpload
+                                        (onSelect)="logoChangeEvent($event, fileUpload)" chooseLabel="Upload"
+                                        [showUploadButton]="false" accept="image/*" maxFileSize="1000000">
+                                    </p-fileUpload>
+                                    <div class="p-error" *ngIf="logoImgError">
+                                        Please upload proper image
+                                    </div>
+                                    <!-- <div class="custom-file col-md-2">
+                                            <input type="file" class="custom-file-input" id="logo" name="logo"
+                                                (change)="logoChangeEvent($event)" required>
+                                            <label class="custom-file-label" for="logo">Choose file...</label>
+                                        </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <!--  <div class="card-header">
+                            <strong>Add Banners</strong>
+                        </div> -->
+                        <div class="card-body text-center">
+                            <div class="form-group row">
+                                <p-galleria [(value)]="hairstylistData.banners" [(visible)]="displayBannerSlider"
+                                    [(activeIndex)]="bannerActiveIndex" [containerStyle]="{'max-width': '50%'}"
+                                    [numVisible]="9" [circular]="true" [showItemNavigators]="true"
+                                    [baseZIndex]="100000">
+                                    <ng-template pTemplate="item" let-item>
+                                        <img alt="" [src]="item.url" style="width: 100%; display: block;" />
+                                        <a class="slider-trash-icon" (click)="deleteBannerImage(item)"><i
+                                                class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                                    </ng-template>
+                                    <ng-template pTemplate="thumbnail" let-item>
+                                        <div class="p-grid p-nogutter p-justify-center">
+                                            <img alt="" [src]="item.url" style="display: block; width:50%" />
+                                        </div>
+                                    </ng-template>
+                                </p-galleria>
+
+
+                                <div class="col-md-12">
+                                    <!-- <h5>No pictures yet</h5> -->
+                                    <label class=" col-form-label">Add your Salon Banners(Size 1200x500PX)
+                                    </label><br />
+                                    <!-- <div class="custom-file col-md-2">
+                                            <input type="file" class="custom-file-input" id="banners" name="banners"
+                                                (change)="bannersChangeEvent($event)" multiple required>
+                                            <label class="custom-file-label" for="banners">Choose file...</label>
+                                        </div> -->
+                                    <p-fileUpload name="banners[]" (onSelect)="bannersChangeEvent($event)"
+                                        chooseLabel="Upload" [showUploadButton]="false" multiple="multiple"
+                                        accept="image/*" maxFileSize="1000000">
+                                    </p-fileUpload>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <!--   <div class="card-header">
+                            <strong>Your Works</strong>
+                        </div> -->
+                        <div class="card-body text-center">
+                            <div class="form-group row">
+                                <!-- <div *ngIf="isEditMode && hairstylistData.work_gallery">
+                                        <div *ngFor="let work of hairstylistData.work_gallery">
+                                            <img [src]="work.url">
+                                            <a (click)="deleteWorksImage(work)"><i class="fa fa-trash fa-lg"
+                                                    aria-hidden="true"></i></a>
+                                        </div>
+                                    </div> -->
+                                <p-galleria [(value)]="hairstylistData.work_gallery" [(visible)]="displayWorksSlider"
+                                    [(activeIndex)]="worksActiveIndex" [containerStyle]="{'max-width': '50%'}"
+                                    [numVisible]="9" [circular]="true" [showItemNavigators]="true"
+                                    [baseZIndex]="100000">
+                                    <ng-template pTemplate="item" let-item>
+                                        <img alt="" [src]="item.url" style="width: 100%; display: block;" />
+                                        <a class="slider-trash-icon" (click)="deleteWorksImage(item)"><i
+                                                class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                                    </ng-template>
+                                    <ng-template pTemplate="thumbnail" let-item>
+                                        <div class="p-grid p-nogutter p-justify-center">
+                                            <img [src]="item.url" style="display: block; width:50%" />
+                                        </div>
+                                    </ng-template>
+                                </p-galleria>
+                                <div class="col-md-12">
+                                    <!-- <h5>No pictures yet</h5> -->
+                                    <label class=" col-form-label">Post photos of your work, doing what you do best
+                                    </label><br />
+                                    <!-- <div class="custom-file col-md-2">
+                                            <input type="file" class="custom-file-input" id="works" name="works"
+                                                (change)="worksChangeEvent($event)" multiple required>
+                                            <label class="custom-file-label" for="validatedCustomFile">Choose
+                                                file...</label>
+                                        </div> -->
+                                    <p-fileUpload name="works[]" (onSelect)="worksChangeEvent($event)"
+                                        chooseLabel="Upload" [showUploadButton]="false" multiple="multiple"
+                                        accept="image/*" maxFileSize="1000000">
+                                    </p-fileUpload>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <!--  <div class="card-header">
+                            <strong>Your Documents</strong>
+                        </div> -->
+                        <div class="card-body text-center">
+                            <div class="form-group row">
+                                <div *ngIf="isEditMode && hairstylistData.documents">
+                                    <div *ngFor="let doc of hairstylistData.documents">
+                                        <img [src]="doc.url">
+                                        <a (click)="deleteDocument(doc)"><i class="fa fa-trash fa-lg"
+                                                aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5>No pictures yet</h5>
+                                    <label class=" col-form-label">Post Your Documents
+                                    </label><br />
+                                    <div class="custom-file col-md-4 text-left">
+                                        <input type="file" class="custom-file-input " id="documents" name="documents"
+                                            (change)="documentsChangeEvent($event)" multiple required>
+                                        <label class="custom-file-label">Choose file...</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4 pb-4">
+                <div class="col-sm-12">
+                    <div class="text-left float-left custom_vendor_prev">
+                        <button type="button" class="btn  theme-color" (click)="goPrevious(2)">Previous</button>
+                    </div>
+                    <div class="float-right custom_vendor_prev">
+                        <button type="submit" *ngIf="!isEditMode" class="btn bg-primary theme-color"
+                            (click)="saveVendorDetails(form)">Publish</button>
+                            <button type="button" *ngIf="isEditMode" class="btn  theme-color"
+                            (click)="editVendorDetails(form)">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>

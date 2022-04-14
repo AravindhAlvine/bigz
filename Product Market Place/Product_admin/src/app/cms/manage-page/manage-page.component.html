@@ -1,0 +1,123 @@
+<div class="custom_page_header">
+    <h3>Manage Pages</h3>
+</div>
+
+
+<div class="container-fluid" id="filter_data">
+    <div class="custom_top_date_container">
+        <div class="custom_top_date_mc">
+            <div class="p-float-right custom_right_align_btn">
+                <button pButton class="btn bg-white text-dark" (click)="filterSection = !filterSection"
+                    label="Filter (1)"></button>
+            </div>
+            <div class="custom_top_date_sc">
+                <div class="custom_top_date_nav_link">
+                    <a [routerLink]="['/manage-catalog/create-product']">Add New Product</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-white py-4 mx-3" style="border-radius: 8px;" id="p_filter_card" *ngIf="filterSection == false">
+    <p-card>
+        <div class="row mx-auto">
+
+            <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Category Name</label>
+                    <input class="form-control" pInputText type="text" [(ngModel)]="filterItems['name']">
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Status</label>
+                    <p-dropdown [options]="categoryStatus" placeholder="Choose status" optionLabel="display_name"
+                        optionValue="name" [(ngModel)]="filterItems['approval_status']"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-sm-4">
+                <div class="textOnInput">
+                    <label for="inputText">From Date</label>
+                    <p-calendar [(ngModel)]="filterItems['from_date']" (onSelect)="onFromDateSelect()"></p-calendar>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-sm-4">
+                <div class="textOnInput">
+                    <label for="inputText">To Date</label>
+                    <p-calendar [(ngModel)]="filterItems['to_date']"></p-calendar>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 p_button">
+                <button pButton class="btn" label="SUBMIT" (click)="submitFilter()"></button>
+            </div>
+
+        </div>
+    </p-card>
+</div>
+
+<div class="container-fluid">
+
+    <div class="custom_listing_container p-pb-4">
+        <div class="custom_table custom_managepage_table">
+            <!-- <p-table #dt1 [value]="pageList" [scrollable]="true" scrollHeight="flex" [paginator]="true" [rows]="10" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries " [responsive]="true"> -->
+
+            <p-table #dt1 [value]="pageList" [columns]="pageList" [scrollable]="true" [(selection)]="selectedRows"
+                dataKey="_id" [paginator]="true" [rows]="10" scrollHeight="400px" [loading]="loading"
+                [showCurrentPageReport]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries " [responsive]="true">
+
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th scope="col" pResizableColumn>
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                        <th scope="col" pResizableColumn class="custom_id_column">ID</th>
+                        <th scope="col" pResizableColumn class="custom_page_column">Page</th>
+                        <th scope="col" pResizableColumn class="custom_slug_column">Slug (URL Param)</th>
+                        <th scope="col" pResizableColumn class="custom_status_column">Status</th>
+                        <th scope="col" pResizableColumn class="custom_action_column">Action</th>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="body" let-page let-i="rowIndex">
+                    <tr>
+                        <td>
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </td>
+                        <td class="custom_id_column">
+                            <span>A14{{i+1}}</span>
+                        </td>
+                        <td class="custom_page_column">
+                            <span>{{page.name}}</span>
+                        </td>
+                        <td class="custom_slug_column">
+                            <span>{{page.slug}}</span>
+                        </td>
+                        <td class="custom_status_column">
+                            <p-dropdown [options]="pageStatus" [(ngModel)]="page.approval_status"
+                                optionLabel="display_name" [ngClass]="{
+                                'status-published': page.approval_status.name === 'published', 
+                                'status-draft': page.approval_status.name === 'draft',
+                                'status-deleted': page.approval_status.name === 'deleted'}"
+                                (onChange)="statusChangeEvent(page)">
+                            </p-dropdown>
+                        </td>
+                        <td class="custom_action_column">
+                            <input type="checkbox" id="switch{{page._id}}" class="checkbox"
+                                (change)="activateDeactivatePage($event, page)"
+                                [checked]="(page.status.name == 'active') ? true: false" />
+                            <label for="switch{{page._id}}" class="toggle"></label>
+                            <a class="pi pi-pencil p-mr-2" [routerLink]="['/cms/update', page._id]"></a>
+                            <a class="pi pi-trash p-mr-2" (click)="deletePage(page._id)"></a>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>

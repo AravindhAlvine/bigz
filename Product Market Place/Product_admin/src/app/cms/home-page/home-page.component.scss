@@ -1,0 +1,30 @@
+.add-new-banner {
+    align-items: center;
+    width: 150px;
+    height: 108px;
+    border: 2px dotted #4078fc;
+    display: flex;
+    border-radius: 5px;
+}
+
+.add-new-banner a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: 2px dotted #4078fc;
+    border-radius: 50%;
+    color: #007bff;
+}
+
+.cms_home_btm_img img {
+    border-radius: 5px;
+    object-fit: fill;
+    height: 100%;
+}
+
+.mr-40 {
+    margin-right: 40px;
+}

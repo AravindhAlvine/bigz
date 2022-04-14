@@ -1,0 +1,50 @@
+.icon-common {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    &.icon-size {
+        &-25 {
+            width: 25px;
+            height: 25px;
+        }
+        &-40 {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    &.icon {
+        &-dashboard {
+            background-image: url('#{$imgPath}/icon-dashboard.png');
+        }
+        &-hair-stylist {
+            background-image: url('#{$imgPath}/icon-hair-stylist.png');
+        }
+        &-service-list {
+            background-image: url('#{$imgPath}/icon-service-list.png');
+        }
+        &-booking {
+            background-image: url('#{$imgPath}/icon-booking.png');
+        }
+        &-content {
+            background-image: url('#{$imgPath}/icon-content.png');
+        }
+        &-blog-post {
+            background-image: url('#{$imgPath}/icon-blog-post.png');
+        }
+        &-revenue {
+            background-image: url('#{$imgPath}/icon-revenue.png');
+        }
+        &-marketting {
+            background-image: url('#{$imgPath}/icon-marketting.png');
+        }
+        &-users {
+            background-image: url('#{$imgPath}/icon-users.png');
+        }
+        &-search-btn {
+            background-image: url('#{$imgPath}/search-button.svg');
+        }
+    }
+}

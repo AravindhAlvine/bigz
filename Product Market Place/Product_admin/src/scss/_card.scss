@@ -1,0 +1,23 @@
+.p-card {
+    border-radius: 8px;
+    box-shadow: 0px 0px 6px #2680eb27;
+    &-form {
+        .p-card {
+            &-body {
+                padding-left: 25px;
+                padding-right: 25px;
+                @include mobile-style() {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+            }
+        }
+    }
+    &-table {
+        .p-card {
+            &-body {
+                padding: 0;
+            }
+        }
+    }
+}

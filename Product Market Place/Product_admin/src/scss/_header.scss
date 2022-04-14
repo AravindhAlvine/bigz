@@ -1,0 +1,120 @@
+.header-container {
+    background-color: $colorwhite;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    width: 260px;
+    box-shadow: -8px -8px 10px #00000029;
+    background: #0d5034;
+    // padding-left: 1rem;
+    @include tablet-style() {
+        max-width: 180px;
+        width: auto;
+        display: flex;
+        align-items: center;
+    }
+    img {
+        width: 100%;
+        height: 72px;
+        object-fit: fill;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.header-title-container {
+    width: calc(100% - 260px);
+    box-shadow: 4px 0px 4px #00000029;
+    padding: 0px 48px 0px 25px;
+    @include tablet-style() {
+        width: calc(100% - 180px);
+        padding-right: 15px;
+    }
+    @include mobile-style() {
+        width: auto;
+    }
+}
+
+// aravindh
+.header-container .header-title-container .header-right .p-mr-3 button{
+    border: 1px solid #E1E3E6;
+    border-radius: 8px;
+    background: #fff;
+    padding: 8px;
+}
+
+.header-container .header-title-container .header-right .p-mr-3 button span{
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #fff;
+    opacity: 1;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+}
+
+.header-container .header-title-container .header-right .header_avator .p-button-label{
+    display: none!important;
+}
+
+.header-container .header-title-container .header-right .header_avator .mid_section p:first-child{
+    color: #5A6474;
+    font-size: 18px;
+    font-family: 'DMSans-Regular';
+}
+
+.header-container .header-title-container .header-right .header_avator .mid_section p:last-child{
+    color: #094f32;
+    font-size: 14px;
+    font-family: 'DMSans-Regular';
+    font-weight: 100;
+}
+
+.header-container .header-title-container .header-right .header_avator .float-right .p_avator_img .p-avatar-circle{
+    margin: 8px 0px;
+}
+
+.header-container .header-title-container .header-right .header_avator .mid_section{
+    margin-left: 12px;
+}
+
+.header-container .header-title-container .header-right .header_avator p-splitButton{
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.header-container .header-title-container .header-right .header_avator p-splitButton .p-splitbutton .p-splitbutton-defaultbutton{
+    display: none;
+}
+
+.header-container .header-title-container .header-right .header_avator p-splitButton .p-splitbutton .p-splitbutton-menubutton{
+    background-color: #F1F2F3;
+    border: 1px solid #F1F2F3;
+    border-radius: 8px;
+    width: 24px;
+    height: 24px;
+}
+.header-container .header-title-container .header-right .header_avator p-splitButton .p-splitbutton .p-splitbutton-menubutton .p-button-icon.pi-chevron-down:before{
+    color: #757D8A;
+    font-size: 15px;
+}
+
+// background-color: #F1F2F3;
+// border: 1px solid #F1F2F3;
+// border-radius: 8px;
+// width: 24px;
+// height: 24px;
+
+// .header-container .header-title-container .header-right .header_avator i::before{
+//     background: #F1F2F3;
+//     border-radius: 8px;
+//     padding: 4px;
+// }
+
+

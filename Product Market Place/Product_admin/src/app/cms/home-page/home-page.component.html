@@ -1,0 +1,342 @@
+<p-confirmPopup></p-confirmPopup>
+<div class="custom_page_header">
+    <h3>Manage Home Page</h3>
+</div>
+
+<div class="container-fluid" *ngIf="pageDetailsIsNotEmpty()">
+    <div *ngIf="pageDetails.banners.length > 0" class="cms_home_banner_block section_block">
+        <div class="cms_home_top_container">
+            <div class="cms_home_top_image">
+                <div class="cms_home_top_img">
+                    <img [src]="pageDetails.banners[0].image.url" alt="">
+                </div>
+            </div>
+            <div class="cms_home_top_nav">
+                <!-- [routerLink]="['/cms/banner-edit']" -->
+                <a class="pi pi-pencil" (click)="editBannerClick(pageDetails.banners[0], pageDetails._id)"><span>Edit</span></a>
+                <a class="pi pi-trash" *ngIf="pageDetails.banners.length > 1" (click)="deleteBannerClick($event, pageDetails.banners[0], pageDetails._id)"><span>Delete</span></a>
+            </div>
+        </div>
+
+        <div class="cms_home_bottom_container">
+            <ng-container *ngFor="let banner of pageDetails.banners; let i = index">
+                <div class="cms_home_btm_img" *ngIf="i !== 0">
+                    <img [src]="banner.image.url" alt="">
+                    <div class="cms_home_bottom_img_edit">
+                        <a class="pi pi-pencil" (click)="editBannerClick(banner, pageDetails._id)"><span>Edit</span></a>
+                        <a class="pi pi-trash" (click)="deleteBannerClick($event, banner, pageDetails._id)"><span>Delete</span></a>
+                    </div>
+                </div>
+            </ng-container>
+            <div *ngIf="pageDetails.banners.length < 6" class="add-new-banner">
+                <a (click)="addBannerClick(pageDetails._id)">
+                    <span class="pi pi-plus"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <ng-container *ngFor="let block of pageDetails.blocks">
+        <div *ngIf="block.block_type == 'category'" class="cms_home_category_block section_block">
+            <div class="section_block_header">
+                <h3 class="section_block_title">{{block.title}}</h3>
+                <a (click)="editBlockDetails('/cms/category-edit', block)" class="pi pi-pencil mr-40"></a>
+                <a (click)="deleteBlock($event, block._id)" class="pi pi-trash "></a>
+            </div>
+            <div class="cms_home_categories_mc">
+                <div *ngFor="let blockItem of block.items" class="cms_home_categories_sc">
+                    <div class="cms_home_categories_content">
+                        <div class="cms_home_category_img img-with-icon-tr">
+                            <img [src]="blockItem.profile ? blockItem.profile.url : './assets/images/cms/banner_1.png'" alt="">
+                            <a class="pi pi-trash icon-tr" (click)="deleteBlockItem($event, block._id, blockItem._id)"></a>
+                        </div>
+                        <a href="" class="cms_home_category_title">{{blockItem.url}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="block.block_type == 'vendor'" class="cms_home_category_block section_block">
+            <div class="section_block_header">
+                <h3 class="section_block_title">{{block.title}}</h3>
+                <a (click)="editBlockDetails('/cms/vendor-edit', block)" class="pi pi-pencil mr-40"></a>
+                <a (click)="deleteBlock($event, block._id)" class="pi pi-trash "></a>
+            </div>
+            <div class="cms_home_categories_mc">
+                <div *ngFor="let blockItem of block.items" class="cms_home_categories_sc">
+                    <div class="cms_home_categories_content">
+                        <div class="cms_home_category_img img-with-icon-tr">
+                            <img [src]="blockItem.logo ? blockItem.logo.url : './assets/images/default-shop-logo.png'" alt="">
+                            <a class="pi pi-trash icon-tr" (click)="deleteBlockItem($event, block._id, blockItem._id)"></a>
+                        </div>
+                        <!-- <a href="" class="cms_home_category_title">{{blockItem.url}}</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <div class="cms_home_product_block section_block">
+        <div class="section_block_header">
+            <h3 class="section_block_title">Mens Fashion</h3>
+            <a [routerLink]="['/cms/product-edit']" class="pi pi-pencil"></a>
+        </div>
+
+        <div class="cms_home_product_block_mc">
+            <div class="cms_home_product_block_sc">
+                <div class="product_block_img">
+                    <img [src]="bannerImage1" alt="">
+                </div>
+                <div class="product_block_content">
+                    <h5 class="product_block_subtitle">Ronit Leading Clothing</h5>
+                    <a class="product_block_maintitle" href="">Long Sleeve Checked Shirt</a>
+                    <div class="product_block_review">
+                        <img [src]="reviewIcon" alt="">
+                        <span>(<span>123</span>)</span>
+                    </div>
+                    <div class="product_block_price">
+                        <span class="product_block_finalprice">$96.00</span>
+                        <span class="product_block_oldprice">$126.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cms_home_product_block_sc">
+                <div class="product_block_img">
+                    <img [src]="bannerImage3" alt="">
+                </div>
+                <div class="product_block_content">
+                    <h5 class="product_block_subtitle">Ronit Leading Clothing</h5>
+                    <a class="product_block_maintitle" href="">Long Sleeve Checked Shirt</a>
+                    <div class="product_block_review">
+                        <img [src]="reviewIcon" alt="">
+                        <span>(<span>123</span>)</span>
+                    </div>
+                    <div class="product_block_price">
+                        <span class="product_block_finalprice">$96.00</span>
+                        <span class="product_block_oldprice">$126.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cms_home_product_block_sc">
+                <div class="product_block_img">
+                    <img [src]="bannerImage1" alt="">
+                </div>
+                <div class="product_block_content">
+                    <h5 class="product_block_subtitle">Ronit Leading Clothing</h5>
+                    <a class="product_block_maintitle" href="">Long Sleeve Checked Shirt</a>
+                    <div class="product_block_review">
+                        <img [src]="reviewIcon" alt="">
+                        <span>(<span>123</span>)</span>
+                    </div>
+                    <div class="product_block_price">
+                        <span class="product_block_finalprice">$96.00</span>
+                        <span class="product_block_oldprice">$126.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cms_home_product_block_sc">
+                <div class="product_block_img">
+                    <img [src]="bannerImage3" alt="">
+                </div>
+                <div class="product_block_content">
+                    <h5 class="product_block_subtitle">Ronit Leading Clothing</h5>
+                    <a class="product_block_maintitle" href="">Long Sleeve Checked Shirt</a>
+                    <div class="product_block_review">
+                        <img [src]="reviewIcon" alt="">
+                        <span>(<span>123</span>)</span>
+                    </div>
+                    <div class="product_block_price">
+                        <span class="product_block_finalprice">$96.00</span>
+                        <span class="product_block_oldprice">$126.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cms_home_product_block_sc">
+                <div class="product_block_img">
+                    <img [src]="bannerImage1" alt="">
+                </div>
+                <div class="product_block_content">
+                    <h5 class="product_block_subtitle">Ronit Leading Clothing</h5>
+                    <a class="product_block_maintitle" href="">Long Sleeve Checked Shirt</a>
+                    <div class="product_block_review">
+                        <img [src]="reviewIcon" alt="">
+                        <span>(<span>123</span>)</span>
+                    </div>
+                    <div class="product_block_price">
+                        <span class="product_block_finalprice">$96.00</span>
+                        <span class="product_block_oldprice">$126.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> -->
+
+        <div *ngIf="block.block_type == 'content'" class="cms_home_content_area section_block">
+            <div class="section_block_header">
+                <h3 class="section_block_title">{{block.title}}</h3>
+                <a href="" class="pi pi-pencil" [routerLink]="['/cms/content-edit']"></a>
+            </div>
+            <div class="cms_home_content_desc">
+                <p>{{block.description}}</p>
+            </div>
+        </div>
+
+        <!-- <div *ngIf="block.block_type == 'vendor'" class="cms_home_content_area section_block">
+            <div class="section_block_header">
+                <h3 class="section_block_title">{{block.title}}</h3>
+                <a href="" class="pi pi-pencil" [routerLink]="['/cms/vendor-edit']"></a>
+            </div>
+            <div class="cms_home_content_desc">
+                <p>{{block.description}}</p>
+            </div>
+        </div> -->
+
+
+        <!--  <div class="cms_home_image_block section_block">
+        <div class="section_block_header">
+            <h3 class="section_block_title">Promotions</h3>
+            <a [routerLink]="['/cms/promotions-edit']" class="pi pi-pencil"></a>
+        </div>
+        <div class="cms_home_image_mc">
+            <div class="cms_home_image_sc">
+                <a href="">
+                    <div class="cms_home_image">
+                        <img [src]="bannerImage1" alt="">
+                    </div>
+                </a>
+            </div>
+            <div class="cms_home_image_sc">
+                <a href="">
+                    <div class="cms_home_image">
+                        <img [src]="bannerImage3" alt="">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div> -->
+    </ng-container>
+
+    <div class="section_block add_section_block">
+        <div class="add_section_block_mc">
+            <div class="add_section_block_sc">
+                <div class="add_section_block_content">
+                    <a (click)="navigateToBlockEditPage('/cms/category-edit')">
+                        <span class="pi pi-plus"></span>
+                        <span>Category Block</span>
+                    </a>
+                </div>
+            </div>
+            <div class="add_section_block_sc">
+                <div class="add_section_block_content">
+                    <a (click)="navigateToBlockEditPage('/cms/product-edit')">
+                        <span class="pi pi-plus"></span>
+                        <span>Product Block</span>
+                    </a>
+                </div>
+            </div>
+            <!-- <div class="add_section_block_sc">
+                <div class="add_section_block_content">
+                    <a [routerLink]="['/cms/product-edit']">
+                        <span class="pi pi-plus"></span>
+                        <span>Product Block</span>
+                    </a>
+                </div>
+            </div> -->
+            <div class="add_section_block_sc">
+                <div class="add_section_block_content">
+                    <a [routerLink]="['/cms/content-edit']">
+                        <span class="pi pi-plus"></span>
+                        <span>Content Block</span>
+                    </a>
+                </div>
+            </div>
+            <div class="add_section_block_sc">
+                <div class="add_section_block_content">
+                    <a [routerLink]="['/cms/promotions-edit']">
+                        <span class="pi pi-plus"></span>
+                        <span>Image Block</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <div class="cms_home_footer_block section_block">
+        <div class="custom_footer ">
+            <div class="custom_footer_mc ">
+                <div class="custom_footer_sc ">
+                    <div class="footer_logo_txt_container ">
+                        <div class="footer_logo "><img [src]="footerLogo " alt=" "></div>
+                        <p>the restaurents you love. Find the right food to suit your mood</p>
+                        <div class="footer_help ">
+                            <div class="footer_help_img "><img src="https://nearshutter.appsleet.com/pub/media/wysiwyg/help_image.png " alt=" "></div>
+                            <div class="footer_help_txt ">
+                                <h4>NEED HELP?</h4>
+                                <a href="https://nearshutter.appsleet.com/ ">(+800) 345 678</a>
+                            </div>
+                        </div>
+                        <div class="footer_copyright ">
+                            <p>Copyright © 2021 Zielcommerce All Rights Reserved.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="custom_footer_sc ">
+                    <div class="footer_nav_pages_mc ">
+                        <div class="footer_nav_pages_sc ">
+                            <h3>Information</h3>
+                            <ul>
+                                <li><a href=" ">Delivery</a></li>
+                                <li><a href=" ">About Us</a></li>
+                                <li><a href=" ">Secure Payment</a></li>
+                                <li><a href=" ">Contact Us</a></li>
+                                <li><a href=" ">Sitemap</a></li>
+                                <li><a href=" ">Stores</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer_nav_pages_sc ">
+                            <h3>Custom Links</h3>
+                            <ul>
+                                <li><a href=" ">Legal Notice</a></li>
+                                <li><a href=" ">Price Drop</a></li>
+                                <li><a href=" ">New Products</a></li>
+                                <li><a href=" ">Best Sales</a></li>
+                                <li><a href=" ">Become a Seller</a></li>
+                                <li><a href=" ">Become a Buyer</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer_nav_pages_sc ">
+                            <h3>Newsletter</h3>
+                            <div class="custom_newsletter_txt ">
+                                <p>You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.
+                                </p>
+                            </div>
+                            <div class="custom_subscribe_form ">
+                                <div class="subscribe_form_email ">
+                                    <input type="email " placeholder="Subscribe our Newsletter ">
+                                </div>
+                                <div class="subscribe_form_btn ">
+                                    <button type="submit ">Subscribe</button>
+                                </div>
+                            </div>
+                            <div class="footer_mobile_app ">
+                                <a href=" "><img [src]="appstoreLogo " alt=" "></a>
+                                <a href=" "><img [src]="appstoreLogo " alt=" "></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>

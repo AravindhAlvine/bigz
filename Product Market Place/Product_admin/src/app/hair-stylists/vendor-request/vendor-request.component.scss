@@ -1,0 +1,112 @@
+.custom_tab_view_tables {
+    border: 1px solid #E6E6E6;
+    box-shadow: 0px 0px 6px #2680eb27;
+    border-radius: 8px;
+}
+
+// .custom_vendor_plans_table {
+//     tbody {
+//         tr {
+//             height: 72px;
+//             display: flex;
+//             align-items: center;
+//         }
+//     }
+//     tr {
+//         th.custom_id_column,
+//         td.custom_id_column {
+//             min-width: 80px;
+//             max-width: 80px;
+//             width: 80px;
+//         }
+//         th.custom_owner_column,
+//         td.custom_owner_column {
+//             min-width: 170px;
+//             max-width: 170px;
+//         }
+//         th.custom_vendor_column,
+//         td.custom_vendor_column {
+//             min-width: 120px;
+//             max-width: 120px;
+//         }
+//         th.custom_products_column,
+//         td.custom_products_column {
+//             min-width: 140px;
+//             max-width: 140px;
+//         }
+//         th.custom_reviews_column,
+//         td.custom_reviews_column {
+//             min-width: 140px;
+//             max-width: 140px;
+//         }
+//         th.custom_featured_column,
+//         td.custom_featured_column {
+//             min-width: 140px;
+//             max-width: 140px;
+//         }
+//         th.custom_lastaccess_column,
+//         td.custom_lastaccess_column {
+//             min-width: 140px;
+//             max-width: 140px;
+//         }
+//         th.custom_status_column,
+//         td.custom_status_column {
+//             min-width: 130px;
+//             max-width: 130px;
+//         }
+//         th.custom_action_column,
+//         td.custom_action_column {
+//             min-width: 180px;
+//             max-width: 180px;
+//         }
+//         td {
+//             img {}
+//             ul {
+//                 margin: 0;
+//                 padding: 0;
+//                 list-style-type: none;
+//                 display: -webkit-box;
+//                 -webkit-box-orient: vertical;
+//                 -webkit-line-clamp: 1;
+//                 overflow: hidden;
+//             }
+//             span {
+//                 display: -webkit-box;
+//                 -webkit-box-orient: vertical;
+//                 -webkit-line-clamp: 1;
+//                 overflow: hidden;
+//             }
+//         }
+//         td.custom_status_column {
+//             span {
+//                 display: block;
+//                 padding: 8px 12px;
+//                 border-radius: 8px;
+//                 text-align: center;
+//                 text-transform: capitalize;
+//                 &.completed {
+//                     background-color: #07A28714;
+//                     color: #07A287;
+//                 }
+//                 &.pending {
+//                     background-color: #E82D4914;
+//                     color: #FF0027;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+.booking_co_btn {
+    min-width: 200px;
+    height: 44px;
+    background: transparent linear-gradient( 180deg, #094f32 0%, #094f32 100%) 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+    font-family: "DMSans-Bold";
+    font-weight: normal;
+    font-size: 16px;
+    box-shadow: none;
+    color: #fff;
+    border-color: transparent;
+}

@@ -1,0 +1,31 @@
+<div class="custom_page_header">
+    <h3>Web Settings</h3>
+</div>
+<div class="container-fluid">
+    <div class="custom_create_new_form">
+        <div class="create_tab_container">
+            <button type="submit" class="btn theme-color" routerLink="/settings/web/store" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">Store Information</button>
+            <button type="submit" class="btn theme-color" routerLink="/settings/web/logo" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">Logo</button>
+            <button type="submit" class="btn theme-color" routerLink="/settings/web/seo" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">SEO</button>
+            <button type="submit" class="btn theme-color" routerLink="/settings/web/social" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">Social
+                Media</button>
+        </div>
+        <p-card styleClass="p-card-form p-mb-3">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card mb-4">
+                        <!-- <app-store-info-settings *ngIf="sections.storeInfo"></app-store-info-settings>
+                        <app-logo-settings *ngIf="sections.logo"></app-logo-settings>
+                        <app-seo-settings *ngIf="sections.SEO"></app-seo-settings>
+                        <app-social-media-settings *ngIf="sections.socialMedia"></app-social-media-settings> -->
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </p-card>
+    </div>
+</div>

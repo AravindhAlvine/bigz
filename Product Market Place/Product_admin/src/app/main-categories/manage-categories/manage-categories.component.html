@@ -1,0 +1,481 @@
+<div class="custom_page_header">
+    <h3>Manage Categories</h3>
+</div>
+
+<div class="container-fluid" id="filter_data">
+    <div class="custom_top_date_container">
+        <!-- <h3 class="float-left my-2">List of Vendors</h3> -->
+
+        <div class="custom_top_date_mc">
+
+            <div class="p-float-right custom_right_align_btn">
+                <button pButton class="btn bg-white text-dark" (click)="filterSection = !filterSection" label="Filter ({{appliedFiltersLength}})"></button>
+            </div>
+
+            <div class="custom_top_date_sc">
+                <div class="custom_top_date_nav_link">
+                    <a [routerLink]="['/categories/create']">Add New Category</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="px-3 pb-3" id="p_filter_card" *ngIf="filterSection == false">
+    <p-card>
+        <div class="row mx-auto">
+
+            <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Category Name</label>
+                    <input class="form-control" pInputText type="text" [(ngModel)]="filterItems['name']">
+                </div>
+            </div>
+
+
+            <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Status</label>
+                    <p-dropdown [options]="categoryStatus" placeholder="Choose status" optionLabel="display_name" optionValue="name" [(ngModel)]="filterItems['approval_status']"></p-dropdown>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-4 col-xl-3 mb-sm-4">
+                <div class="textOnInput">
+                    <label for="inputText">From Date</label>
+                    <p-calendar [(ngModel)]="filterItems['from_date']" (onSelect)="onFromDateSelect()"></p-calendar>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-sm-4">
+                <div class="textOnInput">
+                    <label for="inputText">To Date</label>
+                    <p-calendar [(ngModel)]="filterItems['to_date']"></p-calendar>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 p_button">
+                <button pButton class="btn" label="SUBMIT" (click)="submitFilter()"></button>
+            </div>
+
+        </div>
+    </p-card>
+</div>
+
+<!-- <div class="container-fluid">
+    <div class="custom_top_date_container">
+        <h3 class="float-left my-2">List of Vendors</h3>
+
+        <div class="custom_top_date_mc">
+
+            <div class="p-float-right custom_right_align_btn">
+                <button pButton class="btn bg-white text-dark" (click)="filterSection = !filterSection" label="Filter (2)"></button>
+            </div>
+
+            <div class="custom_top_date_sc">
+                <div class="custom_top_date_nav_link">
+                    <a [routerLink]="['/categories/create']">Add Vendors</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="px-3 pb-3" id="p_filter_card" *ngIf="filterSection == false">
+    <p-card>
+        <div class="row mx-auto">
+
+            <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Vendor Name</label>
+                    <input class="form-control" pInputText type="text">
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Email</label>
+                    <input class="form-control" pInputText type="text">
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Category</label>
+                    <input class="form-control" pInputText type="text">
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-4">
+                <div class="textOnInput">
+                    <label for="inputText">Status</label>
+                    <p-dropdown [options]="selectedDropdown" [(ngModel)]="selectedDropdown"></p-dropdown>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-sm-4">
+                <div class="textOnInput">
+                    <label for="inputText">From Date</label>
+                    <p-calendar [(ngModel)]="value"></p-calendar>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 mb-sm-4">
+                <div class="textOnInput">
+                    <label for="inputText">To Date</label>
+                    <p-calendar [(ngModel)]="value"></p-calendar>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-3 p_button">
+                <button pButton class="btn" label="SUBMIT"></button>
+            </div>
+
+        </div>
+    </p-card>
+</div> -->
+
+
+<div class="container-fluid" id="filter_data">
+    <div class="custom_top_date_container">
+        <div class="custom_top_date_mc">
+
+            <!-- <div class="custom_top_date_sc mr-3">
+                <div class="custom_top_date_content">
+                    <div class="ctd_filter_days">
+                        <p-dropdown [options]="optionDays" [(ngModel)]="selectedDays" optionLabel="option" StyleClass="ctd_filter_past_days"></p-dropdown>
+                    </div>
+                    <div class="ctd_filter_dates">
+                        <div class="ctd_filter_from_date">
+                            <p-calendar placeholder="26 Oct 2021" [defaultDate]="currentDate" dateFormat="dd M yy"></p-calendar>
+                        </div>
+                        <div class="ctd_filter_to_txt">
+                            <span>to</span>
+                        </div>
+                        <div class="ctd_filter_to_date">
+                            <p-calendar placeholder="26 Oct 2021" [defaultDate]="currentDate" dateFormat="dd M yy"></p-calendar>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- <div class="custom_top_date_sc">
+                <div class="custom_top_date_nav_link">
+                    <a [routerLink]="['/categories/create']">Add New Category</a>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</div>
+
+<!-- <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog> -->
+
+<!-- <div class="container-fluid">
+    <div class="custom_filter_search">
+        <div class="custom_filter_nav">
+            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
+        </div>
+        <div class="custom_search_nav">
+            <input type="text" name="filter_search" id="filter_search" placeholder="Quick Search...">
+            <button type="button" class="btn_search_submit">
+                <img [src]="searchBtn" alt="">
+            </button>
+        </div>
+    </div>
+</div> -->
+
+<div class="container-fluid">
+
+    <div class="custom_tab_view_tables p-pb-6">
+        <!-- <p-tabView >
+            <p-tabPanel header="All Orders" [selected]="true"> -->
+        <div class="custom_listing_container p-pb-4">
+            <div class="custom_table custom_category_table" id="table_border_radius">
+                <p-table #dt1 [value]="categoryList" [scrollable]="true" [rows]="100" scrollHeight="flex" [paginator]="true" [rows]="10" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
+                    [globalFilterFields]="['name','status']">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th scope="col">
+                                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                            </th>
+                            <th scope="col" class="custom_name_column" pSortableColumn="name">CatID
+                                <p-sortIcon field="name"></p-sortIcon>
+                            </th>
+                            <th scope="col" class="custom_name_column" pSortableColumn="name">Name
+                                <p-sortIcon field="name"></p-sortIcon>
+                            </th>
+                            <th scope="col" class="custom_slug_column" pSortableColumn="slug">URL Key
+                                <p-sortIcon field="slug"></p-sortIcon>
+                            </th>
+                            <th scope="col" class="custom_meta_column" pSortableColumn="meta_title">Meta Title
+                                <p-sortIcon field="meta_title"></p-sortIcon>
+                            </th>
+                            <!-- <th scope="col" class="custom_useofvendor_column" pSortableColumn="vendors_count">In use by Vendors
+                                <p-sortIcon field="vendors_count"></p-sortIcon>
+                            </th> -->
+                            <th scope="col" class="custom_status_column" pSortableColumn="status">Status
+                                <p-sortIcon field="approval_status.name"></p-sortIcon>
+                            </th>
+                            <th scope="col" class="custom_action_column">Action</th>
+                        </tr>
+                    </ng-template>
+
+                    <ng-template pTemplate="body" let-category let-i="rowIndex">
+                        <tr>
+                            <td>
+                                <p-tableCheckbox [value]="category"></p-tableCheckbox>
+                            </td>
+                            <td class="custom_name_column">
+                                <span>U120{{i+1}}</span>
+                            </td>
+                            <td *ngIf="!category.is_sub_category" class="custom_name_column">
+                                <span>{{category.name}}</span>
+                            </td>
+                            <td *ngIf="category.is_sub_category" class="custom_name_column">
+                                <span> — {{category.name}}</span>
+                            </td>
+                            <td class="custom_slug_column">
+                                <span>{{category.slug}}</span>
+                            </td>
+                            <td class="custom_meta_column">
+                                <span>{{category.meta_title}}</span>
+                            </td>
+                            <!-- <td class="custom_useofvendor_column">
+                                <span>{{category.vendors_count}}</span>
+                            </td> -->
+                            <td class="custom_status_column">
+                                <p-dropdown [options]="categoryStatus" [(ngModel)]="category.approval_status" optionLabel="display_name" [ngClass]="{'status-approved': category.approval_status && category.approval_status.name === 'approved', 
+                                            'status-pending': category.approval_status && category.approval_status.name === 'pending',
+                                            'status-declined': category.approval_status && category.approval_status.name === 'declined'}" (onChange)="statusChangeEvent(category)">
+                                </p-dropdown>
+                            </td>
+                            <td class="custom_action_column">
+                                <input type="checkbox" id="switch{{category._id}}" class="checkbox" [checked]="(category.status && category.status.name == 'enable') ? true: false" (change)="enableDisableCategory($event, category)" />
+                                <label for="switch{{category._id}}" class="toggle"></label>
+                                <a class="pi pi-pencil" (click)="editCategory(category)"></a>
+                                <a class="pi pi-trash" (click)="deleteCategory($event, category)"></a>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+        <!-- </p-tabPanel> -->
+        <!-- <p-tabPanel header="Pending">
+                <div class="custom_listing_container p-pb-4">
+                    <div class="custom_table custom_category_table">
+                        <p-table #dt1 [value]="categoryList" [scrollable]="true" [rows]="100" scrollHeight="flex" [paginator]="true" [rows]="10" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
+                            [globalFilterFields]="['name','status']">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th scope="col">
+                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                    </th>
+                                    <th scope="col" class="custom_name_column" pSortableColumn="name">Name
+                                        <p-sortIcon field="name"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" class="custom_slug_column" pSortableColumn="slug">URL Key
+                                        <p-sortIcon field="slug"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" class="custom_meta_column" pSortableColumn="meta_title">Meta Title
+                                        <p-sortIcon field="meta_title"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" class="custom_useofvendor_column" pSortableColumn="vendors_count">In use by Vendors
+                                        <p-sortIcon field="vendors_count"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" class="custom_status_column" pSortableColumn="status">Status
+                                        <p-sortIcon field="status"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" class="custom_action_column">Action</th>
+                                </tr>
+                            </ng-template>
+
+                            <ng-template pTemplate="body" let-category>
+                                <tr>
+                                    <td>
+                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                    </td>
+                                    <td *ngIf="!category.is_sub_category" class="custom_name_column">
+                                        <span>{{category.name}}</span>
+                                    </td>
+                                    <td class="custom_name_column" *ngIf="category.is_sub_category">
+                                        <span> — {{category.name}}</span>
+                                    </td>
+                                    <td class="custom_slug_column">
+                                        <span>{{category.slug}}</span>
+                                    </td>
+                                    <td class="custom_meta_column">
+                                        <span>{{category.meta_title}}</span>
+                                    </td>
+                                    <td class="custom_useofvendor_column">
+                                        <span>{{category.vendors_count}}</span>
+                                    </td>
+                                    <td class="custom_status_column">
+                                        <span class="custom-status" [ngClass]=" {
+                                            'custom-status-approved': category.status.name === 'enable', 
+                                            'custom-status-pending' : category.status.name === 'pending', 
+                                            'custom-status-onhold' : category.status.name === 'onhold',
+                                                'custom-status-reject' : category.status.name === 'disable'}">{{category.status.display_name}}
+                                        </span>
+                                    </td>
+                                    <td class="custom_action_column">
+                                        <a class="pi pi-pencil" (click)="editCategory(category)"></a>
+                                        <input type="checkbox" id="switch{{category._id}}" class="checkbox" [checked]="(category.status && category.status.name == 'enable') ? true: false" (change)="enableDisableCategory($event, category)" />
+                                        <label for="switch{{category._id}}" class="toggle"></label>
+                                        <a class="pi pi-trash" (click)="deleteCategory($event, category)"></a>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </div>
+            </p-tabPanel>
+            <p-tabPanel header="Approved">
+                <div class="custom_listing_container p-pb-4">
+                    <div class="custom_table custom_category_table">
+                        <p-table #dt1 [value]="categoryList" [scrollable]="true" [rows]="100" scrollHeight="flex" [paginator]="true" [rows]="10" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
+                            [globalFilterFields]="['name','status']">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th scope="col">
+                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                    </th>
+                                    <th scope="col" class="custom_name_column" pSortableColumn="name">Name
+                                        <p-sortIcon field="name"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" class="custom_slug_column" pSortableColumn="slug">URL Key
+                                        <p-sortIcon field="slug"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" class="custom_meta_column" pSortableColumn="meta_title">Meta Title
+                                        <p-sortIcon field="meta_title"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" class="custom_useofvendor_column" pSortableColumn="vendors_count">In use by Vendors
+                                        <p-sortIcon field="vendors_count"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" class="custom_status_column" pSortableColumn="status">Status
+                                        <p-sortIcon field="status"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" class="custom_action_column">Action</th>
+                                </tr>
+                            </ng-template>
+
+                            <ng-template pTemplate="body" let-category>
+                                <tr>
+                                    <td>
+                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                    </td>
+                                    <td *ngIf="!category.is_sub_category" class="custom_name_column">
+                                        <span>{{category.name}}</span>
+                                    </td>
+                                    <td class="custom_name_column" *ngIf="category.is_sub_category">
+                                        <span> — {{category.name}}</span>
+                                    </td>
+                                    <td class="custom_slug_column">
+                                        <span>{{category.slug}}</span>
+                                    </td>
+                                    <td class="custom_meta_column">
+                                        <span>{{category.meta_title}}</span>
+                                    </td>
+                                    <td class="custom_useofvendor_column">
+                                        <span>{{category.vendors_count}}</span>
+                                    </td>
+                                    <td class="custom_status_column">
+                                        <span class="custom-status" [ngClass]=" {
+                                            'custom-status-approved': category.status.name === 'enable', 
+                                            'custom-status-pending' : category.status.name === 'pending', 
+                                            'custom-status-onhold' : category.status.name === 'onhold',
+                                            'custom-status-reject' : category.status.name === 'disable'}">{{category.status.display_name}}
+                                        </span>
+                                    </td>
+                                    <td class="custom_action_column">
+                                        <a class="pi pi-pencil" (click)="editCategory(category)"></a>
+                                        <input type="checkbox" id="switch{{category._id}}" class="checkbox" [checked]="(category.status && category.status.name == 'enable') ? true: false" (change)="enableDisableCategory($event, category)" />
+                                        <label for="switch{{category._id}}" class="toggle"></label>
+                                        <a class="pi pi-trash" (click)="deleteCategory($event, category)"></a>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </div>
+            </p-tabPanel>
+            <p-tabPanel header="Disapproved">
+                <div class="custom_listing_container p-pb-4">
+                    <div class="custom_table custom_category_table">
+                        <p-table #dt1 [value]="categoryList" [scrollable]="true" [rows]="100" scrollHeight="flex" [paginator]="true" [rows]="10" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
+                            [globalFilterFields]="['name','status']">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th scope="col">
+                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                    </th>
+                                    <th scope="col" class="custom_name_column" pSortableColumn="name">Name
+                                        <p-sortIcon field="name"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" class="custom_slug_column" pSortableColumn="slug">URL Key
+                                        <p-sortIcon field="slug"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" class="custom_meta_column" pSortableColumn="meta_title">Meta Title
+                                        <p-sortIcon field="meta_title"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" class="custom_useofvendor_column" pSortableColumn="vendors_count">In use by Vendors
+                                        <p-sortIcon field="vendors_count"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" class="custom_status_column" pSortableColumn="status">Status
+                                        <p-sortIcon field="status"></p-sortIcon>
+                                    </th>
+                                    <th scope="col" class="custom_action_column">Action</th>
+                                </tr>
+                            </ng-template>
+
+                            <ng-template pTemplate="body" let-category>
+                                <tr>
+                                    <td>
+                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                    </td>
+                                    <td *ngIf="!category.is_sub_category" class="custom_name_column">
+                                        <span>{{category.name}}</span>
+                                    </td>
+                                    <td class="custom_name_column" *ngIf="category.is_sub_category">
+                                        <span> — {{category.name}}</span>
+                                    </td>
+                                    <td class="custom_slug_column">
+                                        <span>{{category.slug}}</span>
+                                    </td>
+                                    <td class="custom_meta_column">
+                                        <span>{{category.meta_title}}</span>
+                                    </td>
+                                    <td class="custom_useofvendor_column">
+                                        <span>{{category.vendors_count}}</span>
+                                    </td>
+                                    <td class="custom_status_column">
+                                        <span class="custom-status" [ngClass]=" {
+                                            'custom-status-approved': category.status.name === 'enable', 
+                                            'custom-status-pending' : category.status.name === 'pending', 
+                                            'custom-status-onhold' : category.status.name === 'onhold',
+                                            'custom-status-reject' : category.status.name === 'disable'  } ">{{category.status.display_name}}
+                                        </span>
+                                    </td>
+                                    <td class="custom_action_column">
+                                        <a class="pi pi-pencil" (click)="editCategory(category)"></a>
+                                        <input type="checkbox" id="switch{{category._id}}" class="checkbox" [checked]="(category.status && category.status.name == 'enable') ? true: false" (change)="enableDisableCategory($event, category)" />
+                                        <label for="switch{{category._id}}" class="toggle"></label>
+                                        <a class="pi pi-trash" (click)="deleteCategory($event, category)"></a>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </div>
+            </p-tabPanel> -->
+        <!-- </p-tabView> -->
+    </div>
+</div>

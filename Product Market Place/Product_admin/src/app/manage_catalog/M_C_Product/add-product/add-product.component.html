@@ -1,0 +1,367 @@
+<div class="custom_page_header">
+    <h3>Add Product</h3>
+</div>
+
+<div class="custom_create_form">
+    <form #form="ngForm" class="form-border-orange">
+
+        <div class="create_top_status_container">
+            <!-- <div class="create_top_status">
+                <div class="create_top_status_left">
+                    <label for="vendor_status">Approval Status:</label>
+                </div>
+
+                <div class="create_top_status_right">
+                    <div class="form-check form-check-inline" id="vendor_status"
+                        *ngFor="let item of ApprovedStatus; let i = index">
+                        <input class="form-check-input" type="radio" name="{{i}}" id="{{i}}" value="approved"
+                            [checked]="item.checked" />
+                        <label class="form-check-label" for="inlineRadio1">{{item.name}}</label>
+                    </div>
+                </div>
+
+            </div> -->
+            <div class="create_top_status">
+                <div class="create_top_status_left">
+                    <label for="vendor_status">Approval Status:</label>
+                </div>
+
+                <div class="create_top_status_right">
+                    <div class="form-check form-check-inline" id="vendor_status"
+                        *ngFor="let item of ApprovedStatus; let i = index">
+                        <input class="form-check-input" type="radio" name="{{i}}" id="{{i}}" value="approved"
+                            [checked]="item.checked" />
+                        <label class="form-check-label" for="inlineRadio1">{{item.name}}</label>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div *ngFor="let category of categoryData; let i = index">
+            <div class="custom_category_tab">
+                <!-- (click)="showCategoryDetailsClick(i, form,1)" -->
+                <button pButton class="custom_category_tab_btn" [ngClass]="{'active': SelectedTab == 0}"
+                    (click)="productTabs(0)">{{selectedCategoryId ? 'Sub
+                    Product Info' : 'Product Info'}}</button>
+                <!-- (click)="showCategoryDescriptionClick(i, form)" -->
+                <!-- <button pButton class="custom_category_tab_btn" [ngClass]="{'active': SelectedTab == 1}"
+                    (click)="productTabs(1)">{{selectedCategoryId ? 'Sub Attribute' :
+                    'Attribute'}}</button> -->
+                <!-- (click)="showCategoryDescriptionClick(i, form)" -->
+                <button pButton class="custom_category_tab_btn" [ngClass]="{'active': SelectedTab == 2}"
+                    (click)="productTabs(2)">{{selectedCategoryId ? 'Sub Inventory & Pricing' :
+                    'Inventory & Pricing'}}</button>
+                <button pButton class="custom_category_tab_btn" [ngClass]="{'active': SelectedTab == 3}"
+                    (click)="productTabs(3)">
+                    {{selectedCategoryId ? 'Sub Shipping' : 'Shipping'}}
+                </button>
+                <button pButton class="custom_category_tab_btn" [ngClass]="{'active': SelectedTab == 4}"
+                    (click)="productTabs(4)">
+                    {{selectedCategoryId ? 'Sub Marketing' : 'Marketing'}}
+                </button>
+                <button pButton class="custom_category_tab_btn" [ngClass]="{'active': SelectedTab == 5}"
+                    (click)="productTabs(5)">
+                    {{selectedCategoryId ? 'Sub Media' : 'Media'}}
+                </button>
+
+            </div>
+
+            <div *ngIf="SelectedTab == 0" class="float-left w-100 pb-4">
+                <p-card styleClass="p-card-form p-mb-3">
+
+                    <!-- First Step -->
+                    <div>
+                        <div class="p-fluid">
+
+                            <div class="p-field">
+                                <label for="firstname1">Product Name <span class="text-danger">*</span></label>
+                                <input placeholder="Product Name" required pInputText />
+                            </div>
+
+                            <div class="p-field">
+                                <label for="name{{i}}">Product Type <span class="text-danger">*</span></label>
+                                <!-- <input [(ngModel)]="categoryData[i]['name']" type="text" id="name{{i}}" name="name{{i}}"
+                                placeholder="Eg. Simple" (blur)="createSlug(i)" #categoryName="ngModel" required
+                                pInputText />
+                            <div *ngIf="form.submitted && categoryName?.invalid && categoryName?.errors?.required"
+                                class="p-error">
+                                Category Name is required
+                            </div> -->
+                                <!-- <p-dropdown [options]="selectProduct" #selectedata (onChange)="dataValue($event)"
+                                    [(ngModel)]="selectedCategoryId" name="category" optionLabel="name"
+                                    optionValue="_id" placeholder="Simple Product" #selectCategory="ngModel"
+                                    [showClear]="true">
+                                </p-dropdown> -->
+                                <p-dropdown [options]="selectProduct"
+                                    (onChange)="dataValue($event)" optionLabel="name" (change)="onChange($event)">
+                                </p-dropdown>
+
+                            </div>
+
+                            <div class="p-field">
+                                <label for="slug">Product Identifier (SKU) <span class="text-danger">*</span></label>
+                                <input [(ngModel)]="categoryData[i]['slug']" type="text" id="slug{{i}}" name="slug{{i}}"
+                                    placeholder="Eg. samsung-galaxy-101" #categorySlug="ngModel" required pInputText>
+                                <div *ngIf="form.submitted && categorySlug.invalid && categorySlug.errors.required"
+                                    class="p-error">
+                                    Url key is required
+                                </div>
+                            </div>
+                            <div class="p-field">
+                                <label for="email">Product Categories <span class="text-danger">*</span></label>
+                                <!-- <input [(ngModel)]="categoryData[i]['meta_title']" type="text" id="meta_title{{i}}"
+                                name="meta_title{{i}}" placeholder="Eg. Electronics   »»  Mobiles   »»  Phones" pInputText /> -->
+                                <p-treeSelect [(ngModel)]="selectedNodes2" [ngModelOptions]="{standalone: true}"
+                                    [options]="nodes3" display="chip" [metaKeySelection]="false"
+                                    selectionMode="checkbox" placeholder="Eg. Electronics »» Mobiles »» Phones">
+                                </p-treeSelect>
+                            </div>
+                            <div class="p-field">
+                                <label for="meta_description">Short Description <span
+                                        class="text-danger">*</span></label>
+                                <p-editor id="description" [(ngModel)]="categoryData[i]['meta_description']"
+                                    name="description" required [style]="{'height':'320px'}"
+                                    placeholder="Eg. About the service">
+                                </p-editor>
+                            </div>
+
+                            <div class="p-field">
+                                <label for="meta_description">Long Description<span class="text-danger">*</span></label>
+                                <p-editor id="description" [(ngModel)]="categoryData[i]['meta_description']"
+                                    name="description" required [style]="{'height':'320px'}"
+                                    placeholder="Eg. About the service">
+                                </p-editor>
+                            </div>
+
+                            <!-- Second Step -->
+                            <div *ngIf="showAttribute == 0? true:false">
+                                <div class="p-fluid">
+                                    <div class="p-field">
+                                        <label for="name">Attribure Names *</label>
+                                        <p-dropdown [options]="countries" [(ngModel)]="selectedCountry"
+                                            optionLabel="name" [filter]="true" filterBy="name" [showClear]="true"
+                                            placeholder="Select a Country">
+                                            <ng-template pTemplate="selectedItem">
+                                                <div class="country-item country-item-value" *ngIf="selectedCountry">
+                                                    <div>{{selectedCountry.name}}</div>
+                                                </div>
+                                            </ng-template>
+                                            <ng-template let-country pTemplate="item">
+                                                <div class="country-item">
+                                                    <div>{{country.name}}</div>
+                                                </div>
+                                            </ng-template>
+                                        </p-dropdown>
+                                    </div>
+                                    <div class="p-field">
+                                        <label for="name">Attribute Value *</label>
+                                        <p-multiSelect [options]="cities" [(ngModel)]="selectedCities2"
+                                            defaultLabel="Select a City" optionLabel="name" display="chip">
+                                        </p-multiSelect>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </p-card>
+
+                <div class="p-field mb-5">
+                    <button type="submit" class="p-button-primary float-right p-button-primary-3 custom_btn_next" (click)="productTabs(2)">Next</button>
+                    <button type="submit" hidden
+                        class="p-button-primary float-left p-button-primary-3 custom_btn_next" (click)="productTabs(2)">Next</button>
+                </div>
+
+            </div>
+
+            <!-- Third Step -->
+            <div *ngIf="SelectedTab == 2" class="float-left w-100 pb-3">
+
+                <p-card>
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name">Default Price ($) *</label>
+                            <input type="text" placeholder="" required pInputText>
+                        </div>
+                    </div>
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name">Sales Price ($) *</label>
+                            <input type="text" placeholder="" required pInputText>
+                        </div>
+                    </div>
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name">Quantity ($) *</label>
+                            <input type="text" placeholder="" required pInputText>
+                        </div>
+                    </div>
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name">Weight (Kgs) *</label>
+                            <input type="text" placeholder="" required pInputText>
+                        </div>
+                    </div>
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name">Stock Status *</label>
+                            <p-dropdown [options]="cities" [(ngModel)]="selectedCity1" placeholder="Select a City"
+                                optionLabel="name" [showClear]="true"></p-dropdown>
+                        </div>
+                    </div>
+                </p-card>
+
+                <div class="p-field custom_prev_next mt-4">
+                    <button type="button" class="custom_btn_prev" (click)="productTabs(0)">Previous</button>
+                    <button type="submit" class="custom_btn_next" (click)="productTabs(3)">Next</button>
+                </div>
+
+            </div>
+
+            <!-- fourth Step -->
+            <div *ngIf="SelectedTab == 3" class="float-left w-100 pb-3">
+
+                <p-card>
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <div class="p-field-checkbox">
+                                <label for="binary" class="ml-0">Free Shipping :</label>
+                                &nbsp;&nbsp;
+                                <p-checkbox [(ngModel)]="checked" binary="true" inputId="binary"></p-checkbox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="binary" class="ml-0">Shipping By :</label>
+                            &nbsp; &nbsp;
+                            <div class="form-check form-check-inline" id="vendor_status"
+                                *ngFor="let item of Shipping; let i = index">
+                                <input class="form-check-input" type="radio" name="{{i}}" id="{{i}}" value="approved"
+                                    [checked]="item.checked" />
+                                <label class="form-check-label" for="inlineRadio1">{{item.name}}</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name">Shipping in (Days) *</label>
+                            <input type="text" placeholder="" value="0" required pInputText>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name">Unit Weight (Kgs) *</label>
+                            <input type="text" placeholder="Ex: 0.00" required pInputText>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name">Shipping Price ($) *</label>
+                            <input type="text" placeholder="Ex: 0.00" required pInputText>
+                        </div>
+                    </div>
+                </p-card>
+
+                <div class="p-field custom_prev_next my-3">
+                    <button type="button" class="custom_btn_prev" (click)="productTabs(3)">Previous</button>
+                    <button type="submit" class="custom_btn_next" (click)="productTabs(4)">Next</button>
+                </div>
+
+            </div>
+
+            <!-- fivth step -->
+            <div *ngIf="SelectedTab == 4" class="float-left w-100 pb-3">
+
+                <p-card>
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="binary" class="ml-0">Slug (URL Key) *</label>
+                            <input type="text" placeholder="Ex: samsung-galaxy" required pInputText>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="binary" class="ml-0">Meta Title (60 Char) *</label>
+                            <input type="text" placeholder="Ex: Buy Samsung Galaxy Mobile Phone" required pInputText>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name">Meta Description (156 Char) *</label>
+                            <textarea rows="5" cols="30" pInputTextarea autoResize="autoResize"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="p-fluid">
+                        <div class="p-field">
+                            <label for="name">Meta Keyword (156 Char) *</label>
+                            <textarea rows="5" cols="30" pInputTextarea autoResize="autoResize"></textarea>
+                        </div>
+                    </div>
+
+                </p-card>
+                <div class="p-field custom_prev_next my-3">
+                    <button type="button" class="custom_btn_prev" (click)="productTabs(4)">Previous</button>
+                    <button type="submit" class="custom_btn_next" (click)="productTabs(5)">Next</button>
+                </div>
+
+            </div>
+
+            <!-- six step -->
+            <div *ngIf="SelectedTab == 5" class="float-left w-100 pb-3">
+
+                <p-card>
+                    <div class="p-fluid mb-4">
+                        <div class="p-field">
+                            <label for="binary" class="ml-0">Multiple Files Upload (Up To 10 Images) *</label>
+                            <p-fileUpload name="myfile[]" accept="image/*" [auto]="true" multiple="multiple">
+                            </p-fileUpload>
+
+                            <div class="upload_img_title mt-3">
+                                <p>Please Keep Image Dimensions Greater Than 500 X 500</p>
+                                <p>Type: jpg, png, gif, webp, svg</p>
+                                <p>File Size: Up To 2 MP</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="p-fluid mb-4">
+                        <div class="p-field">
+                            <label for="binary" class="ml-0">Multiple Files Upload (Up To 3 Videos)</label>
+                            <p-fileUpload name="myfile[]" accept="image/*" [auto]="true" multiple="multiple">
+                            </p-fileUpload>
+
+                            <div class="upload_img_title mt-3">
+                                <p>Please Keep Image Dimensions Greater Than 1:1 Ratio.</p>
+                                <p>Type: MP4, FLV</p>
+                                <p>File Size: Up To 10 MP</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </p-card>
+
+
+                <div class="p-field custom_prev_next my-3">
+                    <button type="button" class="custom_btn_prev" (click)="productTabs(5)">Previous</button>
+                    <button type="submit" class="custom_btn_next">Submit</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,9 @@
+<app-header (informParent)="parentWillTakeAction($event)"></app-header>
+<main class="main-container" [ngClass]="{'hiddenClass': toggle_effect == true}">
+    <p-sidebar [visible]="true" [showCloseIcon]="false" (mouseover)="HoverFormate(true)"
+        (mouseout)="HoverFormate(false)" [appendTo]="(screenWidth > 1024) ? 'main':  'main' "
+        styleClass="p-sidebar-custom">
+        <p-panelMenu [model]="items" stateful="false" styleClass="menu-panel" [multiple]="false"></p-panelMenu>
+    </p-sidebar>
+    <router-outlet></router-outlet>
+</main>

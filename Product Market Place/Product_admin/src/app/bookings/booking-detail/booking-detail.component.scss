@@ -1,0 +1,35 @@
+#table_booking ::ng-deep table tbody > tr > td:first-child,
+#table_booking ::ng-deep table thead > tr > th:first-child,
+#table_booking ::ng-deep table tbody > tr > td,
+#table_booking ::ng-deep table thead > tr > th,
+.booking_detail_middle .custom_bookingdetail_table tr th.custom_qty_column,
+.booking_detail_middle .custom_bookingdetail_table tr td.custom_qty_column{
+    min-width: 220px!important;
+    max-width: 220px!important;
+    width: 220px!important;
+    position: initial!important;
+    //  text-align: left!important;
+}
+
+#table_booking ::ng-deep table tbody tr{
+    display: table-row!important;
+}
+
+#table_booking ::ng-deep table thead > tr > th:first-child{
+    text-align: left!important;
+}
+
+#order_table .bd_tble_label span{
+    white-space: initial;
+    text-align: left;
+}
+
+.background_table{
+    background: #f2f5f7!important;
+}
+
+.form-group p-checkbox{
+    clear: both;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+}

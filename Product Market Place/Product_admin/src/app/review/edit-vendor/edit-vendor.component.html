@@ -1,0 +1,69 @@
+<div class="custom_page_header">
+    <h3>Edit Vendor Review</h3>
+</div>
+<div class="container-fluid">
+    <div class="create_top_status_container">
+        <div class="create_top_status">
+            <div class="create_top_status_left">
+                <label for="vendor_status">Status:</label>
+            </div>
+            <div class="create_top_status_right">
+                <div class="form-check form-check-inline" id="vendor_status">
+                    <input class="form-check-input" type="radio" name="vendor_status" id="review_status_approved" value="approved" (change)="onReviewStatusChange('approved')" [checked]="(reviewDetails['status'] && reviewDetails['status']['name'] == 'approved') ">
+                    <label class="form-check-label" for="inlineRadio1">Approved</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="vendor_status" id="review_status_pending" value="pending" (change)="onReviewStatusChange('pending')" [checked]="(reviewDetails['status'] && reviewDetails['status']['name'] == 'pending') ">
+                    <label class="form-check-label" for="inlineRadio2">Pending</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="vendor_status" id="review_status_declained" value="declained" (change)="onReviewStatusChange('declained')" [checked]="(reviewDetails['status'] && reviewDetails['status']['name'] == 'declained') ">
+                    <label class="form-check-label" for="inlineRadio3">Declained</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container-fluid" *ngIf="reviewDetailsIsNotEmpty()">
+    <div class="custom_create_new_form">
+        <p-card styleClass="p-card-form p-mb-3">
+            <form #form="ngForm" class="form-border-orange">
+                <div class="form-group">
+                    <label for="">Customer</label>
+                    <input type="text" id="customer_name" name="customer_name" disabled [(ngModel)]="reviewDetails.reviewer.full_name" required pInputText/>
+                </div>
+                <!-- <div class="form-group">
+                    <label for="">Review Title</label>
+                    <input type="text" id="review_title" name="review_title" value="Lorem ipsum dolor sit amet" required pInputText/>
+                </div> -->
+                <div class="form-group">
+                    <label for="about_short">Vendor</label>
+                    <input type="text" id="vendor_name" name="vendor_name" [(ngModel)]="reviewDetails.reviewee.salon_name" disabled required pInputText/>
+                </div>
+                <div class="form-group">
+                    <label class=" col-form-label">Posted Date</label>
+                    <input type="text" id="posted_date" name="posted_date" value="{{reviewDetails.created_at | date}}" disabled required pInputText/>
+                </div>
+                <div class="form-group">
+                    <label class=" col-form-label">Review Content</label>
+                    <textarea [rows]="5" class="custom_textarea" [cols]="30" pInputTextarea autoResize="autoResize" [(ngModel)]="reviewDetails.review" name="vendor_review"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Rating</label>
+                    <p-rating [(ngModel)]="reviewDetails.ratings" [cancel]="false" name="vendor_rating">
+                    </p-rating>
+                </div>
+                <div *ngIf="reviewDetails.images.length > 0" class="form-group">
+                    <label class=" col-form-label">Review Image</label>
+                    <img *ngFor="let image of reviewDetails.images" [src]="image.url">
+                </div>
+                <div class="form-group p-d-flex  p-jc-between">
+                    <p-button label="Back" class="custom_back_btn" [routerLink]="['/review/manage-vendor-review']"></p-button>
+                    <p-button label="UPDATE" class="custom_new_btn" (click)="updateReviewDetails()"></p-button>
+                </div>
+            </form>
+        </p-card>
+    </div>
+</div>

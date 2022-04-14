@@ -1,0 +1,8 @@
+.footer-container {
+    position: relative;
+    background-color: $primaryColor;
+    height: 50px;
+    @include mobile-style() {
+        height: auto;
+    }
+}

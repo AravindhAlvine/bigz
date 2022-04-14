@@ -1,0 +1,63 @@
+<div class="custom_page_header">
+    <h3>Create New Email Template</h3>
+</div>
+
+<div class="custom_create_form" id="crate_email_templete">
+    <form class="form-border-orange">
+
+        <p-card>
+
+            <div class="p-fluid">
+                <div class="p-field">
+                    <label for="name">Template Name</label>
+                    <input type="text" value="Erotik" pInputText />
+                </div>
+            </div>
+
+            <div class="p-fluid">
+                <div class="p-field">
+                    <label for="Subject">Subject</label>
+                    <input type="text" value="Erotik" pInputText />
+                </div>
+            </div>
+
+            <div class="p-fluid">
+                <div class="p-field">
+                    <label for="name">From Name</label>
+                    <input type="text" value="Erotik" pInputText />
+                </div>
+            </div>
+
+            <div class="p-fluid">
+                <div class="p-field">
+                    <label for="email">From Email</label>
+                    <input type="email" value="erotik@gmail.com" pInputText />
+                </div>
+            </div>
+
+        </p-card>
+
+        <p-card>
+
+            <div class="p-fluid">
+                <div class="p-field">
+                    <label for="email">Content for HTML Email</label>
+                    <p-editor [(ngModel)]="text1" [ngModelOptions]="{standalone: true}" [style]="{'height':'320px'}">
+                    </p-editor>
+                </div>
+            </div>
+
+            <div class="p-fluid">
+                <div class="p-field">
+                    <label for="email">Footer for Email Template</label>
+                    <p-editor [(ngModel)]="text1" [ngModelOptions]="{standalone: true}" [style]="{'height':'320px'}">
+                    </p-editor>
+                </div>
+            </div>
+
+        </p-card>
+
+
+
+    </form>
+</div>
