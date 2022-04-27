@@ -1,0 +1,28 @@
+.p-checkbox {
+  .p-checkbox {
+    &-box {}
+  }
+}
+
+.side-memu-container {
+  .p-checkbox {
+    width: 14px;
+    height: 14px;
+    .p-checkbox {
+      &-box {
+          border:1px solid #43B645;
+          width: 14px;
+          height: 14px;
+          
+          &.p-highlight { 
+              background-color: #43B645;
+          }
+      }
+      &-icon {
+        font-size: 8px;
+    }
+    }
+
+    
+  }
+}

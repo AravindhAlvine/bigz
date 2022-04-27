@@ -1,0 +1,27 @@
+.form-grey-bg {
+  padding: 15px 20px;
+  border-radius: 8px;
+  @include mobile-devices() {
+    
+    border-radius: 0;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  .p-fieldset {
+      border: none;
+      background-color: transparent;
+      padding: 0;
+      &-delivery-address {
+        .p-fieldset {
+          &-legend {
+            border: none;
+            background-color: transparent;
+            padding: 0;
+          }
+          &-content {
+            padding: 0;
+          }
+        }
+      }
+  }
+}

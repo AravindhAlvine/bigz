@@ -1,0 +1,392 @@
+.layout {
+  &-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 194px;
+    font-size: $h6;
+    font-weight: $font-weight-medium;
+    z-index: 1001;
+    @include mobile-devices() { 
+      height: auto;
+    }
+    @include medium-devices() { 
+      height: auto;
+    }
+    @include large-devices() { 
+      height: auto;
+    }
+    &-mobile {
+      @include mobile-devices() {
+        background-color: $primary2-bg-color;
+        height: auto;
+        padding: 15px 15px 15px 5px;
+      }
+      @include medium-devices() {}
+      @include large-devices() {}
+    }
+
+    .header {
+      &-top {
+        height: 50px;
+        background-color: $bgcolor-white;
+        h3 {
+          font-size: $font-size-22;
+        }
+        .p-button {
+          font-size: $font-size-14;
+          padding: 5.5px 15px;
+        }
+      }
+
+      &-middle {
+        background-color: $primary2-bg-color;
+        padding: 20px 0;
+        color: $color-white;
+        height: 85px;
+        @include mobile-devices(){  
+          height: auto;
+          padding: 15px 15px;
+        }
+        @include medium-devices(){  
+          height: auto;
+          padding: 15px 15px;
+        }
+        .icon-common {
+          background-size: 75%;
+        }
+        .container {
+          @include mobile-devices(){ 
+            width: 100%;
+            padding: 0;
+           
+          }
+          @include medium-devices(){ 
+           width: 100%;
+            padding: 0;
+            min-width: inherit;
+           
+          }
+          @include large-desktop-devices() {
+            max-width: 1366px;
+            padding-left: 30px;
+            padding-right: 30px;
+           }
+          @include xlarge-devices() {
+           max-width: 1366px;
+           padding-left: 30px;
+           padding-right: 30px;
+          }
+          p-autocomplete {
+            @include mobile-devices(){ 
+              width: 100%;
+             
+            }
+          }
+        }
+        
+      }
+      &-left {
+        @include mobile-devices(){
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: flex-start;
+        }
+
+        
+      }
+      &-right {
+      @include mobile-devices(){
+      position: fixed;
+      right: 0;
+      top: 10px;
+      }
+      @include medium-devices() {
+        position: fixed;
+        right: 0;
+      }
+      @include large-desktop-devices() {
+        display: flex;
+        position: relative;
+      }
+      @include xlarge-devices() {
+        display: flex;
+        position: relative;
+      }
+      }
+
+      &-bottom {
+        background-color: $bgcolor-white;
+        box-shadow: 0px 3px 6px #0000000F;
+        height: 60px;
+        .container {
+          @include large-desktop-devices() {
+            max-width: 1366px;
+            padding-left: 25px;
+            padding-right: 25px;
+           }
+          @include xlarge-devices() {
+            max-width: 1366px;
+            padding-left: 30px;
+            padding-right: 30px;
+           }
+        }
+
+      }
+
+      &-brand {
+      
+        @include large-devices() { 
+          margin-right: 10px;
+        }
+        @include large-desktop-devices() {
+          margin-right: 42px;
+         }
+        @include xlarge-devices() {
+          margin-right: 42px;
+         }
+        @include mobile-devices() {
+          margin-right: 0;
+
+        }
+        img {
+          @include medium-devices() {  
+            max-height: 40px;
+          }
+          @include large-devices() {  
+            max-height: 40px;
+          }
+          @include mobile-devices() {
+            max-height: 30px;
+          }
+        }
+
+        a {
+          display: inline-block;
+        }
+      }
+
+      &-signin {
+        position: relative;
+        font-size: $font-size-16;
+        .p-button-label {
+          font-size: $font-size-16;
+          @include mobile-devices() {
+            display: none;
+          }
+        @include medium-devices() {
+          display: none;
+        }
+       
+        @include large-devices() { 
+          margin-left: 0;
+          margin-right: 0;
+        }
+        @include large-desktop-devices() {
+          display: inherit;
+          margin-right: 26px;
+        }
+        @include xlarge-devices() {
+          display: inherit;
+          margin-right: 26px;
+        }
+        .p-button {
+          font-size: $font-size-16;
+        }
+      }
+        a {
+          color: $color-white;
+          text-decoration: none;
+        }
+        .icon-common {
+          background-size: auto;
+        }
+      }
+
+      &-cart {
+        
+       @include medium-devices() {
+        margin-left: 0px;
+       }
+        @include large-devices() {
+          margin-left: 0;
+        }
+        @include large-desktop-devices() {
+          margin-left: 0px;
+        }
+        @include xlarge-devices() {
+          margin-left: 0px;
+        }
+        .p-button-label {
+          font-size: $font-size-16;
+          @include mobile-devices() {
+            display: none;
+          }
+          @include medium-devices() { 
+            display: none;
+          }
+          @include large-desktop-devices() { 
+            display: inherit;
+          }
+          @include xlarge-devices() { 
+            display: inherit;
+          }
+        }
+      }
+    }
+
+    .header-navi {
+      list-style: none;
+      @include large-desktop-devices() {
+        width: 100%;
+      }
+      @include xlarge-devices() {
+        width: 100%;
+      }
+
+      li {
+        position: relative;
+
+        a {
+          color: $color-green;
+          line-height: 21px;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          padding-right: 40px;
+          font-weight: $font-weight-medium;
+          text-decoration: none;
+          position: relative;
+          display: inline-block;
+          @include large-desktop-devices() {
+            font-size: $font-size-primary;
+            padding-right: 30px ;
+          }
+          @include xlarge-devices() {
+            font-size: $font-size-primary;
+            padding-right: 30px;
+          }
+        }
+
+        .submenu-arrow {
+          position: absolute;
+          right: 10px;
+          top: 22px;
+        }
+
+        &:last-child {
+          a {
+            margin-right: 0;
+          }
+        }
+
+        &:hover {
+          .subnavi {
+            display: block;
+          }
+        }
+
+        .subnavi {
+          display: none;
+          list-style: none;
+          position: absolute;
+          padding-left: 0;
+          left: 0;
+          top: 60px;
+          min-width: 280px;
+          background: #FFFFFF 0% 0% no-repeat padding-box;
+          box-shadow: 0px 3px 15px #00000029;
+          padding: 20px 6px;
+          z-index: 1;
+          font-size: 16px;
+
+          li {
+            margin-bottom: 0;
+
+            a {
+              padding: 9px 15px;
+              width: 100%;
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+    .header-autocomplete {     
+      margin-right: 35px;
+      @include mobile-devices() {
+        width: 100%;
+        min-width: inherit;
+        margin-top: 10px;
+      }
+      @include medium-devices() { 
+        min-width: 400px;
+      }
+      @include large-devices() { 
+        min-width: 440px;
+      }
+      @include large-desktop-devices() {
+        min-width: 400px;
+      }
+      @include xlarge-devices() {
+        min-width: 470px;
+      }
+
+      .p-inputtext {
+        width: 100%;
+        height: 40px;
+        background-image: url(#{$iconpath}/icon-sarch.svg);
+        background-repeat: no-repeat;
+        background-position: 96% center;
+        background-size: 18px;
+        @include commonRadius(8px, $isEqual: true)
+      }
+    }
+
+  }
+
+
+}
+
+.header-cart {
+  position: relative;
+  
+  .p-button {
+    overflow: visible;
+    color: $color-white !important;
+  }
+  .p-badge {
+    position: absolute;
+    top: -5px;
+    left: 13px;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #FCFDFF;
+    background: #FF527A 0% 0% no-repeat padding-box;
+    color: #fff;
+  }
+
+  
+}
+.logo-mobile {
+  img {
+    max-height: 30px;
+  }
+}
+
+.header-brands-group {
+  @include mobile-devices() {
+    .pi {
+      font-size: 23px;
+    }
+  }
+}
+
+.p-button {
+  &:focus {
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,277 @@
+<div class="container container-center">
+    <div class="p-grid">
+        <div class="p-col-12 p-sm-12 p-md-12 p-lg-6 p-xl-6 products-gallery">
+            <div class="p-d-block p-d-md-none">
+            <p-carousel [value]="images" [numVisible]="1" [numScroll]="1" indicatorStyleClass="circle-indicator">
+                <ng-template let-item pTemplate="item">
+                    <div class="products-details-large">
+                        <img src="assets/images/gallery/{{item.largeImage}}.png" style="width: 100%; display: block;" />
+                    </div>
+                </ng-template>
+            </p-carousel>
+            </div>
+           <div class="p-d-none p-d-md-block">
+            <p-galleria [value]="images" thumbnailsPosition="left" indicators="true"
+            [containerStyle]="{'width': '100%'}" [numVisible]="6" [responsiveOptions]="responsiveOptions">
+            <ng-template pTemplate="item" let-item>
+                <div class="products-details-large">
+                    <img src="assets/images/gallery/{{item.largeImage}}.png" style="width: 100%; display: block;" />
+                </div>
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-item>
+                <div class="p-d-flex p-justify-center products-details-thumbnail">
+                    <img src="assets/images/gallery/thumbs/{{item.thumbnail}}.png" />
+                </div>
+            </ng-template>
+        </p-galleria>
+           </div>
+           <button pButton pRipple type="button" 
+                            class="p-button-rounded p-button-heart" (click)="liketoggle()">
+                            <span class="p-button-icon" [ngClass]="heartIcon? 'icon-common  icon-heart-filled': 'icon-common  icon-heart-grey'"></span>
+                        </button>
+        </div>
+        <div class="p-col-12 p-sm-12 p-md-12 p-lg-6 p-xl-6 products-details-content">
+            <p-breadcrumb [model]="breadCrumbsitems" styleClass="breadcrumbs"></p-breadcrumb>
+            <h4 class="heading-2 products-details-title p-mb-2 p-mt-0">Sunfeast Mom’s Magic Cashew and Almonds Cookies
+                (600 g)</h4>
+            <div class="price-container">
+                <div class="discount-details">Special Price</div>
+                <div>
+                    <span class="new-price"><span class="price-symbol">&#8377;</span>39</span>
+                    <span class="old-price"><span class="price-symbol">&#8377;</span>65</span>
+                    <span class="discount-details">67% off</span>
+                </div>
+                <div class="overall-stock">
+                    <span class="color-green">In Stock</span>
+                    <span class="colo-red">(Only 23 left in stock)</span>
+                </div>
+                <div class="rating-container">
+                    <p-rating [cancel]="false" [readonly]="true"></p-rating>
+                </div>
+                <div class="producs-feature p-mb-4">
+                    <p>A tasty, crispy and nutritious breakfast for the whole family!</p>
+                    <ul class="p-pl-3 p-mt-0 p-mb-0">
+                        <li>
+                            Nice crunchy grain mix with golden brown roasted whole grain oatmeal
+                        </li>
+                        <li>
+                            With delicious pieces of biscuits
+                        </li>
+                        <li>Rich in fiber</li>
+                        <li>Without artificial fragrances, colors and flavors</li>
+                    </ul>
+                </div>
+                <div class="prodcuts-use-date p-d-flex">
+                    <span class="icon-common icon-size-25 icon-time"></span>
+                    <div class="p-ml-2">
+                        <div class="expired-date">Best before 20 mar 2022</div>
+                        <div class="manufature-date">Manufactured date 24 Jun 2021</div>
+                    </div>
+                </div>
+                <div class="product-quantity p-mb-5 p-mt-4">
+                    <h6 class="color-grey p-mb-2 p-mt-0 heading-6-small">Quantity</h6>
+                    <section class="quantity-items">
+                        <div class="quantity-item p-d-flex active p-mb-2">
+                            <div class="p-mr-6">500g</div>
+                            <div class="new-price"><span class="price-symbol">&#8377;</span>39</div>
+                            <div class="old-price p-ml-4"><span class="price-symbol">&#8377;</span>65</div>
+                            <div class="discount-details color-red p-ml-2">67%off</div>
+
+                            <div class="p-ml-auto">
+                                <p-radioButton [(ngModel)]='checkedquantity'></p-radioButton>
+                            </div>
+
+                        </div>
+                        <div class="quantity-item p-d-flex  p-mb-2">
+                            <div class="p-mr-6">500g</div>
+                            <div class="new-price"><span class="price-symbol">&#8377;</span>39</div>
+                            <div class="old-price p-ml-4"><span class="price-symbol">&#8377;</span>65</div>
+                            <div class="discount-details color-red p-ml-2">67%off</div>
+                            <div class="p-ml-auto">
+                                <p-radioButton></p-radioButton>
+                            </div>
+
+                        </div>
+
+                        <div class="quantity-item p-d-flex  p-mb-2">
+                            <div class="p-mr-6">500g</div>
+                            <div class="new-price"><span class="price-symbol">&#8377;</span>39</div>
+                            <div class="old-price p-ml-4"><span class="price-symbol">&#8377;</span>65</div>
+                            <div class="discount-details color-red p-ml-2">67%off</div>
+                            <div class="p-ml-auto">
+                                <p-radioButton></p-radioButton>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+                <div class="p-grid p-d-flex p-fluid products-number p-ai-center">
+                    <div class="p-col-6 p-md-5 p-lg-5 p-xl-4">
+                        <p-inputNumber [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal"
+                            inputStyleClass="p-text-center"
+                            decrementButtonClass="p-button-outlined p-button p-button-primary"
+                            incrementButtonClass="p-button-outlined p-button p-button-primary"
+                            incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="decimal" styleClass="products-detail-inputnumber">
+                        </p-inputNumber>
+                    </div>
+                    <div class="p-col-6 p-md-5 p-lg-5 p-xl-4">
+                        <button pButton label="Add to basket" class="p-text-uppercase p-button-primary-2 p-button-basket"></button>
+                    </div>
+                    <div class="p-col-6 p-md-5 p-lg-5 p-xl-3">
+                        <button pButton icon="icon-common icon-share" class="p-button-text p-button-plain p-button-rounded p-button-share"></button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="products-tab-container">
+        <p-tabView>
+            <p-tabPanel header="About the Product">
+                <h2 class="p-mt-0">About the Product</h2>
+                <p>Lorem ipsum, in graphical and textual context, refers to filler text that is placed in a document or
+                    visual presentation. Lorem ipsum is derived from the Latin “dolorem ipsum” roughly translated as
+                    “pain itself.”</p>
+                <p>Lorem ipsum presents the sample font and orientation of writing on web pages and other software
+                    applications where content is not the main concern of the developer.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum, in graphical and textual context, refers to filler text that is placed in a document or
+                    visual presentation. Lorem ipsum is derived from the Latin “dolorem ipsum” roughly translated as
+                    “pain itself.”</p>
+            </p-tabPanel>
+            <p-tabPanel header="Specifications">
+                <h2 class="p-mt-0">Specifications</h2>
+                <p>Lorem ipsum, in graphical and textual context, refers to filler text that is placed in a document or
+                    visual presentation. Lorem ipsum is derived from the Latin “dolorem ipsum” roughly translated as
+                    “pain itself.”</p>
+            </p-tabPanel>
+            <p-tabPanel header="Highlights">
+                <h2 class="p-mt-0">Highlights</h2>
+                <p>Lorem ipsum, in graphical and textual context, refers to filler text that is placed in a document or
+                    visual presentation. Lorem ipsum is derived from the Latin “dolorem ipsum” roughly translated as
+                    “pain itself.”</p>
+            </p-tabPanel>
+            <p-tabPanel header="Reviews">
+                <h2 class="title-divided">Reviews</h2>
+                <div class="no-rating p-text-center p-d-none">
+                    <div class="no-review-image p-d-flex p-ai-center p-jc-center">
+                        <img src="assets/images/no-review.png" alt="" class="no-review-img" />
+                    </div>
+                    <div class="p-mt-3">
+                        <p class="p-m-0">Sorry! No Reviews yet </p>
+                        <p class="p-m-0">Be the first one to write a review</p>
+                        <h5 class="p-mt-2 font-weight-medium">Please <a routerLink="/" class="link-blue">Login</a> or <a
+                                routerLink="/" class="link-blue">Register</a> to write a review</h5>
+                    </div>
+                </div>
+                <div class="review-forms">
+
+                    <div class="p-grid ">
+                        <div class="p-col-12 p-md-12 p-lg-6 p-xl-6">
+                            <section>
+                                <div class="p-grid p-mb-3 review-divider" *ngFor="let myReview of myReviews">
+                                    <div class="p-col-2 p-md-1 p-lg-1 p-xl-1">
+                                        <p-avatar image="/assets/images/{{myReview.image}}" size="large"></p-avatar>
+                                    </div>
+                                    <div class="p-col-10 p-md-11 p-lg-11 p-xl-11 p-pl-5 p-pr-5">
+                                        <div class="p-grid p-jc-between">
+                                            <div class="p-col-12 p-md-7">
+                                                <div class="font-weight-medium">{{myReview.name}}</div>
+                                                <div class="color-grey">{{myReview.date | date: 'mediumDate'}}</div>
+                                            </div>
+                                            <div class="p-col-12 p-md-5 p-ml-auto p-text-md-right">
+                                                <p-rating [ngModel]="myReview.rating" [readonly]="true"
+                                                    [cancel]="false"></p-rating>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="p-m-0">{{myReview.reviewContent}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </section>
+                        </div>
+                        <div class="p-col-12 p-md-12 p-lg-6 p-xl-6 review-forms-cols">
+                            <h3 class="p-mt-0">Write a review</h3>
+                            <form>
+                                <div class="p-fluid">
+                                    <div class="p-field p-grid">
+                                        <label class="p-col-12 p-mb-2 p-md-3 p-lg-3 p-xl-3 p-mb-md-0">Your Rating:</label>
+                                        <div class="p-col-12 p-md-10 p-lg-9 p-xl-9">
+                                            <p-rating [readonly]="false" [cancel]="false"></p-rating>
+                                        </div>
+
+                                    </div>
+                                    <div class="p-field p-grid">
+                                        <label class="p-col-12 p-mb-2 p-md-2 p-lg-3 p-xl-3 p-mb-md-0">Summery:</label>
+                                        <div class="p-col-12 p-md-10 p-lg-9 p-xl-9">
+                                            <input pInputText />
+                                        </div>
+
+                                    </div>
+                                    <div class="p-field p-grid p-ai-start">
+                                        <label class="p-col-12 p-mb-2 p-md-2 p-lg-3 p-xl-3 p-mb-md-0">Your Review:</label>
+                                        <div class="p-col-12 p-md-10 p-lg-9 p-xl-9">
+                                            <textarea pInputTextarea rows="10"></textarea>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </p-tabPanel>
+        </p-tabView>
+    </section>
+    <section class="page-section page-section-smiliar">
+        <h4 class="p-text-uppercase p-text-left">Similar Products</h4>
+        <div class="p-grid p-grid-10">
+            <div class="p-col-12 p-col-mobile-6 p-md-6 p-lg-4 p-xl-2" *ngFor="let newStore of newStores">
+                <p-card styleClass="p-card-shop">
+                    <div class="p-text-center">
+                        <a routerLink="category">
+                            <img src="./assets/images/newstore/{{newStore.image}}" alt="newStore.image"
+                                class="cart-image" />
+                        </a>
+                    </div>
+                    <button pButton pRipple type="button" 
+                    class="p-button-rounded p-button-heart" (click)="liketoggle()">
+                    <span class="p-button-icon" [ngClass]="heartIcon? 'icon-common   icon-heart-filled': 'icon-common  icon-heart-grey'"></span>
+                </button>
+                    <p class="p-mb-0">{{newStore.details}}</p>
+                    <div class="p-mt-2">
+                        <span class="new-price"> <span class="price-symbol">&#8377;</span>{{newStore.offerPrice}}</span>
+                        <span class="old-price"> <span class="price-symbol">&#8377;</span>{{newStore.mrpPrice}}</span>
+                        <span class="discount-details">{{newStore.discount}}%off</span>
+                    </div>
+                    <ng-template pTemplate="footer">
+                        <div class="p-grid p-d-flex p-jc-between p-fluid">
+                            <div class="p-col-5 p-md-6 p-lg-6 p-xl-5">
+                                <p-dropdown styleClass="p-dropdown-quantity"></p-dropdown>
+                            </div>
+                            <div class="p-col-7  p-md-6 p-lg-6  p-xl-7">
+                                <button pButton label="Add to Cart" class="p-button-outlined p-button-secondary"
+                                    (click)="eventShowItem()" *ngIf="!showAddItem"></button>
+                                <div class="p-fluid" *ngIf="showAddItem">
+                                    <p-inputNumber [showButtons]="true" buttonLayout="horizontal"
+                                        spinnerMode="horizontal" inputStyleClass="p-text-center"
+                                        decrementButtonClass="p-button-outlined p-button p-button-primary"
+                                        incrementButtonClass="p-button-outlined p-button p-button-primary"
+                                        incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
+                                        mode="decimal"></p-inputNumber>
+                                </div>
+
+                            </div>
+                        </div>
+                    </ng-template>
+                </p-card>
+            </div>
+        </div>
+    </section>
+</div>

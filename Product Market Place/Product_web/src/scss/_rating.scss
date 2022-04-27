@@ -1,0 +1,20 @@
+.p-rating {
+    .p-rating-icon {
+        &:focus {
+            box-shadow: none;
+        }
+        &.pi-star {
+            color: $color-orange;
+        }
+    }
+    &:not(.p-disabled) {
+        &:not(.p-readonly) {
+            .p-rating-icon {
+                &:hover {
+                    color: $color-orange;
+                }
+            }
+        }
+    }
+}
+

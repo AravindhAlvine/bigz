@@ -1,0 +1,21 @@
+.p-dropdown {
+  &.p-dropdown {
+    &-quantity {
+        @include mobile-devices() {
+          width: 100%;
+        }
+        @include medium-devices() {
+          width: 100%;
+        }
+        @include large-devices() {
+          width: 100%;
+        }
+        @include large-desktop-devices() {
+          width: 80px;
+        }
+        @include xlarge-devices() {
+          width: 80px;
+        }
+    }
+  }
+}

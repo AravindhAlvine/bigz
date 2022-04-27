@@ -1,0 +1,113 @@
+<section class="page-section page-section-maanageAddress">
+  <section class="section-no-address p-text-center" *ngIf="!showNoAddress">
+    <p-image src="./assets/images/no-address.svg" alt="Image"></p-image>
+    <h5 class="font-weight-medium p-m-0 color-green-2 ">No Addresses found in your account!</h5>
+    <p class="p-mt-0">Add a delivery address.</p>
+    <div class="p-button-group">
+    <button pButton label="Add Address" class="p-button-primary p-button-lg p-button-save" (click)="eventShowAddreess()"></button>
+  </div>
+  </section>
+  <section class="Add-new-Address" *ngIf="showAddAddress">
+    <h6 class="p-mt-0 color-green p-pr-2 p-mb-3 color-green-2 ">
+      Manage Addressess
+    </h6>
+
+    <form>
+      <p-card styleClass="p-card-inner">
+        <div class="p-mb-4">
+          <h6 class="p-text-uppercase p-mt-0 color-green-2">Add new addressess</h6>
+          <button pButton label="Use my current location" class="p-button-lg p-button-primary"
+            icon="icon-common icon-location"></button>
+        </div>
+        <div class="p-grid">
+          <div class="p-col-12 p-md-12 p-lg-12 p-xl-7">
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col-12 p-md-6">
+                <input id="firstname" class="p-inputtext-lg" type="text" placeholder="First Name" pInputText />
+              </div>
+              <div class="p-field p-col-12 p-md-6">
+                <input id="lastname" class="p-inputtext-lg" type="text" placeholder="Last Name" pInputText />
+              </div>
+              <div class="p-field p-col-12 p-md-12">
+                <p-inputMask mask="99-9999999999" placeholder="91-923456789"></p-inputMask>
+              </div>
+              <div class="p-field p-col-12 p-md-6">
+                <input id="lastname" class="p-inputtext-lg" type="text" placeholder="Pincode" pInputText />
+              </div>
+              <div class="p-field p-col-12 p-md-6">
+                <input id="lastname" class="p-inputtext-lg" type="text" placeholder="Locality" pInputText />
+              </div>
+              <div class="p-field p-col-12 p-md-12">
+                <textarea rows="5" pInputTextarea placeholder="Address (Area & Street)"></textarea>
+              </div>
+              <div class="p-field p-col-12 p-md-6">
+                <input id="lastname" class="p-inputtext-lg" type="text" placeholder="City" pInputText />
+              </div>
+              <div class="p-field p-col-12 p-md-6">
+                <p-dropdown></p-dropdown>
+              </div>
+              <div class="p-field p-col-12 p-md-6">
+                <input id="lastname" class="p-inputtext-lg" type="text" placeholder="landmark" pInputText />
+              </div>
+              <div class="p-field p-col-12 p-md-6">
+                <p-dropdown></p-dropdown>
+              </div>
+              <div class="p-field p-col-12 p-md-12">
+                <label class="font-weight-medium  p-mb-2 color-green">Address Type</label>
+                <div class="p-d-flex">
+                  <div class="p-field-radiobutton p-mr-5">
+                    <p-radioButton name="addressType" value="Male" inputId="home" [(ngModel)]="addressType">
+                    </p-radioButton>
+                    <label for="home">Home</label>
+                  </div>
+                  <div class="p-field-radiobutton">
+                    <p-radioButton name="addressType" value="Female" inputId="work" [(ngModel)]="addressType">
+                    </p-radioButton>
+                    <label for="work">Work</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </p-card>
+      <div class="p-button-group p-mt-5">
+        <button pButton label="Save" class="p-button-lg p-button-primary p-mr-3 p-button-save" (click)="eventSavedAddress()"></button>
+        <button pButton label="Cancel" class="p-button-lg p-button-text color-light-green"></button>
+      </div>
+    </form>
+  </section>
+
+  <section *ngIf="showSavedAddress">
+    <h5 class="p-mt-0 color-green p-pr-2">
+      Manage Addressess
+    </h5>
+    <p-card styleClass="p-card-inner p-mb-4">
+      <button class="p-button-text color-light-green font-weight-medium p-text-uppercase" icon="icon-common icon-size-20 icon-plus" label="Add New Address"  (click)="eventShowAddreess()" pButton></button>
+    </p-card>
+    <p-card styleClass="p-card-inner p-card-box  p-mb-4">
+      <ng-template pTemplate="header">
+        <div class="p-d-flex p-jc-between p-grid p-m-0">
+          <div class="locate-address">Home</div>
+          <button pButton icon="icon-common icon-more" class="p-button-text p-button-rounded"></button>
+        </div>
+      </ng-template>
+      <section class="col-address">
+        <h6 class="p-m-0"><span class="p-mr-5">Senthil Kumar</span> <span>81484561686</span></h6>
+        <p class="p-m-0">New No 126, Old No 71, 1-A, Race View Towers Opp to Metro Railway Station, Anna Salai, New No 126, Old No 71, 1-A,, Chennai, Tamil Nadu - 600032</p>
+      </section>
+    </p-card>
+    <p-card styleClass="p-card-inner p-card-box  p-mb-4">
+      <ng-template pTemplate="header">
+        <div class="p-d-flex p-jc-between p-grid p-m-0">
+          <div class="locate-address">Work</div>
+          <button pButton icon="icon-common icon-more" class="p-button-text p-button-rounded"></button>
+        </div>
+      </ng-template>
+      <section class="col-address">
+        <h6 class="p-m-0"><span class="p-mr-5">Senthil Kumar</span> <span>81484561686</span></h6>
+        <p class="p-m-0">New No 126, Old No 71, 1-A, Race View Towers Opp to Metro Railway Station, Anna Salai, New No 126, Old No 71, 1-A,, Chennai, Tamil Nadu - 600032</p>
+      </section>
+    </p-card>
+  </section>
+</section>

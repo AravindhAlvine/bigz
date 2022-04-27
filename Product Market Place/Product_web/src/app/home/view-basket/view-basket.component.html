@@ -1,0 +1,183 @@
+<div class="container container-center">
+    <div class="p-grid">
+        <div class="p-col-12  p-md-5 p-xl-7">
+            <h1 class="heading-2">My Shopping List</h1>
+        </div>
+        <div class="p-col-12 p-md-7 p-xl-5 p-text-md-right">
+            <button pButton label="Continue Shopping"
+                class="p-button-outlined p-button-lg p-button-primary p-button-shopping"></button>
+            <button pButton label="Proceed checkout"
+                class="p-button p-button-lg p-ml-3 p-button-primary p-button-shopping p-button-opacity" routerLink="/checkout"></button>
+        </div>
+    </div>
+    <div class="p-grid">
+        <div class="p-col-12 p-md-12 p-lg-8 p-xl-8">
+            <p-card styleClass="p-card p-card-curve p-card-shopping">
+                
+                   
+              
+                <section *ngFor="let checkout of checkOuts">
+                   
+                    <div class="p-grid">
+                        <div class="p-col-3 p-md-3 p-lg-3 p-xl-2">
+                            <div>
+                                <img src="./assets/images/newstore/{{checkout.image}}" alt="" class="p-img-fluid" />
+                            </div>
+                        </div>
+                        <div class="p-col-9 p-md-9 p-lg-9 p-xl-10">
+                            <div class="p-grid p-jc-between">
+                                <div class="p-col-12 p-md-7 p-lg-7 p-xl-8">
+                                    <h4 class="p-m-0 font-weight-medium">Sunfeast Mom’s Magic Cashew and</h4>
+                                    <p class="p-m-0 color-grey">500g</p>
+                                    <div class="p-mt-2">
+                                        <span class="new-price"> <span class="price-symbol">&#8377;</span>{{checkout.offerPrice}}</span>
+                                        <span class="old-price"> <span class="price-symbol">&#8377;</span>{{checkout.mrpPrice}}</span>
+                                        <span class="discount-details">{{checkout.discount}}%off</span>
+                                    </div>
+                                </div>
+                                <div class="p-col-9 p-md-4 p-lg-4 p-xl-3 p-fluid">
+                                    <div class="p-field">
+                                        <p-inputNumber [showButtons]="true" buttonLayout="horizontal"
+                                            spinnerMode="horizontal" inputStyleClass="p-text-center"
+                                            decrementButtonClass="p-button-outlined p-button p-button-primary"
+                                            incrementButtonClass="p-button-outlined p-button p-button-primary"
+                                            incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
+                                            mode="decimal">
+                                        </p-inputNumber>
+                                    </div>
+                                </div>
+                                <div class="p-col-3 p-md-1 p-lg-1 p-xl-1">
+                                    <button pButton icon="icon-common icon-size-20 icon-delete"
+                                        class="p-button-rounded p-button-text"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+          
+                   
+                
+                
+
+            </p-card>
+            <div class="p-d-flex">
+                <button pButton label="Empty Basket" icon="icon-common icon-basket"
+                    class="p-button-outlined p-button-primary p-mr-2 p-mr-md-5"></button>
+                <button pButton label="Continue shopping" class="p-button p-button-primary"></button>
+            </div>
+        </div>
+        <div class="p-col-12 p-md-12 p-lg-4 p-xl4">
+            <p-card styleClass="p-card-sidebar p-card-curve">
+
+                <ng-template pTemplate="header">
+                    <div class="bg-green-light p-d-flex">
+                        <h6 class="p-mt-0  p-mb-0 p-mr-1"> My Cart </h6>
+                        <span> (4 items)</span>
+                    </div>
+                </ng-template>
+                <section class="price-calculate-container">
+                    <div class="price-calculate">
+                        <div class="p-d-flex p-jc-between">
+                            <div>
+                                <h5 class="p-m-0 font-weight-regular">Sub Total</h5>
+                            </div>
+                            <div>
+                                <h5 class="p-m-0 p-text-right font-weight-regular">505.00</h5>
+                            </div>
+                        </div>
+                        <div class="p-d-flex p-jc-between">
+                            <div>
+                                <h5 class="p-m-0 font-weight-regular">Delivery Charges</h5>
+                            </div>
+                            <div>
+                                <h5 class="p-m-0 p-text-right font-weight-regular color-light-green">+49.00</h5>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="p-d-flex p-jc-between">
+                        <div>
+                            <h5 class="p-m-0 font-weight-bold color-green">Total Amount Payable</h5>
+                        </div>
+                        <div>
+                            <h5 class="p-m-0 p-text-right font-weight-bold color-green">505.00</h5>
+                        </div>
+                    </div>
+                    <div class="p-d-flex p-jc-between total-saving">
+                        <div>
+                            <h5 class="p-m-0 font-weight-bold color-green">Your total savings</h5>
+                        </div>
+                        <div>
+                            <h5 class="p-m-0 p-text-right font-weight-bold color-green">125.00</h5>
+                        </div>
+                    </div>
+                    <div class="p-d-flex p-jc-between p-ai-center p-pl-4 p-pr-4">
+                        <p>Add <span class="font-weight-medium">₹495</span> to place the order</p>
+                        <span class="icon-common icon-truck"></span>
+                    </div>
+                </section>
+
+                <ng-template pTemplate="footer">
+                    <div class="p-fluid">
+                        <button pButton label="Proceed checkout"
+                            class="p-text-uppercase p-button-primary p-button-opacity" routerLink="/checkout"></button>
+                    </div>
+                </ng-template>
+
+            </p-card>
+        </div>
+    </div>
+
+    <section class="page-section page-section-smiliar">
+        <h4 class="p-text-uppercase p-text-left">Missing Something?</h4>
+        <div class="products-button-group scroll-button-group-mobile p-mb-4">
+            <button pButton label="Quick Bites" class="p-mr-3 p-button-outlined p-button-primary p-button-lg active"></button>
+            <button pButton label="Top Offers" class="p-mr-3 p-button-outlined p-button-primary p-button-lg"></button>
+            <button pButton label="Best Deals" class="p-mr-3 p-button-outlined p-button-primary p-button-lg"></button>
+            <button pButton label="Essential" class="p-mr-3 p-button-outlined p-button-primary p-button-lg"></button>
+        </div>
+        <div class="p-grid p-grid-10">
+            <div class="p-col-12 p-col-mobile-6 p-md-6 p-lg-4 p-xl-2" *ngFor="let newStore of newStores">
+                <p-card styleClass="p-card-shop">
+                    <div class="p-text-center">
+                        <a routerLink="category">
+                            <img src="./assets/images/newstore/{{newStore.image}}" alt="newStore.image"
+                                class="cart-image" />
+                        </a>
+                    </div>
+                    <button pButton pRipple type="button" 
+                            class="p-button-rounded p-button-heart" (click)="liketoggle()">
+                            <span class="p-button-icon" [ngClass]="heartIcon? 'icon-common  icon-heart-filled': 'icon-common  icon-heart-grey'"></span>
+                        </button>
+                    <p class="p-mb-0">{{newStore.details}}</p>
+                    <div class="p-mt-2">
+                        <span class="new-price"> <span class="price-symbol">&#8377;</span>{{newStore.offerPrice}}</span>
+                        <span class="old-price"> <span class="price-symbol">&#8377;</span>{{newStore.mrpPrice}}</span>
+                        <span class="discount-details">{{newStore.discount}}%off</span>
+                    </div>
+                    <ng-template pTemplate="footer">
+                        <div class="p-grid p-d-flex p-jc-between p-fluid">
+                            <div class="p-col-5 p-md-5 p-lg-4 p-xl-5">
+                                <p-dropdown styleClass="p-dropdown-quantity"></p-dropdown>
+                            </div>
+                            <div class="p-col-7 p-md-5 p-lg-6  p-xl-7">
+                                <button pButton label="Add to Cart" class="p-button-outlined p-button-secondary"
+                                    (click)="eventShowItem()" *ngIf="!showAddItem"></button>
+                                <div class="p-fluid" *ngIf="showAddItem">
+                                    <p-inputNumber [showButtons]="true" buttonLayout="horizontal"
+                                        spinnerMode="horizontal" inputStyleClass="p-text-center"
+                                        decrementButtonClass="p-button-outlined p-button p-button-primary"
+                                        incrementButtonClass="p-button-outlined p-button p-button-primary"
+                                        incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
+                                        mode="decimal"></p-inputNumber>
+                                </div>
+
+                            </div>
+                        </div>
+                    </ng-template>
+                </p-card>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,116 @@
+.p-overlaypanel {
+  &.my-cart-menu {
+    z-index: 10;
+    top: 100%;
+    right: 0;
+    left: inherit;
+    min-width: 507px;
+    @include mobile-devices () {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      right: 0;
+      top: 50px;
+      min-width: inherit;
+
+    }
+    .p-card-footer {
+      p {
+        font-size: $font-size-11;
+      }
+    }
+    .p-overlaypanel-content {
+        padding: 0;
+        .p-inputnumber {
+            align-items: center;
+            .p-inputtext {
+                border: none;
+            }
+        }
+    }
+
+    &:before,
+    &::after {
+      left: inherit;
+      right: 10px;
+      border-bottom-color: $primary-text-color;
+      @include mobile-devices () { 
+        display: none;
+      }
+    }
+
+    &-content {
+      padding: 0;
+    }
+
+    .p-card {
+      border-radius: 0;
+      background-color: $color-light-grey-4;
+
+      &-header {
+        background-color: $primary-bg-color;
+        color: $color-white;
+        padding: 25px;
+        font-size: $h5;
+        font-weight: $font-weight-bold;
+      }
+
+      &-body {
+        padding: 0;
+      }
+
+      &-content {
+        padding: 0;
+      }
+
+      &-footer {
+        padding: 25px;
+      }
+    }
+  }
+  &.my-cart-menu-profile {
+    min-width: 280px;
+    top: 46px;
+    box-shadow: 0px 3px 15px #00000029;
+    z-index: 1;
+    @include mobile-devices() {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 50px;
+    }
+    @include medium-devices() {
+      left: -150px;
+    }
+    &::before, &::after {
+      display: none;
+    }
+    .p-overlaypanel-content {
+      padding: 0;
+    }
+    .profile-menu-list {
+      list-style: none;
+      padding-left: 0;
+      
+      .p-button-text {
+        font-size: $font-size-primary;
+        .p-button-label {
+          margin-right: 0;
+        }
+      }
+      li {
+        padding: 14px 16px;
+        border-bottom: 1px solid #DDDDDD;
+        a {
+          color: $color-green;
+          font-size: $font-size-primary;
+          .icon-common {
+           
+            margin-right: 20px;
+          }
+          
+        }
+      }
+    }
+  }
+}

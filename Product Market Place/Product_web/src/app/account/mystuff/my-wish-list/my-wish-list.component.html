@@ -1,0 +1,154 @@
+<section>
+    <div class="p-d-flex p-jc-between p-ai-center">
+        <h5 class="p-mt-0 color-green p-m-0">
+            My Wishlist (5)
+        </h5>
+        <button pButton label="Create Folder" class="p-button-outlined p-button-primary p-button-folder"  (click)="eventCreateFolder()"></button>
+    </div>
+
+    <section *ngIf="!wishlistItems">
+        <div class="my-wish-list" >
+            <div class="p-d-flex p-jc-between p-grid">
+                <div class="p-d-flex">
+                    <div class="review-image">
+                        <p-image src="./assets/images/gallery/thumbs/thumb-1.png" imageClass="review-imaeg"></p-image>
+                    </div>
+                    <div class="p-pl-3">
+                        <p class="p-mt-0 p-mb-2">Sunfeast Mom’s Magic Cashew and Almonds Cookies …</p>
+                        
+                        <div class="p-d-flex">
+                            <p-rating [cancel]="false"></p-rating>
+                            <span class="color-grey p-pl-3">(234)</span>
+                        </div>
+                        <div class="p-mt-2">
+                            <span class="new-price"> <span class="price-symbol">&#8377;</span> 390</span>
+                            <span class="old-price"> <span class="price-symbol">&#8377;</span> 530</span>
+                            <span class="discount-details">46%off</span>
+                        </div>
+                        <div class="p-mt-2">
+                            <button pButton label="Add to Cart" class="p-button-outlined p-button-secondary p-button-addcart"
+                                (click)="eventShowItem()" *ngIf="!showAddItem"></button>
+                            <div class="p-fluid" *ngIf="showAddItem">
+                                <p-inputNumber [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal"
+                                    inputStyleClass="p-text-center"
+                                    decrementButtonClass="p-button-outlined p-button p-button-primary"
+                                    incrementButtonClass="p-button-outlined p-button p-button-primary"
+                                    incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="decimal">
+                                </p-inputNumber>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <button pButton icon="icon-common icon-more" class="p-button-text p-button-rounded"></button>
+            </div>
+        </div>
+        <div class="my-wish-list">
+            <div class="p-d-flex p-jc-between p-grid">
+                <div class="p-d-flex">
+                    <div class="review-image">
+                        <p-image src="./assets/images/gallery/thumbs/thumb-1.png" imageClass="review-imaeg"></p-image>
+                    </div>
+                    <div class="p-pl-3">
+                        <p class="p-mt-0 p-mb-2">Sunfeast Mom’s Magic Cashew and Almonds Cookies …</p>
+                        
+                        <div class="p-d-flex">
+                            <p-rating [cancel]="false"></p-rating>
+                            <span class="color-grey p-pl-3">(234)</span>
+                        </div>
+                        <div class="p-mt-2">
+                            <span class="new-price"> <span class="price-symbol">&#8377;</span> 390</span>
+                            <span class="old-price"> <span class="price-symbol">&#8377;</span> 530</span>
+                            <span class="discount-details">46%off</span>
+                        </div>
+                        <div class="p-mt-2">
+                            <button pButton label="Add to Cart" class="p-button-outlined p-button-secondary p-button-addcart"
+                                (click)="eventShowItem()" *ngIf="!showAddItem"></button>
+                            <div class="p-fluid" *ngIf="showAddItem">
+                                <p-inputNumber [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal"
+                                    inputStyleClass="p-text-center"
+                                    decrementButtonClass="p-button-outlined p-button p-button-primary"
+                                    incrementButtonClass="p-button-outlined p-button p-button-primary"
+                                    incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="decimal">
+                                </p-inputNumber>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <button pButton icon="icon-common icon-more" class="p-button-text p-button-rounded"></button>
+            </div>
+        </div>
+        <div class="p-pt-3 p-pb-0 p-text-center">
+            <button pButton label="View more" class="p-button-text p-button-viewmore"></button>
+        </div>
+    </section>
+
+    <section *ngIf="showFolderList">
+        <div class="p-grid">
+            <div class="p-col-12 p-md-12 p-lg-6">
+                <h4>Senthil Kumar Wishlist (23)</h4>
+                <p-card styleClass="p-card-inner p-card-white p-card-wishlist">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-6 p-lg-4">
+                            <div class="wishlist-image p-text-center">
+                                <p-image src="./assets/images/newstore/new-store1.png" imageClass="size-100"></p-image>
+                                <p class="wishlist-product-name">Surf Excel Matic Front Load Detergent Powder (Carton)</p>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-6 p-lg-4">
+                            <div class="wishlist-image p-text-center">
+                                <p-image src="./assets/images/newstore/new-store1.png" imageClass="size-100"></p-image>
+                                <p class="wishlist-product-name">Surf Excel Matic Front Load Detergent Powder (Carton)</p>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-6 p-lg-4">
+                            <div class="wishlist-image p-text-center">
+                                <p-image src="./assets/images/newstore/new-store1.png" imageClass="size-100"></p-image>
+                                <p class="wishlist-product-name">Surf Excel Matic Front Load Detergent Powder (Carton)</p>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-6 p-lg-4">
+                            <div class="wishlist-image p-text-center">
+                                <p-image src="./assets/images/newstore/new-store1.png" imageClass="size-100"></p-image>
+                                <p class="wishlist-product-name">Surf Excel Matic Front Load Detergent Powder (Carton)</p>
+                            </div>
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+            <div class="p-col-12 p-md-12 p-lg-6">
+                <h4>Senthil Kumar Wishlist (23)</h4>
+                <p-card styleClass="p-card-inner p-card-white p-card-wishlist">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-6 p-lg-4">
+                            <div class="wishlist-image p-text-center">
+                                <p-image src="./assets/images/newstore/new-store1.png" imageClass="size-100"></p-image>
+                                <p class="wishlist-product-name">Surf Excel Matic Front Load Detergent Powder (Carton)</p>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-6 p-lg-4">
+                            <div class="wishlist-image p-text-center">
+                                <p-image src="./assets/images/newstore/new-store1.png" imageClass="size-100"></p-image>
+                                <p class="wishlist-product-name">Surf Excel Matic Front Load Detergent Powder (Carton)</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </p-card>
+            </div>
+        </div>
+    </section>
+
+
+</section>
+
+<p-dialog header="Create Folder" [(visible)]="showDialogCreateFolder" styleClass="p-dialog-create-folder" [modal]="true">
+    <div class="p-field p-fluid p-mt-2">
+        <input pInputText class="p-inputtext-lg" placeholder="Enter Folder name" />
+        <div class="p-button-group p-mt-3 p-fluid">
+        <button pButton label="Save" class="p-button-lg p-button-primary p-mr-4 p-text-uppercase p-button-save" (click)="eventShowFolderList()"></button>
+        </div>
+    </div>
+   
+</p-dialog>

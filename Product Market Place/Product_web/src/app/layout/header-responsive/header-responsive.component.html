@@ -1,0 +1,147 @@
+<!--Mobile tablet Header Start-->
+<header class="p-d-block p-md-none layout-header layout-header-mobile">
+    <div class="p-d-flex p-jc-between p-ai-center">
+        <section class="header-brand p-d-flex p-jc-between p-ai-center">
+            <button class="p-button-rounded p-button-text p-mr-2 color-white" icon="pi pi-bars" pButton (click)="eventShowSidebar()"></button>
+            <a routerLink="/" class="logo-mobile">
+                <img src="assets/images/grd-logo.svg" />
+            </a>
+        </section>
+        <section class="p-d-flex">
+            <div class="header-signin p-m-0">
+
+                <button class="p-button-text color-white" icon="icon-common icon-size-25 icon-user" pButton
+                    (click)="loginMenu.toggle($event); op.hide()">
+
+                </button>
+                <p-overlayPanel #loginMenu [appendTo]="'self'" styleClass="my-cart-menu-profile">
+                    <ul class="p-m-0 profile-menu-list" (click)="loginMenu.hide();">
+                        <li>
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>New Customer?</span>
+                                <button pButton label="Sign Up" class="p-button-text"
+                                    (click)="eventshowNewRegister()"></button>
+                            </div>
+                        </li>
+                        <li>
+                            <a routerLink="account/profile-information">
+                                <span class="icon-common icon-myprofile"></span>
+                                <span>My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="account/profile-information">
+                                <span class="icon-common icon-orders"></span>
+                                <span>Orders</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="account/my-wishlist">
+                                <span class="icon-common icon-wishlist"></span>
+                                <span>Wish List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="account/my-wishlist">
+                                <span class="icon-common icon-payments"></span>
+                                <span>Payments</span>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </p-overlayPanel>
+            </div>
+            <div class="header-cart p-m-0">
+                <button pButton icon="icon-common icon-size-25 icon-cart" badge="7" class="p-button-text"
+                    (click)="op.toggle($event); loginMenu.hide()">
+                    <p-badge value="7"></p-badge>
+                </button>
+                <p-overlayPanel #op [appendTo]="'self'" styleClass="my-cart-menu">
+                    <p-card>
+                        <ng-template pTemplate="header">
+                            <section><span>My cart</span> <span class="font-weight-regular p-ml-2">(3 items)</span>
+                            </section>
+                        </ng-template>
+                        <section>
+                            <div class="my-cart-total p-d-flex p-jc-between">
+                                <div>Your total savings</div>
+                                <div>125(19.84%)</div>
+                            </div>
+                            <section class="my-cart-items">
+                                <p-scrollPanel [style]="{width: '100%', height: '290px'}">
+                                    <div class="my-cart-item" *ngFor="let mycartitem of mycartItems">
+                                        <div class="p-grid p-ai-center">
+                                            <div class="p-col-12 p-md-5 p-lg-5 p-xl-12">
+                                                <div class="p-grid">
+                                                    <div class="p-col p-md-3">
+                                                        <img src="/assets/images/newstore/{{mycartitem.image}}"
+                                                            class="p-img-fluid" />
+                                                    </div>
+                                                    <div class="p-col-12 p-md-9">
+                                                        <div class="p-grid p-jc-between">
+                                                            <div class="p-col-12 p-md-8 ">
+                                                                <p class="p-m-0">{{mycartitem.details}}</p>
+                                                            </div>
+                                                            <div class="p-col-12 p-md-5 p-lg-5 p-xl-2 p-text-center">
+                                                                <button pButton icon="pi pi-times"></button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="p-grid p-ai-center">
+                                                            <div class="p-col-12 p-md-5 p-md-5 p-lg-5  p-xl-3 p-fluid">
+                                                                <p-inputNumber [showButtons]="true"
+                                                                    buttonLayout="horizontal" spinnerMode="horizontal"
+                                                                    inputStyleClass="p-text-center"
+                                                                    decrementButtonClass="p-button-outlined p-button-rounded size-20 p-button p-button-primary"
+                                                                    incrementButtonClass="p-button-outlined p-button-rounded size-20 p-button p-button-primary"
+                                                                    incrementButtonIcon="pi pi-plus"
+                                                                    decrementButtonIcon="pi pi-minus" mode="decimal">
+                                                                </p-inputNumber>
+                                                            </div>
+                                                            <div class="p-col-12 p-md-5 p-lg-5 p-xl-4 ">X <span
+                                                                    class="new-price">{{mycartitem.offerPrice}}</span>
+                                                                <span class="old-price">{{mycartitem.mrpPrice}}</span>
+                                                            </div>
+                                                            <div class="p-col-12 p-md-5 p-lg-5 p-xl-4 p-text-center">
+                                                                <p class="p-m-0">165rs</p>
+                                                                <p class="p-m-0 color-green">Saved 234.33</p>
+                                                            </div>
+
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+
+
+                                </p-scrollPanel>
+                            </section>
+                        </section>
+                        <ng-template pTemplate="footer">
+                            <section class="p-text-center p-fluid">
+                                <p>Promo code can be applied on payment page</p>
+                                <button pButton label="Proceed to Checkout" class="p-button-primary no-curve"
+                                    routerLink="viewbasket" (click)="op.hide()"></button>
+                            </section>
+                        </ng-template>
+                    </p-card>
+
+                </p-overlayPanel>
+            </div>
+        </section>
+    </div>
+    <p-autoComplete styleClass="header-autocomplete"></p-autoComplete>
+
+</header>
+<p-sidebar [(visible)]="sidebarNaviMobile">
+    Content
+</p-sidebar>
+<!--Mobile tablet Header End-->

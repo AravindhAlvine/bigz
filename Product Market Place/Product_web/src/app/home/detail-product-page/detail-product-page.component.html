@@ -1,0 +1,247 @@
+<div class="container" id="breadCrumb">
+
+    <div class="breadcum">
+        <p-breadcrumb [model]="breadCrumbsitems" styleClass="breadcrumbs"></p-breadcrumb>
+    </div>
+
+    <div class="p-grid p-mx-auto selected_img">
+        <div class="p-col-12 p-lg-7 p-xl-7">
+            <div class="p-grid" id="zoomed_img">
+                <div class="p-col-2">
+                    <p-carousel [value]="products" orientation="vertical" [style]="{ 'max-width': '82px' }"
+                        verticalViewPortHeight="762px" [numVisible]="6" [numScroll]="1" id="prod_carosel_sel">
+                        <ng-template let-product pTemplate="item">
+                            <div class="product-item" id="">
+                                <div class="product-item-content">
+                                    <a (click)="selectedCarosel()">
+                                        <img class="img-fluid"
+                                            src="../../../assets/images/home_page/carosel/Product image.svg" alt="" />
+                                    </a>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </p-carousel>
+                </div>
+                <div class="p-col-10">
+                    <img src="../../../assets/images/product_img.png" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <div class="p-col-12 p-lg-5 p-xl-5 prod_desc">
+
+            <div class="flex_item p-grid p-justify-between p-mx-auto">
+                <a class="" href="">Nike</a>
+                <div class="shared_tag">
+                    <a href=""><i class="pi pi-upload" aria-hidden="true"></i>Share</a>
+                    <a href=""><i class="pi pi-print" aria-hidden="true"></i>Save</a>
+                </div>
+            </div>
+
+            <h3>LeBron Witness 5 Nike Shoes</h3>
+
+            <div class="p-grid p-flex-start prod_rat p-mx-auto">
+                <p><i class="pi pi-star" aria-hidden="true"></i></p>
+                <p>4.6 (24 Reviews)</p>
+                <p>|</p>
+                <p>Influencer</p>
+            </div>
+
+            <div class="p-grid p-flex-start prod_btn p-mx-auto">
+                <button pButton>Sale</button>
+                <button pButton>Price Drop</button>
+            </div>
+
+            <div class="p-grid p-flex-start prod_rat p-mx-auto">
+                <span>
+                    <h2>$150</h2>
+                </span>
+                <span>$199</span>
+                <span>(Save 25%)</span>
+            </div>
+
+
+            <div class="p-grid p-flex-start prod_clr p-mx-auto">
+                <p>Colours: <span>Blue</span></p>
+            </div>
+
+            <div class="p-grid p-flex-start prod_radClr p-mx-auto">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+
+            <div class="p-grid p-justify-between prod_size p-mx-auto">
+                <p>Select Size</p>
+                <button pButton>Size Guide</button>
+            </div>
+
+            <div class="p-d-block prod_size_range">
+                <ul>
+                    <li>5</li>
+                    <li class="active">6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                </ul>
+            </div>
+
+            <div class="p-grid prod_shipping p-mx-auto">
+                <p class="p-d-block">Shipping <span>*Please enter valid pascode</span></p>
+                <div class="p-field-radiobutton p-mb-0" style="width: 100%;">
+                    <p-radioButton name="city" value="Chicago" [(ngModel)]="city" inputId="city1"></p-radioButton>
+                    <div class="p-inputgroup">
+                        <p-inputNumber [(ngModel)]="valueGroup" placeholder="3034565" mode="decimal"
+                            inputId="withoutgrouping" [useGrouping]="false">
+                        </p-inputNumber>
+                        <span class="p-inputgroup-addon">Calculate</span>
+                    </div>
+                </div>
+                <div class="p-field-radiobutton">
+                    <p-radioButton name="city" value="Los Angeles" [(ngModel)]="city" inputId="city2"></p-radioButton>
+                    <div class="p-grid p-flex-start p-mx-auto radio_price">
+                        <p><span>$20 </span> with &nbsp;</p>
+                        <img src="../../../assets/images/prod_radio_img.svg" alt="" />
+                        <p>&nbsp;&nbsp;Delivery in next 2 hours.</p>
+                    </div>
+                </div>
+                <button type="button" style="width: 100%;" routerLink="/shopping-bag">
+                    <i class="pi pi-plus" aria-hidden="true"></i>
+                    Button
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="detailed_action">
+        <p-tabView>
+            <p-tabPanel header="Description">
+                <p>
+                    Level up your game in the LeBron Witness 5, a strong, lightweight shoe that's sculpted to look fast.
+                    Its rigid heel piece and forefoot lockdown system provides support. Responsive cushioning and
+                    multi-directional traction work together to help you stay in control as you drive toward the basket.
+                    Nulla massa diam lorem fringilla gravida dui vel varius massa. Vitae, consequat egestas faucibus
+                    pharetra. Tellus ut porta sagittis, et risus at eu. Nisi viverra morbi massa non phasellus laoreet.
+                    Amet arcu est blandit sed leo nisl faucibus blandit. Suspendisse turpis tristique proin urna est
+                    duis proin.</p>
+
+                <p> Build Momentum 2 Zoom Air units under the ball of your foot provide responsiveness as you run the
+                    floor.</p>
+
+                <p>Strength and Stability A rigid heel counter with moulded lion graphic helps contain the back of your
+                    foot and keep you
+                    stable.</p>
+
+                <p>Stay In Control The rubber outsole with multi-directional traction helps you stay in control.</p>
+
+
+            </p-tabPanel>
+            <p-tabPanel header="Specification">
+                <p>
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                    accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+                    illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                    explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                    odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                    voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non
+                    numquam eius modi.
+                </p>
+            </p-tabPanel>
+            <p-tabPanel header="Review">
+                <p>
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                    blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+                    et quas molestias excepturi sint occaecati cupiditate non provident,
+                    similique sunt in culpa qui officia deserunt mollitia animi, id est
+                    laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
+                    distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
+                    cumque nihil impedit quo minus.
+                </p>
+            </p-tabPanel>
+
+            <p-tabPanel header="Return">
+                <p>
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                    blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+                    et quas molestias excepturi sint occaecati cupiditate non provident,
+                    similique sunt in culpa qui officia deserunt mollitia animi, id est
+                    laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
+                    distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
+                    cumque nihil impedit quo minus.
+                </p>
+            </p-tabPanel>
+
+            <p-tabPanel header="Contacts">
+                <p>
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                    blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+                    et quas molestias excepturi sint occaecati cupiditate non provident,
+                    similique sunt in culpa qui officia deserunt mollitia animi, id est
+                    laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
+                    distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
+                    cumque nihil impedit quo minus.
+                </p>
+            </p-tabPanel>
+
+        </p-tabView>
+    </div>
+
+    <div id="carosel_ID">
+        <section class="list_of_product">
+            <div class="container p-px-0">
+                <div class="prod_card">
+                    <h4>Product Similar to</h4>
+                    <p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1"
+                        [circular]="true" [responsiveOptions]="responsiveOptions">
+                        <ng-template let-product pTemplate="item">
+                            <div class="product-item" id="list_of_seclected_prod">
+                                <div class="product-item-content">
+                                    <img class="square_img"
+                                        src="../../../assets/images/home_page/carosel/Product image.svg" alt="" />
+                                </div>
+                                <div class="product_details_dec">
+                                    <p class="p-para">{{product.name}}</p>
+                                    <p class="p-para_store">Nike Store</p>
+                                    <p class="p-para_price">$150,000</p>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </p-carousel>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="carosel_ID">
+        <section class="list_of_product">
+            <div class="container p-px-0">
+                <div class="prod_card">
+                    <h4>You May Also Like</h4>
+                    <p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1"
+                        [circular]="true" [responsiveOptions]="responsiveOptions">
+                        <ng-template let-product pTemplate="item">
+                            <div class="product-item" id="list_of_seclected_prod">
+                                <div class="product-item-content">
+                                    <img class="square_img"
+                                        src="../../../assets/images/home_page/carosel/Product image.svg" alt="" />
+                                </div>
+                                <div class="product_details_dec">
+                                    <p class="p-para">{{product.name}}</p>
+                                    <p class="p-para_store">Nike Store</p>
+                                    <p class="p-para_price">$150,000</p>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </p-carousel>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>

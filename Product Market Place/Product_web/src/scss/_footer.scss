@@ -1,0 +1,106 @@
+.footer {
+  &-top {
+    background-color: #F6F6F6;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    height: 384px;
+
+    @include mobile-devices() {
+      height: auto;
+    }
+
+    @include medium-devices() { 
+      height: auto;
+    }
+    .p-grid {
+      .p-col-12 {
+    @include xlarge-devices() {
+      padding-left: 15px;
+      padding-right: 15px;
+     }
+  }
+  }
+  }
+
+  &-bottom {
+    background-color: $bgcolor-white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  &-social-network {
+    .icon-common {
+      margin-right: 45px;
+    }
+  }
+
+  &-copyright {
+    margin-top: 25px;
+  }
+
+  &-address {
+    font-style: normal;
+    flex-wrap: wrap;
+
+    &-details {
+      width: calc(100% - 60px);
+
+    }
+
+  }
+
+  a {
+    &.link {
+      color: $color-grey;
+      text-decoration: none;
+    }
+  }
+
+  .icon-common {
+    margin-right: 15px;
+    background-size: auto;
+  }
+
+  &-link {
+    list-style: none;
+
+    a {
+      color: $color-grey;
+      text-decoration: none;
+    }
+  }
+}
+
+.app-footer {
+
+  bottom: 0;
+  width: 100%;
+}
+
+.icon-button {
+  width: 135px;
+  height: 46px;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-size: 100%;
+  margin-right: 35px;
+
+}
+
+.footer-title {
+  @include small-devices() {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  .container {
+    @include large-desktop-devices  () {
+      max-width: 1266px;
+  }
+    @include xlarge-devices() {
+        max-width: 1266px;
+    }
+}
+
+  }

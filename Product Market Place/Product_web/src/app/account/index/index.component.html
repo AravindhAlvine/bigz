@@ -1,0 +1,33 @@
+<div class="container container-center" id="side_menu">
+    <div class="p-grid">
+        <div class="p-col-12 p-md-4 p-lg-3 p-d-none p-d-md-block">
+            <div class="menu-box backgroud_color_design">
+                <div class="p-d-flex p-ai-center menu-box-profile">
+                    <div class="menu_box_profile_sign">
+                        <a>AW</a>
+                    </div>
+                    <div class="profile-author-name">
+                        <p class="p-m-0">Hi,</p>
+                        <h4 class="p-m-0 font-weight-bold">Arya Wijaya Kusuma</h4>
+                    </div>
+
+                </div>
+            </div>
+            <div class="menu-box">
+                <div class="p-menu">
+                    <ul class="p-submenu-list">
+                        <li class="p-menuitem backgroud_color_design" routerLink="{{MenuItem.routerLink}}" routerLinkActive="active" *ngFor="let MenuItem of profileMenu">
+                            <span>
+                                <img src="{{MenuItem.icons}}" alt="" width="22" height="20" />
+                                <a routerLinkActive="active">{{MenuItem.name}}</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="p-col-12 p-md-8 p-lg-9">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

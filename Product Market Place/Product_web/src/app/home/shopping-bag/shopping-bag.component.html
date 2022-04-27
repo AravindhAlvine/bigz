@@ -1,0 +1,83 @@
+<div id="shopping_bag">
+    <div class="container">
+        <h2>Shopping Bag</h2>
+
+        <div class="p-card">
+            <p-table #dt1 [value]="productDetails" [rows]="10" [resizableColumns]="true" [autoLayout]="true">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th scope="col">Shopping Item</th>
+                        <th scope="col" class="p-text-center">Quantity</th>
+                        <th scope="col" class="p-text-center">Shipping</th>
+                        <th scope="col" class="p-text-center">Subtotal</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product let-columns="columns">
+                    <tr id="table_font">
+                        <td class="p_font">
+                            <div class="p-grid p-flex-start mx-auto">
+                                <img width="92" height="116" src="../../../assets/images/product_img.png" alt="" />
+                                <div class="prod_data p-ml-3 p-mt-3">
+                                    <h4 class="p-my-1">LeBron Witness 5 Nike Shoes</h4>
+                                    <p class="p-my-0">Size: 6</p>
+                                    <p class="p-my-0">$35.00 USD</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-text-center p_font">
+                            <p-inputNumber [(ngModel)]="value" [showButtons]="true" buttonLayout="horizontal"
+                                spinnerMode="vertical" inputId="vertical" decrementButtonClass="p-button-secondary"
+                                incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus"
+                                decrementButtonIcon="pi pi-minus">
+                            </p-inputNumber>
+                            <p class="p-my-0">Remove</p>
+                        </td>
+                        <td class="p-text-center p_font p_radio_font">
+                            <div class="p-grid p-flex-start">
+                                <p-radioButton [inputId]="product.key" name="category" [(ngModel)]="selectedCategory">
+                                </p-radioButton>
+                                <p class="p-ml-2"><span class="font-weight-bold p_font_dark">$10 </span> with standartd delivery</p>
+                            </div>
+
+                            <div>
+                                <div class="p-grid p-flex-start">
+                                <p-radioButton [inputId]="product.key" name="category" [(ngModel)]="selectedCategory">
+                                </p-radioButton>
+                                <p class="p-ml-2 p-my-0"><span class="font-weight-bold p_font_dark">$20 </span> with
+                                    <img src="../../../assets/images/prod_radio_img.svg" alt="" />
+                                </p>
+                                </div>
+                                <p class="p-ml-4 p-text-left p-my-0">Delivery in next 2 hours.</p>
+                            </div>
+
+                        </td>
+                        <td class="p-text-center p_font">$35.00 USD</td>
+                    </tr>
+                </ng-template >
+                <ng-template pTemplate="footer">
+                    <tr class="footer_row">
+                        <td colspan="2">&nbsp;</td>
+                        <td class="footer_text">Subtotal</td>
+                        <td class="footer_text">$1,205.00 USD</td>
+                    </tr>
+                    <tr class="footer_row">
+                        <td colspan="2">&nbsp;</td>
+                        <td class="footer_text">Shipping</td>
+                        <td class="footer_text">$50.00 USD</td>
+                    </tr>
+                    <tr class="footer_row">
+                        <td colspan="2">&nbsp;</td>
+                        <td>Total Price</td>
+                        <td>$1,255.00 USD</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+
+            <div class="submit_btn">
+                <button class="cursor-pointer" routerLink="/cart" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Checkout&nbsp;<span>(3)</span></button>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,28 @@
+.p-dialog {
+    
+    &-create-folder {
+        @include xlarge-devices() {
+            width: 577px;
+        }
+    }
+    &-login {
+        color: $color-green;
+        @include large-desktop-devices() {
+            width: 577px;
+            
+        }
+        @include xlarge-devices() {
+            width: 577px;
+            
+        }
+        h1 {
+            color: $color-green;
+        }
+        .p-dialog {
+            &-header, &-content {
+                padding-left: 50px;
+            padding-right: 50px;
+            }
+        }
+    }
+}

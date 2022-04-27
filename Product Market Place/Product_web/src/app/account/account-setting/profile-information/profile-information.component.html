@@ -1,0 +1,193 @@
+<section id="account_overview">
+    <div class="card_bg_white">
+        <button class="black_btn" pButton label="Account Overview"></button>
+        <h4>Arya Wijaya Kusuma</h4>
+        <p>Rindang Streen Number 18, Cipedak, Jagakarsa</p>
+    </div>
+
+
+    <div class="card_bg_white">
+        <img src="../../../../assets/images/icon/icon-file.svg" alt="" />
+        <h2 class="p-my-1">My Details</h2>
+        <p class="p-mb-3">Feel free to edit any of your details below so your ASOS account is totally up to date.</p>
+
+        <div class="form_section">
+            <form>
+                <div class="p-form-group">
+                    <label for="float-input">First Name:</label>
+                    <div class="p-field p-float-label p-col-6 p-px-0">
+                        <div class="p-float-label">
+                            <input id="float-input" style="width: 100%;" class="p-inputtext-lg" type="text"
+                                pInputText />
+                            <label for="float-input">First Name</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-form-group">
+                    <label for="float-input">Last Name:</label>
+                    <div class="p-field p-float-label p-col-6 p-px-0">
+                        <div class="p-float-label">
+                            <input id="float-input" style="width: 100%;" class="p-inputtext-lg" type="text"
+                                pInputText />
+                            <label for="float-input">Last Name</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-form-group">
+                    <label for="float-input">EMAIL ADDRESS:</label>
+                    <div class="p-field p-float-label p-col-6 p-px-0">
+                        <div class="p-float-label">
+                            <input id="float-input" style="width: 100%;" class="p-inputtext-lg" type="text"
+                                pInputText />
+                            <label for="float-input">Email Id</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-form-group">
+                    <label for="float-input">DATE OF BIRTH:</label>
+
+                    <div class="p-grid">
+                        <div class="p-field p-float-label p-col-2 ">
+                            <div class="p-float-label">
+                                <p-dropdown styleClass="p-pr-0" inputId="dropdown1" [autoDisplayFirst]="false"
+                                    [options]="date?.Date" class="p-inputtext-lg" [editable]="false" [showClear]="false"
+                                    optionLabel="label">
+                                </p-dropdown>
+                                <label for="dropdown1">Date</label>
+                            </div>
+                        </div>
+
+                        <div class="p-field p-float-label p-col-2 ">
+                            <div class="p-float-label">
+                                <p-dropdown styleClass="p-pr-0" inputId="dropdown2" [autoDisplayFirst]="false"
+                                    [options]="date?.Month" class="p-inputtext-lg" [editable]="false"
+                                    [showClear]="false" optionLabel="label">
+                                </p-dropdown>
+                                <label for="dropdown2">Month</label>
+                            </div>
+                        </div>
+
+                        <div class="p-field p-float-label p-col-2 ">
+                            <div class="p-float-label">
+                                <!-- <p-calendar view="year" [yearNavigator]="true" yearRange="2000:2030" [readonlyInput]="true" dateFormat="yyyy" [readonlyInput]="true" inputId="monthpicker">
+                            </p-calendar> -->
+                                <p-dropdown styleClass="p-pr-0" inputId="dropdown2" [autoDisplayFirst]="false"
+                                    [options]="date?.Year" class="p-inputtext-lg" [editable]="false"
+                                    [showClear]="false" optionLabel="label">
+                                </p-dropdown>
+                                <label for="dropdown3">Year</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="p-form-group">
+                    <label for="float-input">MOSTLY INTERESTED IN:</label>
+                    <div class="p-field p-col-6 p-px-0">
+                        <div class="p-grid">
+                            <div class="p-col-3">
+                                <p-radioButton [(ngModel)]="intrestedIn" name="groupname" label="Womenswear"
+                                    value="val1"></p-radioButton>
+                            </div>
+                            <div class="p-col-3 p-ml-3">
+                                <p-radioButton [(ngModel)]="intrestedIn" name="groupname" label="Menswear" value="val2">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-form-group">
+                    <div class="p-field p-col-6">
+                        <button pButton label="Continue Payment" class="main_btn_color p-w-100"></button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="card_bg_white">
+        <img src="../../../../assets/images/icon/icon-home.svg" alt="" />
+        <h2 class="p-my-1">Address Book</h2>
+        <div class="p-form-group form_section">
+            <div class="p-field p-col-6">
+                <button pButton label="Add New Address" class="main_btn_border_color p-w-100"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card_bg_white">
+        <div class="p-d-flex p-justify-between form_section">
+            <div class="left_section">
+                <ul>
+                    <li>Arya Wijaya Kusuma</li>
+                    <li>Rindang Streen Number 18</li>
+                    <li>Cipedak,Jagakarsa</li>
+                    <li>Jakarta Selatan</li>
+                    <li>Jakarta</li>
+                    <li>12630</li>
+                    <li>Indonesia</li>
+                    <li>08123456789</li>
+                </ul>
+
+                <p>This is your default delivery address.</p>
+                <p>This is your default billing address.</p>
+
+            </div>
+            <div class="right_section">
+                <a class="p-d-block">EDIT
+                    <img class="cursor" src="../../../../assets/images/icon/icon-pencil.svg" alt="">
+                </a>
+                <a class="p-d-block">DELETE</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card_bg_white">
+        <img src="../../../../assets/images/icon/icon-home.svg" alt="" />
+        <h2 class="p-my-1">Change Password</h2>
+        <p class="p-mb-3">Feel free to update your password so your ASOS account stay secure.</p>
+
+        <div class="form_section">
+            <form>
+                <div class="p-form-group">
+                    <label for="float-input">Current Password:</label>
+                    <div class="p-field p-float-label p-col-6 p-px-0">
+                        <div class="p-float-label">
+                            <input id="float-input" style="width: 100%;" class="p-inputtext-lg" type="text"
+                                pInputText />
+                            <label for="float-input">Password</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-form-group">
+                    <label for="float-input">New Password:</label>
+                    <div class="p-field p-float-label p-col-6 p-px-0">
+                        <div class="p-float-label">
+                            <input id="float-input" style="width: 100%;" class="p-inputtext-lg" type="text"
+                                pInputText />
+                            <label for="float-input">New Password</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-form-group">
+                    <div class="p-field p-col-6 p-px-0">
+                        <button pButton label="Continue Payment" class="main_btn_color p-w-100"></button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+</section>

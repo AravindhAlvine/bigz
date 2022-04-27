@@ -1,0 +1,207 @@
+.p-carousel,
+.p-carousel-content {
+  .home-slider {
+    position: relative;
+
+    .home-slider-button {
+      
+      margin-top: 24px;
+      background-color: #fff;
+      border: none;
+      color: $primary-bg-color;
+      text-transform: uppercase;
+      font-size: $font-size-16;
+      font-weight: 700;
+      line-height: 22px;
+      text-transform: uppercase;
+      max-width: 147px;
+      line-height: 25px;
+      border-radius: 8px;
+      @include mobile-devices() {
+        font-size: 6px;
+        width: 61px;
+        height: 17px;
+        margin-top: 13px;
+      }
+
+      &:enabled {
+        &:hover {
+          background-color: #fff;
+          border: none;
+        }
+      }
+    }
+
+    .slider-image {
+      position: relative;
+      @include mobile-devices() { 
+        height: 187px;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: url('#{$imgPath}/slider/home-slider/slider-overlay.png') no-repeat center / 100%;
+        @include mobile-devices() {
+          background-size: cover;
+        }
+      }
+      @include mobile-devices() {
+        .p-img-fluid {
+          height: 187px;
+        }
+      }
+    }
+
+    .slider-content {
+      position: absolute;
+      right: 200px;
+      top: 0;
+      width: 40%;
+      height: 100%;
+      z-index: 1;
+      color: #fff;
+      @include mobile-devices() {
+        right: 50px;
+      }
+
+      .sider-heading {
+        font-size: $h4;
+        font-weight: $font-weight-medium;
+        color: $color-white;
+        @include mobile-devices() {
+          font-size: 7px;
+          margin-bottom: 0 !important;
+        }
+      }
+
+      .slider-h1 {
+        font-size: $h1-xbig;
+        font-weight: $font-weight-medium;
+        line-height: 55px;
+        @include mobile-devices() {
+          font-size: $font-size-17;
+          line-height: normal;
+        }
+        @include large-desktop-devices(){
+          font-size: $h1-large-device;
+        }
+        @include xlarge-devices(){
+          font-size: $h1-xbig;
+        }
+      }
+    }
+  }
+
+}
+
+.brands-slider {
+  padding: 30px;
+  background-color: $bgcolor-white;
+  -webkit-box-shadow: 0px 0px 15px #0000000A;
+  -moz-box-shadow: 0px 0px 15px #0000000A;
+  box-shadow: 0px 0px 15px #0000000A;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  position: relative;
+
+  .p-carousel-prev,
+  .p-carousel-next {
+    position: absolute;
+    background-color: rgba(119, 119, 119, 0.48) !important;
+    color: #fff !important;
+  }
+
+  .p-carousel-prev {
+
+    left: -25px;
+  }
+
+  .p-carousel-next {
+
+    right: -25px;
+  }
+
+  .p-carousel-item {
+    padding: 0 8px;
+  }
+
+  .brand-slider {
+    border: 1px solid $color-dary-grey2;
+    padding: 10px 15px;
+    text-align: center;
+
+    img {
+      height: 44px;
+    }
+  }
+}
+
+.testimonials-slider {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 12px #0000001A;
+  border-radius: 8px;
+  height: 226px;
+  padding: 15px 105px;
+  text-align: center;
+  position: relative;
+  @include mobile-devices() {
+    padding-left: 15px;
+    padding-right: 15px;
+    height: auto;
+  }
+  @include medium-devices() {
+    height: auto;
+  }
+  .p-carousel-indicators {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+  }
+
+  .testimonials-image {
+    width: 70px;
+    height: 70px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+  }
+}
+
+.p-carousel {
+  .p-carousel-indicator {
+    &.p-highlight {
+      &>button {
+        &.circle-indicator {
+          background-color: $primary-bg-color;
+        }
+      }
+    }
+
+    &>button {
+      &.circle-indicator {
+        width: 12px;
+        height: 12px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        background-color: rgba($color-dary-grey, .3);
+
+        &:focus {
+          box-shadow: none !important;
+        }
+      }
+    }
+  }
+}
+
+
+.p-carousel-prev, .p-carousel-next {
+  @include mobile-devices() {
+    display: none !important;
+  }
+}

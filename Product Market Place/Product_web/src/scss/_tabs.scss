@@ -1,0 +1,45 @@
+.p-tabview {
+  .p-tabview {
+    &-nav {      
+      &-container {}
+
+      &-content {
+        @include mobile-devices() {
+          background-color: $primary2-bg-color;
+        }
+      }
+      background-color: $primary2-bg-color;
+      li {          
+        .p-tabview-nav-link {
+            background-color: transparent;
+            color: $color-white;
+            &:hover {
+                    background-color: $primary-bg-color;
+                    color: $color-white;
+            }
+            &:focus {
+                box-shadow: none !important;
+            }
+        }
+        &:not(.p-highlight) {
+           &:not(.p-disabled) {
+               .p-tabview-nav-link {
+                &:hover {
+                    background-color: $primary-bg-color;
+                    color: $color-white;
+                }
+               
+               }
+           }
+        }
+        &.p-highlight {
+            .p-tabview-nav-link { 
+                background-color: $primary-bg-color;
+                color: $color-white;
+            }
+        }
+      }
+
+    }
+  }
+}

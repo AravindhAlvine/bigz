@@ -1,0 +1,173 @@
+.icon {
+    &-common {
+        width: 35px;
+        height: 35px;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: inline-block;
+        vertical-align: middle;
+        background-size: 90%;
+      
+    }
+    &-size-62 {
+        width: 62px;
+        height: 62px;
+    }
+    &-size-50 {
+        width: 50px;
+        height: 50px;
+    }
+    &-size-25 {
+        width: 25px;
+        height: 25px;
+    }
+    &-size-27 {
+        width: 27px;
+        height: 27px;
+    }
+    &-size-20 {
+        width: 20px;
+        height: 20px;
+    }
+    &-map {
+        &-pointer {
+            background-image: url('#{$iconpath}/icon-map-pointer.svg');
+        }
+    }
+    &-user {
+        background-image: url('#{$iconpath}/icon-user.svg');
+    }
+    &-heart {
+        background-image: url('#{$iconpath}/icon-heart.svg');
+        &-grey {
+            background-image: url('#{$iconpath}/icon-heart-outline.svg');
+        }
+        &-filled {
+            background-image: url('#{$iconpath}/icon-heart-filled.svg');
+        }
+        &-filled-green {
+            background-image: url('#{$iconpath}/icon-heart-filled-green.svg');
+        }
+    }
+    &-cart {
+        background-image: url('#{$iconpath}/icon-cart.svg');
+    }
+    &-facebook {
+        background-image: url('#{$iconpath}/icon-facebook.svg');
+    }
+    &-twitter {
+        background-image: url('#{$iconpath}/icon-twitter.svg');
+    }
+    &-youtube {
+        background-image: url('#{$iconpath}/icon-youtube.svg');
+    }
+    &-instagram {
+        background-image: url('#{$iconpath}/icon-instagram.svg');
+    }
+    &-pinterest {
+        background-image: url('#{$iconpath}/icon-pinterest.svg');
+    }
+    &-address {
+        background-image: url('#{$iconpath}/icon-address.svg');
+    }
+    &-email {
+        background-image: url('#{$iconpath}/icon-mail.svg');
+    }
+    &-phone {
+        background-image: url('#{$iconpath}/icon-phone.svg');
+    }
+    &-shipping {
+        background-image: url('#{$iconpath}/icon-delivery-truck.svg');
+    }
+    &-money {
+        background-image: url('#{$iconpath}/icon-money-back.svg');
+    }
+    &-support {
+        background-image: url('#{$iconpath}/icon-headphone.svg');
+    }
+    &-gift {
+        background-image: url('#{$iconpath}/icon-gift-box.svg');
+    }
+    &-payment {
+        background-image: url('#{$iconpath}/icon-credit-card.svg');
+        &-options {
+            background-image: url('#{$iconpath}/icon-payment-options.svg');
+        }
+    }
+
+    &-app-store {
+        background-image: url('#{$iconpath}/icon-app_store@2x.png');
+        &-filled {
+            background-image: url('#{$iconpath}/icon-app-store-filled.png')
+        }
+    }
+    &-google-play {
+        background-image: url('#{$iconpath}/icon-google_play@2x.png');
+        &-filled {
+            background-image: url('#{$iconpath}/icon-play-store-filled.png')
+        }
+    }
+    &-delete {
+        background-image: url('#{$iconpath}/icon-delete.svg')
+    }
+    &-truck {
+        background-image: url('#{$iconpath}/icon-truck.png')
+    }
+    &-basket {
+        background-image: url('#{$iconpath}/icon-basket.png')
+    }
+    &-shipment {
+        background-image: url('#{$iconpath}/icon-shipment.svg')
+    }
+    &-promocode {
+        background-image: url('#{$iconpath}/icon-promocode.svg')
+    }
+    &-location {
+        background-image: url('#{$iconpath}/icon-current-location.svg')
+    }
+    &-delivery {
+        &-options {
+            background-image: url('#{$iconpath}/icon-delivery-options.svg')
+        }
+    }
+    &-plus {
+        background-image: url('#{$iconpath}/icon-plus.svg')
+    }
+    &-notifications {
+        background-image: url('#{$iconpath}/icon-notifications.svg')
+    }
+    &-time {
+        background-image: url('#{$iconpath}/icon-time.svg')
+    }
+    &-share {
+        background-image: url('#{$iconpath}/icon-share.svg')
+    }
+    &-status {
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        display: inline-block;
+        &.icon-tick {
+            background-image: url('#{$iconpath}/icon-status-tick.svg');
+            background-size: 50%;
+        }
+    }
+   
+    &-profile {
+        &-myorder {
+            background-image: url('#{$iconpath}/icon-profile-orders.svg');
+        }
+        &-account {
+            background-image: url('#{$iconpath}/icon-profile-account.svg');
+        }
+        &-payments {
+            background-image: url('#{$iconpath}/icon-profile-payment.svg');
+        }
+        &-mystuff {
+            background-image: url('#{$iconpath}/icon-profile-mystuff.svg');
+        }
+        &-logout {
+            background-image: url('#{$iconpath}/icon-profile-logout.svg');
+        }
+    }
+}

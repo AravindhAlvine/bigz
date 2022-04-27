@@ -1,0 +1,291 @@
+<div id="carosel_ID">
+
+    <section id="banner" class="p-mt-0">
+        <img class="img-fluid" src="../../../assets/images/home_page/banner.svg" alt="" />
+        <!-- <div class="btn">
+            <button pButton label="Shop Now"></button>
+        </div> -->
+    </section>
+
+    <section class="list_of_product">
+        <div class="container">
+            <h2>Stories</h2>
+            <p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1"
+                [circular]="true" [responsiveOptions]="responsiveOptions">
+                <!-- [autoplayInterval]="3000" -->
+                <ng-template let-product pTemplate="item">
+                    <div class="product-item">
+                        <div class="product-item-content">
+                            <img src="../../../assets/images/home_page/carosel/Story 2 photo.svg" alt="" />
+                            <p class="p-para">{{product.name}}</p>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-carousel>
+        </div>
+    </section>
+
+    <section class="best-seller">
+        <div class="container">
+            <h2>The Humons Best Seller</h2>
+
+            <p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="5" [numScroll]="1"
+                [circular]="true" [responsiveOptions]="responsiveOptions">
+                <ng-template let-product pTemplate="item">
+                    <div class="">
+                        <img class="card-img"
+                            src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                            alt="" />
+                        <ul class="list-group">
+                            <li class="list-item sky_blue"></li>
+                            <li class="list-item dark_blue"></li>
+                            <li class="list-item dark_black"></li>
+                        </ul>
+                        <span class="list-group-add">+3</span>
+                        <span class="list-group-heart">
+                            <label class="heart_checkbox">
+                                <input type="checkbox">
+                                <i class="pi pi-heart" aria-hidden="true"></i>
+                            </label>
+                        </span>
+
+                        <div class="list-group-details">
+                            <h5>{{product.name}}</h5>
+                            <p>{{product.description}}</p>
+                            <div class="list-group-paytm">
+                                <span>$ {{product.price}}</span>
+                                <span>$ {{product.quantity}}</span>
+                                <p>Sale</p>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-carousel>
+
+
+        </div>
+    </section>
+
+    <section class="best-seller">
+        <div class="container">
+            <h2>Special For You</h2>
+            <div class="p-grid" id="special_for_you">
+                <div class="p-col-xs-12 p-col-mobile-12 p-col-4" *ngFor="let item of productData">
+                    <div class="special-card">
+                        <div class="special-card-text">
+                            <p>Pamper Your Feet With our Shoes</p>
+                            <button class="special-card-btn">Shop Now</button>
+                        </div>
+                        <div class="special-card-img">
+                            <img src="../../../assets/images/home_page/carosel/Product image.svg" alt="" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="best-seller">
+        <div class="container">
+            <h2>Flash Sale Item</h2>
+
+            <p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="5" [numScroll]="1"
+                [circular]="true" [responsiveOptions]="responsiveOptions">
+                <ng-template let-product pTemplate="item">
+                    <div class="">
+                        <img class="card-img"
+                            src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                            alt="" />
+                        <ul class="list-group">
+                            <li class="list-item sky_blue"></li>
+                            <li class="list-item dark_blue"></li>
+                            <li class="list-item dark_black"></li>
+                        </ul>
+                        <span class="list-group-add">+3</span>
+                        <span class="list-group-heart">
+                            <label class="heart_checkbox">
+                                <input type="checkbox">
+                                <i class="pi pi-heart" aria-hidden="true"></i>
+                            </label>
+                        </span>
+
+                        <div class="list-group-details">
+                            <h5>{{product.name}}</h5>
+                            <p>{{product.description}}</p>
+                            <div class="list-group-paytm">
+                                <span>$ {{product.price}}</span>
+                                <span>$ {{product.quantity}}</span>
+                                <p>Sale</p>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-carousel>
+
+        </div>
+    </section>
+
+    <section class="best-category">
+        <div class="container">
+            <!-- p-col-xs-12 p-col-mobile-12 -->
+            <h2>Best Category Product</h2>
+            <div id="special_for_you">
+                <div class="p-grid">
+                <div class="p-col-xs-12 p-col-mobile-12 p-col-md-6 p-col-4" *ngFor="let item of productData">
+                    <div class="special-card">
+                        <div class="card-category">
+                            <img class="img-fluid" src="../../../assets/images/home_page/carosel/home_maker.svg"
+                                alt="" />
+                            <h5>{{item.title}}</h5>
+                            <p>{{item.para}}</p>
+                            <button class="btn btn-primary">{{item.btn}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- <div class="p-grid" id="special_for_you">
+                <div class="p-col-xs-12 p-col-mobile-12 p-col-4" *ngFor="let item of productData">
+                    <div class="special-card">
+                        <div class="special-card-text">
+                            <p>Pamper Your Feet With our Shoes</p>
+                            <button class="special-card-btn">Shop Now</button>
+                        </div>
+                        <div class="special-card-img">
+                            <img src="../../../assets/images/home_page/carosel/Product image.svg" alt="" />
+                        </div>
+                    </div>
+
+                </div>
+            </div> -->
+
+
+
+        </div>
+    </section>
+
+    <section class="best-seller">
+        <div class="container">
+            <h2>Fashion</h2>
+
+            <p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="5" [numScroll]="1"
+                [circular]="true" [responsiveOptions]="responsiveOptions">
+                <ng-template let-product pTemplate="item">
+                    <div class="">
+                        <img class="card-img"
+                            src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                            alt="" />
+                        <ul class="list-group">
+                            <li class="list-item sky_blue"></li>
+                            <li class="list-item dark_blue"></li>
+                            <li class="list-item dark_black"></li>
+                        </ul>
+                        <span class="list-group-add">+3</span>
+                        <span class="list-group-heart">
+                            <label class="heart_checkbox">
+                                <input type="checkbox">
+                                <i class="pi pi-heart" aria-hidden="true"></i>
+                            </label>
+                        </span>
+
+                        <div class="list-group-details">
+                            <h5>{{product.name}}</h5>
+                            <p>{{product.description}}</p>
+                            <div class="list-group-paytm">
+                                <span>$ {{product.price}}</span>
+                                <span>$ {{product.quantity}}</span>
+                                <p>Sale</p>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-carousel>
+
+        </div>
+    </section>
+
+    <section class="best-seller">
+        <div class="container">
+            <h2>Electronic</h2>
+
+            <p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="5" [numScroll]="1"
+                [circular]="true" [responsiveOptions]="responsiveOptions">
+                <ng-template let-product pTemplate="item">
+                    <div class="">
+                        <img class="card-img"
+                            src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                            alt="" />
+                        <ul class="list-group">
+                            <li class="list-item sky_blue"></li>
+                            <li class="list-item dark_blue"></li>
+                            <li class="list-item dark_black"></li>
+                        </ul>
+                        <span class="list-group-add">+3</span>
+                        <span class="list-group-heart">
+                            <label class="heart_checkbox">
+                                <input type="checkbox">
+                                <i class="pi pi-heart" aria-hidden="true"></i>
+                            </label>
+                        </span>
+
+                        <div class="list-group-details">
+                            <h5>{{product.name}}</h5>
+                            <p>{{product.description}}</p>
+                            <div class="list-group-paytm">
+                                <span>$ {{product.price}}</span>
+                                <span>$ {{product.quantity}}</span>
+                                <p>Sale</p>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-carousel>
+
+
+        </div>
+    </section>
+
+    <section class="best-seller">
+        <div class="container">
+            <h2>Home Makeover</h2>
+
+            <p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="5" [numScroll]="1"
+                [circular]="true" [responsiveOptions]="responsiveOptions">
+                <ng-template let-product pTemplate="item">
+                    <div class="">
+                        <img class="card-img"
+                            src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                            alt="" />
+                        <ul class="list-group">
+                            <li class="list-item sky_blue"></li>
+                            <li class="list-item dark_blue"></li>
+                            <li class="list-item dark_black"></li>
+                        </ul>
+                        <span class="list-group-add">+3</span>
+                        <span class="list-group-heart">
+                            <label class="heart_checkbox">
+                                <input type="checkbox">
+                                <i class="pi pi-heart" aria-hidden="true"></i>
+                            </label>
+                        </span>
+
+                        <div class="list-group-details">
+                            <h5>{{product.name}}</h5>
+                            <p>{{product.description}}</p>
+                            <div class="list-group-paytm">
+                                <span>$ {{product.price}}</span>
+                                <span>$ {{product.quantity}}</span>
+                                <p>Sale</p>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-carousel>
+
+        </div>
+    </section>
+
+
+</div>

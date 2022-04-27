@@ -1,0 +1,43 @@
+
+@mixin  commonRadius($isAllSides: null, $isEqual: false) {
+    @if $isEqual == true {
+        -webkit-border-radius: $isAllSides;
+        -moz-border-radius: $isAllSides;
+        border-radius: $isAllSides;
+    }
+}
+
+@mixin small-devices  {
+    @media (min-width: 576px) {
+        @content;
+    }
+}
+@mixin mobile-devices  {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+@mixin medium-devices  {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+@mixin large-devices  {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+
+
+@mixin large-desktop-devices  {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin xlarge-devices  {
+    @media (min-width: 1300px) {
+        @content;
+    }
+}
+

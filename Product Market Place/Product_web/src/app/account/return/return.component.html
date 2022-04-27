@@ -1,0 +1,43 @@
+<!-- <section id="my-order">
+    <div class="text-center card_bg_white">
+        <h4 class="p-my-0">You Currently Have No Order</h4>
+        <p class="p-mt-1 p-mb-3">Best Get Shopping Asos Pronto...</p>
+        <div class="form_section">
+            <button class="main_btn_color" pButton label="Start Shopping"></button>
+        </div>
+    </div>
+</section> -->
+
+
+<section id="my-order">
+    <div class="card_bg_white" *ngFor="let item of OrderDetail">
+
+        <div class="p-d-flex p-justify-between">
+            <div class="p-d-block">
+                <h4 class="p-my-0">IT’S DELIVERED!</h4>
+                <p class="p-mb-0 p-mt-1">{{item.deliveryDate}}</p>
+            </div>
+            <div class="p-d-block">
+                <p class="p-my-0">RETURN NO :</p>
+                <p class="p-mb-0 p-mt-1">268Z6883DBEC8E</p>
+            </div>
+        </div>
+
+        <div class="p-grid my_deleivery">
+            <div class="p-col-7">
+                <div class="p-grid my_deleivery_img">
+                    <div class="p-col-4 my_deleivery_column" [ngClass]="{'p-d-none': i >= 3}"
+                        *ngFor="let subItem of item.productImg; let last = last; let i = index">
+                        <img *ngIf="i < 3" class="cursor" src="{{subItem.img}}" alt="" />
+                        <span *ngIf="(i == 2 && (item.productImg.length > 3) )"
+                            class="my_deleivery_hover_count cursor">+{{item.productImg.length - 3}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-col-5 form_section">
+                <button pButton class="main_btn_border_color p-w-100" label="TRACK PARCEL"></button>
+            </div>
+        </div>
+
+    </div>
+</section>

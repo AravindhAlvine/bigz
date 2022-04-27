@@ -1,0 +1,15 @@
+.p-paginator {
+    &-products {
+        background-color: transparent;
+        position: relative;
+        .p-paginator-current {
+            position: absolute;
+            left: 0;
+            color: $color-green;
+            font-weight: $font-weight-medium;
+            @include mobile-devices() {
+                display: none;
+            }
+        }
+    }
+}

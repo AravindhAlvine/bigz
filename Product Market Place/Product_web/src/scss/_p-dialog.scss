@@ -1,0 +1,12 @@
+.p-dialog {
+    &.p-dialog {
+        &-placeorder {
+            @include large-desktop-devices() {
+                width: 500px;
+            }
+            @include xlarge-devices() {
+                width: 500px;
+            }
+        }
+    }
+}

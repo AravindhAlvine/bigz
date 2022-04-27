@@ -1,0 +1,925 @@
+    {
+        "homeSlider": [
+            {
+                "image": "slider-1.png",
+                "heading": "100% Genuine Product",
+                "description": "Tasty & healthy Organic Food"
+            },
+            {
+                "image": "slider-1.png",
+                "heading": "100% Genuine Product",
+                "description": "Tasty & healthy Organic Food"
+            },
+            {
+                "image": "slider-1.png",
+                "heading": "100% Genuine Product",
+                "description": "Tasty & healthy Organic Food"
+            },
+            {
+                "image": "slider-1.png",
+                "heading": "100% Genuine Product",
+                "description": "Tasty & healthy Organic Food"
+            },
+            {
+                "image": "slider-1.png",
+                "heading": "100% Genuine Product",
+                "description": "Tasty & healthy Organic Food"
+            }
+        ],
+        "brandsSlider": [
+            {
+                "image": "58568d224f6ae202fedf2720@2x.png"
+            },
+            {
+                "image": "Aachi-logo-Mpther-of-Good-Taste-in-White-Colour@2x.png"
+            },
+            {
+                "image": "apple-logo-transparent@2x.png"
+            },
+            {
+                "image": "download__1_-removebg-preview@2x.png"
+            },
+            {
+                "image": "Vaseline-Logo@2x.png"
+            },
+            {
+                "image": "58568d224f6ae202fedf2720@2x.png"
+            },
+            {
+                "image": "Aachi-logo-Mpther-of-Good-Taste-in-White-Colour@2x.png"
+            },
+            {
+                "image": "apple-logo-transparent@2x.png"
+            },
+            {
+                "image": "download__1_-removebg-preview@2x.png"
+            },
+            {
+                "image": "Vaseline-Logo@2x.png"
+            }
+        ],
+        "testimonials": [
+            {
+                "content": "All Perfect !! I have three sites with magento , this theme is the best !! Excellent support , advice theme installation package , sorry for English, are Italian but I had no problem !! Thank you !",
+                "userImage": "walter.jpg",
+                "userName": "Sandy Wilcke",
+                "job": "Home Maker"
+            },
+            {
+                "content": "All Perfect !! I have three sites with magento , this theme is the best !! Excellent support , advice theme installation package , sorry for English, are Italian but I had no problem !! Thank you !",
+                "userImage": "walter.jpg",
+                "userName": "Sandy Wilcke",
+                "job": "Home Maker"
+            },
+            {
+                "content": "All Perfect !! I have three sites with magento , this theme is the best !! Excellent support , advice theme installation package , sorry for English, are Italian but I had no problem !! Thank you !",
+                "userImage": "walter.jpg",
+                "userName": "Sandy Wilcke",
+                "job": "Home Maker"
+            },
+            {
+                "content": "All Perfect !! I have three sites with magento , this theme is the best !! Excellent support , advice theme installation package , sorry for English, are Italian but I had no problem !! Thank you !",
+                "userImage": "walter.jpg",
+                "userName": "Sandy Wilcke",
+                "job": "Home Maker"
+            },
+            {
+                "content": "All Perfect !! I have three sites with magento , this theme is the best !! Excellent support , advice theme installation package , sorry for English, are Italian but I had no problem !! Thank you !",
+                "userImage": "walter.jpg",
+                "userName": "Sandy Wilcke",
+                "job": "Home Maker"
+            }
+        ],
+        "headerMenu": [
+            {
+                "label": "Fruits & Vegitables",
+                "icon": "icon-common icon-fruits",
+                "routerLink": "category",
+                "items": [
+                    {
+                        "label": "Biscuits",
+                        "routerLink": "category/Biscuits"
+                    },
+                    {
+                        "label": "Chips,Namkeen & Snacks",
+                        "routerLink": "category/chips-namkeen-snacks"
+                    },
+                    {
+                        "label": "Tea",
+                        "routerLink": "category/tea"
+                    },
+                    {
+                        "label": "Coffee",
+                        "routerLink": "category/coffee"
+                    },
+                    {
+                        "label": "Juices",
+                        "routerLink": "category/juices"
+                    },
+                    {
+                        "label": "Health Drink Mix",
+                        "routerLink": "category/health-drink-mix"
+                    },
+                    {
+                        "label": "Soft Drinks",
+                        "routerLink": "category/soft-drinks"
+                    },
+                    {
+                        "label": "Instant Drink Mixess",
+                        "routerLink": "category/instant-drinks"
+                    },
+                    {
+                        "label": "Water",
+                        "routerLink": "category/water"
+                    }
+                ]
+            },
+            {
+                "label": "Snacks & Beverages",
+                "icon": "icon-common icon-snaks",
+                "items": [
+                    {
+                        "label": "Biscuits",
+                        "routerLink": "category/biscuts"
+                    },
+                    {
+                        "label": "Chips,Namkeen & Snacks",
+                        "routerLink": "category/"
+                    },
+                    {
+                        "label": "Tea",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Coffee",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Juices",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Health Drink Mix",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Soft Drinks",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Instant Drink Mixess",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Water",
+                        "routerLink": "category"
+                    }
+                ]
+            },
+            {
+                "label": "Packaged Food",
+                "icon": "icon-common icon-packfood",
+                "items": [
+                    {
+                        "label": "Biscuits",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Chips,Namkeen & Snacks",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Tea",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Coffee",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Juices",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Health Drink Mix",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Soft Drinks",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Instant Drink Mixess",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Water",
+                        "routerLink": "category"
+                    }
+                ]
+            },
+            {
+                "label": "Personal & Baby Care",
+                "icon": "icon-common icon-personal",
+                "items": [
+                    {
+                        "label": "Biscuits",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Chips,Namkeen & Snacks",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Tea",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Coffee",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Juices",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Health Drink Mix",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Soft Drinks",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Instant Drink Mixess",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Water",
+                        "routerLink": "category"
+                    }
+                ]
+            },
+            {
+                "label": "Household Care",
+                "icon": "icon-common icon-housecare",
+                "items": [
+                    {
+                        "label": "Biscuits",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Chips,Namkeen & Snacks",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Tea",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Coffee",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Juices",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Health Drink Mix",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Soft Drinks",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Instant Drink Mixess",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Water",
+                        "routerLink": "category"
+                    }
+                ]
+            },
+            {
+                "label": "Dairy & Eggs",
+                "icon": "icon-common icon-dairy",
+                "items": [
+                    {
+                        "label": "Biscuits",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Chips,Namkeen & Snacks",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Tea",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Coffee",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Juices",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Health Drink Mix",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Soft Drinks",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Instant Drink Mixess",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Water",
+                        "routerLink": "category"
+                    }
+                ]
+            },
+            {
+                "label": "Home & Kitchen",
+                "icon": "icon-common icon-kitchen",
+                "items": [
+                    {
+                        "label": "Biscuits",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Chips,Namkeen & Snacks",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Tea",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Coffee",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Juices",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Health Drink Mix",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Soft Drinks",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Instant Drink Mixess",
+                        "routerLink": "category"
+                    },
+                    {
+                        "label": "Water",
+                        "routerLink": "category"
+                    }
+                ]
+            }
+        ],
+        "shopByCategory": [
+            {
+                "image": "maincat_icon-7@2x.png",
+                "label": "Fruits & Vegitables",
+                "url": "category"
+            },
+            {
+                "image": "maincat_icon-2@2x.png",
+                "label": "Beverages",
+                "url": "category"
+            },
+            {
+                "image": "maincat_icon-1@2x.png",
+                "label": "Bakery/Dairy",
+                "url": "category"
+            },
+            {
+                "image": "maincat_icon-4@2x.png",
+                "label": "Health & Beauty",
+                "url": "category"
+            },
+            {
+                "image": "maincat_icon-5@2x.png",
+                "label": "Branded Foods",
+                "url": "category"
+            },
+            {
+                "image": "maincat_icon-6@2x.png",
+                "label": "Cleaning Items",
+                "url": "category"
+            },
+            {
+                "image": "maincat_icon-7@2x.png",
+                "label": "Fruits & Vegitables",
+                "url": "category"
+            },
+            {
+                "image": "maincat_icon-2@2x.png",
+                "label": "Beverages",
+                "url": "category"
+            },
+            {
+                "image": "maincat_icon-1@2x.png",
+                "label": "Bakery/Dairy",
+                "url": "category"
+            },
+            {
+                "image": "maincat_icon-4@2x.png",
+                "label": "Health & Beauty",
+                "url": "category"
+            },
+            {
+                "image": "maincat_icon-5@2x.png",
+                "label": "Branded Foods",
+                "url": "category"
+            },
+            {
+                "image": "maincat_icon-6@2x.png",
+                "label": "Cleaning Items",
+                "url": "category"
+            }
+        ],
+        "newGRDStores": [
+            {
+                "image": "new-store1.png",
+                "details": "Surf Excel Matic Front Load Detergent Powder (Carton)",
+                "offerPrice": 390,
+                "mrpPrice": 530,
+                "discount": 32
+            },
+            {
+                "image": "new-store2.png",
+                "details": "AH Seedless white grapes 500 and 1000 grams",
+                "offerPrice": 390,
+                "mrpPrice": 530,
+                "discount": 32
+            },
+            {
+                "image": "new-store1.png",
+                "details": "AH Seedless white grapes 500 and 1000 grams",
+                "offerPrice": 390,
+                "mrpPrice": 530,
+                "discount": 32
+            },
+            {
+                "image": "new-store1.png",
+                "details": "Surf Excel Matic Front Load Detergent Powder (Carton)",
+                "offerPrice": 390,
+                "mrpPrice": 530,
+                "discount": 32
+            },
+            {
+                "image": "new-store2.png",
+                "details": "AH Seedless white grapes 500 and 1000 grams",
+                "offerPrice": 390,
+                "mrpPrice": 530,
+                "discount": 32
+            },
+            {
+                "image": "new-store1.png",
+                "details": "AH Seedless white grapes 500 and 1000 grams",
+                "offerPrice": 390,
+                "mrpPrice": 530,
+                "discount": 32
+            },
+            {
+                "image": "new-store2.png",
+                "details": "AH Seedless white grapes 500 and 1000 grams",
+                "offerPrice": 390,
+                "mrpPrice": 530,
+                "discount": 32
+            },
+            {
+                "image": "new-store2.png",
+                "details": "AH Seedless white grapes 500 and 1000 grams",
+                "offerPrice": 390,
+                "mrpPrice": 530,
+                "discount": 32
+            }
+        ],
+        "categoryFooter": [
+            {
+                "heading": "Buy Yummy Biscuits Online",
+                "content": "Hate standing in queues at the grocery store? Unable to find all grocery products you need under the same roof? The supermarket is too far away from your home? This is where technology can come in handy to make life simpler for you. Flipkart’s online grocery store. Currently available in selected cities only, we will be expanding to as many Indian cities as possible very soon. Choose from a wide variety of household products which have been exclusively chosen to meet industry standards. Not only that, you can avail “grocery from ₹. 1” deals every day! You can even find exciting bank offers across leading banks like HDFC, SBI, & Axis bank on select days, to make your grocery shopping more fruitful."
+            },
+            {
+                "heading": "Online Grocery Shopping for Super Quality and Super Savings!",
+                "content": "Hate standing in queues at the grocery store? Unable to find all grocery products you need under the same roof? The supermarket is too far away from your home? This is where technology can come in handy to make life simpler for you. Flipkart’s online grocery store. Currently available in selected cities only, we will be expanding to as many Indian cities as possible very soon. Choose from a wide variety of household products which have been exclusively chosen to meet industry standards. Not only that, you can avail “grocery from ₹. 1” deals every day! You can even find exciting bank offers across leading banks like HDFC, SBI, & Axis bank on select days, to make your grocery shopping more fruitful."
+            },
+            {
+                "heading": "Online Food Shopping - For All Your Daily Needs",
+                "content": "Hate standing in queues at the grocery store? Unable to find all grocery products you need under the same roof? The supermarket is too far away from your home? This is where technology can come in handy to make life simpler for you. Flipkart’s online grocery store. Currently available in selected cities only, we will be expanding to as many Indian cities as possible very soon. Choose from a wide variety of household products which have been exclusively chosen to meet industry standards. Not only that, you can avail “grocery from ₹. 1” deals every day! You can even find exciting bank offers across leading banks like HDFC, SBI, & Axis bank on select days, to make your grocery shopping more fruitful."
+            }
+        ],
+        "brandCheckbox": [
+            {
+                "label": "Fresho",
+                "formcontrolName": "Fresho",
+                "value": "Fresho"
+            },
+            {
+                "label": "Supa Corn",
+                "formcontrolName": "SupaCorn",
+                "value": "SupaCorn"
+            },
+            {
+                "label": "Tadda",
+                "formcontrolName": "Tadda",
+                "value": "Tadda"
+            },
+            {
+                "label": "CB Compo",
+                "formcontrolName": "CBCompo",
+                "value": "CBCompo"
+            },
+            {
+                "label": "CB Compo",
+                "formcontrolName": "CBCompo",
+                "value": "CBCompo"
+            },
+            {
+                "label": "Dairy Fruits & Nuts",
+                "formcontrolName": "DairyFruitsNuts",
+                "value": "DairyFruitsNuts"
+            },
+            {
+                "label": "Edible Oils",
+                "formcontrolName": "EdibleOils",
+                "value": "EdibleOils"
+            }
+        ],
+        "seasonal": [
+            {
+                "label": "Pooja Items",
+                "formcontrolName": "PoojaItems",
+                "value": "PoojaItems"
+            },
+            {
+                "label": "Summer Fruits",
+                "formcontrolName": "SummerFruits",
+                "value": "SummerFruits"
+            },
+            {
+                "label": "Summer Veggies",
+                "formcontrolName": "SummerVeggies",
+                "value": "SummerVeggies"
+            },
+            {
+                "label": "Winter Fruits",
+                "formcontrolName": "WinterFruits",
+                "value": "WinterFruits"
+            },
+            {
+                "label": "Winter Veggies",
+                "formcontrolName": "WinterVeggies",
+                "value": "WinterVeggies"
+            }
+        ],
+        "Tagline": [
+            {
+                "label": "New",
+                "formcontrolName": "PoojaItems",
+                "value": "New"
+            },
+            {
+                "label": "Combo",
+                "formcontrolName": "SummerFruits",
+                "value": "Combo"
+            },
+            {
+                "label": "Sale",
+                "formcontrolName": "SummerVeggies",
+                "value": "Sale"
+            }
+        ],
+        "StarLevel": [
+            {
+                "label": "4 Star & Up",
+                "formcontrolName": "4_Star&Up",
+                "value": "4_Star_Up"
+            },
+            {
+                "label": "3 Star & Up",
+                "formcontrolName": "3_Star&Up",
+                "value": "3_Star&Up"
+            },
+            {
+                "label": "2 Star & Up",
+                "formcontrolName": "SummerVeggies",
+                "value": "Sale"
+            },
+            {
+                "label": "1 Star & Up",
+                "formcontrolName": "1_Star&Up",
+                "value": "1_Star&Up"
+            }
+        ],
+        "Delivery": [
+            {
+                "label": "Yes",
+                "formcontrolName": "yes",
+                "value": "yes"
+            },
+            {
+                "label": "No",
+                "formcontrolName": "no",
+                "value": "no"
+            }
+        ],
+        "colors": [
+            {
+                "label": "Black",
+                "formcontrolName": "Black",
+                "value": "Black"
+            },
+            {
+                "label": "White",
+                "formcontrolName": "White",
+                "value": "White"
+            },
+            {
+                "label": "Gold",
+                "formcontrolName": "Gold",
+                "value": "Gold"
+            },
+            {
+                "label": "Grey",
+                "formcontrolName": "Grey",
+                "value": "Grey"
+            },
+            {
+                "label": "Silver",
+                "formcontrolName": "Silver",
+                "value": "Silver"
+            },
+            {
+                "label": "Multicolor",
+                "formcontrolName": "Multicolor",
+                "value": "Multicolor"
+            }
+        ],
+        "priceFilter": [
+            {
+                "label": "Less than ₹ 20 (48)",
+                "formcontrolName": "price21to50",
+                "value": "price21to50"
+            },
+            {
+                "label": "₹ 51 to ₹ 100 (40)",
+                "formcontrolName": "price51to100",
+                "value": "price51to100"
+            },
+            {
+                "label": "₹ 101 to ₹ 200 (33)",
+                "formcontrolName": "price101to200",
+                "value": "price101to200"
+            },
+            {
+                "label": "₹ 201 to ₹ 500 (9)",
+                "formcontrolName": "price201to500",
+                "value": "price51to100"
+            },
+            {
+                "label": "More than ₹ 501 (17)",
+                "formcontrolName": "moreprice",
+                "value": "moreprice"
+            },
+
+            {
+                "label": "Less than ₹ 20 (48)",
+                "formcontrolName": "price21to50",
+                "value": "price21to50"
+            },
+            {
+                "label": "₹ 51 to ₹ 100 (40)",
+                "formcontrolName": "price51to100",
+                "value": "price51to100"
+            },
+            {
+                "label": "₹ 101 to ₹ 200 (33)",
+                "formcontrolName": "price101to200",
+                "value": "price101to200"
+            },
+            {
+                "label": "₹ 201 to ₹ 500 (9)",
+                "formcontrolName": "price201to500",
+                "value": "price51to100"
+            },
+            {
+                "label": "More than ₹ 501 (17)",
+                "formcontrolName": "moreprice",
+                "value": "moreprice"
+            }
+
+
+        ],
+        "discountPrice": [
+            {
+                "label": "Upto 5% (1)",
+                "formcontrolName": "upto5",
+                "value": "upto5"
+            },
+            {
+                "label": "5% - 10% (1)",
+                "formcontrolName": "dis5to10",
+                "value": "dis5to10"
+            },
+            {
+                "label": "5% - 25% (176)",
+                "formcontrolName": "dis5to25",
+                "value": "dis5to25"
+            },
+            {
+                "label": "More than 25% (41)",
+                "formcontrolName": "morediscount",
+                "value": "morediscount"
+            }
+        ],
+        "productDetails": [
+            {
+                "largeImage": "large-1",
+                "thumbnail": "thumb-1"
+            },
+            {
+                "largeImage": "large-2",
+                "thumbnail": "thumb-2"
+            },
+            {
+                "largeImage": "large-3",
+                "thumbnail": "thumb-3"
+            },
+            {
+                "largeImage": "large-4",
+                "thumbnail": "thumb-4"
+            },
+            {
+                "largeImage": "large-5",
+                "thumbnail": "thumb-5"
+            },
+            {
+                "largeImage": "large-6",
+                "thumbnail": "thumb-6"
+            },
+            {
+                "largeImage": "large-7",
+                "thumbnail": "thumb-7"
+            },
+            {
+                "largeImage": "large-7",
+                "thumbnail": "thumb-7"
+            },
+            {
+                "largeImage": "large-7",
+                "thumbnail": "thumb-7"
+            },
+            {
+                "largeImage": "large-7",
+                "thumbnail": "thumb-7"
+            },
+            {
+                "largeImage": "large-7",
+                "thumbnail": "thumb-7"
+            }
+        ],
+        "mycartItems": [
+            {
+                "image": "new-store1.png",
+                "details": "Surf Excel Matic Front Load Detergent Powder (Carton)",
+                "offerPrice": 390,
+                "mrpPrice": 530,
+                "discount": 32
+            },
+            {
+                "image": "new-store2.png",
+                "details": "AH Seedless white grapes 500 and 1000 grams",
+                "offerPrice": 390,
+                "mrpPrice": 530,
+                "discount": 32
+            },
+            {
+                "image": "new-store2.png",
+                "details": "AH Seedless white grapes 500 and 1000 grams",
+                "offerPrice": 390,
+                "mrpPrice": 530,
+                "discount": 32
+            }
+        ],
+        "reviews": [
+            {
+                "image": "walter.jpg",
+                "name": "Senthil",
+                "date": "2012-04-23T18:25:43.511Z",
+                "rating": 4,
+                "reviewContent": "Being a true misti doi lover and a pure Bengali I can assure you to blindly go for this. Probably the best misti doi available in the market other than the ones available in the sweet shops in Kolkata."
+            },
+            {
+                "image": "walter.jpg",
+                "name": "Senthil",
+                "date": "2012-04-23T18:25:43.511Z",
+                "rating": 4,
+                "reviewContent": "Being a true misti doi lover and a pure Bengali I can assure you to blindly go for this. Probably the best misti doi available in the market other than the ones available in the sweet shops in Kolkata."
+            },
+            {
+                "image": "walter.jpg",
+                "name": "Senthil",
+                "date": "2012-04-23T18:25:43.511Z",
+                "rating": 4,
+                "reviewContent": "Being a true misti doi lover and a pure Bengali I can assure you to blindly go for this. Probably the best misti doi available in the market other than the ones available in the sweet shops in Kolkata."
+            },
+            {
+                "image": "walter.jpg",
+                "name": "Senthil",
+                "date": "2012-04-23T18:25:43.511Z",
+                "rating": 4,
+                "reviewContent": "Being a true misti doi lover and a pure Bengali I can assure you to blindly go for this. Probably the best misti doi available in the market other than the ones available in the sweet shops in Kolkata."
+            }
+        ],
+        "checkOuts": [
+            {
+                "image": "new-store1.png",
+                "details": "Surf Excel Matic Front Load Detergent Powder (Carton)",
+                "offerPrice": 390,
+                "mrpPrice": 530,
+                "discount": 32
+            },
+            {
+                "image": "new-store1.png",
+                "details": "Surf Excel Matic Front Load Detergent Powder (Carton)",
+                "offerPrice": 390,
+                "mrpPrice": 530,
+                "discount": 32
+            }
+        ],
+        "profileMenu": [
+            {
+                "label": "My Orders",
+                "icon": "icon-common icon-size-20 icon-profile-myorder",
+                "expanded": true
+              },
+              {
+                "label": "Account setting",
+                "icon": "icon-common icon-size-20 icon-profile-account",
+                
+                "items": [
+                  {
+                    "label": "Profile Information",
+                    "routerLink": "/account/profile-information"
+                  },
+                  {
+                    "label": "Manage Address",
+                    "routerLink": "/account/manage-address"
+                  },
+                  {
+                    "label": "Change Password",
+                    "routerLink": "/account/change-password"
+                  }
+                ]
+              },
+              {
+                "label": "payments",
+                "icon": "icon-common icon-size-20 icon-profile-payments",
+                
+                "items": [
+                  {
+                    "label": "Save Card",
+                    "routerLink": "/account/payments"
+                    
+                  }
+                ]
+              },
+              {
+                "label": "My stuff",
+                "icon": "icon-common icon-size-20 icon-profile-mystuff",
+                
+                "items": [
+                  {
+                    "label": "My coupons",
+                    "routerLink": "/account/my-coupons"
+                  },
+                  {
+                    "label": "My Reviews & Ratings",
+                    "routerLink": "/account/my-review-rating"
+                  },
+                  {
+                    "label": "All Notifications",
+                    "routerLink": "/account/all-notification"
+                  },
+                  {
+                    "label": "My Wishlist",
+                    "routerLink": "/account/my-wishlist"
+                  }
+                ]
+              }
+        ]
+        
+    }

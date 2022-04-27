@@ -1,0 +1,247 @@
+<div class="container container-center">
+    <div class="p-grid">
+        <div class="p-col-12 p-md-8">
+            <p-card styleClass="p-card p-card-curve p-card-delivery p-mb-4">
+                <ng-template pTemplate="header">
+                    <h1 class="p-d-flex heading-4 p-ai-center p-mt-0"><span class="icon-common icon-deliver"></span><span>Delivery Address</span></h1>
+                </ng-template>
+                <div class="form-grey-bg">
+                    <form>
+                    <p-fieldset styleClass="p-fieldset-delivery-address">
+                        <ng-template pTemplate="header">Personal Details</ng-template>
+                        <div class="p-fluid p-formgrid p-grid">
+                            <div class="p-field p-col-12 p-md-4 p-lg-4 p-xl-4">
+                                <label for="firstname1">Enter first name <span class="p-error">*</span></label>
+                                <input id="firstname1" type="text" pInputText> 
+                            </div>
+                            <div class="p-field p-col-12 p-md-4 p-lg-4 p-xl-4">
+                                <label for="firstname1">Enter last name <span class="p-error">*</span></label>
+                                <input id="lastname1" type="text" pInputText> 
+                            </div>
+                            <div class="p-field p-col-12 p-md-4 p-lg-4 p-xl-4">
+                                <label for="firstname1">Enter contact number <span class="p-error">*</span></label>
+                                <input id="lastname1" type="text" pInputText> 
+                            </div>
+                        </div>
+                    </p-fieldset>
+                    <p-fieldset  styleClass="p-fieldset-delivery-address">
+                        <ng-template pTemplate="header">Address Details</ng-template>
+                        <div class="p-fluid p-formgrid p-grid">
+                            <div class="p-field p-col-12 p-md-4 p-lg-4 p-xl-4">
+                                <label for="firstname1">House No  <span class="p-error">*</span></label>
+                                <input id="firstname1" type="text" pInputText> 
+                            </div>
+                            <div class="p-field p-col-12 p-md-4 p-lg-4 p-xl-8">
+                                <label for="firstname1">Enter Apartment Name </label>
+                                <input id="lastname1" type="text" pInputText> 
+                            </div>
+                            <div class="p-field p-col-12 p-md-6 p-lg-6 p-xl-6">
+                                <label for="firstname1">Enter street details <span class="p-error">*</span></label>
+                                <input id="lastname1" type="text" pInputText> 
+                            </div>
+                            <div class="p-field p-col-12 p-md-6 p-lg-6 p-xl-6">
+                                <label for="firstname1">Enter landmark for easy reach out <span class="p-error">*</span></label>
+                                <input id="lastname1" type="text" pInputText> 
+                            </div>
+
+                            <div class="p-field p-col-12 p-md-4 p-lg-4 p-xl-4">
+                                <label for="firstname1">Enter city name <span class="p-error">*</span></label>
+                                <input id="lastname1" type="text" pInputText> 
+                            </div>
+                            <div class="p-field p-col-12 p-md-4 p-lg-4 p-xl-4">
+                                <label for="firstname1">Area details <span class="p-error">*</span></label>
+                                <input id="lastname1" type="text" pInputText> 
+                            </div>
+                            <div class="p-field p-col-12 p-md-4 p-lg-4 p-xl-4">
+                                <label for="firstname1">Enter Pincode  <span class="p-error">*</span></label>
+                                <input id="lastname1" type="text" pInputText> 
+                            </div>
+                        </div>
+                        <div>
+                            <label>Choose nick name for this address</label>
+                            <div class="products-button-group button-group-address p-mt-4 p-mb-4">
+                                <button pButton label="Home" class="p-mr-3 p-button-outlined p-button-primary p-text-uppercase active"></button>
+                                <button pButton label="Office" class="p-mr-3 p-button-outlined p-button-primary p-text-uppercase"></button>
+                                <button pButton label="Other" class="p-mr-3 p-button-outlined p-button-primary p-text-uppercase"></button>
+                            </div>
+                            <button pButton label="Add Address" class="p-mr-3 p-button-primary p-button-lg  p-text-uppercase"></button>
+                        </div>
+                    </p-fieldset>
+                </form>
+                </div>
+            </p-card>
+
+            <p-card styleClass="p-card p-card-curve p-card-delivery p-mb-4">
+                <ng-template pTemplate="header">
+                    <h1 class="p-d-flex heading-4 p-ai-center p-mt-0"><span class="icon-common icon-delivery-options  p-mr-2"></span><span>Delivery Options</span></h1>
+                </ng-template>
+                <form>
+               <div class="p-d-flex p-flex-md-row p-flex-column p-ai-md-center p-mb-4">
+                <div class="p-field-radiobutton p-m-0">
+                    <p-radioButton name="delioveryOption"  inputId="deviveryOption1" [(ngModel)] = "deviveryOption1"></p-radioButton>
+                    <label for="deviveryOption1">Default Delivery Option</label>
+                </div>
+                <label class="p-ml-3">1 Shipment, Delivery Charge: ₹ 30</label>
+               </div>
+                <div class="form-grey-bg p-mb-4">
+                  <div class="p-grid p-d-flex p-ai-center delivery-options">
+                    <div class="p-col-12 p-md-4 p-lg-4 p-xl-4">
+                        <span class="icon-common icon-size-25 icon-shipment p-mr-2"></span>
+                        <span>Shipment 1: <span>Standard Delivery</span></span>
+                    </div>
+                    <div class="p-col-12 p-md-4 p-lg-4 p-xl-3">
+                        <div><span class="p-text-underline">3 items</span> @ 750.58</div>
+                        <div><span class="p-text-underline">Delivery Charge:</span> @ 30</div>
+                    </div>
+                    <div class="p-col-12 p-md-4 p-lg-4 p-xl-5">
+                        <div class="p-fluid">
+                        <p-dropdown>
+
+                        </p-dropdown>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-d-flex p-flex-md-row p-flex-column p-ai-md-center p-mb-4">
+                <div class="p-field-radiobutton p-m-0">
+                    
+                    <p-radioButton name="delioveryOption"  inputId="deviveryOption2"  [(ngModel)] = "deviveryOption2"></p-radioButton>
+                    <label for="deviveryOption2">Delivery Option 2</label>
+                </div>
+                <label class="p-ml-3">1 Shipment, Delivery Charge: ₹ 30</label>
+                </div>
+            </form>
+            <div>
+                <button pButton label="Proceed to payment" class="p-button-primary p-button-lg p-text-uppercase"></button>
+            </div>
+            </p-card>
+
+
+            <p-card styleClass="p-card p-card-curve p-card-delivery">
+                <ng-template pTemplate="header">
+                    <h1 class="p-d-flex heading-4 p-ai-center p-mt-0"><span class="icon-common icon-payment-options p-mr-2"></span><span>Payment Options</span></h1>
+                </ng-template>
+                <form>
+             
+                <div class="form-grey-bg p-mb-4">
+                  <div class="p-grid p-d-flex p-ai-center delivery-options">
+                    <div class="p-col-12 p-md-4 p-lg-4 p-xl-4">
+                        <span class="icon-common icon-size-25 icon-promocode p-mr-2"></span>
+                        <span class="color-light-green">Promo code &amp; Bank offers</span>
+                    </div>
+                  
+                    <div class="p-col-12 p-md-4 p-lg-4 p-xl-8 p-fluid">
+                        <div class="p-field p-m-0">
+                            <input pInputText />
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="payment-option-items p-mb-4">
+                    <div class="p-mb-4">
+                        <div class="p-field-radiobutton">
+                            <p-radioButton name="payment" value="Wallet" inputId="Wallet" [(ngModel)] = "deviveryOption2"></p-radioButton>
+                            <label for="Wallet">Wallet</label>
+                        </div>
+                        <div class="p-field-radiobutton">
+                            <p-radioButton name="payment" value="CreditCard" inputId="CreditCard" [(ngModel)] = "deviveryOption2"></p-radioButton>
+                            <label for="CreditCard">Credit Card</label>
+                        </div>
+                        <div class="p-field-radiobutton">
+                            <p-radioButton name="payment" value="CashOnDelivery" inputId="CashOnDelivery" [(ngModel)] = "deviveryOption2"></p-radioButton>
+                            <label for="CashOnDelivery">Cash On Delivery</label>
+                        </div>
+    
+                        <div class="p-field-radiobutton">
+                            <p-radioButton name="Net Banking" value="Net Banking" inputId="NetBanking" [(ngModel)] = "deviveryOption2"></p-radioButton>
+                            <label for="NetBanking">Net Banking</label>
+                        </div>
+                    </div>
+                    <button pButton (click)="showDilogPlaceOrder()" label="Place the order &amp; Pay" class="p-button p-button-primary p-button-lg p-text-uppercase"></button>
+                   
+                </div>
+                
+            </form>
+            <div>
+            </div>
+            </p-card>
+        </div>
+        <div class="p-col-12 p-md-4">
+            <p-card styleClass="p-card-sidebar p-card-curve">
+
+                <ng-template pTemplate="header">
+                    <div class="bg-green-light p-d-flex">
+                        <h6 class="p-m-0"> Order Summary</h6>
+                    </div>
+                </ng-template>
+                <section class="price-calculate-container">
+                    <div class="price-calculate">
+                        <div class="p-d-flex p-jc-between p-mb-2">
+                            <div>
+                                <h5 class="p-m-0 font-weight-regular">Sub Total</h5>
+                            </div>
+                            <div>
+                                <h5 class="p-m-0 p-text-right font-weight-regular">505.00</h5>
+                            </div>
+                        </div>
+                        <div class="p-d-flex p-jc-between">
+                            <div>
+                                <h5 class="p-m-0 font-weight-regular">Delivery Charges</h5>
+                            </div>
+                            <div>
+                                <h5 class="p-m-0 p-text-right font-weight-regular color-light-green">+49.00</h5>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="p-d-flex p-jc-between">
+                        <div>
+                            <h5 class="p-m-0 font-weight-bold color-green">Total Amount Payable</h5>
+                        </div>
+                        <div>
+                            <h5 class="p-m-0 p-text-right font-weight-bold color-green">505.00</h5>
+                        </div>
+                    </div>
+                    <div class="p-d-flex p-jc-between total-saving">
+                        <div>
+                            <h5 class="p-m-0 font-weight-bold color-green">Your total savings</h5>
+                        </div>
+                        <div>
+                            <h5 class="p-m-0 p-text-right font-weight-bold color-green">125.00</h5>
+                        </div>
+                    </div>
+                   
+                </section>
+
+
+            </p-card>
+        </div>
+    </div>
+</div>
+
+<p-dialog [(visible)]="showPlaceOrder" [modal]="true" styleClass="p-dialog-placeorder">
+    <div class="place-order-container p-text-center color-green p-text-center">
+        <div>
+            <div class="icon-common icon-status bg-light-green icon-tick"></div>
+        </div>
+        <div class="p-mt-2">
+            <h4 class="p-m-0">Your Order Placed 22 Sep 2021</h4>
+            <p class="p-m-0">Your order was placed successfully. for more Details please check your order status below link.</p>
+           
+        </div>
+        <div class="p-d-flex p-jc-center">
+            <label class="font-weight-medium">Your Order Id :</label>
+            <div class="font-weight-medium">GRD000021</div>
+        </div>
+        <div class="p-d-flex p-jc-center">
+            <label class="font-weight-medium">Your Transaction Id  :</label>
+            <div class="font-weight-medium">TXD0000234</div>
+        </div>
+    </div>    
+    <ng-template pTemplate="footer">
+        
+        <button pButton label="Go to your order" class="p-button p-button-primary p-button-lg full-width" (click)="hideDilogPlaceOrder()"></button>
+       
+    </ng-template>
+</p-dialog>

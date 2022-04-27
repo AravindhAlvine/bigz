@@ -1,0 +1,564 @@
+<div id="booking">
+    <div class="container">
+
+        <div class="p-grid p-pb-5">
+            <div class="p-col-7 primary_section" [class.p-col-12]="bookingId == 3">
+
+                <app-booking-details [bookingId]="bookingId"></app-booking-details>
+
+                <section id="card" *ngIf="bookingId == 1">
+                    <h4>Your Are Logged in as</h4>
+                    <form>
+                        <div class="p-grid p-flex-start">
+                            <img src="../../../assets/product/avator.png" width="50" height="50" alt="" />
+                            <div class="person_mail p-ml-3">
+                                <p class="p-my-0">mnaafiuibrahim@gmail.com</p>
+                                <a href="">change</a>
+                            </div>
+                            <div class="cart_form">
+                                <form>
+
+                                    <h3>Shipping address</h3>
+
+                                    <div class="p-grid">
+                                        <div class="p-field p-float-label p-col-6">
+                                            <div class="p-float-label">
+                                                <input id="float-input" style="width: 100%;" class="p-inputtext-lg"
+                                                    type="text" pInputText />
+                                                <label for="float-input">First Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="p-field p-col-6">
+                                            <div class="p-float-label">
+                                                <input id="float-input" style="width: 100%;" class="p-inputtext-lg"
+                                                    type="text" pInputText />
+                                                <label for="float-input">Last Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="p-field p-float-label">
+                                        <input id="float-input" style="width: 100%;" class="p-inputtext-lg" type="text"
+                                            pInputText />
+                                        <label for="float-input">Company (optional)</label>
+                                    </div>
+
+                                    <div class="p-field p-float-label">
+                                        <input id="float-input" style="width: 100%;" class="p-inputtext-lg" type="text"
+                                            pInputText />
+                                        <label for="float-input">Address Line 1</label>
+                                    </div>
+
+                                    <div class="p-field p-float-label">
+                                        <input id="float-input" style="width: 100%;" class="p-inputtext-lg" type="text"
+                                            pInputText />
+                                        <label for="float-input">Address Line 2</label>
+                                    </div>
+
+                                    <div class="p-field p-float-label">
+                                        <input id="float-input" style="width: 100%;" class="p-inputtext-lg" type="text"
+                                            pInputText />
+                                        <label for="float-input">City</label>
+                                    </div>
+
+                                    <div class="p-grid">
+                                        <div class="p-field p-col-6">
+                                            <div class="p-float-label">
+                                                <p-dropdown inputId="dropdown1" [autoDisplayFirst]="false"
+                                                    [options]="Province" class="p-inputtext-lg" [editable]="false"
+                                                    [showClear]="true">
+                                                </p-dropdown>
+                                                <label for="dropdown1">Province</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="p-field p-col-6">
+                                            <div class="p-float-label">
+                                                <input id="float-input" style="width: 100%;" class="p-inputtext-lg"
+                                                    type="text" pInputText />
+                                                <label for="float-input">Postal Code</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="p-field ">
+                                        <div class="p-float-label">
+                                            <p-dropdown inputId="dropdown1" [autoDisplayFirst]="false" [options]="list"
+                                                class="p-inputtext-lg" [editable]="false" [showClear]="true">
+                                            </p-dropdown>
+                                            <label for="dropdown1">Province</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="p-field p-float-label">
+                                        <input id="float-input" style="width: 100%;" class="p-inputtext-lg" type="text"
+                                            pInputText />
+                                        <label for="float-input">Text Description</label>
+                                    </div>
+
+                                    <div class="p-grid p-jc-between return_submit">
+                                        <a class="p-float-left cursor">
+                                            <i class="pi pi-angle-left" aria-hidden="true"></i>
+                                            <span routerLink="/shopping-bag">Return to shipping bag</span>
+                                        </a>
+                                        <button pButton label="Continue Payment" (click)="booking(2)"
+                                            class="p-button-lg"></button>
+                                    </div>
+
+                                    <p>By placing your order you agree to Humon’s <a href="">Terms and Conditions,
+                                            Privacy Notice</a> and <a href="">Cookie Policy</a></p>
+
+
+                                </form>
+                            </div>
+
+                        </div>
+                    </form>
+                </section>
+
+                <section class="p-mt-5" id="card" *ngIf="bookingId == 2">
+
+                    <p-card>
+                        <p-table [value]="shippingDetails">
+                            <ng-template pTemplate="body" let-product>
+                                <tr>
+                                    <td>{{product.title}}</td>
+                                    <td>{{product.name}}</td>
+                                    <td>
+                                        <a class="cursor">Change</a>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </p-card>
+
+                    <div>
+                        <h5 class="p-mb-0">Payment</h5>
+                        <p class="p-my-0">All transactions are secure and encrypted</p>
+                        <form>
+                            <p-card id="payment_card">
+                                <div class="credit_card">
+                                    <div class="p-grid p-jc-between p-mx-auto">
+                                        <div class="p-field-radiobutton p-mb-0">
+                                            <p-radioButton inputId="1" [(ngModel)]="payment_radio"
+                                                [ngModelOptions]="{standalone: true}"></p-radioButton>
+                                            <label class="p-ml-3" for="1">Credit/Debit Card</label>
+                                        </div>
+                                        <div class="payment_img">
+                                            <span class="p-d-inline-block">
+                                                <img src="../../../assets/product/visa.svg" alt="" />
+                                            </span>
+                                            <span class="p-ml-2 p-d-inline-block">
+                                                <img src="../../../assets/product/visa_master.svg" alt="" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="credit_card" id="payment_body">
+                                    <div class="p-grid p-jc-between p-mx-auto">
+                                        <div class="p-d-block" style="width: 100%;">
+
+                                            <div class="p-field p-float-label">
+                                                <div class="p-float-label">
+                                                    <input id="float-input" style="width: 100%;" class="p-inputtext-lg"
+                                                        type="text" pInputText />
+                                                    <label for="float-input">Card number</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="p-field p-float-label">
+                                                <div class="p-float-label">
+                                                    <input id="float-input" style="width: 100%;" class="p-inputtext-lg"
+                                                        type="text" pInputText />
+                                                    <label for="float-input">Name on card</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="p-grid p-p-0">
+                                                <div class="p-field p-float-label p-col-6">
+                                                    <div class="p-float-label">
+                                                        <input id="float-input" style="width: 100%;"
+                                                            class="p-inputtext-lg" type="text" pInputText />
+                                                        <label for="float-input">Expiration date (MM / YY)</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="p-field p-float-label p-col-6">
+                                                    <div class="p-float-label">
+                                                        <input id="float-input" style="width: 100%;"
+                                                            class="p-inputtext-lg" type="text" pInputText />
+                                                        <label for="float-input">Security code</label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="credit_card">
+                                    <div class="p-grid p-jc-between p-mx-auto">
+                                        <div class="p-field-radiobutton p-mb-0">
+                                            <p-radioButton inputId="2" [(ngModel)]="payment_radio"
+                                                [ngModelOptions]="{standalone: true}"></p-radioButton>
+                                            <img class="p-ml-3" src="../../../assets/product/Gpay.svg" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="credit_card">
+                                    <div class="p-grid p-jc-between p-mx-auto">
+                                        <div class="p-field-radiobutton p-mb-0">
+                                            <p-radioButton inputId="2" [(ngModel)]="payment_radio"
+                                                [ngModelOptions]="{standalone: true}"></p-radioButton>
+                                            <img class="p-ml-3" src="../../../assets/product/pay.svg" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="credit_card">
+                                    <div class="p-grid p-jc-between p-mx-auto">
+                                        <div class="p-field-radiobutton p-mb-0">
+                                            <p-radioButton inputId="2" [(ngModel)]="payment_radio"
+                                                [ngModelOptions]="{standalone: true}"></p-radioButton>
+                                            <img class="p-ml-3" src="../../../assets/product/Gpay.svg" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </p-card>
+
+                        </form>
+                    </div>
+
+                    <div>
+                        <h5 class="p-mb-0">Billing address</h5>
+                        <p class="p-my-0">Select the address that matches your card or payment method.</p>
+
+                        <p-card id="payment_card">
+
+                            <div class="credit_card">
+                                <div class="p-grid p-jc-between p-mx-auto">
+                                    <div class="p-field-radiobutton p-mb-0">
+                                        <p-radioButton inputId="2" [(ngModel)]="payment_radio"
+                                            [ngModelOptions]="{standalone: true}"></p-radioButton>
+                                        <img class="p-ml-3" src="../../../assets/product/Gpay.svg" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="credit_card">
+                                <div class="p-grid p-jc-between p-mx-auto">
+                                    <div class="p-field-radiobutton p-mb-0">
+                                        <p-radioButton inputId="2" [(ngModel)]="payment_radio"
+                                            [ngModelOptions]="{standalone: true}"></p-radioButton>
+                                        <img class="p-ml-3" src="../../../assets/product/pay.svg" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </p-card>
+
+                        <div class="p-grid p-jc-between return_submit">
+                            <a class="p-float-left cursor">
+                                <i class="pi pi-angle-left" aria-hidden="true"></i>
+                                <span (click)="booking(1)">Return to cart</span>
+                            </a>
+                            <button pButton label="Payment" (click)="booking(3)" class="p-button-lg"></button>
+                        </div>
+
+                        <p>By placing your order you agree to Humon’s <a href="">Terms and Conditions,
+                                Privacy Notice</a> and <a href="">Cookie Policy</a></p>
+
+                    </div>
+
+                </section>
+
+                <section class="p-mt-5" id="completed" *ngIf="bookingId == 3">
+
+                    <div class="title_section text-center">
+                        <img src="../../../assets/product/circle_tick.svg" alt="" />
+                        <h1 class="p-my-0">Thank you for your order!</h1>
+                        <p class="p-my-0">The order confirmation email with detail of you order and a link to track its
+                            progress has ben sent to your email address. </p>
+                        <p>Your Order# Is: 030500683 - Pending</p>
+                    </div>
+
+                    <div class="p-grid">
+
+                        <div class="p-col-6">
+
+                            <div class="p-grid">
+                                <div class="p-col-6">
+                                    <div class="title_address">
+                                        <div class="title_header">
+                                            <img src="../../../assets/product/Home.svg" alt="" />
+                                            <p> Shipping Address </p>
+                                        </div>
+
+                                        <div class="title_body">
+                                            <h6 class="p-mt-3 p-mb-0">Veronica Costello</h6>
+                                            <p>6164 Honey Blutt parkway Calder. Michmigan, 49628-7879 United States</p>
+                                            <p>T: (+62)812345678</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="p-col-6">
+                                    <div class="title_address">
+                                        <div class="title_header">
+                                            <img src="../../../assets/product/Home.svg" alt="" />
+                                            <p>Shipping Method</p>
+                                        </div>
+
+                                        <div class="title_body">
+                                            <p>Flat Rate - Fixed</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-6">
+                                    <div class="title_address">
+                                        <div class="title_header">
+                                            <img src="../../../assets/product/Home.svg" alt="" />
+                                            <p>Billing Address</p>
+                                        </div>
+
+                                        <div class="title_body">
+                                            <h6 class="p-mt-3 p-mb-0">Veronica Costello</h6>
+                                            <p>6164 Honey Blutt parkway Calder. Michmigan, 49628-7879 United States</p>
+                                            <p>T: (+62)812345678</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="p-col-6">
+                                    <div class="title_address">
+                                        <div class="title_header">
+                                            <img src="../../../assets/product/Home.svg" alt="" />
+                                            <p>Shipping Method</p>
+                                        </div>
+
+                                        <div class="title_body">
+                                            <p>Flat Rate - Fixed</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12">
+                                    <div class="title_address">
+
+                                        <div class="title_body">
+                                            <h6 class="p-mt-3 p-mb-0">Create New Account</h6>
+                                            <p>You can track your order status by creating an account.</p>
+                                            <p>Email Address: arya@gmail.com</p>
+                                        </div>
+
+                                        <div class="submit_btn">
+                                            <button class="p-button-lg p-button" routerLink="/account/profile-information">Crate an Account</button>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="p-col-6 table_form">
+
+                            <div class="title_address">
+                                <div class="title_header ">
+
+                                    <div class="p-grid p-justify-between">
+                                        <div class="p-field-checkbox p-mb-0">
+                                            <p-checkbox name="group1" value="San Francisco" [(ngModel)]="selectedValues"
+                                                inputId="sf"></p-checkbox>
+                                            <label for="sf">Order Summary</label>
+                                        </div>
+                                        <p>Order Date: 20:31 Friday 25 Jul 2021</p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="table_section">
+                                <p-table [value]="products">
+                                    <ng-template pTemplate="body" let-product>
+                                        <tr>
+                                            <td rowspan="3">
+                                                <img src="{{product.img}}" alt="" />
+                                            </td>
+                                            <td colspan="4">{{product.name}}</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">{{product.size}}</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">{{product.color}}</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>{{product.amount}}</td>
+                                        </tr>
+
+                                    </ng-template>
+
+                                    <ng-template pTemplate="footer">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">Subtotal</td>
+                                            <td colspan="2">$49.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">Shipping</td>
+                                            <td colspan="2">$5.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">Tax</td>
+                                            <td colspan="2">$5.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">Grand Total</td>
+                                            <td colspan="2">$54.00</td>
+                                        </tr>
+                                    </ng-template>
+
+
+                                </p-table>
+
+                                <div class="submit_btn p-text-right">
+                                    <p-button label="Print Order" icon="pi pi-check"></p-button>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+            <div class="p-col-5 secondary_section" *ngIf="bookingId != 3">
+                <div class="secondary_section_cart">
+
+                    <div class="p-grid p-jc-between p-mx-auto">
+                        <div class="cart_img_dec p-grid p-jc-start">
+                            <img src="../../../assets/product/Product image.svg" class="img-fluid" alt="" />
+                            <div class="p-grid-inline">
+                                <p>LeBron Witness 5 Nike Shoes</p>
+                                <p>Size : XL</p>
+                                <p>Blue Color</p>
+                            </div>
+                        </div>
+
+                        <div class="p-grid-inline p-text-right p-text-bold">
+                            <p>&nbsp;</p>
+                            <p>$35.00</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-jc-between p-mx-auto">
+                        <div class="cart_img_dec p-grid p-jc-start">
+                            <img src="../../../assets/product/Product image.svg" class="img-fluid" alt="" />
+
+                            <div class="p-grid-inline">
+                                <p>LeBron Witness 5 Nike Shoes</p>
+                                <p>Size : XL</p>
+                                <p>Blue Color</p>
+                            </div>
+                        </div>
+
+                        <div class="p-grid-inline p-text-right p-text-bold">
+                            <p>&nbsp;</p>
+                            <p>$35.00</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="p-grid p-mt-3">
+
+                        <div class="p-col-8">
+                            <div class="p-field p-float-label">
+                                <div class="p-float-label">
+                                    <input id="float-input" style="width: 100%;" class="p-inputtext-lg" type="text"
+                                        pInputText />
+                                    <label for="float-input">Gift card or discount codes</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-col-4">
+                            <button pButton label="APPLY" class="p-button-lg p-button-dark p-mr-3"></button>
+                        </div>
+
+                    </div>
+
+                    <hr>
+
+                    <div class="p-grid p-jc-between p-mx-auto p-mt-3 p-mb-0">
+                        <div class="p-grid-inline">
+                            <p>Subtotal</p>
+                        </div>
+
+                        <div class="p-grid-inline p-text-right p-text-bold">
+                            <p>$35.00</p>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-jc-between p-mx-auto p-mt-3 p-mb-0">
+                        <div class="p-grid-inline">
+                            <p>Shipping</p>
+                        </div>
+
+                        <div class="p-grid-inline p-text-right">
+                            <p><span>Calculated at next step</span></p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="p-grid p-jc-between p-mx-auto p-mt-3 p-mb-0">
+                        <div class="p-grid-inline">
+                            <p class="font-weight-bold total_count_string">Total</p>
+                        </div>
+
+                        <div class="p-grid-inline p-text-right">
+                            <p class="font-weight-bold total_count_num"><span class="">USD </span>$65.00</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

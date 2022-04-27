@@ -1,0 +1,256 @@
+<div class="container" id="breadCrumb">
+    <div class="breadcum">
+        <p-breadcrumb [model]="breadCrumbsitems" styleClass="breadcrumbs"></p-breadcrumb>
+    </div>
+
+    <div class="banner_section p-d-md-none">
+        <img class="img-fluid" src="" alt="" />
+    </div>
+</div>
+
+<div class="container p-mt-3">
+
+    <section class="page-section page-section-category">
+
+        <div class="p-grid p-grid-10">
+            <aside class="p-col-12 p-md-4 p-lg-3 p-xl-2 p-d-none p-d-md-block" id="aside_multiselect_drop">
+
+                <div class="p-d-flex p-justify-between">
+                    <div class="p-d-flex p-justify-between p-mt-3">
+                        <h4 class="p-d-inline-block p-mx-3 p-mt-0">Filter</h4>
+                    </div>
+                </div>
+
+                <div class="side-memu-container" [ngClass]="mobileFilterMenu ? 'active' : ''">
+
+                    <div class="sidemenu-group p-justify-between p-d-flex">
+                        <h5 class="title-bottom-line">2 FIlter Selected</h5>
+                        <a class="clear_all">Clear All</a>
+                    </div>
+
+                    <div class="multiSelect_crose">
+                        <ul>
+                            <li>Price Drop <i class="pi pi-times" aria-hidden="true"></i></li>
+                            <li>Free Delivery <i class="pi pi-times" aria-hidden="true"></i></li>
+                            <li>Apple <i class="pi pi-times" aria-hidden="true"></i></li>
+                            <li>4 Star & Up <i class="pi pi-times" aria-hidden="true"></i></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidemenu-group price_slider">
+                        <h5>Price</h5>
+                        <p-slider class="p_range_slider" [(ngModel)]="rangeValues" [range]="true"></p-slider>
+                        <div class="p-justify-between p-d-flex p-mt-3">
+                            <p-inputNumber inputId="integeronly" placeholder="Min" [(ngModel)]="rangeValues[0]">
+                            </p-inputNumber>
+                            <span class="p-mx-2 p-my-1 text_to">to</span>
+                            <p-inputNumber inputId="integeronly" placeholder="Max" [(ngModel)]=" rangeValues[1]">
+                            </p-inputNumber>
+                        </div>
+                    </div>
+
+                    <div class="sidemenu-group">
+                        <div class="p-justify-between p-d-flex">
+                            <h5 class="title-bottom-line">Tagline</h5>
+                            <i *ngIf="toggleArrow == true" (click)="toggleArrow = !toggleArrow"
+                                class="pi pi-chevron-down" aria-hidden="true"></i>
+                            <i *ngIf="toggleArrow == false" (click)="toggleArrow = !toggleArrow"
+                                class="pi pi-chevron-up" aria-hidden="true"></i>
+                        </div>
+                        <div class="common_overflow">
+
+                            <div class="p-mb-2" *ngFor="let tag of tagLine">
+                                <div *ngIf="toggleArrow == false">
+                                    <p-checkbox name="brands" value="{{tag.value}}" label="{{tag.label}}">
+                                    </p-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidemenu-group">
+
+                        <div class="p-justify-between p-d-flex">
+                            <h5 class="title-bottom-line">Star Level</h5>
+                            <i *ngIf="toggleArrow == true" (click)="toggleArrow = !toggleArrow"
+                                class="pi pi-chevron-down" aria-hidden="true"></i>
+                            <i *ngIf="toggleArrow == false" (click)="toggleArrow = !toggleArrow"
+                                class="pi pi-chevron-up" aria-hidden="true"></i>
+                        </div>
+                        <div class="common_overflow">
+
+                            <div class="p-mb-2" *ngFor="let start of starLevel">
+                                <div *ngIf="toggleArrow == false">
+                                    <p-checkbox name="start" value="{{start.value}}" label="{{start.label}}">
+                                    </p-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidemenu-group">
+                        <div class="p-justify-between p-d-flex">
+                            <h5 class="title-bottom-line">Free Delivery</h5>
+                            <i *ngIf="toggleArrow == true" (click)="toggleArrow = !toggleArrow"
+                                class="pi pi-chevron-down" aria-hidden="true"></i>
+                            <i *ngIf="toggleArrow == false" (click)="toggleArrow = !toggleArrow"
+                                class="pi pi-chevron-up" aria-hidden="true"></i>
+                        </div>
+                        <div class="common_overflow">
+                            <div class="p-mb-2" *ngFor="let item of delivery">
+                                <div *ngIf="toggleArrow == false">
+                                    <p-checkbox name="seasonal" value="{{item.value}}" label="{{item.label}}">
+                                    </p-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidemenu-group">
+                        <div class="p-justify-between p-d-flex">
+                            <h5 class="title-bottom-line">Brand</h5>
+                            <i *ngIf="toggleArrow == true" (click)="toggleArrow = !toggleArrow"
+                                class="pi pi-chevron-down" aria-hidden="true"></i>
+                            <i *ngIf="toggleArrow == false" (click)="toggleArrow = !toggleArrow"
+                                class="pi pi-chevron-up" aria-hidden="true"></i>
+                        </div>
+                        <div class="common_overflow">
+                            <div class="p-mb-2" *ngFor="let brand of BrandsSideMenu">
+                                <div *ngIf="toggleArrow == false">
+                                    <p-checkbox name="seasonal" value="{{brand.value}}" label="{{brand.label}}">
+                                    </p-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidemenu-group">
+                        <div class="p-justify-between p-d-flex">
+                            <h5 class="title-bottom-line">Color</h5>
+                            <i *ngIf="toggleArrow == true" (click)="toggleArrow = !toggleArrow"
+                                class="pi pi-chevron-down" aria-hidden="true"></i>
+                            <i *ngIf="toggleArrow == false" (click)="toggleArrow = !toggleArrow"
+                                class="pi pi-chevron-up" aria-hidden="true"></i>
+                        </div>
+                        <div class="common_overflow">
+                            <div class="p-mb-2" *ngFor="let color of Colors">
+                                <div *ngIf="toggleArrow == false">
+                                    <p-checkbox name="seasonal" value="{{color.value}}" label="{{color.label}}">
+                                    </p-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidemenu-group">
+                        <div class="p-justify-between p-d-flex">
+                            <h5 class="title-bottom-line">Conditition</h5>
+                            <i *ngIf="toggleArrow == true" (click)="toggleArrow = !toggleArrow"
+                                class="pi pi-chevron-down" aria-hidden="true"></i>
+                            <i *ngIf="toggleArrow == false" (click)="toggleArrow = !toggleArrow"
+                                class="pi pi-chevron-up" aria-hidden="true"></i>
+                        </div>
+                        <div class="common_overflow">
+                            <div class="p-mb-2" *ngFor="let color of Colors">
+                                <div *ngIf="toggleArrow == false">
+                                    <p-checkbox name="seasonal" value="{{color.value}}" label="{{color.label}}">
+                                    </p-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidemenu-group">
+                        <div class="p-justify-between p-d-flex">
+                            <h5 class="title-bottom-line">Guaranty</h5>
+                            <i *ngIf="toggleArrow == true" (click)="toggleArrow = !toggleArrow"
+                                class="pi pi-chevron-down" aria-hidden="true"></i>
+                            <i *ngIf="toggleArrow == false" (click)="toggleArrow = !toggleArrow"
+                                class="pi pi-chevron-up" aria-hidden="true"></i>
+                        </div>
+                        <div class="common_overflow">
+                            <div class="p-mb-2" *ngFor="let start of starLevel">
+                                <div *ngIf="toggleArrow == false">
+                                    <p-checkbox name="start" value="{{start.value}}" label="{{start.label}}">
+                                    </p-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+            <div class="p-col-12 p-md-8 p-lg-9 p-xl-8">
+                <div class="products-page">
+
+                    <div id="carosel_ID">
+                        <section class="best-seller">
+
+                            <div class="p-d-flex p-justify-between pg_sm_size">
+                                <div class="p-d-flex p-justify-between p-mt-3 pg_sm_size_2">
+                                    <h4 class="p-d-inline-block p-mr-3 p-mt-0">Men Fashion</h4>
+                                    <p class="float-right p-mt-0">1499 Products found</p>
+                                </div>
+
+                                <div class="p-d-flex p-justify-between pg_sm_filter">
+
+                                    <div class="sm_filter_sec p-d-none">
+                                        <img src="../../../assets/images/icon/filter-icon.svg" alt="" />
+                                        <span>Filters</span>
+                                    </div>
+
+                                    <div class="sm_filter_sec">
+                                        <p class="p-d-inline-block p-mr-3">Sort By</p>
+                                        <p-dropdown class="float-right" [options]="sortFilter" placeholder="Relevance"
+                                            optionLabel="name" [showClear]="false"></p-dropdown>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="p-grid">
+                                <div class="p-col-6 p-sm-4 p-md-4 p-lg-4 p-xl-3 card_section"
+                                    *ngFor="let product of products">
+                                    <img class="card-img img-fluid" routerLink="/detailed-product"
+                                        src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                                        alt="" />
+                                    <div class="p-d-flex p-justify-between img_even_width">
+
+                                        <div class="img_details">
+                                            <ul class="list-group">
+                                                <li class="list-item sky_blue"></li>
+                                                <li class="list-item dark_blue"></li>
+                                                <li class="list-item dark_black"></li>
+                                            </ul>
+                                            <span class="list-group-add">+3</span>
+                                        </div>
+                                        <span class="list-group-heart">
+                                            <!-- <img src="../../../assets/images/home_page/heart.svg" alt="" /> -->
+                                            <label class="heart_checkbox">
+                                                <input type="checkbox">
+                                                <i class="pi pi-heart" aria-hidden="true"></i>
+                                            </label>
+                                        </span>
+
+                                    </div>
+                                    <div class="list-group-details">
+                                        <h5>{{product.name}}</h5>
+                                        <p>{{product.description}}</p>
+                                        <div class="list-group-paytm">
+                                            <span>$ {{product.price}}</span>
+                                            <span>$ {{product.quantity}}</span>
+                                            <p>Sale</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </section>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

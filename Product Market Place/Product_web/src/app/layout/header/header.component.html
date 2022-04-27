@@ -1,0 +1,82 @@
+<div class="container-fluid" ngClass="{'p-d-none':  innerWidth < 768}" *ngIf="innerWidth > 768">
+    <header class="layout-header" id="header_section">
+
+        <div class="header_icons">
+            <div class="p-grid">
+                <div class="p-col-3 text-center">
+                    <img src="../../../assets/images/home_page/TheHumons-Color-Variation-Round-3-2 1.svg" alt="" />
+                </div>
+                <div class="p-col-6">
+                    <div class="input_group">
+                        <input type="search" pInputText placeholder="What are you looking for?" />
+                        <i class="pi pi-search" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="p-col-3">
+                    <div class="p-grid header_icons_notify">
+                        <div class="p-col-2">
+                            <img class="img-fluid" src="../../../assets/images/home_page/heart.svg" alt="" />
+                        </div>
+                        <div class="p-col-2">
+                            <img class="img-fluid" src="../../../assets/images/home_page/bag_png.png" alt="" />
+                            <span class="count">4</span>
+                        </div>
+                        <div class="p-col-2">
+                            <img class="img-fluid" src="../../../assets/images/home_page/tag.svg" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <p-megaMenu [model]="items"></p-megaMenu>
+        </div>
+
+    </header>
+</div>
+
+<!-- lower screen -->
+
+<div class="container-fluid" ngClass="{'p-d-none':  innerWidth < 768}" *ngIf="innerWidth < 768">
+    <header class="layout-header" id="header_section">
+
+        <div class="header_icons">
+            <div class="p-d-flex p-justify-between">
+
+                <div class="text-center">
+                    <p-button type="button" styleClass="p-my-3" (click)="visibleSidebar = true" icon="pi pi-align-left"></p-button>
+                    <img src="../../../assets/images/home_page/TheHumons-Color-Variation-Round-3-2 1.svg" alt="" />
+                </div>
+
+                <div class="header_icons_notify">
+                    <span class="header_icons p-px-0">
+                        <img class="img-fluid" src="../../../assets/images/home_page/heart.svg" alt="" />
+                    </span>
+                    <span class="header_icons p-px-0 p-mx-3">
+                        <img class="img-fluid" src="../../../assets/images/home_page/bag_png.png" alt="" />
+                        <span class="count">4</span>
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="p-grid">
+                <div class="p-col-12">
+                    <div class="input_group p-inputgroup">
+                        <input type="search" pInputText placeholder="Search for products" />
+                        <!-- <i class="pi pi-search" aria-hidden="true"></i> -->
+                        <span class="p-inputgroup-addon"><i class="pi pi-search" aria-hidden="true"></i></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </header>
+</div>
+
+<p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
+    <p-panelMenu [model]="sideMenu" [style]="{'width':'300px'}"></p-panelMenu>
+</p-sidebar>

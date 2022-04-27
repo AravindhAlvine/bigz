@@ -1,0 +1,22 @@
+<section id="signup_signin">
+    <div class="container">
+        <div class="text-center">
+            <h1>My Account</h1>
+            <p-card styleClass="p-mb-5">
+                <div class="p-grid">
+                    <div class="p-col-6" routerLinkActive="active">
+                        <a routerLink="/auth/sign-up">JOIN</a>
+                    </div>
+                    <div class="p-col-6" routerLinkActive="active">
+                        <a routerLink="/auth/sign-in">SIGN IN</a>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <router-outlet></router-outlet>
+                </div>
+
+            </p-card>
+        </div>
+    </div>
+</section>
