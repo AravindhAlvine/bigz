@@ -4,13 +4,108 @@
         <div class="header_icons">
             <div class="p-grid">
                 <div class="p-col-3 text-center">
-                    <img src="../../../assets/images/home_page/TheHumons-Color-Variation-Round-3-2 1.svg" alt="" />
+                    <img class="cursor" routerLink="/" src="../../../assets/images/home_page/TheHumons-Color-Variation-Round-3-2 1.svg" alt="" />
                 </div>
-                <div class="p-col-6">
-                    <div class="input_group">
+                <div class="p-col-6 postion_search">
+                    <!-- <div class="input_group">
                         <input type="search" pInputText placeholder="What are you looking for?" />
                         <i class="pi pi-search" aria-hidden="true"></i>
+                    </div> -->
+
+                    <div class="p-input-icon-right input_group p-d-block">
+                        <input type="text" pInputText placeholder="What are you looking for?" />
+                        <i class="pi pi-search"></i>
                     </div>
+
+                    <div class="search_history p-d-none">
+                        <h4 class="p-mt-0 p-mb-3">Last Product Seen</h4>
+                        <ul class="ul_img_sec">
+                            <li><img src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                                    alt="" /></li>
+                            <li><img src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                                    alt="" /></li>
+                            <li><img src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                                    alt="" /></li>
+                            <li><img src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                                    alt="" /></li>
+                            <li><img src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                                    alt="" /></li>
+                            <li><img src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                                    alt="" /></li>
+                            <li><img src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                                    alt="" /></li>
+                            <li><img src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                                    alt="" /></li>
+                            <li><img src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                                    alt="" /></li>
+                            <li><img src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                                    alt="" /></li>
+                            <li><img src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                                    alt="" /></li>
+                            <li><img src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                                    alt="" /></li>
+                            <li><img src="../../../assets/images/home_page/carosel/image 109-depositphotos-bgremover 1.svg"
+                                    alt="" /></li>
+                        </ul>
+
+                        <div class="last_history">
+                            <h4 class="p-d-inline-block p-mt-3">Last History Search</h4>
+                            <a class="last_history_delete p-d-inline-block cursor">Delete History</a>
+                        </div>
+
+                        <ul class="last_history_list">
+                            <li>
+                                <i class="pi pi-clock cursor" aria-hidden="true"></i>
+                                <label class="cursor">Nike Air Jordan</label>
+                            </li>
+                            <li>
+                                <i class="pi pi-clock" aria-hidden="true"></i>
+                                <label>Nike Air Jordan</label>
+                            </li>
+                            <li>
+                                <i class="pi pi-clock" aria-hidden="true"></i>
+                                <label>Nike Air Jordan</label>
+                            </li>
+                            <li>
+                                <i class="pi pi-clock" aria-hidden="true"></i>
+                                <label>Nike Air Jordan</label>
+                            </li>
+                            <li>
+                                <i class="pi pi-clock" aria-hidden="true"></i>
+                                <label>Nike Air Jordan</label>
+                            </li>
+                            <li>
+                                <i class="pi pi-clock" aria-hidden="true"></i>
+                                <label>Nike Air Jordan</label>
+                            </li>
+                            <li>
+                                <i class="pi pi-clock" aria-hidden="true"></i>
+                                <label>Nike Air Jordan</label>
+                            </li>
+                            <li>
+                                <i class="pi pi-clock" aria-hidden="true"></i>
+                                <label>Nike Air Jordan</label>
+                            </li>
+                            <li>
+                                <i class="pi pi-clock" aria-hidden="true"></i>
+                                <label>Nike Air Jordan</label>
+                            </li>
+                            <li>
+                                <i class="pi pi-clock" aria-hidden="true"></i>
+                                <label>Nike Air Jordan</label>
+                            </li>
+                            <li>
+                                <i class="pi pi-clock" aria-hidden="true"></i>
+                                <label>Nike Air Jordan</label>
+                            </li>
+                            <li>
+                                <i class="pi pi-clock" aria-hidden="true"></i>
+                                <label>Nike Air Jordan</label>
+                            </li>
+                        </ul>
+
+                    </div>
+
                 </div>
                 <div class="p-col-3">
                     <div class="p-grid header_icons_notify">
@@ -45,7 +140,8 @@
             <div class="p-d-flex p-justify-between">
 
                 <div class="text-center">
-                    <p-button type="button" styleClass="p-my-3" (click)="visibleSidebar = true" icon="pi pi-align-left"></p-button>
+                    <p-button type="button" styleClass="p-my-3" (click)="visibleSidebar = true" icon="pi pi-align-left">
+                    </p-button>
                     <img src="../../../assets/images/home_page/TheHumons-Color-Variation-Round-3-2 1.svg" alt="" />
                 </div>
 

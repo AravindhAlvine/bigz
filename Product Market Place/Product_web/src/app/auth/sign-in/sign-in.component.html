@@ -1,1 +1,57 @@
-<p>sign-in works!</p>
+<section class="signIn">
+    <div id="signUp">
+    <div class="signUp_sec">
+
+        <div class="signUp_form p-text-left">
+
+            <div class="p-float-group">
+                <label class="static-label" for="name">Email Address</label>
+                <div class="p-field p-float-label">
+                    <div class="p-float-label">
+                        <input id="first_name" style="width: 100%;" class="p-inputtext-lg" type="text" pInputText />
+                        <label for="first_name">Email Address</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-float-group">
+                <label class="static-label" for="name">Password</label>
+                <div class="p-field p-float-label">
+                    <div class="p-float-label">
+                        <input id="password" style="width: 100%;" class="p-inputtext-lg" type="text" pInputText />
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-form-group form_section">
+                <div class="p-field">
+                    <button pButton label="Continue Payment" class="main_btn_color p-w-100"></button>
+                </div>
+                <div class="forgot_password text-center">
+                    <a class="cursor">Forgot Password?</a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <h2>Sign Up With ...</h2>
+
+
+        <div class="p-grid p-mx-auto signUp_grid">
+            <div class="p-col-6 p-md-4 p-lg-4 p-xl-4 signUp_col" *ngFor="let item of signUpCard">
+                <div class="signUp_social">
+                    <span>
+                        <img src="{{item.img}}" alt="" />
+                    </span>
+                    <span>{{item.name}}</span>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+</section>

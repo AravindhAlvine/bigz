@@ -7,9 +7,9 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class IndexComponent implements OnInit {
-  deviveryOption2: boolean;
-  deviveryOption1: boolean;
-  showPlaceOrder: boolean;
+  deviveryOption2!: boolean;
+  deviveryOption1!: boolean;
+  showPlaceOrder!: boolean;
   constructor() { }
 
   ngOnInit(): void {

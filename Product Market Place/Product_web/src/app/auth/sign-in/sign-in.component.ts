@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
+  signUpCard: any = [
+    { name: 'Google', img: '../../../assets/images/icon/google.svg' },
+    { name: 'Apple', img: '../../../assets/images/icon/apple.svg' },
+    { name: 'Facebook', img: '../../../assets/images/icon/facebook.svg' },
+  ]
+
+
   constructor() { }
 
   ngOnInit(): void {

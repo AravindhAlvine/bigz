@@ -131,19 +131,19 @@
             <!-- p-col-xs-12 p-col-mobile-12 -->
             <h2>Best Category Product</h2>
             <div id="special_for_you">
-                <div class="p-grid">
-                <div class="p-col-xs-12 p-col-mobile-12 p-col-md-6 p-col-4" *ngFor="let item of productData">
-                    <div class="special-card">
-                        <div class="card-category">
-                            <img class="img-fluid" src="../../../assets/images/home_page/carosel/home_maker.svg"
-                                alt="" />
-                            <h5>{{item.title}}</h5>
-                            <p>{{item.para}}</p>
-                            <button class="btn btn-primary">{{item.btn}}</button>
+                <div class="p-grid p-w-100 p-mx-auto">
+                    <div class="p-col-xs-12 p-col-mobile-12 p-col-md-6 p-col-4" *ngFor="let item of productData">
+                        <div class="special-card">
+                            <div class="card-category">
+                                <img class="img-fluid" src="../../../assets/images/home_page/carosel/home_maker.svg"
+                                    alt="" />
+                                <h5>{{item.title}}</h5>
+                                <p>{{item.para}}</p>
+                                <button class="btn btn-primary">{{item.btn}}</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
 
             <!-- <div class="p-grid" id="special_for_you">

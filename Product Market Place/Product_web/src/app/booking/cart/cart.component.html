@@ -292,16 +292,16 @@
 
                         <div class="p-col-6">
 
-                            <div class="p-grid">
+                            <div class="p-grid shipping_address">
                                 <div class="p-col-6">
                                     <div class="title_address">
                                         <div class="title_header">
                                             <img src="../../../assets/product/Home.svg" alt="" />
-                                            <p> Shipping Address </p>
+                                            <p class="p-my-0">Shipping Address</p>
                                         </div>
 
                                         <div class="title_body">
-                                            <h6 class="p-mt-3 p-mb-0">Veronica Costello</h6>
+                                            <h6 class="p-my-0">Veronica Costello</h6>
                                             <p>6164 Honey Blutt parkway Calder. Michmigan, 49628-7879 United States</p>
                                             <p>T: (+62)812345678</p>
                                         </div>
@@ -317,7 +317,7 @@
                                         </div>
 
                                         <div class="title_body">
-                                            <p>Flat Rate - Fixed</p>
+                                            <p class="p-my-0">Flat Rate - Fixed</p>
                                         </div>
                                     </div>
                                 </div>
@@ -330,7 +330,7 @@
                                         </div>
 
                                         <div class="title_body">
-                                            <h6 class="p-mt-3 p-mb-0">Veronica Costello</h6>
+                                            <h6 class="p-my-0">Veronica Costello</h6>
                                             <p>6164 Honey Blutt parkway Calder. Michmigan, 49628-7879 United States</p>
                                             <p>T: (+62)812345678</p>
                                         </div>
@@ -346,7 +346,7 @@
                                         </div>
 
                                         <div class="title_body">
-                                            <p>Flat Rate - Fixed</p>
+                                            <p class="p-my-0">Flat Rate - Fixed</p>
                                         </div>
                                     </div>
                                 </div>
@@ -375,9 +375,9 @@
                         <div class="p-col-6 table_form">
 
                             <div class="title_address">
-                                <div class="title_header ">
+                                <div class="title_header">
 
-                                    <div class="p-grid p-justify-between">
+                                    <div class="p-grid p-justify-between p-mx-auto">
                                         <div class="p-field-checkbox p-mb-0">
                                             <p-checkbox name="group1" value="San Francisco" [(ngModel)]="selectedValues"
                                                 inputId="sf"></p-checkbox>
@@ -390,16 +390,23 @@
                             </div>
 
                             <div class="table_section">
-                                <p-table [value]="products">
+                                <p-table [value]="products" class="page_table">
                                     <ng-template pTemplate="body" let-product>
                                         <tr>
-                                            <td rowspan="3">
-                                                <img src="{{product.img}}" alt="" />
+                                            <td>
+                                                <img class="img_responsive_design" src="{{product.img}}" alt="" />
                                             </td>
-                                            <td colspan="4">{{product.name}}</td>
-                                            <td>&nbsp;</td>
+                                            <td>
+                                                <ul>
+                                                    <li>LeBron Witness 5 Nike Shoes</li>
+                                                    <li>Size : XL</li>
+                                                    <li>Blue Color</li>
+                                                </ul>
+                                            </td>
+                                            <td colspan="2" class="p-text-right">$35.00</td>
+
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td colspan="2">{{product.size}}</td>
                                             <td>&nbsp;</td>
                                             <td>&nbsp;</td>
@@ -410,7 +417,7 @@
                                             <td>&nbsp;</td>
                                             <td>&nbsp;</td>
                                             <td>{{product.amount}}</td>
-                                        </tr>
+                                        </tr> -->
 
                                     </ng-template>
 
@@ -418,30 +425,30 @@
                                         <tr>
                                             <td>&nbsp;</td>
                                             <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                            <td colspan="2">Subtotal</td>
-                                            <td colspan="2">$49.00</td>
+                                            <!-- <td>&nbsp;</td> -->
+                                            <td >Subtotal</td>
+                                            <td >$49.00</td>
                                         </tr>
                                         <tr>
                                             <td>&nbsp;</td>
                                             <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                            <td colspan="2">Shipping</td>
-                                            <td colspan="2">$5.00</td>
+                                            <!-- <td>&nbsp;</td> -->
+                                            <td >Shipping</td>
+                                            <td >$5.00</td>
                                         </tr>
                                         <tr>
                                             <td>&nbsp;</td>
                                             <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                            <td colspan="2">Tax</td>
-                                            <td colspan="2">$5.00</td>
+                                            <!-- <td>&nbsp;</td> -->
+                                            <td>Tax</td>
+                                            <td>$5.00</td>
                                         </tr>
                                         <tr>
                                             <td>&nbsp;</td>
                                             <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                            <td colspan="2">Grand Total</td>
-                                            <td colspan="2">$54.00</td>
+                                            <!-- <td>&nbsp;</td> -->
+                                            <td>Grand Total</td>
+                                            <td>$54.00</td>
                                         </tr>
                                     </ng-template>
 

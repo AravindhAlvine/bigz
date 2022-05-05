@@ -1,0 +1,94 @@
+<section id="return_order">
+    <div class="container">
+        <h4>Your Order</h4>
+        <div class="your_order_address">
+            <div class="p-grid">
+
+                <div class="p-col-12 p-sm-6 p-md-4 p-lg-4 p-xl-4 order_details">
+                    <h5>Order Details</h5>
+                    <ul>
+                        <li>Order No. 293725961</li>
+                        <li>Ordered 2021-11-29 23:58:19</li>
+                        <li>6 Items</li>
+                        <li class="font-weight-bold">You Will Recive 3 Parcels</li>
+                    </ul>
+                </div>
+                <div class="p-col-12 p-sm-6 p-md-4 p-lg-4 p-xl-4 shipping_address">
+                    <h5>Shipping address</h5>
+                    <ul>
+                        <li>Mukul Sethi Sethi</li>
+                        <li>U 129 Danin St</li>
+                        <li>Pascode Vale VIC, 3044</li>
+                        <li>Autstalia</li>
+                    </ul>
+                </div>
+
+                <div class="p-col-12 p-sm-12 p-md-4 p-lg-4 p-xl-4 download_invoice_btn">
+                    <button pButton class="p-button-lg  p-button-save p-d-block">Download PDF
+                        Invoice</button>
+                    <button pButton class="p-button-lg p-button-save p-d-block">Return Items</button>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="track_parcel" *ngFor="let item of returnOrders">
+
+            <p-table [value]="item.headTitle" scrollHeight="flex" responsiveLayout="scroll" [resizableColumns]="true"
+                [autoLayout]="true">
+
+                <ng-template pTemplate="caption">
+                    <div class="p-d-flex p-justify-between">
+                        <div class="tb_head_Sec">
+                            <h3>Parcel 1 - Sent by The Humons</h3>
+                            <p>Estimated delivery: Fri 3rd of Dec</p>
+                            <p>Parcel Status: <span class="table_header">SHIPPED</span></p>
+                        </div>
+                        <div class="d_contents">
+                            <button pButton class="p-button-lg p-button-save p-d-block" routerLink="/return-order/return-rules">Track This Parcel</button>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="body" let-order let-i="rowIndex">
+                    <tr *ngFor="let item of order.productDeatails">
+                        <td>
+                            <img src="{{item.img}}" alt="" />
+                        </td>
+                        <td>
+                            <span class="table_header">Item Details</span>
+                            <span class="table_header">{{item.name}}</span>
+                            <span>Double Oak Mills</span>
+                            <span>$83.99</span>
+                            <span>Qty: {{item.quantity}}</span>
+                            <span>Size: {{item.size}}</span>
+                            <span>Colour: {{item.color}}</span>
+                            <span>
+                                <button pButton class="p-d-block" label="Shipped"></button>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="table_header">Unit Price</span>
+                            <span>{{item.unitPrice}}</span>
+                        </td>
+                        <td>
+                            <span class="table_header">Discount Value</span>
+                            <span>{{item.discountPrice}}</span>
+                        </td>
+                        <td>
+                            <span class="table_header">Credit Value</span>
+                            <span>{{item.creditValue}}</span>
+                        </td>
+                        <td>
+                            <span class="table_header">Amount Paid</span>
+                            <span>{{item.paid}}</span>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+
+
+        </div>
+
+    </div>
+</section>

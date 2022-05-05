@@ -62,7 +62,6 @@ export class ProfileInformationComponent implements OnInit {
         { label: 'Nov' },
         { label: 'Dec' },
       ],
-
       Year: [
         { label: 2011 },
         { label: 2012 },

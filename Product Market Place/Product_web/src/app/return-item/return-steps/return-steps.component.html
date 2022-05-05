@@ -1,0 +1,137 @@
+<section id="return-steps">
+    <div class="container">
+        <div class="return_step_header">
+            <h3 class="p-my-0">Select Item/s to return</h3>
+            <p class="p-mt-0">To Return your item/s please complete this form.</p>
+
+            <h5 class="p-my-0">Order Details</h5>
+            <p class="p-my-0">Order No. 293725961</p>
+            <p class="p-mt-0">Order Date 29/11/2021, 11:58 pm</p>
+        </div>
+
+        <p-accordion class="accordion_sec" (onOpen)="onTabOpen($event)" (onClose)="onTabOpen($event)">
+
+            <p-accordionTab class="accord_first_sec" [disabled]="true" header="Step 1. Select your items"
+                [selected]="deFaultTabOpen == 0? true: false">
+
+                <div class="p-grid prime_row" *ngFor="let item of returnItems[0].selectItem_1">
+                    <div class="p-col-6 p-md-4 p-lg-4 p-xl-4 prime_col">
+                        <img src="{{item.img}}" alt="" />
+                    </div>
+
+                    <div class="p-col-6 p-md-4 p-lg-4 p-xl-4 prime_col">
+                        <ul class="unorder_list">
+                            <li class="table_header">Item</li>
+                            <li>Cools Hood Sweatshirt</li>
+                            <li>SKU: BA420AA34RYV-5052313</li>
+                            <li>Size: AU M</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-col-12 p-md-4 p-lg-4 p-xl-4 prime_col">
+                        <ul class="unorder_list">
+                            <li class="table_header">What Do You Want To Do?</li>
+                            <li>
+                                <p-dropdown styleClass="p-w-100 p-mb-2" [options]="returnDropdown[0].returnItem"
+                                    optionLabel="name"></p-dropdown>
+                            </li>
+                            <li>
+                                <p-dropdown styleClass="p-w-100 p-mb-2" [options]="returnDropdown[0].returnReason"
+                                    optionLabel="name"></p-dropdown>
+                            </li>
+                        </ul>
+                        <ul class="unorder_list">
+                            <li class="table_header">Additional Comment</li>
+                            <li>
+                                <textarea pInputTextarea class="p-w-100" [(ngModel)]="TextAreaValue"></textarea>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="rules_btn p-text-right">
+                    <button class="p-button-light" pButton label="Return Items" (click)="returnDelivary(3)"></button>
+                    <button pButton label="Continue" class="p-ml-3" (click)="returnDelivary(1)" ></button>
+                </div>
+
+            </p-accordionTab>
+
+            <p-accordionTab class="accord_second_sec" [disabled]="true"
+                header="Step 2. Select a shipping option fot your return" [selected]="deFaultTabOpen == 1? true: false">
+
+                <h5>How would you like to return your items?</h5>
+
+                <div class="p-d-flex p-justify-between secondary_row" *ngFor="let item of returnItems[0].selectItem_2">
+                    <div class="left_sec">
+                        <p-radioButton name="groupname" [(ngModel)]="selectedValue" value="val1"
+                            label="Drop Off Ar A Post Office Or Red Box">
+                        </p-radioButton>
+                        <p class="p-my-1">{{item.label}}</p>
+                        <a class="cursor" [ngClass]="{'p-d-none': item.location === (undefined || null) }" >{{item.location}}</a>
+                    </div>
+
+                    <div class="right_sec">
+                        <img src="{{item.img}}" alt="" />
+                    </div>
+                </div>
+
+
+                <div class="rules_btn p-text-left">
+                    <button class="p-button-light" pButton label="Cancel Retrurn" (click)="returnDelivary(0)"></button>
+                    <button pButton label="Continue" class="p-ml-3" (click)="returnDelivary(2)"></button>
+                </div>
+
+
+            </p-accordionTab>
+
+            <p-accordionTab class="accord_third_sec" [disabled]="true" header="Step 3. Review your Return"
+                [selected]="deFaultTabOpen == 2? true: false">
+                
+
+                <div class="p-grid prime_row" *ngFor="let item of returnItems[0].selectItem_3">
+                    <div class="p-col-12 p-sm-4 p-md-2 p-lg-2 p-xl-2 prime_col">
+                        <img src="{{item.img}}" alt="" />
+                    </div>
+
+                    <div class="p-col-12 p-sm-8 p-md-3 p-lg-3 p-xl-3 prime_col">
+                        <ul class="unorder_list p-mb-3">
+                            <li class="table_header">You are returning rhis item:</li>
+                            <li>{{item.name}}</li>
+                            <li>SKU: {{item.address}}</li>
+                            <li>Size: {{item.size}}</li>
+                            <li>Price: $83.99</li>
+                        </ul>
+
+                        <ul class="unorder_list">
+                            <li class="table_header">Reason:</li>
+                            <li>{{item.reason}}</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="p-col-12 p-sm-12 p-md-7 p-lg-7 p-xl-7 prime_col">
+                        <ul class="unorder_list">
+                            <li class="table_header">Reason:</li>
+                            <li>{{item.price}} will be refunded to your original payment method. </li>
+                            <li class="indication">
+                                <span>Your refund will be processed within 10 business days*</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="rules_btn p-text-right">
+                    <button class="p-button-light" pButton label="Cancel Retrurn" (click)="returnDelivary(1)"></button>
+                    <button pButton label="Cancel Retrurn" class="p-ml-3" (click)="returnDelivary(3)"></button>
+                </div>
+
+
+
+            </p-accordionTab>
+
+        </p-accordion>
+
+    </div>
+</section>

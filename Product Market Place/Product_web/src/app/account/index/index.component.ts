@@ -14,7 +14,7 @@ export class IndexComponent implements OnInit {
     { name: 'Payment Method', routerLink:"/account/payments", icons: '../../../assets/images/icon/icon-payment-options.svg' },
     { name: 'Social Account', routerLink:"/account/social-account", icons: '../../../assets/images/icon/icon-payment-options.svg' },
     { name: 'Gift cards & Voucher', routerLink:"/account/giftVoucher", icons: '../../../assets/images/icon/icon-payment-options.svg' },
-    { name: 'Logout', routerLink:"/*", icons: '../../../assets/images/icon/icon-payment-options.svg' },
+    { name: 'Logout', routerLink:"/auth/sign-up", icons: '../../../assets/images/icon/icon-payment-options.svg' },
   ];
   constructor(
     // private categoryService: CategoryService,

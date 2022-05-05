@@ -15,7 +15,7 @@ export class CartComponent implements OnInit {
   paymentList: any;
   clickSubject: Subject<any> = new Subject();
   // @Output() bookingId = new EventEmitter;
-  bookingId: number = 1;
+  bookingId: number = 3;
   selectedValues: string[] = [];
   products: any[] = [
     { name: 'LeBron Witness 5 Nike Shoes', size: 'Size : XL', color: 'Blue Color', amount: '$35.00', img: '../../../assets/product/Product image.svg' },

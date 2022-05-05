@@ -31,7 +31,7 @@ import { GiftVoucherComponent } from './gift-voucher/gift-voucher.component';
     OrderComponent,
     ReturnComponent,
     SocialAccountComponent,
-    GiftVoucherComponent
+    GiftVoucherComponent,
   ],
   imports: [
     CommonModule,

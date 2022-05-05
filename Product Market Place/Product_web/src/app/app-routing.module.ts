@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -28,7 +28,13 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   },
 
+  {
+    path: 'return-order',
+    loadChildren: () => import('./return-item/return-item.module').then(m => m.ReturnItemModule),
+  },
+
   { path: '**', component: PageNotFoundComponent, },
+
 
 
 ];

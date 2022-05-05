@@ -1,1 +1,130 @@
-<p>sign-up works!</p>
+<section id="signUp">
+    <div class="signUp_sec">
+        <h2>Sign Up With ...</h2>
+
+        <div class="p-grid p-mx-auto signUp_grid">
+            <div class="p-col-6 p-md-4 p-lg-4 p-xl-4 signUp_col" *ngFor="let item of signUpCard">
+                <div class="signUp_social">
+                    <span>
+                        <img src="{{item.img}}" alt="" />
+                    </span>
+                    <span>{{item.name}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-grid p-mx-auto sign_para">
+            <p class="p-text-left">Signing up with social is super quick. No extra passwords to remember - no brain
+                fail. Don’t worry, we’d
+                never share any of your data or post anything on yout behalf.</p>
+            <h3 class="p-mx-auto">Or Sign Up With Email</h3>
+        </div>
+
+        <div class="signUp_form p-text-left">
+
+            <div class="p-float-group">
+                <label class="static-label" for="name">Email Addreess</label>
+                <div class="p-field p-float-label">
+                    <div class="p-float-label">
+                        <input id="name" style="width: 100%;" class="p-inputtext-lg" type="text" pInputText />
+                        <label for="name">Email Addreess</label>
+                    </div>
+                    <p class="p-my-1">We’ll send your order confirmation here</p>
+                </div>
+            </div>
+
+            <div class="p-float-group">
+                <label class="static-label" for="name">First Name</label>
+                <div class="p-field p-float-label">
+                    <div class="p-float-label">
+                        <input id="first_name" style="width: 100%;" class="p-inputtext-lg" type="text" pInputText />
+                        <label for="first_name">First Name</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-float-group">
+                <label class="static-label" for="name">Last Name</label>
+                <div class="p-field p-float-label">
+                    <div class="p-float-label">
+                        <input id="last_name" style="width: 100%;" class="p-inputtext-lg" type="text" pInputText />
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-float-group">
+                <label class="static-label" for="name">Password</label>
+                <div class="p-field p-float-label">
+                    <div class="p-float-label">
+                        <input id="password" style="width: 100%;" class="p-inputtext-lg" type="text" pInputText />
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-form-group">
+                <label class="static-label" for="float-input">DATE OF BIRTH</label>
+
+                <div class="p-grid p-grid p-pt-2">
+                    <div class="p-field p-float-label p-col-3 ">
+                        <div class="p-float-label">
+                            <p-dropdown styleClass="p-pr-0" inputId="dropdown1" [autoDisplayFirst]="false"
+                                [options]="$dateCal?.Date" class="p-inputtext-lg" [editable]="false" [showClear]="false"
+                                optionLabel="label">
+                            </p-dropdown>
+                            <label for="dropdown1">DD</label>
+                        </div>
+                    </div>
+
+                    <div class="p-field p-float-label p-col-5 ">
+                        <div class="p-float-label">
+                            <p-dropdown styleClass="p-pr-0" inputId="dropdown2" [autoDisplayFirst]="false"
+                                [options]="$dateCal?.Month" class="p-inputtext-lg" [editable]="false"
+                                [showClear]="false" optionLabel="label">
+                            </p-dropdown>
+                            <label for="dropdown2">Month</label>
+                        </div>
+                    </div>
+
+                    <div class="p-field p-float-label p-col-4 ">
+                        <div class="p-float-label">
+                            <p-dropdown styleClass="p-pr-0" inputId="dropdown2" [autoDisplayFirst]="false"
+                                [options]="$list_Years" class="p-inputtext-lg" [editable]="false"
+                                [showClear]="false" optionLabel="label">
+                            </p-dropdown>
+                            <label for="dropdown3">Year</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-form-group">
+                <label class="static-label" for="float-input">MOSTLY INTERESTED IN</label>
+                <div class="p-field p-px-0">
+                    <div class="p-grid">
+                        <div class="p-col-6">
+                            <p-radioButton [(ngModel)]="intrestedIn" name="groupname" label="Womenswear"
+                                value="val1"></p-radioButton>
+                        </div>
+                        <div class="p-col-6">
+                            <p-radioButton [(ngModel)]="intrestedIn" name="groupname" label="Menswear" value="val2">
+                            </p-radioButton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-form-group form_section">
+                <div class="p-field">
+                    <button pButton label="Continue Payment" class="main_btn_color p-w-100"></button>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+</section>

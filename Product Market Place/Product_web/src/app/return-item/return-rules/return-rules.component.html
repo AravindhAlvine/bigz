@@ -1,0 +1,46 @@
+<section id="retutn_rules" class="p-px-3">
+
+    <div class="container">
+        <h2 class="p-mb-2">3 Rules of Return</h2>
+        <p class="p-my-0">Please follow our 3 simple rules of Returns.</p>
+        <p class="p-my-0">In order to successfully return your order, your items must meet the following rules:</p>
+
+        <div class="p-grid p-mx-auto rules_sec">
+
+            <div class="p-col-12 p-md-4 p-lg-4 p-xl-4 p-d-none p-d-md-block p-d-lg-block p-d-xl-block" *ngFor="let item of setOfRules">
+                <div class="text-center">
+                    <div class="title_rule">
+                        <h3>{{item.no}}</h3>
+                        <p>{{item.method}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-col-12 p-md-4 p-lg-4 p-xl-4" *ngFor="let item of setOfRules">
+                <div class="text-center">
+                    <div class="title_rule">
+                        <h3 class="p-d-block p-d-md-none p-d-lg-none p-d-xl-none">{{item.no}}</h3>
+                        <p class="p-d-block p-d-md-none p-d-lg-none p-d-xl-none">{{item.method}}</p>
+                        <img src="{{item.img}}" alt="" />
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <p class="text-center p-col-12 p-md-6 p-lg-6 p-xl-6 p-mx-auto">Please note item that have been worn or do not have their tags and original packaging may be rejected. If you
+            have faulty item, please contact us</p>
+
+        <div class="p-grid p-mx-auto rules_btn">
+            <div class="p-col-12 p-md-6 p-lg-6 p-xl-6 p-text-right btn_right_sec">
+                <button class="p-button-light" pButton label="No, Cancel"></button>
+            </div>
+            <div class="p-col-12 p-md-6 p-lg-6 p-xl-6 btn_left_sec">
+                <button pButton label="Yes, My Items Match" routerLink="/return-order/return-steps"></button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
