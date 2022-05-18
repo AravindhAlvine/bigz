@@ -140,7 +140,7 @@
             <!-- <p-table #dt1 [value]="bookingList" [scrollable]="true" scrollHeight="flex" [paginator]="true" [rows]="10" [loading]="loading" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries " [responsive]="true"> -->
 
             <p-table #dt1 [value]="bookingList" [columns]="bookingList" [scrollable]="true" [(selection)]="selectedRows"
-                dataKey="_id" [paginator]="true" [rows]="10" scrollHeight="400px" [loading]="loading"
+                dataKey="_id" [paginator]="true" [rows]="10" scrollheight="flex" [loading]="loading"
                 [showCurrentPageReport]="true"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries " [responsive]="true">
 

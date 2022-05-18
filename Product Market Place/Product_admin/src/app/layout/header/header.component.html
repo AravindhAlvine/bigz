@@ -13,7 +13,7 @@
             <button pButton icon="pi pi-bars" class="p-button-rounded p-mr-3 p-button-text mobile-button"></button>
         </div> -->
         <a routerLink="#">
-            <img [src]="adminLogo ? adminLogo.url : 'assets/images/besthairlogo-black.png'" alt="besthairlogo-white" />
+            <img src="../../../assets/images/thehumons.svg" alt="besthairlogo-white" />
         </a>
     </div>
 
@@ -24,8 +24,9 @@
         <div class="header-right p-d-flex p-ai-center p-mr-smh-5">
             <div class="p-mr-3">
                 <button icon="icon-common icon-setting" pButton type="button"
-                    class="p-mr-3 p-button-secondary-2 p-button-rounded p-position-relative">
-                    <img class="img-fluid" src="../../../assets/icon/Outline - bell.svg" alt="" />
+                    class="p-button-secondary-2 p-button-rounded p-position-relative">
+                    <i class="pi pi-bell" aria-hidden="true"></i>
+                    <!-- <img class="img-fluid" src="../../../assets/icon/Outline - bell.svg" alt="" /> -->
                     <!-- <span class="p-position-absolute">8</span> -->
                 </button>
                 <!-- <button icon="icon-common icon-alert" pButton type="button" class="p-button-secondary-2 p-button-rounded">
@@ -36,11 +37,11 @@
 
                 <!-- <i class="pi pi-angle-down float-right btn p-0"></i> -->
 
-                <p-splitButton class="float-right" id="header_dropdown" [model]="items"></p-splitButton>
+                <!-- <p-splitButton class="float-right" id="header_dropdown" [model]="items"></p-splitButton> -->
 
                 <div class="float-right mid_section">
                     <p class="p-mb-0">Roman Bellic</p>
-                    <p class="p-mb-0">Super Admin</p>
+                    <!-- <p class="p-mb-0">Super Admin</p> -->
                 </div>
 
                 <div class="float-right">

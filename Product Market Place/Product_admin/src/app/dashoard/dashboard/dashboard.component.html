@@ -1,9 +1,12 @@
-<div class="custom_page_header">
-    <h3>Dashboard</h3>
-</div>
 
 <div class="container-fluid">
-    <div class="custom_top_date_container custom_top_date_dashboard">
+
+    <div class="custom_page_header">
+        <h3>Dashboard</h3>
+    </div>
+    
+
+    <!-- <div class="custom_top_date_container custom_top_date_dashboard">
         <div class="custom_top_date_mc">
             <div class="custom_top_date_sc">
                 <div class="custom_top_date_content">
@@ -27,16 +30,16 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <div class="container-fluid">
     <div class="custom_listing_container p-pb-6">
 
-        <div class="custom_dashboard_tot_count p-mb-4">
+        <div class="custom_dashboard_tot_count p-d-flex p-justify-between p-mb-4">
             <!-- [ngClass]="{'triangleClass' : triangleClass == 1}" -->
 
-            <div class="custom_dashboard_tot_count_sc" [ngClass]="{'triangleClass' : triangleClass == 1}"
+            <div class="custom_dashboard_tot_count_sc " 
                 (click)="selectedCard(1)">
                 <div class="cd_tot_count_content">
                     <div class="cd_tot_count_content_left">
@@ -49,7 +52,7 @@
                 </div>
             </div>
 
-            <div class="custom_dashboard_tot_count_sc" [ngClass]="{'triangleClass' : triangleClass == 2}"
+            <div class="custom_dashboard_tot_count_sc " 
                 (click)="selectedCard(2)">
                 <div class="cd_tot_count_content">
                     <div class="cd_tot_count_content_left">
@@ -61,7 +64,8 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="custom_dashboard_tot_count_sc " [ngClass]="{'triangleClass' : triangleClass == 3}"
+
+            <div class="custom_dashboard_tot_count_sc " 
                 (click)="selectedCard(3)">
                 <div class="cd_tot_count_content">
                     <div class="cd_tot_count_content_left">
@@ -72,9 +76,23 @@
                         <span>{{totalCounts == undefined? '0' : totalCounts.customers}}</span>
                     </div>
                 </div>
-            </div> -->
-            <div class="custom_dashboard_tot_count_sc " [ngClass]="{'triangleClass' : triangleClass == 4}"
+            </div>
+
+            <div class="custom_dashboard_tot_count_sc " 
                 (click)="selectedCard(4)">
+                <div class="cd_tot_count_content">
+                    <div class="cd_tot_count_content_left">
+                        <img [src]="iconImage2" alt="">
+                    </div>
+                    <div class="cd_tot_count_content_right">
+                        <span>New Shops</span>
+                        <span>{{totalCounts == undefined? '0' : totalCounts.customers}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="custom_dashboard_tot_count_sc " 
+                (click)="selectedCard(5)">
                 <div class="cd_tot_count_content">
                     <div class="cd_tot_count_content_left">
                         <img [src]="iconImage3" alt="">
@@ -95,7 +113,7 @@
             </div>
             <div class="custom_table custom_dashborad_table items">
                 <p-table #dt1 [value]="vendorList" [columns]="vendorList" [scrollable]="true"
-                    [(selection)]="selectedRows" dataKey="_id" [paginator]="true" [rows]="10" scrollHeight="400px"
+                    [(selection)]="selectedRows" dataKey="_id" [paginator]="true" [rows]="10" scrollheight="flex"
                     [loading]="loading" [showCurrentPageReport]="true"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
                     [responsive]="true">
@@ -230,7 +248,7 @@
                     </div>
                     <div class="custom_table custom_dashborad_table items" id="dash_table_design">
                         <p-table #dt1 [columns]="vendorList" [value]="vendorList" [scrollable]="true"
-                            scrollHeight="400px" [(selection)]="selectedRows" dataKey="_id" [paginator]="true"
+                            scrollheight="flex" [(selection)]="selectedRows" dataKey="_id" [paginator]="true"
                             [rows]="10" [loading]="loading" [showCurrentPageReport]="true"
                             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
                             [responsive]="true">
@@ -286,9 +304,9 @@
                             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
                             [responsive]="true"> -->
 
-                            <p-table #dt1 [value]="vendorList" [columns]="vendorList" [scrollable]="true"
-                            [(selection)]="selectedRows" dataKey="_id" [paginator]="true" [rows]="10" scrollHeight="400px"
-                            [loading]="loading" [showCurrentPageReport]="true"
+                        <p-table #dt1 [value]="vendorList" [columns]="vendorList" [scrollable]="true"
+                            [(selection)]="selectedRows" dataKey="_id" [paginator]="true" [rows]="10"
+                            scrollheight="flex" [loading]="loading" [showCurrentPageReport]="true"
                             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
                             [responsive]="true">
 
@@ -340,17 +358,17 @@
                 <a class="custom_table_head_link" routerLink="/customers/manage">View All</a>
             </div>
             <div class="custom_table custom_dashborad_table">
-                <!-- <p-table #dt1 [value]="customerList" [scrollable]="true" scrollHeight="400px"
+                <!-- <p-table #dt1 [value]="customerList" [scrollable]="true" scrollheight="flex"
                     [(selection)]="selectedRows" dataKey="_id" [paginator]="true" [rows]="5" [loading]="loading"
                     [showCurrentPageReport]="true"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
                     [responsive]="true"> -->
-                    <p-table #dt1 [value]="customerList" [columns]="customerList" [scrollable]="true"
-                    [(selection)]="selectedRows" dataKey="_id" [paginator]="true" [rows]="10" scrollHeight="400px"
+                <p-table #dt1 [value]="customerList" [columns]="customerList" [scrollable]="true"
+                    [(selection)]="selectedRows" dataKey="_id" [paginator]="true" [rows]="10" scrollheight="flex"
                     [loading]="loading" [showCurrentPageReport]="true"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
                     [responsive]="true">
-                    
+
 
                     <ng-template pTemplate="header">
                         <tr>

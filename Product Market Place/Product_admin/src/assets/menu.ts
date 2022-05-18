@@ -14,17 +14,17 @@ export const menuItems = [
     items: [
       {
         label: 'Products',
-        icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
         routerLink: '/manage-catalog/manage-product',
       },
       {
         label: 'Category',
-        icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
         routerLink: '/manage-catalog/manage-category',
       },
       {
         label: 'Attributes',
-        icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
         routerLink: '/manage-catalog/manage-attribute',
       },
 
@@ -38,32 +38,32 @@ export const menuItems = [
     items: [
       {
         label: 'All Orders',
-        icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
         routerLink: '/order-management/all-order',
       },
       {
         label: 'Requests',
-        icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
         routerLink: '/order-management/order-requests',
       },
       // {
       //   label: 'Requests',
-      //   icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
       //   routerLink: '/order-management/withdraw-req',
       //   items: [
       //     {
       //       label: 'Withdraw (5)',
-      //       icon: 'pi pi-fw pi-play',
+            // icon: 'pi pi-fw pi-play',
       //       routerLink: '/order-management/withdraw-req',
       //     },
       //     {
       //       label: 'Cancellation (5)',
-      //       icon: 'pi pi-fw pi-play',
+            // icon: 'pi pi-fw pi-play',
       //       routerLink: '/order-management/cancel-request',
       //     },
       //     {
       //       label: 'Return & Refund (5)',
-      //       icon: 'pi pi-fw pi-play',
+            // icon: 'pi pi-fw pi-play',
       //       routerLink: '/order-management/return-refund-request',
       //     },
 
@@ -86,7 +86,7 @@ export const menuItems = [
     items: [
       {
         label: 'Manage Product Reviews',
-        icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
         routerLink: '/review/manage-product-review',
       },
     ]
@@ -99,17 +99,17 @@ export const menuItems = [
     items: [
       {
         label: 'Manage Home Page',
-        icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
         routerLink: '/cms/home',
       },
       {
         label: 'Add Page',
-        icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
         routerLink: '/cms/add-page',
       },
       {
         label: 'Manage Pages',
-        icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
         routerLink: '/cms/manage-page',
       },
 
@@ -123,28 +123,28 @@ export const menuItems = [
     // items: [
     //   {
     //     label: 'Blog',
-    //     icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
     //     routerLink: '/marketing-management/blog-categories',
         items: [
           {
             label: 'Blog Categories',
-            icon: 'pi pi-fw pi-play',
+            // icon: 'pi pi-fw pi-play',
             routerLink: '/marketing-management/blog-categories',
           },
           {
             label: 'Blog Post',
-            icon: 'pi pi-fw pi-play',
+            // icon: 'pi pi-fw pi-play',
             routerLink: '/marketing-management/blog-post',
           },
           {
             label: 'Blog Comments',
-            icon: 'pi pi-fw pi-play',
+            // icon: 'pi pi-fw pi-play',
             routerLink: '/marketing-management/blog-comments',
           },
 
           {
             label: 'Email Template',
-            icon: 'pi pi-fw pi-play',
+            // icon: 'pi pi-fw pi-play',
             routerLink: '/marketing-management/manage-email-templete',
           },
 
@@ -167,12 +167,12 @@ export const menuItems = [
     items: [
       {
         label: 'Shipping Setting',
-        icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
         routerLink: '/shipping/shipping-setting',
       },
       {
         label: 'Shipping Methods',
-        icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
         routerLink: '/shipping/shipping-method',
       },
 
@@ -186,41 +186,41 @@ export const menuItems = [
     items: [
       {
         label: 'General Settings',
-        icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
         routerLink: '/settings/web',
         // routerLinkActiveOptions: { exact: true },
         items: [
           {
             label: 'Web Settings',
-            icon: 'pi pi-fw pi-play',
+            // icon: 'pi pi-fw pi-play',
             routerLink: '/settings/web',
             // routerLinkActiveOptions: { exact: false }
           },
           {
             label: 'Payment Gateway',
-            icon: 'pi pi-fw pi-play',
+            // icon: 'pi pi-fw pi-play',
             routerLink: '/settings/payment',
             // routerLinkActiveOptions: { exact: true }
           },
           {
             label: 'Email Settings',
-            icon: 'pi pi-fw pi-play',
+            // icon: 'pi pi-fw pi-play',
             routerLink: '/settings/email',
             // routerLinkActiveOptions: { exact: true }
           },
           {
             label: 'Tax Settings',
-            icon: 'pi pi-fw pi-play',
+            // icon: 'pi pi-fw pi-play',
             routerLink: '/settings/tax/manage',
             items: [
               {
                 label: 'Manage Tax Settings',
-                icon: 'pi pi-fw pi-play',
+                // icon: 'pi pi-fw pi-play',
                 routerLink: '/settings/tax/manage',
               },
               {
                 label: 'Create Tax Settings',
-                icon: 'pi pi-fw pi-play',
+                // icon: 'pi pi-fw pi-play',
                 routerLink: '/settings/tax/create',
               }
             ]
@@ -229,17 +229,17 @@ export const menuItems = [
       },
       {
         label: 'Role Settings',
-        icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
         routerLink: '/settings/manage-role',
         items: [
           {
             label: 'Manage Roles',
-            icon: 'pi pi-fw pi-play',
+            // icon: 'pi pi-fw pi-play',
             routerLink: '/settings/manage-role',
           },
           {
             label: 'Create Roles',
-            icon: 'pi pi-fw pi-play',
+            // icon: 'pi pi-fw pi-play',
             routerLink: '/settings/create-role',
           }
 
@@ -247,17 +247,17 @@ export const menuItems = [
       },
       {
         label: 'Users Settings',
-        icon: 'pi pi-fw pi-play',
+        // icon: 'pi pi-fw pi-play',
         routerLink: '/settings/create-user',
         items: [
           {
             label: 'Create User',
-            icon: 'pi pi-fw pi-play',
+            // icon: 'pi pi-fw pi-play',
             routerLink: '/settings/create-user',
           },
           {
             label: 'Manage User',
-            icon: 'pi pi-fw pi-play',
+            // icon: 'pi pi-fw pi-play',
             routerLink: '/settings/manage-user',
           },
 

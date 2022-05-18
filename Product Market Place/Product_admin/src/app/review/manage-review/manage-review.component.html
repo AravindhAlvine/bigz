@@ -59,7 +59,7 @@
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries " [responsive]="true"> -->
 
                 <p-table #dt1 [value]="bookings" [columns]="bookings" [scrollable]="true" [(selection)]="selectedRows"
-                    dataKey="_id" [paginator]="true" [rows]="10" scrollHeight="400px" [loading]="loading"
+                    dataKey="_id" [paginator]="true" [rows]="10" scrollheight="flex" [loading]="loading"
                     [showCurrentPageReport]="true"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries "
                     [responsive]="true">

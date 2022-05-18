@@ -7,7 +7,7 @@
         padding-right: 15px;
         box-shadow: 0px 0px 6px #00000029;
         padding-left: 15px;
-        overflow-y: scroll;
+        overflow-y: auto;
         @include border-Radius(null, null, null, null, 0, $equalSize: true);
         .p-sidebar-content {
             padding: 0;
@@ -17,20 +17,20 @@
                 padding-right: 0px;
                 .p-panelmenu-header {
                     a.p-menuitem-link-active>.p-panelmenu-icon {
-                        transform: rotateZ( 180deg);
+                        // transform: rotateZ( 180deg);
                     }
                     &>a {
                         background-color: transparent;
                         border: none;
                         padding: 9px 12px;
                         font-weight: normal;
-                        font-family: 'Roboto-regular';
+                        font-family: 'DMSans-Regular';
                         color: #404D61;
-                        font-size: 15px;
+                        font-size: 14px;
                         margin-bottom: 15px;
                         &.p-menuitem-link-active {
                             background-color: #e3e8fe;
-                            color: #094f32;
+                            color: #0D61FE;
                             @include border-Radius(0px, 50px, 50px, 0px, null, $equalSize: false);
                             &:focus {
                                 box-shadow: none;

@@ -1,17 +1,19 @@
 .header-container {
-    background-color: $colorwhite;
+    background-color: $colorBlack;
     position: fixed;
     left: 0;
     top: 0;
     right: 0;
     z-index: 1000;
+    color: $colorwhite;
+    padding: 6px 0px;
 }
 
 .logo-container {
     width: 260px;
     box-shadow: -8px -8px 10px #00000029;
-    background: #0d5034;
-    // padding-left: 1rem;
+    // background: #000;
+    padding: 20px 25px;
     @include tablet-style() {
         max-width: 180px;
         width: auto;
@@ -20,10 +22,12 @@
     }
     img {
         width: 100%;
-        height: 72px;
-        object-fit: fill;
         display: block;
         margin: 0 auto;
+        max-width: 120px;
+        float: left;
+        height: 100%;
+        margin-left: 10px;
     }
 }
 
@@ -41,14 +45,19 @@
 }
 
 // aravindh
-.header-container .header-title-container .header-right .p-mr-3 button{
-    border: 1px solid #E1E3E6;
+.header-container .header-title-container .header-right button{
     border-radius: 8px;
-    background: #fff;
+    background: transparent;
     padding: 8px;
+    color: #fff;
+    i{
+        &:before{
+            font-size: 18px;
+        }
+    }
 }
 
-.header-container .header-title-container .header-right .p-mr-3 button span{
+.header-container .header-title-container .header-right button span{
     top: 0;
     right: 0;
     border-radius: 50%;
@@ -64,16 +73,14 @@
 }
 
 .header-container .header-title-container .header-right .header_avator .mid_section p:first-child{
-    color: #5A6474;
+    // color: #5A6474;
     font-size: 18px;
     font-family: 'DMSans-Regular';
 }
 
 .header-container .header-title-container .header-right .header_avator .mid_section p:last-child{
-    color: #094f32;
     font-size: 14px;
-    font-family: 'DMSans-Regular';
-    font-weight: 100;
+    font-family: 'DMSans-Bold';
 }
 
 .header-container .header-title-container .header-right .header_avator .float-right .p_avator_img .p-avatar-circle{
@@ -81,7 +88,8 @@
 }
 
 .header-container .header-title-container .header-right .header_avator .mid_section{
-    margin-left: 12px;
+    margin: 12px 0px;
+    margin-left: 18px;
 }
 
 .header-container .header-title-container .header-right .header_avator p-splitButton{

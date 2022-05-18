@@ -18,7 +18,7 @@ $tablet_Screen : 1198.98px;
     a.custom_table_head_link {
         display: inline-block;
         font-size: 18px;
-        color: #094f32;
+        color: #0D61FE;
         line-height: normal;
         font-family: 'DMSans-Medium';
         text-decoration: none;
@@ -49,11 +49,11 @@ $tablet_Screen : 1198.98px;
 }
 
 .custom_dashboard_tot_count {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
     .custom_dashboard_tot_count_sc {
-        width: 32%;
+        // width: 24%;
     }
     .cd_tot_count_content {
         background: #ffff;
@@ -89,7 +89,7 @@ $tablet_Screen : 1198.98px;
             }
         }
         span:last-child {
-            color: #094f32;
+            color: #0D61FE;
             font-family: 'DMSans-Medium';
             font-size: 35px;
             font-weight: normal;

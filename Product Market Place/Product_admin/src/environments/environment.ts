@@ -7,7 +7,7 @@ export const environment = {
   // baseUrl: 'http://localhost:8000/api/v1',
   // baseUrl: 'http://167.86.107.77:5000/api/v1',
   // baseUrl: 'https://grd-admin.zielcommerce.in/api/v1',
-  baseUrl: 'https://api-ecom.zielcommerce.in/api/v1',
+  baseUrl: 'https://api-marketplace.zielcommerce.in/api/v1',
   // baseUrl: 'https://api-bookingdemo.zielcommerce.in/api/v1',
   vendorStaticData: '/assets/data/hairStylist.json',
   auth: {

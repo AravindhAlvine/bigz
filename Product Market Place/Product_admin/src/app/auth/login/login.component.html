@@ -1,53 +1,10 @@
-<!-- <p-card styleClass="auth-section">
-    <div class="p-text-center">
-        <a routerLink="" class="p-mb-3 p-d-inlineBlock p-text-center">
-            <img [src]="adminLogo ? adminLogo.url : 'assets/images/besthairlogo-white@2x.png'" style="width: 120px;" />
-        </a>
-    </div>
-    <form [formGroup]="loginFormGroup" (ngSubmit)="loginFormSubmit()">
-        <div class="p-fluid">
-            <div class="p-field p-mb-4">
-                <label for="fieldId" class="label-white p-pl-4">Email</label>
-                <span class="p-input-icon-left">
-                    <i class="pi pi-user"></i>
-                    <input id="fieldId" type="text" formControlName="email" pInputText icon="pi pi-user" placeholder="Enter your email address">
-                </span>
-                <div *ngIf="submitted && forms.email.errors" class="p-error">
-                    <div *ngIf="forms.email.errors.required">Email is required</div>
-                </div>
-            </div>
-            <div class="p-field p-mb-5">
-                <label for="fieldId" class="label-white p-pl-4">Password</label>
-                <span class="p-input-icon-left">
-                    <i class="pi pi-key"></i>
-                    <input id="fieldId" type="password" formControlName="password" pPassword [feedback]="false"
-                        placeholder="Enter your passowrd">
-                </span>
-                <div *ngIf="submitted && forms.password.errors" class="p-error">
-                    <div *ngIf="forms.password.errors.required">Password is required</div>
-                </div>
-            </div>
-            <div class="p-field p-mb-4">
-                <button pButton class="p-button-primary-2 p-text-uppercase" label="Submit"></button>
-            </div>
-        </div>
-        <div class="p-field p-d-flex p-jc-between p-pl-sm-4 p-pr-sm-4">
-            <a routerLink="/" class="link-text-white p-text-uppercase">Create Account</a>
-            <a routerLink="/" class="link-text-white p-text-uppercase">Forgot Password?</a>
-        </div>
-    </form>
-</p-card> -->
-
-
 <div class="login_screen h-100" id="p_login_cred">
     <div class="row mx-auto h-100">
         <div class="col-6 login_bg_gradient p-0">
             <img src="../../../assets/images/login/Group 285.svg" alt="" />
         </div>
         <div class="col-6 login_form">
-            <!-- <div class="p_login_img">
-                <img src="../../../assets/icon/login/black-logo.png" alt="" />
-            </div> -->
+
             <div class="p_login_form">
                 <h2>Welcome!</h2>
                 <p>Sign In to your account</p>
@@ -56,7 +13,6 @@
                         <div class="p-field p-mb-2">
                             <label for="fieldId" class="label-white">Your email or Username</label>
                             <span class="p-input-icon-right">
-                                <!-- <i class="pi pi-eye "></i> -->
                                 <input id="fieldId" type="text" formControlName="email" pInputText icon="pi pi-user" placeholder="Email Address or Username">
                             </span>
                             <div *ngIf="submitted && forms.email.errors" class="p-error">
@@ -66,10 +22,6 @@
                         <div class="p-field p-mb-2">
                             <label for="fieldId" class="label-white">Password</label>
                             <span class="p-input-icon-right">
-                                <!-- <i class="pi" (click)="toggleIcons()" [ngClass]="{'pi-eye-slash': showIcon == false, 'pi-eye' : showIcon == true }"></i> -->
-                                <!-- <i class="pi pi-eye-slash" (click)="toggleIcons()" [ngClass]="{'d-none':showIcon == true}"></i> -->
-                                <!-- <input id="fieldId" type="password" formControlName="password" id="myInput" pPassword [feedback]="false"
-                                    placeholder="Password" /> -->
                                     <p-password class="border-0 p-0 toggle_password" formControlName="password" id="myInput" pPassword [feedback]="false" [toggleMask]="true"></p-password>
                             </span>
                             <div *ngIf="submitted && forms.password.errors" class="p-error">
@@ -84,11 +36,53 @@
                             <button pButton class="p-text-uppercase" label="SIGN IN"></button>
                         </div>
                     </div>
-                    <!-- <div class="p-field p-d-flex p-jc-between p-pl-sm-4 p-pr-sm-4">
-                        <a routerLink="/" class="link-text-white p-text-uppercase">Forgot Password?</a>
-                    </div> -->
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+<!-- <div class="block-content">
+    <div
+        class="align-items-center flex justify-content-center lg:px-8 md:px-6 px-4 py-8 surface-ground ng-star-inserted">
+        <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
+            <div class="text-center mb-5"><img src="assets/images/blocks/logos/hyper.svg" alt="Image" height="50"
+                    class="mb-3">
+                <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div><span
+                    class="text-600 font-medium line-height-3">Don't have an account?</span><a
+                    class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</a>
+            </div>
+            <div>
+                <label for="email1" class="block text-900 font-medium mb-2">Email</label>
+                <input id="email1" type="text" pinputtext="" class="p-inputtext p-component p-element w-full mb-3">
+                    <label for="password1" class="block text-900 font-medium mb-2">Password</label>
+                    <input id="password1" type="password" pinputtext="" class="p-inputtext p-component p-element w-full mb-3">
+                <div class="flex align-items-center justify-content-between mb-6">
+                    <div class="flex align-items-center">
+                        <p-checkbox id="rememberme1" styleclass="mr-2" class="p-element">
+                            <div class="mr-2 p-checkbox p-component">
+                                <div class="p-hidden-accessible">
+                                    <input type="checkbox" value="undefined" aria-checked="false">
+                                </div>
+                                <div class="p-checkbox-box">
+                                    <span class="p-checkbox-icon"></span>
+                                </div>
+                            </div>
+                        </p-checkbox>
+                        <label for="rememberme1">Remember me</label>
+                    </div>
+                    <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot
+                        password?</a>
+                </div>
+                <button pbutton="" pripple="" label="Sign In" icon="pi pi-user"
+                    class="p-element p-ripple w-full p-button p-component">
+                    <span class="p-button-icon p-button-icon-left pi pi-user" aria-hidden="true"></span>
+                    <span class="p-button-label">Sign In</span><span class="p-ink"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div> -->
